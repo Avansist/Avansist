@@ -1,0 +1,194 @@
+﻿@model Avansist.Services.DTOs.PreinscripcionDto
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header pb-0">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1 class="mt-5">Editar Retiro</h1>
+                </div><!-- /.col -->
+                <div class="col-sm-6 mt-5">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a asp-action="Index" asp-area="ABeneficiario">Preinscripción</a></li>
+                        <li class="breadcrumb-item active">Editar Retiro</li>
+                    </ol>
+                </div><!-- /.col -->
+            </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-5">
+                <hr />
+                <form asp-action="EditMatricula">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input type="hidden" asp-for="PreinscripcionId" />
+                    <div class="form-group">
+                        <label asp-for="PrimerNombreBeneficiario" class="control-label"></label>
+                        <input asp-for="PrimerNombreBeneficiario" class="form-control" />
+                        <span asp-validation-for="PrimerNombreBeneficiario" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="PrimerApellidoBeneficiario" class="control-label"></label>
+                        <input asp-for="PrimerApellidoBeneficiario" class="form-control" />
+                        <span asp-validation-for="PrimerApellidoBeneficiario" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="FechaRetiro" class="control-label"></label>
+                        <input asp-for="FechaRetiro" class="form-control" />
+                        <span asp-validation-for="FechaRetiro" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="ObservacionRetiro" class="control-label"></label>
+                        <textarea asp-for="ObservacionRetiro" class="form-control"></textarea>
+                        <span asp-validation-for="ObservacionRetiro" class="text-danger"></span>
+                    </div>
+
+                    <!--------------------------------------------------------------------------------------------->
+
+                    <div class="form-group" style="display: none">
+                        <label asp-for="EstadoId" class="control-label"></label>
+                        <select asp-for="EstadoId" class="form-control" asp-items="ViewBag.listaEstados">
+                            <option>Seleccione</option>
+                        </select>
+                    </div>
+                    <div class="form-group" style="display: none">
+                        <label asp-for="JornadaId" class="control-label"></label>
+                        <select asp-for="JornadaId" class="form-control" asp-items="ViewBag.listaJornadas">
+                            <option>Seleccione</option>
+                        </select>
+                    </div>
+                    <div class="form-group" style="display: none">
+                        <label asp-for="ModalidadId" class="control-label"></label>
+                        <select asp-for="ModalidadId" class="form-control" asp-items="ViewBag.listaModalidads">
+                            <option>Seleccione</option>
+                        </select>
+                    </div>
+                    <div class="form-group" style="display: none">
+                        <label asp-for="FechaRegistro" class="control-label"></label>
+                        <input asp-for="FechaRegistro" class="form-control" />
+                        <span asp-validation-for="FechaRegistro" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group" style="display: none">
+                        <label asp-for="SegundoApellidoBeneficiario" class="control-label"></label>
+                        <input asp-for="SegundoApellidoBeneficiario" class="form-control" />
+                        <span asp-validation-for="SegundoApellidoBeneficiario" class="text-danger"></span>
+                    </div>
+                    <div class="form-group" style="display: none">
+                        <label asp-for="Edad" class="control-label"></label>
+                        <input asp-for="Edad" class="form-control" />
+                        <span asp-validation-for="Edad" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group" style="display: none">
+                        <label asp-for="GeneroId" class="control-label"></label>
+                        <select asp-for="GeneroId" class="form-control" asp-items="ViewBag.listaGeneros">
+                            <option>Seleccione</option>
+                        </select>
+                    </div>
+                    <div class="form-group" style="display: none">
+                        <label asp-for="GrupoSanguineoId" class="control-label"></label>
+                        <select asp-for="GrupoSanguineoId" class="form-control" asp-items="ViewBag.listaGrupoSanguineos">
+                            <option>Seleccione</option>
+                        </select>
+                    </div>
+                    <div class="form-group" style="display: none">
+                        <label asp-for="FechaNacimiento" class="control-label"></label>
+                        <input asp-for="FechaNacimiento" class="form-control" />
+                        <span asp-validation-for="FechaNacimiento" class="text-danger"></span>
+                    </div>
+                    <div class="form-group" style="display: none">
+                        <label asp-for="LugarNacimiento" class="control-label"></label>
+                        <input asp-for="LugarNacimiento" class="form-control" />
+                        <span asp-validation-for="LugarNacimiento" class="text-danger"></span>
+                    </div>
+                    <div class="form-group" style="display: none">
+                        <label asp-for="TipoDocumentoId" class="control-label"></label>
+                        <select asp-for="TipoDocumentoId" class="form-control" asp-items="ViewBag.listaTipoDocumentos">
+                            <option>Seleccione</option>
+                        </select>
+                    </div>
+                    <div class="form-group" style="display: none">
+                        <label asp-for="NumeroDocumento" class="control-label"></label>
+                        <input asp-for="NumeroDocumento" class="form-control" />
+                        <span asp-validation-for="NumeroDocumento" class="text-danger"></span>
+                    </div>
+                    <div class="form-group" style="display: none">
+                        <label asp-for="LugarExpedicionDocumento" class="control-label"></label>
+                        <input asp-for="LugarExpedicionDocumento" class="form-control" />
+                        <span asp-validation-for="LugarExpedicionDocumento" class="text-danger"></span>
+                    </div>
+                    <div class="form-group" style="display: none">
+                        <label asp-for="NombreEps" class="control-label"></label>
+                        <input asp-for="NombreEps" class="form-control" />
+                        <span asp-validation-for="NombreEps" class="text-danger"></span>
+                    </div>
+                    <div class="form-group" style="display: none">
+                        <label asp-for="GrupoSisben" class="control-label"></label>
+                        <input asp-for="GrupoSisben" class="form-control" />
+                        <span asp-validation-for="GrupoSisben" class="text-danger"></span>
+                    </div>
+                    <div class="form-group" style="display: none">
+                        <label asp-for="EtniaId" class="control-label"></label>
+                        <select asp-for="EtniaId" class="form-control" asp-items="ViewBag.listaEtnias">
+                            <option>Seleccione</option>
+                        </select>
+                    </div>
+                    <div class="form-group" style="display: none">
+                        <label asp-for="DireccionResidencia" class="control-label"></label>
+                        <input asp-for="DireccionResidencia" class="form-control" />
+                        <span asp-validation-for="DireccionResidencia" class="text-danger"></span>
+                    </div>
+                    <div class="form-group" style="display: none">
+                        <label asp-for="Municipio" class="control-label"></label>
+                        <input asp-for="Municipio" class="form-control" />
+                        <span asp-validation-for="Municipio" class="text-danger"></span>
+                    </div>
+                    <div class="form-group" style="display: none">
+                        <label asp-for="CustodiaBeneficiario" class="control-label"></label>
+                        <input asp-for="CustodiaBeneficiario" class="form-control" />
+                        <span asp-validation-for="CustodiaBeneficiario" class="text-danger"></span>
+                    </div>
+                    <div class="form-group" style="display: none">
+                        <label asp-for="PadrinoId" class="control-label"></label>
+                        <select asp-for="PadrinoId" class="form-control" asp-items="ViewBag.listaPadrinos">
+                            <option>Seleccione</option>
+                        </select>
+                    </div>
+                    <div class="form-group" style="display: none">
+                        <label asp-for="AporteEconomicoPadrino" class="control-label"></label>
+                        <input asp-for="AporteEconomicoPadrino" class="form-control" />
+                        <span asp-validation-for="AporteEconomicoPadrino" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="submit" value="Guardar" class="btn btn-primary" />
+                    </div>
+                </form>
+                <div>
+                    <a asp-action="Index">Back to List</a>
+                </div>
+            </div>
+            <!-- /.card -->
+        </div>
+        <!-- /.row -->
+    </div>
+    <!-- /.container-fluid -->
+</div>
+<!-- /.content-wrapper -->
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

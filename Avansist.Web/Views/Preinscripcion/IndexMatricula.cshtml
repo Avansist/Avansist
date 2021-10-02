@@ -1,0 +1,100 @@
+﻿@model IEnumerable<Avansist.Services.DTOs.BeneficiarioResumenDto>
+
+@{
+    ViewData["Title"] = "IndexInscritos";
+}
+
+@section Style{
+
+}
+
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header pb-0">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1 class="mt-5">Matricula</h1>
+                </div><!-- /.col -->
+                <div class="col-sm-6 mt-5">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a asp-action="">Inicio</a></li>
+                        <li class="breadcrumb-item active">Matricula</li>
+                    </ol>
+                </div><!-- /.col -->
+            </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                <hr />
+                <table class="table table-striped table-bordered" style="width:100%" id="tabla">
+                    <thead style="background-color: rgb(175,219,110,0.4)">
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.NombreTipoDocumento)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.NumeroDocumento)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.NombreBeneficiario)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.ApellidoBeneficiario)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.NombreEstado)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.NombreModalidad)
+                            </th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.NombreTipoDocumento)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.NumeroDocumento)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.NombreBeneficiario)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.ApellidoBeneficiario)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.NombreEstado)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.NombreModalidad)
+                                </td>
+                                <td>
+                                    <a class="btn btn-outline-primary" asp-action="EditMatricula" asp-route-id="@item.PreinscripcionId"><i class="far fa-edit"></i></a>
+                                    <a class="btn btn-outline-secondary" asp-action="DetailsMatricula" asp-route-id="@item.PreinscripcionId"><i class="far fa-eye"></i></a>
+                                    <a class="btn btn-outline-success" asp-action="CreateRetiro" asp-route-id="@item.PreinscripcionId"><i class="fas fa-user-times"></i></a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+            <!-- /.card -->
+        </div>
+        <!-- /.row -->
+    </div>
+    <!-- /.container-fluid -->
+</div>
+<!-- /.content-wrapper -->
+
+@section Scripts{
+
+}

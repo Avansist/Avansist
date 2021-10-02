@@ -1,0 +1,15 @@
+﻿.font-avansist {
+    font-family: 'Lobster', cursive !important;
+}
+
+.avansist-style {
+    background-color: #88B547 !important;
+}
+
+.contenido {
+    padding-top: 80px !important;
+}
+
+.nada nav ul li:hover {
+    background: #849CDB !important;
+}

@@ -1,0 +1,92 @@
+﻿@model Avansist.Services.DTOs.PadrinoDto
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+
+@section Style {
+
+    <link href="~/css/AggBeneficiario.css" rel="stylesheet" />
+}
+
+
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header pb-0">
+        <div class="container-fluid">
+            <div class="row mt-5">
+                <div class="col-sm-6">
+                    <ul id="List"> <li class="heading" style="list-style: none; font-size: 25px" id="IconList"> Agregar Padrino</li></ul>
+                </div><!-- /.col -->
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a asp-action="">Inicio</a></li>
+                        <li class="breadcrumb-item active">Padrino</li>
+                    </ol>
+                </div><!-- /.col -->
+            </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-11 mx-auto p-0 mt-3 mb-2">
+                <div class="col-sm-12">
+                    <hr />
+                </div>
+                <form asp-action="Create" method="post" id="formPadrino">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group col-sm-5">
+                        <label asp-for="NombrePadrino" class="control-label"></label> <label id="asterisco">*</label>
+                        <input asp-for="NombrePadrino" class="form-control" type="text" name="NombrePadrino" id="NombrePadrino" placeholder="Ingrese el nombre" required />
+                        <span asp-validation-for="NombrePadrino" class="text-danger error"></span>
+                    </div>
+                    <div class="form-group col-sm-5">
+                        <label asp-for="ApellidoPadrino" class="control-label"></label>
+                        <input asp-for="ApellidoPadrino" class="form-control" type="text" name="ApellidoPadrino" id="ApellidoPadrino" placeholder="Ingrese el apellido" required />
+                        <span asp-validation-for="ApellidoPadrino" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-sm-5">
+                        <label asp-for="TipoDocumentoId" class="control-label"></label>
+                        <select asp-for="TipoDocumentoId" class="form-control" asp-items="ViewBag.listaTipoDocumentos">
+                            <option value="0">Seleccione</option>
+                        </select>
+                        <span asp-validation-for="TipoDocumentoId" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-sm-5">
+                        <label asp-for="NumeroDocumento" class="control-label"></label> <label id="asterisco">*</label>
+                        <input asp-for="NumeroDocumento" class="form-control" type="text" name="NumeroDocumento" id="NumeroDocumento" placeholder="Ingrese el n° documento" required />
+                        <span asp-validation-for="NumeroDocumento" class="text-danger error"></span>
+                    </div>
+                    <div class="form-group col-sm-5">
+                        <label asp-for="Ocupacion" class="control-label"></label> <label id="asterisco">*</label>
+                        <input asp-for="Ocupacion" class="form-control" type="text" name="ocupacion" id="ocupacion" placeholder="Ingrese la ocupación" required />
+                        <span asp-validation-for="Ocupacion" class="text-danger error"></span>
+                    </div>
+                    <div class="form-group col-sm-5">
+                        <label asp-for="Telefono" class="control-label"></label> <label id="asterisco">*</label>
+                        <input asp-for="Telefono" class="form-control" type="text" name="telefono" id="telefono" placeholder="Ingrese el telefono" required />
+                        <span asp-validation-for="Telefono" class="text-danger error"></span>
+                    </div>
+                    <div class="form-group col-sm-5">
+                        <label asp-for="CorreoElectronico" class="control-label"></label> <label id="asterisco">*</label>
+                        <input asp-for="CorreoElectronico" class="form-control" type="email" name="correoElectronico" id="correoElectronico" placeholder="Ingrese el correo" required />
+                        <span asp-validation-for="CorreoElectronico" class="text-danger error"></span>
+                    </div>
+                    <div>
+                        <input type="submit" value="Create" class="btn btn-primary" />
+                        <button>Cancelar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /.content-wrapper -->
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+}
