@@ -212,7 +212,7 @@ namespace Avansist.Web.Controllers
                 if (ModelState.IsValid)
                 {
                     await _preinscripcionServices.GuardarMatricula(preinscripcionDto);
-                    return RedirectToAction(nameof(Index));
+                    return RedirectToAction("IndexMatricula", "Preinscripcion");
                 }
                 return View(preinscripcionDto);
             }
@@ -262,7 +262,7 @@ namespace Avansist.Web.Controllers
                 if (ModelState.IsValid)
                 {
                     await _preinscripcionServices.EditarMatricula(preinscripcionDto);
-                    return RedirectToAction(nameof(Index));
+                    return RedirectToAction("IndexMatricula", "Preinscripcion");
                 }
                 return View(preinscripcionDto);
             }
@@ -325,7 +325,7 @@ namespace Avansist.Web.Controllers
                 if (ModelState.IsValid)
                 {
                     await _preinscripcionServices.GuardarRetiro(preinscripcionDto);
-                    return RedirectToAction(nameof(Index));
+                    return RedirectToAction("IndexRetiro", "Preinscripcion");
                 }
                 return View(preinscripcionDto);
             }
@@ -376,7 +376,7 @@ namespace Avansist.Web.Controllers
                 if (ModelState.IsValid)
                 {
                     await _preinscripcionServices.EditarRetiro(preinscripcionDto);
-                    return RedirectToAction(nameof(Index));
+                    return RedirectToAction("IndexRetiro", "Preinscripcion");
                 }
                 return View(preinscripcionDto);
             }

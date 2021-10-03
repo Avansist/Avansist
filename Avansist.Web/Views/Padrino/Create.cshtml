@@ -36,7 +36,7 @@
                 <div class="col-sm-12">
                     <hr />
                 </div>
-                <form asp-action="Create" method="post" id="formPadrino">
+                <form asp-action="Create" asp-controller="Padrino" method="post" id="formPadrino">
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                     <div class="form-group col-sm-5">
                         <label asp-for="NombrePadrino" class="control-label"></label> <label id="asterisco">*</label>
@@ -44,7 +44,7 @@
                         <span asp-validation-for="NombrePadrino" class="text-danger error"></span>
                     </div>
                     <div class="form-group col-sm-5">
-                        <label asp-for="ApellidoPadrino" class="control-label"></label>
+                        <label asp-for="ApellidoPadrino" class="control-label"></label> <label id="asterisco">*</label>
                         <input asp-for="ApellidoPadrino" class="form-control" type="text" name="ApellidoPadrino" id="ApellidoPadrino" placeholder="Ingrese el apellido" required />
                         <span asp-validation-for="ApellidoPadrino" class="text-danger"></span>
                     </div>
