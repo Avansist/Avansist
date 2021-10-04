@@ -184,7 +184,7 @@ namespace Avansist.Services.Servicies
         public IEnumerable<BeneficiarioResumenDto> ListarBeneficiarioResumenDto()
         {
             List<BeneficiarioResumenDto> listaBeneficiariosDto = new();
-            _context.Preinscripcions.Include(t => t.TipoDocumento).Include(e => e.Estado).Include(m => m.Modalidad)
+            _context.Preinscripcions.Include(t => t.TipoDocumento).Include(m => m.Modalidad).Include(e => e.Estado)
                 .OrderByDescending(b => b.PreinscripcionId).ToList().ForEach(be =>
                 {
                     BeneficiarioResumenDto beneficiarioDto = new()
@@ -387,7 +387,7 @@ namespace Avansist.Services.Servicies
         {
             List<BeneficiarioResumenDto> listaBeneficiariosDto = new();
 
-            _context.Preinscripcions.Include(t => t.TipoDocumento).Include(e => e.Estado).Include(m => m.Modalidad).Where(e => e.Estado.NombreEstado == "Inscripto")
+            _context.Preinscripcions.Include(t => t.TipoDocumento).Include(e => e.Estado).Include(m => m.Modalidad).Where(e => e.Estado.NombreEstado == "Inscrito")
                 .OrderByDescending(b => b.PreinscripcionId).ToList().ForEach(be => {
                     BeneficiarioResumenDto beneficiarioDto = new()
                     {

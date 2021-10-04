@@ -1,0 +1,65 @@
+﻿@model Avansist.Services.DTOs.ControlAsistenciaDto
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header pb-0">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1 class="mt-5">Crear Ingreso Beneficiario</h1>
+                </div><!-- /.col -->
+                <div class="col-sm-6 mt-5">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a asp-action="">Inicio</a></li>
+                        <li class="breadcrumb-item active">Control Asistencia</li>
+                    </ol>
+                </div><!-- /.col -->
+            </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-5">
+                <hr />
+                <form asp-action="Create">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="PreinscripcionId" class="control-label"></label>
+                        <select asp-for="PreinscripcionId" class="form-control" asp-items="ViewBag.listaBeneficiarios">
+                            <option>Seleccione</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="FechaIngreso" class="control-label"></label>
+                        <input asp-for="FechaIngreso" class="form-control" />
+                        <span asp-validation-for="FechaIngreso" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="ObservacionIngreso" class="control-label"></label>
+                        <input asp-for="ObservacionIngreso" class="form-control" />
+                        <span asp-validation-for="ObservacionIngreso" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Create" class="btn btn-primary" />
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div>
+            <a asp-action="Index">Back to List</a>
+        </div>
+    </div>
+    <!-- /.card -->
+</div>
+<!-- /.row -->
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
