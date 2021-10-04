@@ -1,4 +1,146 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@model Avansist.Services.DTOs.AgendaDto
+
+@{
+    ViewData["Title"] = "Home";
 }
 
+@section Style{
+
+    <!-- FullCalendar -->
+    <link rel="stylesheet" href="~/lib/fullCalendar/lib/main.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.9.0/main.css">
+
+}
+
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header" style="padding-top: 70px">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1>Calendario</h1>
+                </div><!-- /.col -->
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item active">Inicio</li>
+                        <li class="breadcrumb-item active">Inicio</li>
+                    </ol>
+                </div><!-- /.col -->
+            </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+    <div class="container-fluid">
+        <div id='calendar' style="margin-left: 30px; width: 960px; padding-bottom: 30px;"></div>
+    </div>
+</div>
+<!-- /.content-wrapper -->
+
+<div class="modal fade" id="modalCalendario" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel"><b>Crear evento</b></h5>
+                <button type="button" class="close cerrarModal" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="formularioEvento" method="post">
+                    <input type="hidden" asp-for="AgendaId" id="AgendaId" name="AgendaId" />
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <label asp-for="NombreEvento" class="col-form-label d-flex justify-content-center"></label>
+                            <input asp-for="NombreEvento" type="text" class="form-control" id="NombreEvento" name="NombreEvento" />
+                            <span asp-validation-for="NombreEvento" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label asp-for="EmpleadoEncargado" class="col-form-label"></label>
+                                <input asp-for="EmpleadoEncargado" type="text" class="form-control" id="EmpleadoEncargado" name="EmpleadoEncargado" />
+                                <span asp-validation-for="EmpleadoEncargado" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Direccion" class="col-form-label"></label>
+                                <input asp-for="Direccion" type="text" class="form-control" id="Direccion" name="Direccion" />
+                                <span asp-validation-for="Direccion" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="HoraInicioEvento" class="col-form-label"></label>
+                                <input asp-for="HoraInicioEvento" type="time" class="form-control" id="HoraInicioEvento" name="HoraInicioEvento" />
+                                <span asp-validation-for="HoraInicioEvento" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label asp-for="NumeroDocumento" class="col-form-label"></label>
+                                <input asp-for="NumeroDocumento" type="text" class="form-control" id="NumeroDocumento" name="NumeroDocumento" />
+                                <span asp-validation-for="NumeroDocumento" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Telefono" class="col-form-label"></label>
+                                <input asp-for="Telefono" type="text" class="form-control" id="Telefono" name="Telefono" />
+                                <span asp-validation-for="Telefono" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="HoraFinEvento" class="col-form-label"></label>
+                                <input asp-for="HoraFinEvento" type="time" class="form-control" id="HoraFinEvento" name="HoraFinEvento" />
+                                <span asp-validation-for="HoraFinEvento" class="text-danger"></span>
+                            </div>
+                            @*<div class="form-group">
+                                <label asp-for="FechaFinEvento" class="col-form-label"></label>
+                                <input asp-for="FechaFinEvento" type="date" class="form-control" id="FechaFinEvento" name="FechaFinEvento" />
+                                <span asp-validation-for="FechaFinEvento" class="text-danger"></span>
+                            </div>*@
+                        </div>
+                        <div class="form-group col-sm-7">
+                            <label asp-for="FechaInicioEvento" class="col-form-label"></label>
+                            <input readonly asp-for="FechaInicioEvento" type="date" class="form-control" id="FechaInicioEvento" name="FechaInicioEvento" />
+                            <span asp-validation-for="FechaInicioEvento" class="text-danger"></span>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" onclick="guardar()">Guardar</button>
+                <button type="button" class="btn btn-warning" onclick="editar()">Editar</button>
+                <button type="button" class="btn btn-danger" onclick="eliminar()">Eliminar</button>
+                <button type="button" class="btn btn-secondary cerrarModal" data-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+
+
+    <!-- FullCalendar -->
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.9.0/main.js"></script>
+    <script src="~/lib/fullCalendar/lib/main.js"></script>
+    <script src="~/lib/fullCalendar/lib/locales/es.js"></script>
+    <script src="/lib/moment.js/moment.v2.29.1.js"></script>
+    <script src="https://momentjs.com/downloads/moment.min.js"></script>
+    <script src="~/js/Calendar.js"></script>
+    <script>
+
+        $(function () {
+            calendario();
+            listar();
+        });
+
+
+        $(".cerrarModal").click(function () {
+            $("#modalCalendario").modal('hide')
+        });
+
+        $(".cerrarModal2").click(function () {
+            $("#modalCalendario").modal('hide')
+        });
+
+    </script>
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

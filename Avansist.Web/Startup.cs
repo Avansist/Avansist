@@ -34,6 +34,7 @@ namespace Avansist.Web
             //Servicios para las inyecciones de dependencias
             services.AddScoped<IPreinscripcionServices, PreinscripcionServices>();
             services.AddScoped<IPadrinoServices, PadrinoServices>();
+            services.AddScoped<ICalendarioServices, CalendarioServices>();
 
             services.AddControllersWithViews().AddRazorRuntimeCompilation();
         }
@@ -62,7 +63,7 @@ namespace Avansist.Web
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Preinscripcion}/{action=Index}/{id?}");
+                    pattern: "{controller=Home}/{action=Index}/{id?}");
             });
         }
     }

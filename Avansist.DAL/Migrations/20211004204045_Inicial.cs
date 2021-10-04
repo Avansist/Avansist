@@ -13,13 +13,15 @@ namespace Avansist.DAL.Migrations
                 {
                     AgendaId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    NombreEvento = table.Column<string>(type: "nvarchar(50)", nullable: true),
-                    EmpleadoEncargado = table.Column<string>(type: "nvarchar(50)", nullable: true),
-                    NumeroDocumento = table.Column<string>(type: "nvarchar(20)", nullable: true),
-                    Telefono = table.Column<string>(type: "nvarchar(15)", nullable: true),
+                    NombreEvento = table.Column<string>(type: "nvarchar(100)", nullable: true),
+                    EmpleadoEncargado = table.Column<string>(type: "nvarchar(100)", nullable: true),
+                    NumeroDocumento = table.Column<string>(type: "nvarchar(30)", nullable: true),
+                    Telefono = table.Column<string>(type: "nvarchar(30)", nullable: true),
                     Direccion = table.Column<string>(type: "nvarchar(50)", nullable: true),
-                    FechaInicioEvento = table.Column<DateTime>(type: "date", nullable: false),
-                    FechaFinEvento = table.Column<DateTime>(type: "date", nullable: false)
+                    HoraInicioEvento = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    HoraFinEvento = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    FechaInicioEvento = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    FechaFinEvento = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
                 {

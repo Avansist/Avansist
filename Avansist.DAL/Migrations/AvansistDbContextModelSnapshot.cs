@@ -30,22 +30,28 @@ namespace Avansist.DAL.Migrations
                         .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("EmpleadoEncargado")
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<DateTime>("FechaFinEvento")
-                        .HasColumnType("date");
+                        .HasColumnType("datetime2");
 
                     b.Property<DateTime>("FechaInicioEvento")
-                        .HasColumnType("date");
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("HoraFinEvento")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("HoraInicioEvento")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("NombreEvento")
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<string>("NumeroDocumento")
-                        .HasColumnType("nvarchar(20)");
+                        .HasColumnType("nvarchar(30)");
 
                     b.Property<string>("Telefono")
-                        .HasColumnType("nvarchar(15)");
+                        .HasColumnType("nvarchar(30)");
 
                     b.HasKey("AgendaId");
 
@@ -661,17 +667,12 @@ namespace Avansist.DAL.Migrations
             modelBuilder.Entity("Avansist.Models.Entities.SalidaExtracurricular", b =>
                 {
                     b.HasOne("Avansist.Models.Entities.Agenda", "Agenda")
-                        .WithMany("SalidaExtracurriculars")
+                        .WithMany()
                         .HasForeignKey("AgendaId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Agenda");
-                });
-
-            modelBuilder.Entity("Avansist.Models.Entities.Agenda", b =>
-                {
-                    b.Navigation("SalidaExtracurriculars");
                 });
 
             modelBuilder.Entity("Avansist.Models.Entities.Estado", b =>
