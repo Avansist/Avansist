@@ -1,0 +1,88 @@
+﻿@model Avansist.Services.DTOs.ControlAsistenciaDto
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+
+@section Style {
+
+    <link href="~/css/AggBeneficiario.css" rel="stylesheet" />
+}
+
+
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header pb-0">
+        <div class="container-fluid">
+            <div class="row mt-5">
+                <div class="col-sm-6">
+                    <ul id="List"> <li class="heading" style="list-style: none; font-size: 25px" id="IconList"> Agregar Salida Beneficiario</li></ul>
+                </div><!-- /.col -->
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a asp-action="">Inicio</a></li>
+                        <li class="breadcrumb-item active">Agregar Salida</li>
+                    </ol>
+                </div><!-- /.col -->
+            </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-11 mx-auto p-0 mt-3 mb-2">
+                <div class="col-sm-12">
+                    <hr />
+                </div>
+                <form asp-action="Edit" method="post" id="formPadrino">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input asp-for="ControlAsistenciaId" type="hidden" />
+                    <div class="form-group">
+                        <label asp-for="PreinscripcionId" class="control-label"></label>
+                        <select asp-for="PreinscripcionId" class="form-control" asp-items="ViewBag.listaBeneficiarios">
+                            <option>Seleccione</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="FechaIngreso" class="control-label"></label>
+                        <input asp-for="FechaIngreso" class="form-control" readonly />
+                        <span asp-validation-for="FechaIngreso" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="ObservacionIngreso" class="control-label"></label>
+                        <input asp-for="ObservacionIngreso" class="form-control" readonly />
+                        <span asp-validation-for="ObservacionIngreso" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="FechaSalida" class="control-label"></label>
+                        <input asp-for="FechaSalida" class="form-control" />
+                        <span asp-validation-for="FechaSalida" class="text-danger"></span>
+                    </div>
+                    <div class="form-group form-check col-sm-5">
+                        <label asp-for="AutorizacionSalida" class="form-check-label">
+                            <input asp-for="AutorizacionSalida" class="form-check-input"/>
+                            @Html.DisplayNameFor(model => model.AutorizacionSalida)
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="ObservacionSalida" class="control-label"></label>
+                        <input asp-for="ObservacionSalida" class="form-control" />
+                        <span asp-validation-for="ObservacionSalida" class="text-danger"></span>
+                    </div>
+                    <div>
+                        <input type="submit" value="Create" class="btn btn-primary" />
+                        <button>Cancelar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /.content-wrapper -->
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+}

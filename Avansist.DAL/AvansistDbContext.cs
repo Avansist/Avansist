@@ -29,5 +29,6 @@ namespace Avansist.DAL
         public virtual DbSet<Padrino> Padrinos { get; set; }
         public virtual DbSet<SalidaExtracurricular> SalidaExtracurriculars { get; set; }
         public virtual DbSet<TipoDocumento> TipoDocumentos { get; set; }
+        public virtual DbSet<AgendaBeneficiario> AgendaBeneficiarios { get; set; } 
     }
 }

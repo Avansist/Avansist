@@ -34,6 +34,7 @@ namespace Avansist.Web
             //Servicios para las inyecciones de dependencias
             services.AddScoped<IPreinscripcionServices, PreinscripcionServices>();
             services.AddScoped<IPadrinoServices, PadrinoServices>();
+            services.AddScoped<IControlAsistenciaServices, ControlAsistenciaServices>();
 
             services.AddControllersWithViews().AddRazorRuntimeCompilation();
         }
