@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Avansist.DAL.Migrations
 {
-    public partial class Tablas : Migration
+    public partial class Inicial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -13,13 +13,15 @@ namespace Avansist.DAL.Migrations
                 {
                     AgendaId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    NombreEvento = table.Column<string>(type: "nvarchar(50)", nullable: true),
-                    EmpleadoEncargado = table.Column<string>(type: "nvarchar(50)", nullable: true),
-                    NumeroDocumento = table.Column<string>(type: "nvarchar(20)", nullable: true),
-                    Telefono = table.Column<string>(type: "nvarchar(15)", nullable: true),
+                    NombreEvento = table.Column<string>(type: "nvarchar(100)", nullable: true),
+                    EmpleadoEncargado = table.Column<string>(type: "nvarchar(100)", nullable: true),
+                    NumeroDocumento = table.Column<string>(type: "nvarchar(30)", nullable: true),
+                    Telefono = table.Column<string>(type: "nvarchar(30)", nullable: true),
                     Direccion = table.Column<string>(type: "nvarchar(50)", nullable: true),
-                    FechaInicioEvento = table.Column<DateTime>(type: "date", nullable: false),
-                    FechaFinEvento = table.Column<DateTime>(type: "date", nullable: false)
+                    HoraInicioEvento = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    HoraFinEvento = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    FechaInicioEvento = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    FechaFinEvento = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -167,16 +169,16 @@ namespace Avansist.DAL.Migrations
                 {
                     PreinscripcionId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    PrimerNombreBeneficiario = table.Column<string>(type: "nvarchar(30)", nullable: true),
-                    SegundoNombreBeneficiario = table.Column<string>(type: "nvarchar(30)", nullable: true),
-                    PrimerApellidoBeneficiario = table.Column<string>(type: "nvarchar(30)", nullable: true),
-                    SegundoApellidoBeneficiario = table.Column<string>(type: "nvarchar(30)", nullable: true),
+                    PrimerNombreBeneficiario = table.Column<string>(type: "nvarchar(50)", nullable: true),
+                    SegundoNombreBeneficiario = table.Column<string>(type: "nvarchar(50)", nullable: true),
+                    PrimerApellidoBeneficiario = table.Column<string>(type: "nvarchar(50)", nullable: true),
+                    SegundoApellidoBeneficiario = table.Column<string>(type: "nvarchar(50)", nullable: true),
                     FechaNacimiento = table.Column<DateTime>(type: "date", nullable: false),
                     LugarNacimiento = table.Column<string>(type: "nvarchar(50)", nullable: true),
                     Edad = table.Column<string>(type: "nvarchar(10)", nullable: true),
                     GeneroId = table.Column<int>(type: "int", nullable: false),
                     TipoDocumentoId = table.Column<int>(type: "int", nullable: false),
-                    NumeroDocumento = table.Column<string>(type: "nvarchar(20)", nullable: true),
+                    NumeroDocumento = table.Column<string>(type: "nvarchar(30)", nullable: true),
                     LugarExpedicionDocumento = table.Column<string>(type: "nvarchar(50)", nullable: true),
                     DireccionResidencia = table.Column<string>(type: "nvarchar(50)", nullable: true),
                     Municipio = table.Column<string>(type: "nvarchar(50)", nullable: true),
@@ -188,7 +190,7 @@ namespace Avansist.DAL.Migrations
                     AntecedentePsicologico = table.Column<bool>(type: "bit", nullable: false),
                     DescripcionPsicologica = table.Column<string>(type: "nvarchar(500)", nullable: true),
                     InstitucionEducativa = table.Column<string>(type: "nvarchar(50)", nullable: true),
-                    NivelEscolaridad = table.Column<string>(type: "nvarchar(20)", nullable: true),
+                    NivelEscolaridad = table.Column<string>(type: "nvarchar(30)", nullable: true),
                     JornadaId = table.Column<int>(type: "int", nullable: false),
                     FechaMatricula = table.Column<DateTime>(type: "date", nullable: false),
                     FechaRetiro = table.Column<DateTime>(type: "date", nullable: false),
@@ -203,33 +205,33 @@ namespace Avansist.DAL.Migrations
                     AporteEconomicoPadrino = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     NombreMadre = table.Column<string>(type: "nvarchar(50)", nullable: true),
                     ApellidoMadre = table.Column<string>(type: "nvarchar(50)", nullable: true),
-                    NumeroDocumentoMadre = table.Column<string>(type: "nvarchar(20)", nullable: true),
+                    NumeroDocumentoMadre = table.Column<string>(type: "nvarchar(30)", nullable: true),
                     LugarExpedicionDocumentoMadre = table.Column<string>(type: "nvarchar(50)", nullable: true),
-                    OcupacionMadre = table.Column<string>(type: "nvarchar(30)", nullable: true),
-                    NivelEscolaridadMadre = table.Column<string>(type: "nvarchar(30)", nullable: true),
-                    TelefonoMadre = table.Column<string>(type: "nvarchar(15)", nullable: true),
+                    OcupacionMadre = table.Column<string>(type: "nvarchar(50)", nullable: true),
+                    NivelEscolaridadMadre = table.Column<string>(type: "nvarchar(50)", nullable: true),
+                    TelefonoMadre = table.Column<string>(type: "nvarchar(45)", nullable: true),
                     DireccionMadre = table.Column<string>(type: "nvarchar(50)", nullable: true),
                     BarrioMadre = table.Column<string>(type: "nvarchar(50)", nullable: true),
                     MunicipioMadre = table.Column<string>(type: "nvarchar(50)", nullable: true),
                     IngresoEconomicoMadre = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     NombrePadre = table.Column<string>(type: "nvarchar(50)", nullable: true),
                     ApellidoPadre = table.Column<string>(type: "nvarchar(50)", nullable: true),
-                    NumeroDocumentoPadre = table.Column<string>(type: "nvarchar(20)", nullable: true),
+                    NumeroDocumentoPadre = table.Column<string>(type: "nvarchar(30)", nullable: true),
                     LugarExpedicionDocumentoPadre = table.Column<string>(type: "nvarchar(50)", nullable: true),
-                    OcupacionPadre = table.Column<string>(type: "nvarchar(30)", nullable: true),
-                    NivelEscolaridadPadre = table.Column<string>(type: "nvarchar(30)", nullable: true),
-                    TelefonoPadre = table.Column<string>(type: "nvarchar(15)", nullable: true),
+                    OcupacionPadre = table.Column<string>(type: "nvarchar(50)", nullable: true),
+                    NivelEscolaridadPadre = table.Column<string>(type: "nvarchar(45)", nullable: true),
+                    TelefonoPadre = table.Column<string>(type: "nvarchar(45)", nullable: true),
                     DireccionPadre = table.Column<string>(type: "nvarchar(50)", nullable: true),
                     BarrioPadre = table.Column<string>(type: "nvarchar(50)", nullable: true),
                     MunicipioPadre = table.Column<string>(type: "nvarchar(50)", nullable: true),
                     IngresoEconomicoPadre = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     NombreAcudiente = table.Column<string>(type: "nvarchar(50)", nullable: true),
                     ApellidoAcudiente = table.Column<string>(type: "nvarchar(50)", nullable: true),
-                    NumeroDocumentoAcudiente = table.Column<string>(type: "nvarchar(20)", nullable: true),
+                    NumeroDocumentoAcudiente = table.Column<string>(type: "nvarchar(30)", nullable: true),
                     LugarExpedicionDocumentoAcudiente = table.Column<string>(type: "nvarchar(50)", nullable: true),
                     OcupacionAcudiente = table.Column<string>(type: "nvarchar(30)", nullable: true),
                     NivelEscolaridadAcudiente = table.Column<string>(type: "nvarchar(30)", nullable: true),
-                    TelefonoAcudiente = table.Column<string>(type: "nvarchar(15)", nullable: true),
+                    TelefonoAcudiente = table.Column<string>(type: "nvarchar(45)", nullable: true),
                     DireccionAcudiente = table.Column<string>(type: "nvarchar(50)", nullable: true),
                     BarrioAcudiente = table.Column<string>(type: "nvarchar(50)", nullable: true),
                     MunicipioAcudiente = table.Column<string>(type: "nvarchar(50)", nullable: true),
@@ -291,7 +293,7 @@ namespace Avansist.DAL.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "AgendaBeneficiario",
+                name: "AgendaBeneficiarios",
                 columns: table => new
                 {
                     AgendaBeneficiarioId = table.Column<int>(type: "int", nullable: false)
@@ -307,9 +309,9 @@ namespace Avansist.DAL.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_AgendaBeneficiario", x => x.AgendaBeneficiarioId);
+                    table.PrimaryKey("PK_AgendaBeneficiarios", x => x.AgendaBeneficiarioId);
                     table.ForeignKey(
-                        name: "FK_AgendaBeneficiario_Preinscripcions_PreinscripcionId",
+                        name: "FK_AgendaBeneficiarios_Preinscripcions_PreinscripcionId",
                         column: x => x.PreinscripcionId,
                         principalTable: "Preinscripcions",
                         principalColumn: "PreinscripcionId",
@@ -368,8 +370,8 @@ namespace Avansist.DAL.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_AgendaBeneficiario_PreinscripcionId",
-                table: "AgendaBeneficiario",
+                name: "IX_AgendaBeneficiarios_PreinscripcionId",
+                table: "AgendaBeneficiarios",
                 column: "PreinscripcionId");
 
             migrationBuilder.CreateIndex(
@@ -441,7 +443,7 @@ namespace Avansist.DAL.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "AgendaBeneficiario");
+                name: "AgendaBeneficiarios");
 
             migrationBuilder.DropTable(
                 name: "ControlAsistencias");

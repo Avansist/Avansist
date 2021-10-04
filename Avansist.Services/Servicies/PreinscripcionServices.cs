@@ -348,6 +348,26 @@ namespace Avansist.Services.Servicies
             await _context.SaveChangesAsync();
         }
 
+        //public async Task<AgendaViewModelDto> DatosEntreTablas(int id)
+        //{
+        //    var datosAgenda = await _context.AgendaBeneficiarios.Where(agb => agb.AgendaBeneficiarioId == id).FirstAsync();
+        //    AgendaViewModelDto agendaBeneficiarioDto = new AgendaViewModelDto()
+        //    {
+        //        AgendaBeneficiarioDto = new()
+        //        {
+        //            AgendaBeneficiarioId = datosAgenda.AgendaBeneficiarioId,
+        //            NombreEvento = datosAgenda.NombreEvento,
+        //            EmpleadoEncargado = datosAgenda.EmpleadoEncargado,
+        //            NumeroDocumento = datosAgenda.NumeroDocumento,
+        //            Telefono = datosAgenda.NumeroDocumento,
+        //            Direccion = datosAgenda.Direccion,
+        //            FechaInicioEvento = datosAgenda.FechaInicioEvento
+        //        }
+
+        //    };
+        //}
+
+
         //Obtener Foraneas Para Agenda
         public async Task<PreinscripcionDto> BuscarBeneficiarioPorId(int id)
         {

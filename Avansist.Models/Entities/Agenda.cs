@@ -12,22 +12,27 @@ namespace Avansist.Models.Entities
     {
         [Key]
         public int AgendaId { get; set; }
-        [Column(TypeName = "nvarchar(50)")]
+        [Column(TypeName = "nvarchar(100)")]
         public string NombreEvento { get; set; }
-        [Column(TypeName = "nvarchar(50)")]
+        [Column(TypeName = "nvarchar(100)")]
         public string EmpleadoEncargado { get; set; }
-        [Column(TypeName = "nvarchar(20)")]
+        [Column(TypeName = "nvarchar(30)")]
         public string NumeroDocumento { get; set; }
-        [Column(TypeName = "nvarchar(15)")]
+        [Column(TypeName = "nvarchar(30)")]
         public string Telefono { get; set; }
         [Column(TypeName = "nvarchar(50)")]
         public string Direccion { get; set; }
-        [Column(TypeName = "date")]
+
+        [DataType(DataType.Time)]
+        public string HoraInicioEvento { get; set; }
+        [DataType(DataType.Time)]
+        public string HoraFinEvento { get; set; }
+        [DataType(DataType.Date)]
         public DateTime FechaInicioEvento { get; set; }
-        [Column(TypeName = "date")]
-        public DateTime FechaFinEvento { get; set; }
+        [DataType(DataType.Date)]
+        public DateTime FechaFinEvento { get; set; }        
 
         //Llave Foranea
-        public virtual List<SalidaExtracurricular> SalidaExtracurriculars { get; set; }
+        //public virtual List<SalidaExtracurricular> SalidaExtracurriculars { get; set; }
     }
 }

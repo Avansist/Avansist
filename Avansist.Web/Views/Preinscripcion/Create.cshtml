@@ -491,7 +491,7 @@
                         <div class="d-flex justify-content-between mb-4">
                             <div class="form-group col-sm-6">
                                 <label asp-for="FechaRegistro" class="control-label"></label> <label id="asterisco">*</label>
-                                <input asp-for="FechaRegistro" class="form-control" name="fechaReg" id="fechaReg" required />
+                                <input asp-for="FechaRegistro" type="date" class="form-control" name="fechaReg" id="fechaReg" required />
                                 <span asp-validation-for="FechaRegistro" class="text-danger error"></span>
                             </div>
                             <div class="form-group col-sm-6">
@@ -546,6 +546,18 @@
 
     <script>
 
+        window.onload = function () {
+            var fecha = new Date(); //Fecha actual
+            var mes = fecha.getMonth() + 1; //obteniendo mes
+            var dia = fecha.getDate(); //obteniendo dia
+            var ano = fecha.getFullYear(); //obteniendo año
+            if (dia < 10)
+                dia = '0' + dia; //agrega cero si el menor de 10
+            if (mes < 10)
+                mes = '0' + mes //agrega cero si el menor de 10
+            document.getElementById('fechaReg').value = ano + "-" + mes + "-" + dia;
+        }
+
         document.getElementById("btn-cancelar").addEventListener("click", function (event) {
             window.location.href = '@Url.Action("Index", "Preinscripcion")';
         });
@@ -558,6 +570,8 @@
             //let formBeneficiario = document.getElementById('formBeneficiario');
             //let fechaNac = $("#fechaNac").val();
             //let FechaReg = $("#FechaReg").val();
+            //let nivelEscolar = $("#nivelEscolar").val();
+            //let institucion = $("#institucion").val();
             let genero = document.getElementById('genero');
             let tipoDocumento = document.getElementById('tipoDocumento');
             let modalidad = document.getElementById('modalidad');
@@ -579,8 +593,6 @@
             let custodiaBeneficiario = $("#custodiaBeneficiario").val();
             let nombreEps = $("#nombreEps").val();
             let grupoSisben = $("#grupoSisben").val();
-            let nivelEscolar = $("#nivelEscolar").val();
-            let institucion = $("#institucion").val();
 
             // Validaciones para informacion del niño
             if (primerNomB.length <= 2 || primerNomB.length >= 30) {
