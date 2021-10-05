@@ -35,6 +35,7 @@ namespace Avansist.Web
             services.AddScoped<IPreinscripcionServices, PreinscripcionServices>();
             services.AddScoped<IPadrinoServices, PadrinoServices>();
             services.AddScoped<ICalendarioServices, CalendarioServices>();
+            services.AddScoped<IControlAsistenciaServices, ControlAsistenciaServices>();
 
             services.AddControllersWithViews().AddRazorRuntimeCompilation();
         }

@@ -38,7 +38,7 @@ namespace Avansist.Services.DTOs
         [DisplayName("Correo Electronico")]
         [Required(ErrorMessage = "El correo es requerido")]
         [StringLength(45, MinimumLength = 3)]
-        
+        [DataType(DataType.EmailAddress)]
         public string CorreoElectronico { get; set; }
     }
 }

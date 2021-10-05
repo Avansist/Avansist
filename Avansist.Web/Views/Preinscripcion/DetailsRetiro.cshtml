@@ -64,7 +64,7 @@
                         <div class="d-flex justify-content-around">
                             <div class="form-group col-sm-6">
                                 <label asp-for="FechaRetiro" class="control-label"></label>
-                                <input readonly asp-for="FechaRetiro" class="form-control" />
+                                <input readonly asp-for="FechaRetiro" type="date" class="form-control" />
                                 <span asp-validation-for="FechaRetiro" class="text-danger"></span>
                             </div>
                             <div class="form-group col-sm-6">
@@ -197,7 +197,7 @@
                         </div>
                         <div class="d-flex justify-content-around">
                             <div class="form-group col-sm-6">
-                                <input type="button" value="Cancelar" id="btn-cancelar" class="btn btn-outline-secondary float-right" />
+                                <input type="button" value="Atras" id="btn-cancelar" class="btn btn-outline-secondary float-right" />
                             </div>
                             <div class="form-group col-sm-6">
                                 <a class="btn btn-outline-success float-right" asp-controller="Preinscripcion" asp-action="EditRetiro" asp-route-id="@Model.PreinscripcionId">Ir a Actualizar</a>
