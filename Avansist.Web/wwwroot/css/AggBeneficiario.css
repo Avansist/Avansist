@@ -8,10 +8,18 @@ html {
     font-family: 'Poppins', sans-serif;
 }
 
+.bs-stepper-circle {
+    background: #AFDB6E !important;
+}
+
+.bs-stepper-label{
+    color: black !important;
+}
+
 .heading {
     text-transform: uppercase;
-    color: #AFDB6E;
-    font-weight: normal
+    color: gray;
+    font-weight: 700
 }
 
 #asterisco {
