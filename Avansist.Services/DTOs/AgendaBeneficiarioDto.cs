@@ -20,7 +20,7 @@ namespace Avansist.Services.DTOs
         [StringLength(45, MinimumLength = 3)]
         public string EmpleadoEncargado { get; set; }
         [DisplayName("Número Documento")]
-        [Required(ErrorMessage = "El numero de docuemnto del empleado encargado es requerido")]
+        [Required(ErrorMessage = "El número de documento del empleado encargado es requerido")]
         [StringLength(20, MinimumLength = 3)]
         public string NumeroDocumento { get; set; }
         [DisplayName("Teléfono")]

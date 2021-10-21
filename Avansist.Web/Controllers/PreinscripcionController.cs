@@ -91,16 +91,19 @@ namespace Avansist.Web.Controllers
         [HttpPost]
         public async Task<IActionResult> Edit(PreinscripcionDto preinscripcionDto)
         {
-            if (preinscripcionDto.PreinscripcionId == preinscripcionDto.PreinscripcionId)
+            if (ModelState.IsValid)
             {
-                if (ModelState.IsValid)
+                try
                 {
                     await _preinscripcionServices.EditarBeneficiario(preinscripcionDto);
-                    return RedirectToAction(nameof(Index));
+                    return Json(new { status = true });
                 }
-                return View(preinscripcionDto);
+                catch (Exception)
+                {
+                    return View(preinscripcionDto);
+                }
             }
-            return NotFound();
+            return Json(new { status = false });
         }
 
         //Detalle Preinscripción Beneficiario
