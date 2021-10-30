@@ -47,15 +47,23 @@ namespace Avansist.Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                try
+                var beneficiarioTem = await _preinscripcionServices.ObtenerBeneficiarioPorDocumentoYEstado(preinscripcionDto.NumeroDocumento);
+                if (beneficiarioTem == null)
                 {
-                    await _preinscripcionServices.GuardarBeneficiario(preinscripcionDto);
-                    return Json(new { status = true });
+                    try
+                    {
+                        await _preinscripcionServices.GuardarBeneficiario(preinscripcionDto);
+                        return Json(new { status = true });
+                    }
+                    catch (Exception)
+                    {
+                        return Json(new { status = false });
+                    }
                 }
-                catch (Exception)
+                if (beneficiarioTem != null)
                 {
-                    return View(preinscripcionDto);
-                }
+                    return Json(new { status = 500 });
+                }                    
             }
             return Json(new { status = false });
         }
@@ -210,16 +218,19 @@ namespace Avansist.Web.Controllers
         [HttpPost]
         public async Task<IActionResult> CreateMatricula(PreinscripcionDto preinscripcionDto)
         {
-            if (preinscripcionDto.PreinscripcionId == preinscripcionDto.PreinscripcionId)
+            if (ModelState.IsValid)
             {
-                if (ModelState.IsValid)
+                try
                 {
                     await _preinscripcionServices.GuardarMatricula(preinscripcionDto);
-                    return RedirectToAction("IndexMatricula", "Preinscripcion");
+                    return Json(new { status = true });
                 }
-                return View(preinscripcionDto);
+                catch (Exception)
+                {
+                    return View(preinscripcionDto);
+                }
             }
-            return NotFound();
+            return Json(new { status = false });
         }
 
         //**********************************|--------------|**********************************
@@ -248,7 +259,7 @@ namespace Avansist.Web.Controllers
             ViewData["listaEtnias"] = new SelectList(await _preinscripcionServices.ObtenerListaEtnia(), "EtniaId", "NombreEtnia");
             ViewData["listaJornadas"] = new SelectList(await _preinscripcionServices.ObtenerListaJornada(), "JornadaId", "NombreJornada");
             ViewData["listaPadrinos"] = new SelectList(await _preinscripcionServices.ObtenerListaPadrinos(), "PadrinoId", "NombrePadrino");
-            ViewData["listaEstados"] = new SelectList(await _preinscripcionServices.ObtenerListaEstados(), "EstadoId", "NombreEstado");
+            ViewData["listaEstados"] = new SelectList(await _preinscripcionServices.ObtenerEstadoMatricula(), "EstadoId", "NombreEstado");
             if (beneficiario == null)
             {
                 return NotFound();
@@ -260,16 +271,19 @@ namespace Avansist.Web.Controllers
         [HttpPost]
         public async Task<IActionResult> EditMatricula(PreinscripcionDto preinscripcionDto)
         {
-            if (preinscripcionDto.PreinscripcionId == preinscripcionDto.PreinscripcionId)
+            if (ModelState.IsValid)
             {
-                if (ModelState.IsValid)
+                try
                 {
                     await _preinscripcionServices.EditarMatricula(preinscripcionDto);
-                    return RedirectToAction("IndexMatricula", "Preinscripcion");
+                    return Json(new { status = true });
                 }
-                return View(preinscripcionDto);
+                catch (Exception)
+                {
+                    return View(preinscripcionDto);
+                }
             }
-            return NotFound();
+            return Json(new { status = false });            
         }
 
         public async Task<IActionResult> DetailsMatricula(int? id)
@@ -323,16 +337,19 @@ namespace Avansist.Web.Controllers
         [HttpPost]
         public async Task<IActionResult> CreateRetiro(PreinscripcionDto preinscripcionDto)
         {
-            if (preinscripcionDto.PreinscripcionId == preinscripcionDto.PreinscripcionId)
+            if (ModelState.IsValid)
             {
-                if (ModelState.IsValid)
+                try
                 {
                     await _preinscripcionServices.GuardarRetiro(preinscripcionDto);
-                    return RedirectToAction("IndexRetiro", "Preinscripcion");
+                    return Json(new { status = true });
                 }
-                return View(preinscripcionDto);
+                catch (Exception)
+                {
+                    return View(preinscripcionDto);
+                }
             }
-            return NotFound();
+            return Json(new { status = false });            
         }
 
         //**********************************|--------------|**********************************
@@ -374,16 +391,19 @@ namespace Avansist.Web.Controllers
         [HttpPost]
         public async Task<IActionResult> EditRetiro(PreinscripcionDto preinscripcionDto)
         {
-            if (preinscripcionDto.PreinscripcionId == preinscripcionDto.PreinscripcionId)
+            if (ModelState.IsValid)
             {
-                if (ModelState.IsValid)
+                try
                 {
                     await _preinscripcionServices.EditarRetiro(preinscripcionDto);
-                    return RedirectToAction("IndexRetiro", "Preinscripcion");
+                    return Json(new { status = true });
                 }
-                return View(preinscripcionDto);
+                catch (Exception)
+                {
+                    return View(preinscripcionDto);
+                }
             }
-            return NotFound();
+            return Json(new { status = false });            
         }
 
         public async Task<IActionResult> DetailsRetiro(int? id)

@@ -15,6 +15,7 @@ namespace Avansist.Services.Abstract
         Task GuardarBeneficiario(PreinscripcionDto preinscripcionDto);
         IEnumerable<BeneficiarioResumenDto> ListarBeneficiarioResumenDto();
         Task<PreinscripcionDto> ObtenerBeneficiarioPorId(int id);
+        Task<Preinscripcion> ObtenerBeneficiarioPorDocumentoYEstado(string doc);
         Task<IEnumerable<Estado>> ObtenerListaEstados();
         Task<IEnumerable<TipoDocumento>> ObtenerListaTipoDocumento();
         Task<IEnumerable<Padrino>> ObtenerListaPadrinos();
@@ -23,6 +24,7 @@ namespace Avansist.Services.Abstract
         Task<IEnumerable<GrupoSanguineo>> ObtenerListaGrupoSanguineo();
         Task<IEnumerable<Genero>> ObtenerListaGenero();
         Task<IEnumerable<Etnia>> ObtenerListaEtnia();
+        Task<IEnumerable<Estado>> ObtenerEstadoMatricula();
 
         //Agenda beneficiario
         Task GuardarAgendaBeneficiario(AgendaBeneficiarioDto agendaBeneficiarioDto);
