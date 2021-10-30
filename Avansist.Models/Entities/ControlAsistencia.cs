@@ -15,7 +15,7 @@ namespace Avansist.Models.Entities
 
         //Inf Ingreso
         public int PreinscripcionId { get; set; }
-        [Column(TypeName = "date")]
+        [Column(TypeName = "date")] // Cambiarlo a datetime
         public DateTime FechaIngreso { get; set; }
         [Column(TypeName = "nvarchar(500)")]
         public string ObservacionIngreso { get; set; }

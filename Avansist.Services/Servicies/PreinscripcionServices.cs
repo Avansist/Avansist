@@ -100,13 +100,13 @@ namespace Avansist.Services.Servicies
                 //Retiro
                 FechaRetiro = preinscripcionDto.FechaRetiro,
                 ObservacionRetiro = preinscripcionDto.ObservacionRetiro
-            };            
+            };
             _context.Update(preinscripcion);
             await _context.SaveChangesAsync();
         }
 
         //Guardar Inf Beneficiario de Preinscripcion
-        public async Task GuardarBeneficiario (PreinscripcionDto preinscripcionDto)
+        public async Task GuardarBeneficiario(PreinscripcionDto preinscripcionDto)
         {
             Preinscripcion preinscripcion = new()
             {
@@ -284,6 +284,11 @@ namespace Avansist.Services.Servicies
             return preinscripcionDto;
         }
 
+        public async Task<Preinscripcion> ObtenerBeneficiarioPorDocumentoYEstado(string doc)
+        {
+            return await _context.Preinscripcions.FirstOrDefaultAsync(n => n.NumeroDocumento == doc && (n.EstadoId == 1 || n.EstadoId == 2 || n.EstadoId == 3));
+        }
+
         //Obtener Lista De Foraneas Para Preinscripción
         public async Task<IEnumerable<Etnia>> ObtenerListaEtnia()
         {
@@ -322,7 +327,12 @@ namespace Avansist.Services.Servicies
 
         public async Task<IEnumerable<Estado>> ObtenerListaEstados()
         {
-            return await _context.Estados.ToArrayAsync();
+            return await _context.Estados.ToListAsync();
+        }
+
+        public async Task<IEnumerable<Estado>> ObtenerEstadoMatricula()
+        {
+            return await _context.Estados.Where(e => e.EstadoId == 3).ToListAsync();
         }
 
         //**********************************|--------------|**********************************
@@ -388,7 +398,8 @@ namespace Avansist.Services.Servicies
             List<BeneficiarioResumenDto> listaBeneficiariosDto = new();
 
             _context.Preinscripcions.Include(t => t.TipoDocumento).Include(e => e.Estado).Include(m => m.Modalidad).Where(e => e.Estado.NombreEstado == "Inscrito")
-                .OrderByDescending(b => b.PreinscripcionId).ToList().ForEach(be => {
+                .OrderByDescending(b => b.PreinscripcionId).ToList().ForEach(be =>
+                {
                     BeneficiarioResumenDto beneficiarioDto = new()
                     {
                         PreinscripcionId = be.PreinscripcionId,
@@ -490,7 +501,8 @@ namespace Avansist.Services.Servicies
             List<BeneficiarioResumenDto> listaBeneficiariosDto = new();
 
             _context.Preinscripcions.Include(t => t.TipoDocumento).Include(e => e.Estado).Include(m => m.Modalidad).Where(e => e.Estado.NombreEstado == "Matriculado")
-                .OrderByDescending(b => b.PreinscripcionId).ToList().ForEach(be => {
+                .OrderByDescending(b => b.PreinscripcionId).ToList().ForEach(be =>
+                {
                     BeneficiarioResumenDto beneficiarioDto = new()
                     {
                         PreinscripcionId = be.PreinscripcionId,
@@ -675,7 +687,8 @@ namespace Avansist.Services.Servicies
             List<BeneficiarioResumenDto> listaBeneficiariosDto = new();
 
             _context.Preinscripcions.Include(t => t.TipoDocumento).Include(e => e.Estado).Include(m => m.Modalidad).Where(e => e.Estado.NombreEstado == "Retirado")
-                .OrderByDescending(b => b.PreinscripcionId).ToList().ForEach(be => {
+                .OrderByDescending(b => b.PreinscripcionId).ToList().ForEach(be =>
+                {
                     BeneficiarioResumenDto beneficiarioDto = new()
                     {
                         PreinscripcionId = be.PreinscripcionId,
