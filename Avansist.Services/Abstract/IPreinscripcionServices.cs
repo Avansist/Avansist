@@ -11,11 +11,13 @@ namespace Avansist.Services.Abstract
     public interface IPreinscripcionServices
     {
         //Preinscripción
-        Task EditarBeneficiario(PreinscripcionDto preinscripcionDto);
-        Task GuardarBeneficiario(PreinscripcionDto preinscripcionDto);
+        Task EditarBeneficiario(Preinscripcion preinscripcion);
+        Task GuardarBeneficiario(Preinscripcion preinscripcion);
         IEnumerable<BeneficiarioResumenDto> ListarBeneficiarioResumenDto();
-        Task<PreinscripcionDto> ObtenerBeneficiarioPorId(int id);
+        Task<Preinscripcion> ObtenerBeneficiarioPorId(int id);
         Task<Preinscripcion> ObtenerBeneficiarioPorDocumentoYEstado(string doc);
+
+        //--------------------------------------------------
         Task<IEnumerable<Estado>> ObtenerListaEstados();
         Task<IEnumerable<TipoDocumento>> ObtenerListaTipoDocumento();
         Task<IEnumerable<Padrino>> ObtenerListaPadrinos();
@@ -32,11 +34,11 @@ namespace Avansist.Services.Abstract
 
         //Inscripción
         IEnumerable<BeneficiarioResumenDto> ListarBeneficiarioResumenDtoInscritos();
-        Task GuardarMatricula(PreinscripcionDto preinscripcionDto);
+        Task GuardarMatricula(Preinscripcion preinscripcion);
 
         //Matricula
         IEnumerable<BeneficiarioResumenDto> ListarMatriculaDto();
-        Task EditarMatricula(PreinscripcionDto preinscripcionDto);
+        Task EditarMatricula(Preinscripcion preinscripcion);
         Task GuardarRetiro(PreinscripcionDto preinscripcionDto);
 
         //Retiro

@@ -34,7 +34,7 @@
         <div class="row">
             <div class="col-sm-12 mx-auto p-2">
                 <div class="card mt-0 mb-3">
-                    <input type="hidden" asp-for="PreinscripcionId" id="preinscripcionId" />
+                    
                     <div class="bs-stepper" id="form-beneficiario">
                         <div class="bs-stepper-header pt-2" role="tablist">
                             <!-- your steps here -->
@@ -134,7 +134,7 @@
                                         </div>
                                         <div class="form-group col-sm-4">
                                             <label asp-for="LugarExpedicionDocumento" class="form-label"></label> <label id="asterisco">*</label>
-                                            <input asp-for="LugarExpedicionDocumento" class="form-control" rangelength="3,45" type="text" name="expedido" id="expedido" placeholder="Lugar de expedición" required />
+                                            <input asp-for="LugarExpedicionDocumento" class="form-control" rangelength="3,45" type="date" name="expedido" id="expedido" placeholder="Lugar de expedición" required />
                                             <span asp-validation-for="LugarExpedicionDocumento" class="text-danger error"></span>
                                         </div>
                                     </div>
@@ -529,12 +529,26 @@
                             <!-------------------------- step 4 ---------------------------->
 
                             <div id="info-final" class="content" role="tabpanel" aria-labelledby="information-part-trigger">
-                                <form action="/" method="post" id="form-final">
+                                <form action="/" method="post" id="form-final" enctype="multipart/form-data">
                                     <div class="col-7 mt-3">
                                         <h2 class="fs-title">Documentación:</h2>
                                     </div>
                                     <div class="col-sm-12 mb-5">
                                         <hr />
+                                    </div>
+                                    <div class="form-group form-check col-sm-6">
+                                        <input type="hidden" name="hiddenAutorizacionData" id="hiddenAutorizacionData" />
+                                        <label asp-for="AutorizacionData" class="form-check-label">
+                                            <input disabled required asp-for="AutorizacionData" class="form-check-input" name="autorizacionData" id="autorizacionData" />
+                                            @Html.DisplayNameFor(model => model.AutorizacionData)
+                                        </label>
+                                    </div>
+                                    <div class="form-group form-check col-sm-6">
+                                        <input type="hidden" name="hiddenAutorizacionFoto" id="hiddenAutorizacionFoto" />
+                                        <label asp-for="AutorizacionFoto" class="form-check-label">
+                                            <input disabled required asp-for="AutorizacionFoto" class="form-check-input" name="autorizacionFoto" id="autorizacionFoto" />
+                                            @Html.DisplayNameFor(model => model.AutorizacionFoto)
+                                        </label>
                                     </div>
                                     <div class="col-sm-6">
                                         <div class="form-group">
@@ -547,7 +561,7 @@
                                         <div id="msg"></div>
                                         <div method="post" id="image-form" class="form-group">
                                             <label class="form-label">Foto del niño: </label>
-                                            <input type="file" name="img[]" class="file" accept="image/*">
+                                            <input type="file" name="img[]" id="imagen" class="file" accept="image/*">
                                             <div class="input-group my-3">
                                                 <input type="text" class="form-control" disabled placeholder="Subir imagen" id="file">
                                                 <div class="input-group-append">
@@ -556,6 +570,16 @@
                                             </div>
                                         </div>
                                     </div>
+
+                                    <div class="row">
+                                        <div class="col-9">
+                                            <img src="@("~/image/" + Model.NombreImagen)" asp-append-version="true" width="250" height="250" />
+                                        </div>
+                                    </div>
+                                    <input type="hidden" asp-for="PreinscripcionId" id="preinscripcionId" />
+                                    <input asp-for="NombreImagen" hidden id="NombreImagen" name="NombreImagen" />
+
+
                                     <div class="ml-2 col-sm-6 mb-3">
                                         <img src="https://placehold.it/80x80" id="preview" class="img-thumbnail">
                                     </div>
@@ -758,6 +782,22 @@
                 document.getElementById("hiddenAntePsico").value = "False";
             }
 
+            var checked3 = document.getElementById("autorizacionData").checked;
+
+            if (checked3) {
+                document.getElementById("hiddenAutorizacionData").value = "True";
+            } else {
+                document.getElementById("hiddenAutorizacionData").value = "False";
+            }
+
+            var checked4 = document.getElementById("autorizacionFoto").checked;
+
+            if (checked4) {
+                document.getElementById("hiddenAutorizacionFoto").value = "True";
+            } else {
+                document.getElementById("hiddenAutorizacionFoto").value = "False";
+            }
+
             // Validar Aporte Economico (Padrino) e Ingreso economico(Padres y acudiente)
 
             let aportePadrino = $('#aportePadrino').val();
@@ -807,6 +847,7 @@
                     denyButtonText: 'Cancelar',
                 }).then((result) => {
                     if (result.isConfirmed) {
+                        var imagen = $("#imagen").prop("files");
                         let formData = new FormData();
 
                         formData.append("PreinscripcionId", document.getElementById("preinscripcionId").value);
@@ -873,7 +914,15 @@
                         formData.append("NivelEscolaridadAcudiente", document.getElementById("escolaridadAcu").value);
                         formData.append("IngresoEconomicoAcudiente", document.getElementById("ingresoEcoAcu").value);
                         formData.append("FechaRegistro", document.getElementById("fechaReg").value);
+                        formData.append("AutorizacionData", document.getElementById("hiddenAutorizacionData").value);
+                        formData.append("AutorizacionFoto", document.getElementById("hiddenAutorizacionFoto").value);
                         formData.append("EstadoId", document.getElementById("estado").value);
+
+                        if (document.getElementById("NombreImagen") != null) {
+                            formData.append("NombreImagen", document.getElementById("NombreImagen").value);
+                        }                            
+
+                        formData.append("Imagen", imagen[0]);
 
                         $.ajax({
                             url: '@Url.Action("Edit", "Preinscripcion")',

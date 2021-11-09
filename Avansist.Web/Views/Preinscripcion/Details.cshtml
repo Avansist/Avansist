@@ -1,4 +1,4 @@
-﻿@model Avansist.Services.DTOs.PreinscripcionDto
+﻿@model Avansist.Models.Entities.Preinscripcion
 
 @{
     ViewData["Title"] = "Details";
@@ -542,21 +542,14 @@
                                         </div>
                                     </div>
                                     <div class="col-sm-6 ml-0">
-                                        <div id="msg"></div>
-                                        <div method="post" id="image-form" class="form-group">
-                                            <label class="form-label">Foto del niño: </label>
-                                            <input type="file" name="img[]" class="file" accept="image/*">
-                                            <div class="input-group my-3">
-                                                <input type="text" class="form-control" disabled placeholder="Subir imagen" id="file">
-                                                <div class="input-group-append">
-                                                    <button type="button" class="browse btn btn-primary">Cargar...</button>
-                                                </div>
-                                            </div>
+
+                                        <label class="form-label">Foto del niño: </label>
+                                        <div class="ml-2 col-sm-6 mb-3">
+                                            <img src="@("~/image/" + Model.NombreImagen)" asp-append-version="true" width="250" height="250" />
                                         </div>
+
                                     </div>
-                                    <div class="ml-2 col-sm-6 mb-3">
-                                        <img src="https://placehold.it/80x80" id="preview" class="img-thumbnail">
-                                    </div>
+                                    
                                     <div class="col-7 mt-3">
                                         <h2 class="fs-title">Información final:</h2>
                                     </div>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
@@ -234,6 +235,16 @@ namespace Avansist.Services.DTOs
         public DateTime FechaRegistro { get; set; }
         [DisplayName("Estado")]
         public int EstadoId { get; set; }
+
+        //Autorizacion publicacion de fotos y recoleccion de datos --------------- Falta
+        [DisplayName("Autorización de la foto")]
+        public bool AutorizacionFoto { get; set; }
+        [DisplayName("Autorizacion de los datos")]
+        public bool AutorizacionData { get; set; }
+
+        //Documentos y foto -------- falta para adjuntar los documentos
+        public string NombreImagen { get; set; }
+        public IFormFile Imagen { get; set; }
 
         //Traidas por medio de foraneas
         public string NombreEstado { get; set; }
