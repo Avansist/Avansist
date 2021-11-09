@@ -145,11 +145,11 @@
                                     <div class="form-group col-sm-4">
                                         <label asp-for="NumeroDocumento" class="control-label"></label> <label id="asterisco">*</label>
                                         <input asp-for="NumeroDocumento" class="form-control" type="text" name="numDoc" id="numDoc" placeholder="Ingrese el n° de documento" required />
-                                        <span asp-validation-for="NumeroDocumento" class="text-danger error">@ViewData["errorDoc"]</span>
+                                        <span asp-validation-for="NumeroDocumento" class="text-danger error"></span>
                                     </div>
                                     <div class="form-group col-sm-4">
                                         <label asp-for="LugarExpedicionDocumento" class="form-label"></label> <label id="asterisco">*</label>
-                                        <input asp-for="LugarExpedicionDocumento" class="form-control" rangelength="3,45" type="text" name="expedido" id="expedido" placeholder="Lugar de expedición" required />
+                                        <input asp-for="LugarExpedicionDocumento" class="form-control" rangelength="3,45" type="date" name="expedido" id="expedido" placeholder="Lugar de expedición" required />
                                         <span asp-validation-for="LugarExpedicionDocumento" class="text-danger error"></span>
                                     </div>
                                 </div>
@@ -551,6 +551,20 @@
                                 <div class="col-sm-12 mb-5">
                                     <hr />
                                 </div>
+                                <div class="form-group form-check col-sm-6">
+                                    <input type="hidden" name="hiddenAutorizacionData" id="hiddenAutorizacionData" />
+                                    <label asp-for="AutorizacionData" class="form-check-label">
+                                        <input required asp-for="AutorizacionData" class="form-check-input" name="autorizacionData" id="autorizacionData" />
+                                        @Html.DisplayNameFor(model => model.AutorizacionData)
+                                    </label>
+                                </div>
+                                <div class="form-group form-check col-sm-6">
+                                    <input type="hidden" name="hiddenAutorizacionFoto" id="hiddenAutorizacionFoto" />
+                                    <label asp-for="AutorizacionFoto" class="form-check-label">
+                                        <input required asp-for="AutorizacionFoto" class="form-check-input" name="autorizacionFoto" id="autorizacionFoto" />
+                                        @Html.DisplayNameFor(model => model.AutorizacionFoto)
+                                    </label>
+                                </div>
                                 <div class="col-sm-6">
                                     <div class="form-group">
                                         <label class="form-label" for="customFile">Agregar documentos:</label>
@@ -561,8 +575,8 @@
                                 <div class="col-sm-6 ml-0">
                                     <div id="msg"></div>
                                     <div method="post" id="image-form" class="form-group">
-                                        <label class="form-label">Foto del niño: </label>
-                                        <input type="file" name="img[]" class="file" accept="image/*">
+                                        <label asp-for="Imagen" class="form-label">Foto del niño: </label>
+                                        <input asp-for="Imagen" type="file" name="img[]" id="imagen" class="file" accept="image/*">
                                         <div class="input-group my-3">
                                             <input type="text" class="form-control" disabled placeholder="Subir imagen" id="file">
                                             <div class="input-group-append">
@@ -572,7 +586,7 @@
                                     </div>
                                 </div>
                                 <div class="ml-2 col-sm-6 mb-3">
-                                    <img src="https://placehold.it/80x80" id="preview" class="img-thumbnail">
+                                    <img src="https://placehold.it/80x80" id="preview" class="img-thumbnail" width="250" height="250">
                                 </div>
                                 <div class="col-7 mt-3">
                                     <h2 class="fs-title">Información final:</h2>
@@ -791,6 +805,22 @@
                 document.getElementById("hiddenAntePsico").value = "False";
             }
 
+            var checked3 = document.getElementById("autorizacionData").checked;
+
+            if (checked3) {
+                document.getElementById("hiddenAutorizacionData").value = "True";
+            } else {
+                document.getElementById("hiddenAutorizacionData").value = "False";
+            }
+
+            var checked4 = document.getElementById("autorizacionFoto").checked;
+
+            if (checked4) {
+                document.getElementById("hiddenAutorizacionFoto").value = "True";
+            } else {
+                document.getElementById("hiddenAutorizacionFoto").value = "False";
+            }
+
             // Validar Aporte Economico (Padrino) e Ingreso economico(Padres y acudiente)
 
             let aportePadrino = $('#aportePadrino').val();
@@ -840,6 +870,7 @@
                     denyButtonText: 'Cancelar',
                 }).then((result) => {
                     if (result.isConfirmed) {
+                        var imagen = $("#imagen").prop("files");
                         let formData = new FormData();
 
                         formData.append("PrimerNombreBeneficiario", document.getElementById("primerNomB").value);
@@ -906,6 +937,9 @@
                         formData.append("IngresoEconomicoAcudiente", document.getElementById("ingresoEcoAcu").value);
                         formData.append("FechaRegistro", document.getElementById("fechaReg").value);
                         formData.append("EstadoId", document.getElementById("estado").value);
+                        formData.append("AutorizacionData", document.getElementById("hiddenAutorizacionData").value);
+                        formData.append("AutorizacionFoto", document.getElementById("hiddenAutorizacionFoto").value);
+                        formData.append("Imagen", imagen[0]);
 
                         $.ajax({
                             url: '@Url.Action("Create", "Preinscripcion")',

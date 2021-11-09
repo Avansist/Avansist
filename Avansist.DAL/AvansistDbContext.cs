@@ -1,4 +1,5 @@
 ﻿using Avansist.Models.Entities;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Avansist.DAL
 {
-    public class AvansistDbContext : DbContext
+    public class AvansistDbContext : IdentityDbContext
     {
         public AvansistDbContext(DbContextOptions<AvansistDbContext> options) :
             base(options)

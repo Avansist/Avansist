@@ -159,7 +159,14 @@ namespace Avansist.Models.Entities
         //Complementarios
         [Column(TypeName = "date")]
         public DateTime FechaRegistro { get; set; }
-        public int EstadoId { get; set; }        
+        public int EstadoId { get; set; }
+
+        //Autorizacion publicacion de fotos y recoleccion de datos --------------- Falta
+        public bool AutorizacionFoto { get; set; }
+        public bool AutorizacionData { get; set; }
+
+        //Documentos y foto -------- falta para adjuntar los documentos
+        public string NombreImagen { get; set; }
 
         //Foraneas
         public virtual Etnia Etnia { get; set; }
