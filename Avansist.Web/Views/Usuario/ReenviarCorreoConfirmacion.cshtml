@@ -1,0 +1,66 @@
+﻿@model Avansist.Web.ViewModel.ResetPassViewModel
+
+@{
+    Layout = null;
+
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Reenviar correo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/lib/adminlte/dist/css/Style.css">
+    <!-- Google Font: lobster -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="~/lib/adminlte/plugins/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF" crossorigin="anonymous">
+
+    <link rel="shortcut icon" href="~/lib/adminlte/img/Avansist_Logo.png" />
+    <link href="~/css/Login.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container tarjeta" style="height: auto">
+        <img class="avatar" src="~/lib/adminlte/img/Avansist_Logo.png" alt="logo">
+        <h1>Correo de confirmación</h1>
+        <p>
+            Le enviaremos de nuevo el mensaje de cofirmación, por favor digite su correo.
+        </p>
+        <form asp-controller="Usuario" asp-action="ReenviarCorreoConfirmacion" method="post">
+            <div asp-validation-summary="All" class="text-danger small"></div>
+            <div class="input-group mb-3">
+                <input asp-for="Email" type="email" class="form-control" placeholder="Correo Electrónico" />
+                <div class="input-group-append">
+                    <div class="input-group-text">
+                        <span class="fas fa-envelope"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="d-flex justify-content-around col-sm-12 mt-4">
+                <div class="">
+                    <a asp-controller="Usuario" asp-action="Login" class="btn btn-danger">Cancelar</a>
+                </div>
+                <div class="">
+                    <button type="submit" class="btn btn-success">Enviar</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="~/js/site.js" asp-append-version="true"></script>
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

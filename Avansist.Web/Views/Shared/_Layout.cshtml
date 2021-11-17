@@ -75,7 +75,7 @@
                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                     <li><a class="dropdown-item" asp-area="Identity" asp-page="/Account/Manage/Index" title="Gestionar Cuenta">@User.Identity.Name</a></li>
                     <li><hr class="dropdown-divider" /></li>
-                    <li><a class="dropdown-item" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">Cerrar sesion</a></li>
+                    <li><a class="dropdown-item" asp-controller="Usuario" asp-action="CerrarSesion">Cerrar sesion</a></li>
                 </ul>
             </li>
         </ul>
@@ -250,7 +250,7 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="#" class="nav-link">
+                                <a asp-controller="Usuario" asp-action="Index" class="nav-link">
                                     <i class="far fa-user-friends nav-icon"></i>
                                     <p style="font-size: 13px">
                                         Gestión de usuarios
