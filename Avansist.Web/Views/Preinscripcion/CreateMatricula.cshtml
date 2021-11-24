@@ -31,8 +31,8 @@
     <!-- /.content-header -->
     <div class="container">
         <div class="row">
-            <div class="col-sm-11 p-0 mt-3 mb-2">
-                <div class="card p-5 mt-0 mb-3 mx-auto" style="width: 700px">
+            <div class="col-sm-12 mx-auto p-2">
+                <div class="card mt-0 mb-3 pt-3">
                     <div class="col-sm-12">
                         <div class="">
                             <h4 class="text-left">
@@ -48,43 +48,42 @@
                     <form asp-action="CreateMatricula" id="form-matricula">
                         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                         <input type="hidden" asp-for="PreinscripcionId" id="preinscripcionId" />
-                        <div class="d-flex justify-content-around">
-                            <div class="form-group col-sm-6">
+                        <div class="d-flex justify-content-between mb-4">
+                            <div class="form-group col-sm-3">
                                 <label asp-for="PrimerNombreBeneficiario" class="control-label"></label>
                                 <input readonly asp-for="PrimerNombreBeneficiario" id="primerNomB" class="form-control" />
                                 <span asp-validation-for="PrimerNombreBeneficiario" class="text-danger"></span>
                             </div>
-                            <div class="form-group col-sm-6">
+                            <div class="form-group col-sm-3">
                                 <label asp-for="PrimerApellidoBeneficiario" class="control-label"></label>
                                 <input readonly asp-for="PrimerApellidoBeneficiario" id="primerApeB" class="form-control" />
                                 <span asp-validation-for="PrimerApellidoBeneficiario" class="text-danger"></span>
                             </div>
-                        </div>
-                        <div class="d-flex justify-content-around">
-                            <div class="form-group col-sm-6">
+                            <div class="form-group col-sm-3">
                                 <label asp-for="InstitucionEducativa" class="control-label"></label>
                                 <input required asp-for="InstitucionEducativa" id="institucion" class="form-control" />
                                 <span asp-validation-for="InstitucionEducativa" class="text-danger"></span>
+
                             </div>
-                            <div class="form-group col-sm-6">
+                            <div class="form-group col-sm-3">
+                                <label asp-for="JornadaId" class="control-label"></label>
+                                <select required asp-for="JornadaId" class="form-control" id="jornada" asp-items="ViewBag.listaJornadas">
+                                    <option>Seleccione</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-between mb-4">
+                            <div class="form-group col-sm-4">
                                 <label asp-for="NivelEscolaridad" class="control-label"></label>
                                 <input required asp-for="NivelEscolaridad" id="nivelEscolar" class="form-control" />
                                 <span asp-validation-for="NivelEscolaridad" class="text-danger"></span>
                             </div>
-                        </div>
-                        <div class="form-group col-sm-7">
-                            <label asp-for="JornadaId" class="control-label"></label>
-                            <select required asp-for="JornadaId" class="form-control" id="jornada" asp-items="ViewBag.listaJornadas">
-                                <option>Seleccione</option>
-                            </select>
-                        </div>
-                        <div class="d-flex justify-content-around">
-                            <div class="form-group col-sm-6">
+                            <div class="form-group col-sm-4">
                                 <label asp-for="FechaMatricula" class="control-label"></label>
                                 <input disabled asp-for="FechaMatricula" type="date" id="fechaMatricula" class="form-control" />
                                 <span asp-validation-for="FechaMatricula" class="text-danger"></span>
                             </div>
-                            <div class="form-group col-sm-6">
+                            <div class="form-group col-sm-4">
                                 <label asp-for="EstadoId" class="control-label"></label>
                                 <select disabled asp-for="EstadoId" id="estado" class="form-control">
                                     <option value="3">Matriculado</option>
