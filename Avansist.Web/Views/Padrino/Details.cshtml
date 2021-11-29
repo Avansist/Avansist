@@ -92,12 +92,9 @@
                             <input readonly asp-for="CorreoElectronico" class="form-control" type="email" name="correoElectronico" id="correoElectronico" placeholder="Ingrese el correo" required />
                             <span asp-validation-for="CorreoElectronico" class="text-danger error"></span>
                         </div>
-                        <div class="col-sm-12">
-                            <hr />
-                        </div>
                         <div class="d-flex justify-content-around">
                             <div class="form-group col-sm-6">
-                                <input type="button" value="Atras" id="btn-cancelar" class="btn btn-outline-secondary float-right" />
+                                <input type="button" value="Atras" id="btn-cancelar" class="btn btn-outline-danger float-right" />
                             </div>
                             <div class="form-group col-sm-6">
                                 <a class="btn btn-outline-success float-right" asp-controller="Padrino" asp-action="Edit" asp-route-id="@Model.PadrinoId">Ir a Actualizar</a>

@@ -81,9 +81,9 @@
                                     @Html.DisplayFor(modelItem => item.NombreModalidad)
                                 </td>
                                 <td>
-                                    <a class="btn btn-outline-primary" asp-action="Edit" asp-route-id="@item.PreinscripcionId"><i class="far fa-edit"></i></a>
-                                    <a class="btn btn-outline-dark" asp-action="Details" asp-route-id="@item.PreinscripcionId"><i class="far fa-eye"></i></a>
-                                    <a class="btn btn-outline-success" asp-action="CreateAB" asp-route-id="@item.PreinscripcionId"><i class="fas fa-calendar-alt"></i></a>
+                                    <a data-bs-toggle="tooltip" title="Editar" class="btn btn-outline-primary" asp-action="Edit" asp-route-id="@item.PreinscripcionId"><i class="far fa-edit"></i></a>
+                                    <a data-bs-toggle="tooltip" title="Ver" class="btn btn-outline-dark" asp-action="Details" asp-route-id="@item.PreinscripcionId"><i class="far fa-eye"></i></a>
+                                    <a style="display:none" data-bs-toggle="tooltip" title="Agenda" class="btn btn-outline-success" asp-action="CreateAB" asp-route-id="@item.PreinscripcionId"><i class="fas fa-calendar-alt"></i></a>
                                 </td>
                             </tr>
                         }

@@ -32,7 +32,7 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-11 p-0 mt-3 mb-2">
-                <div class="card p-5 mt-0 mb-3 mx-auto" style="width: 700px">
+                <div class="card p-5 mt-0 mb-3 mx-auto">
                     <div class="col-sm-12">
                         <div class="">
                             <h4 class="text-left">
@@ -90,12 +90,10 @@
                             <input asp-for="CorreoElectronico" class="form-control" type="email" name="correoElectronico" id="correoElectronico" placeholder="Ingrese el correo" required />
                             <span asp-validation-for="CorreoElectronico" class="text-danger error"></span>
                         </div>
-                        <div class="col-sm-12">
-                            <hr />
-                        </div>
+
                         <div class="d-flex justify-content-around">
                             <div class="form-group col-sm-6">
-                                <input type="button" value="Cancelar" id="btn-cancelar" class="btn btn-outline-secondary float-right" />
+                                <input type="button" value="Cancelar" id="btn-cancelar" class="btn btn-outline-danger float-right" />
                             </div>
                             <div class="form-group col-sm-6">
                                 <input type="submit" value="Guardar Padrino" class="btn btn-outline-success float-right" />

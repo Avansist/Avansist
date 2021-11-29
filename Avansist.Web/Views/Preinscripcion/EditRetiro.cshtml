@@ -32,7 +32,7 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-12 mx-auto p-2">
-                <div class="card mt-0 mb-3 pt-3">
+                <div class="card p-5 mt-0 mb-3 pt-3">
                     <div class="col-sm-12">
                         <div class="">
                             <h4 class="text-left">
@@ -75,7 +75,7 @@
                         <div class="form-group col-sm-6" style="display: none">
                             <label asp-for="EstadoId" class="control-label"></label>
                             <select disabled asp-for="EstadoId" id="estado" class="form-control">
-                                <option value="6">Retirado</option>
+                                <option value="5">Retirado</option>
                             </select>
                         </div>
 
@@ -260,6 +260,24 @@
                             <label asp-for="AporteEconomicoPadrino" class="control-label"></label>
                             <input asp-for="AporteEconomicoPadrino" name="aportePadrino" id="aportePadrino" class="form-control" />
                             <span asp-validation-for="AporteEconomicoPadrino" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group col-sm-3" style="display:none">
+                            <label asp-for="InstitucionEducativa" class="control-label"></label>
+                            <input required asp-for="InstitucionEducativa" id="institucion" class="form-control" />
+                            <span asp-validation-for="InstitucionEducativa" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group col-sm-4" style="display:none">
+                            <label asp-for="NivelEscolaridad" class="control-label"></label>
+                            <input required asp-for="NivelEscolaridad" id="nivelEscolar" class="form-control" />
+                            <span asp-validation-for="NivelEscolaridad" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group col-sm-4" style="display:none">
+                            <label asp-for="FechaMatricula" class="control-label"></label>
+                            <input disabled asp-for="FechaMatricula" type="date" id="fechaMatricula" class="form-control" />
+                            <span asp-validation-for="FechaMatricula" class="text-danger"></span>
                         </div>
 
                         <!-------------------------- step 3 ---------------------------->
@@ -462,8 +480,20 @@
                         </div>
 
                         <!-------------------------- step 4 ---------------------------->
-
-
+                        <div class="form-group form-check col-sm-6" style="display:none">
+                            <input type="hidden" name="hiddenAutorizacionData" id="hiddenAutorizacionData" />
+                            <label asp-for="AutorizacionData" class="form-check-label">
+                                <input disabled required asp-for="AutorizacionData" class="form-check-input" name="autorizacionData" id="autorizacionData" />
+                                @Html.DisplayNameFor(model => model.AutorizacionData)
+                            </label>
+                        </div>
+                        <div class="form-group form-check col-sm-6" style="display:none">
+                            <input type="hidden" name="hiddenAutorizacionFoto" id="hiddenAutorizacionFoto" />
+                            <label asp-for="AutorizacionFoto" class="form-check-label">
+                                <input disabled required asp-for="AutorizacionFoto" class="form-check-input" name="autorizacionFoto" id="autorizacionFoto" />
+                                @Html.DisplayNameFor(model => model.AutorizacionFoto)
+                            </label>
+                        </div>
                         <div class="col-sm-6" style="display:none">
                             <div class="form-group">
                                 <label class="form-label" for="customFile">Agregar documentos:</label>
@@ -471,11 +501,12 @@
                                 <input type="file" class="form-control pl-0" id="cargar" multiple />
                             </div>
                         </div>
+                        <input asp-for="NombreImagen" hidden id="NombreImagen" name="NombreImagen" />
                         <div class="col-sm-6 ml-0" style="display:none">
                             <div id="msg"></div>
                             <div method="post" id="image-form" class="form-group">
                                 <label class="form-label">Foto del niño: </label>
-                                <input type="file" name="img[]" class="file" accept="image/*">
+                                <input type="file" name="img[]" id="imagen" class="file" accept="image/*">
                                 <div class="input-group my-3">
                                     <input type="text" class="form-control" disabled placeholder="Subir imagen" id="file">
                                     <div class="input-group-append">
@@ -487,14 +518,11 @@
                         <div class="ml-2 col-sm-6 mb-3" style="display:none">
                             <img src="https://placehold.it/80x80" id="preview" class="img-thumbnail">
                         </div>
+
                         <div class="form-group col-sm-6" style="display:none">
                             <label asp-for="FechaRegistro" class="control-label"></label> <label id="asterisco">*</label>
                             <input disabled asp-for="FechaRegistro" type="date" class="form-control" name="fechaReg" id="fechaReg" required />
                             <span asp-validation-for="FechaRegistro" class="text-danger error"></span>
-                        </div>
-
-                        <div class="col-sm-12">
-                            <hr />
                         </div>
                         <div class="d-flex justify-content-around">
                             <div class="form-group col-sm-6">
@@ -546,6 +574,22 @@
                 document.getElementById("hiddenAntePsico").value = "False";
             }
 
+            var checked3 = document.getElementById("autorizacionData").checked;
+
+            if (checked3) {
+                document.getElementById("hiddenAutorizacionData").value = "True";
+            } else {
+                document.getElementById("hiddenAutorizacionData").value = "False";
+            }
+
+            var checked4 = document.getElementById("autorizacionFoto").checked;
+
+            if (checked4) {
+                document.getElementById("hiddenAutorizacionFoto").value = "True";
+            } else {
+                document.getElementById("hiddenAutorizacionFoto").value = "False";
+            }
+
             if (!$("#form-retiro").valid()) {
             $("label.error").css("color", "red");
             $("label.error").css("font-weight", "300");
@@ -571,7 +615,6 @@
                         formData.append("ObservacionRetiro", document.getElementById("obserRetiro").value);
                         formData.append("FechaRetiro", document.getElementById("fechaRetiro").value);
                         formData.append("EstadoId", document.getElementById("estado").value);
-
                         /*---------------------------- Campos con Display: none ---------------------------*/
 
                         formData.append("SegundoNombreBeneficiario", document.getElementById("segundoNomB").value);
@@ -598,7 +641,6 @@
                         formData.append("AntecedentePsicologico", document.getElementById("hiddenAntePsico").value);
                         formData.append("DescripcionEnfermedad", document.getElementById("descripcionEnfermedad").value);
                         formData.append("DescripcionPsicologica", document.getElementById("descripcionPsicologica").value);
-                        formData.append("JornadaId", document.getElementById("jornada").value);
                         formData.append("PadrinoId", document.getElementById("padrino").value);
                         formData.append("AporteEconomicoPadrino", document.getElementById("aportePadrino").value);
                         formData.append("NombreMadre", document.getElementById("nombreMa").value);
@@ -634,7 +676,19 @@
                         formData.append("MunicipioAcudiente", document.getElementById("municipioAcu").value);
                         formData.append("NivelEscolaridadAcudiente", document.getElementById("escolaridadAcu").value);
                         formData.append("IngresoEconomicoAcudiente", document.getElementById("ingresoEcoAcu").value);
+                        formData.append("InstitucionEducativa", document.getElementById("institucion").value);
+                        formData.append("NivelEscolaridad", document.getElementById("nivelEscolar").value);
+                        formData.append("FechaMatricula", document.getElementById("fechaMatricula").value);
+                        formData.append("JornadaId", document.getElementById("jornada").value);
                         formData.append("FechaRegistro", document.getElementById("fechaReg").value);
+                        formData.append("AutorizacionData", document.getElementById("hiddenAutorizacionData").value);
+                        formData.append("AutorizacionFoto", document.getElementById("hiddenAutorizacionFoto").value);
+
+                        if (document.getElementById("NombreImagen") != null) {
+                            formData.append("NombreImagen", document.getElementById("NombreImagen").value);
+                        }
+
+                        formData.append("Imagen", imagen[0]);
 
                         $.ajax({
                             url: '@Url.Action("EditRetiro", "Preinscripcion")',
@@ -650,7 +704,7 @@
                                     }, 1000);
                                     alertify.success('Actualizado');
                                 } else {
-                                    alertify.error('No se pudo actualizar');
+                                    alertify.error('No se pudo guardar');
                                 }
                             },
                             error: function (err) {
@@ -662,7 +716,7 @@
                     }
                 })
         }
-        })
+    })
 
 </script>
 

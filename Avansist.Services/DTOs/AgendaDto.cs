@@ -36,7 +36,7 @@ namespace Avansist.Services.DTOs
         [Required(ErrorMessage = "La hora del inicio del evento es requerida")]
         public string HoraInicioEvento { get; set; }
         [DataType(DataType.Time)]
-        [DisplayName("Fecha de Inicio Evento")]
+        [DisplayName("Hora fin Evento")]
         [Required(ErrorMessage = "La hora del fin del evento es requerida")]
         public string HoraFinEvento { get; set; }
         [DataType(DataType.Date)]

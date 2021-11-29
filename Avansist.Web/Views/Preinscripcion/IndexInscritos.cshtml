@@ -78,7 +78,8 @@
                                     @Html.DisplayFor(modelItem => item.NombreModalidad)
                                 </td>
                                 <td>
-                                    <a class="btn btn-outline-primary" asp-action="CreateMatricula" asp-route-id="@item.PreinscripcionId"><i class="fas fa-user-graduate"></i></a>
+                                    <a data-bs-toggle="tooltip" title="Matricular" class="btn btn-outline-success" asp-action="CreateMatricula" asp-route-id="@item.PreinscripcionId"><i class="fas fa-user-graduate"></i></a>
+                                    <a data-bs-toggle="tooltip" title="Retirar" class="btn btn-outline-danger" asp-action="CreateRetiro" asp-route-id="@item.PreinscripcionId"><i class="fas fa-user-times"></i></a>
                                 </td>
                             </tr>
                         }
