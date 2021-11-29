@@ -36,6 +36,7 @@ function calendario() {
                 $('#HoraFinEvento').val(respuesta.data.horaFinEvento);
                 $('#FechaInicioEvento').val(moment(respuesta.data.fechaInicioEvento).format("YYYY-MM-DD"));
                 //$('#FechaFinEvento').val(moment(respuesta.data.fechaFinEvento).format("YYYY-MM-DD"));
+                $('#Editar').css('display', 'block');
 
                 $('#modalCalendario').modal('show');
             })
