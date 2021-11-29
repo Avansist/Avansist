@@ -100,5 +100,160 @@ namespace Avansist.Services.Servicies
         {
             return await _context.Preinscripcions.ToListAsync();
         }
+
+        //-----------------------------------
+        // ESTE ES EL SERVICIP PARA MOSTRAR LA VISTA DEL INDEX
+
+        //Listar evento salidad extracurricular
+        public IEnumerable<SalidadExtracurricularDto> ListarSalidadExtracurricularDto()
+        {
+            List<SalidadExtracurricularDto> listarSalidadExtracurricularDto = new();
+            _context.SalidaExtracurriculars
+                .OrderByDescending(c => c.SalidaExtracurricularId).ToList().ForEach(ci =>
+                {
+                    SalidadExtracurricularDto SalidadExtracurricularDto = new()
+                    {
+                        SalidaExtracurricularId = ci.SalidaExtracurricularId,
+                        
+                        PreinscripcionId = ci.PreinscripcionId,
+                        NombreSalidadEvento = ci.NombreSalidadEvento,
+                        Direccion = ci.Direccion,
+                        ResponsableEvento = ci.ResponsableEvento,
+                        FechaSalidadEvento = ci.FechaSalidadEvento,
+                        FechaRegresoEvento = ci.FechaRegresoEvento
+
+                    };
+                    listarSalidadExtracurricularDto.Add(SalidadExtracurricularDto);
+                });
+            return listarSalidadExtracurricularDto;
+        }
+
+        //Guardar Inf salidad extracurricular
+        public async Task GuardarSalidadExtracurricular(SalidadExtracurricularDto salidadExtracurricularDto)
+        {
+            SalidaExtracurricular salidadExtracurricular = new()
+            {
+                SalidaExtracurricularId = salidadExtracurricularDto.SalidaExtracurricularId,
+                NombreSalidadEvento = salidadExtracurricularDto.NombreSalidadEvento,
+                Direccion = salidadExtracurricularDto.Direccion,
+                ResponsableEvento = salidadExtracurricularDto.ResponsableEvento,
+                DocumentoResponsable = salidadExtracurricularDto.DocumentoResponsable,
+                EstadoEvento = salidadExtracurricularDto.EstadoEvento,
+                FechaSalidadEvento = salidadExtracurricularDto.FechaSalidadEvento,
+                FechaRegresoEvento = salidadExtracurricularDto.FechaRegresoEvento
+            };
+            _context.Add(salidadExtracurricular);
+            await _context.SaveChangesAsync();
+        }
+
+
+        public async Task<SalidaExtracurricular> ObtenerSalidadExtracurricularID(int id)
+        {
+            var s = await _context.SalidaExtracurriculars.Include(p => p.DetalleSalidas).Include(pr => pr.Preinscripcion).Where(se => se.SalidaExtracurricularId == id).FirstAsync();
+            SalidaExtracurricular salidadExtracurricular= new()
+            {
+                SalidaExtracurricularId = s.SalidaExtracurricularId,
+                PreinscripcionId = s.PreinscripcionId,
+                NombreSalidadEvento = s.NombreSalidadEvento,
+                Direccion = s.Direccion,
+                ResponsableEvento = s.ResponsableEvento,
+                DocumentoResponsable = s.DocumentoResponsable,
+                EstadoEvento = s.EstadoEvento,
+                FechaSalidadEvento = s.FechaSalidadEvento,
+                FechaRegresoEvento = s.FechaRegresoEvento
+
+            };
+            return salidadExtracurricular;
+        }
+
+        //Editar salida extracurricular
+        public async Task EditarSalidadExtracurricular(SalidadExtracurricularDto salidadExtracurricularDto)
+        {
+            SalidaExtracurricular salidadExtracurricular = new()
+            {
+                SalidaExtracurricularId = salidadExtracurricularDto.SalidaExtracurricularId,
+                PreinscripcionId = salidadExtracurricularDto.PreinscripcionId,
+                NombreSalidadEvento = salidadExtracurricularDto.NombreSalidadEvento,
+                Direccion = salidadExtracurricularDto.Direccion,
+                ResponsableEvento = salidadExtracurricularDto.ResponsableEvento,
+                DocumentoResponsable = salidadExtracurricularDto.DocumentoResponsable,
+                EstadoEvento = salidadExtracurricularDto.EstadoEvento,
+                FechaSalidadEvento = salidadExtracurricularDto.FechaSalidadEvento,
+                FechaRegresoEvento = salidadExtracurricularDto.FechaRegresoEvento
+            };
+            _context.Update(salidadExtracurricular);
+            await _context.SaveChangesAsync();
+        }
+
+
+        public IEnumerable<DetalleDto> ListarBeneficiarioDetalleSalidaDto()
+        {
+            List<DetalleDto> listaDetalleDto = new();
+            _context.DetalleSalidas.Include(pr => pr.Preinscripcions).OrderByDescending(ds => ds.DetalleSalidaId).ToList().ForEach(
+                t => {
+                    DetalleDto detalleDto = new()
+                    {
+                        DetalleId = t.DetalleSalidaId,
+                        NombreBeneficiario = t.Preinscripcions.PrimerNombreBeneficiario,
+                        
+                        
+                    };
+                    listaDetalleDto.Add(detalleDto);
+                });
+            return listaDetalleDto;
+        }
+
+
+
+
+
+        public async Task<DetalleDto> ObtenerDetalleID(int id)
+        {
+            var s = await _context.DetalleSalidas.Where(se => se.DetalleSalidaId == id).FirstAsync();
+            DetalleDto detalleDto = new()
+            {
+                DetalleId = s.DetalleSalidaId
+            };
+            return detalleDto;
+        }
+        
+        public async Task EliminarDetalleSalida(DetalleSalida detalleSalida)
+        {
+            try
+            {
+                _context.Remove(detalleSalida);
+                await _context.SaveChangesAsync();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+        } 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     }
 }

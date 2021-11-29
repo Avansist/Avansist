@@ -15,5 +15,16 @@ namespace Avansist.Services.Abstract
         IEnumerable<ControlAsistenciaResumenDto> ListarControlAsistenciaResumenDto();
         Task GuardarIngreso(ControlAsistenciaDto controlAsistenciaDto);
         Task EditarIngreso(ControlAsistenciaDto controlAsistenciaDto);
+
+
+        IEnumerable<SalidadExtracurricularDto> ListarSalidadExtracurricularDto();
+        Task GuardarSalidadExtracurricular(SalidadExtracurricularDto salidadExtracurricularDto);
+        Task<SalidaExtracurricular> ObtenerSalidadExtracurricularID(int id);
+        Task EditarSalidadExtracurricular(SalidadExtracurricularDto salidadExtracurricularDto);
+
+        IEnumerable<DetalleDto> ListarBeneficiarioDetalleSalidaDto();
+        Task<DetalleDto> ObtenerDetalleID(int id);
+        Task EliminarDetalleSalida(DetalleSalida detalleSalida);
+
     }
 }
