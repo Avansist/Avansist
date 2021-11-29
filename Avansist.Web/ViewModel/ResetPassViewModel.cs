@@ -10,6 +10,7 @@ namespace Avansist.Web.ViewModel
     public class ResetPassViewModel
     {
         [Required(ErrorMessage = "El correo es requerido")]
+        [RegularExpression(@"^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$", ErrorMessage = "Correo incorrecto")]
         [EmailAddress(ErrorMessage = "Correo invalido")]
         [DisplayName("Correo Electrónico")]
         public string Email { get; set; }

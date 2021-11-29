@@ -35,6 +35,16 @@ namespace Avansist.DAL
         //IdentityUser
         public DbSet<UsuarioIdentity> UsuariosIdentity { get; set; }
 
-        //IdentityRole
+
+        // Evitar borrado en cascada cuando se agrega una migracion
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            base.OnModelCreating(builder);
+
+            foreach (var foreignKey in builder.Model.GetEntityTypes().SelectMany(e => e.GetForeignKeys()))
+            {
+                foreignKey.DeleteBehavior = DeleteBehavior.Restrict;
+            }
+        }
     }
 }

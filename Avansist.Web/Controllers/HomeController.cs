@@ -24,6 +24,8 @@ namespace Avansist.Web.Controllers
             _calendarioServices = calendarioServices;
         }
 
+        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+
         public IActionResult Index()
         {
             return View();
