@@ -16,7 +16,7 @@ namespace Avansist.Models.Entities
         public bool AutorizacionSalidaExtracurricular { get; set; }
 
         //Llave Foranea
-        public virtual Preinscripcion Preinscripcion { get; set; }
-        public virtual SalidaExtracurricular SalidaExtracurricular { get; set; }
+        public Preinscripcion  Preinscripcions { get; set; }
+        public SalidaExtracurricular SalidaExtracurricular { get; set; }
     }
 }

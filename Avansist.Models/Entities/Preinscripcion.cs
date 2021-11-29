@@ -176,9 +176,11 @@ namespace Avansist.Models.Entities
         public virtual Modalidad Modalidad { get; set; }
         public virtual Padrino Padrino { get; set; }
         public virtual Estado Estado { get; set; }
+        public Preinscripcion Preinscripcions { get; set; }
         public virtual TipoDocumento TipoDocumento { get; set; }
         public virtual List<ControlAsistencia> ControlAsistencias { get; set; }
-        public virtual List<DetalleSalida> DetalleSalidas { get; set; }
+        public ICollection<SalidaExtracurricular> SalidaExtracurricular { get; set; }
+        public ICollection<DetalleSalida> DetalleSalidas { get; set; }
         public virtual List<AgendaBeneficiario> AgendaBeneficiarios { get; set; }
     }
 }
