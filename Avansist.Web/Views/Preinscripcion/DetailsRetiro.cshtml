@@ -17,7 +17,7 @@
         <div class="container-fluid">
             <div class="row mt-5">
                 <div class="col-sm-6">
-                    <ul id="List"> <li class="heading" style="list-style: none; font-size: 25px" id="IconList"> Ver Matricula</li></ul>
+                    <ul id="List"> <li class="heading" style="list-style: none; font-size: 25px" id="IconList"> Ver Retiro</li></ul>
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
@@ -32,7 +32,7 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-12 mx-auto p-2">
-                <div class="card mt-0 mb-3 pt-3">
+                <div class="card p-5 mt-0 mb-3 pt-3">
                     <div class="col-sm-12">
                         <div class="">
                             <h4 class="text-left">
@@ -73,9 +73,6 @@
                             <textarea disabled asp-for="ObservacionRetiro" class="form-control" rows="5"></textarea>
                             <span asp-validation-for="ObservacionRetiro" class="text-danger"></span>
                         </div>
-                        <div class="col-sm-12">
-                            <hr />
-                        </div>
                         <div class="d-flex justify-content-around">
                             <div class="form-group col-sm-6">
                                 <input type="button" value="Atras" id="btn-cancelar" class="btn btn-danger float-right" />
@@ -99,7 +96,7 @@
     <script>
 
     document.getElementById("btn-cancelar").addEventListener("click", function (event) {
-    window.location.href = '@Url.Action("IndexMatricula", "Preinscripcion")';
+    window.location.href = '@Url.Action("IndexRetiro", "Preinscripcion")';
     });
 
     </script>
