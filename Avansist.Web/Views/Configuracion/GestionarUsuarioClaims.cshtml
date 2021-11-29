@@ -1,0 +1,96 @@
+﻿@model UsuarioClaimsViewModel
+
+@{
+    var roleId = ViewBag.roleId;
+}
+
+@{
+    ViewData["Title"] = "Agregar o remover permisos";
+}
+
+
+@section Style {
+
+    <link href="~/css/AggBeneficiario.css" rel="stylesheet" />
+}
+
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header pb-0">
+        <div class="container-fluid">
+            <div class="row mt-5">
+                <div class="col-sm-6">
+                    <ul id="List"> <li class="heading" style="list-style: none; font-size: 25px" id="IconList"> Agregar o remover permisos</li></ul>
+                </div><!-- /.col -->
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a asp-action="Index">Configuración</a></li>
+                        <li class="breadcrumb-item active">Agregar o remover</li>
+                    </ol>
+                </div><!-- /.col -->
+            </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12 p-2">
+                <div class="card mt-0 mb-3 p-5 mx-auto" style="width: 800px">
+                    <form method="post">
+                        <div class="card">
+                            <div class="card-header">
+                                <h2>Agregar o remover permisos</h2>
+                            </div>
+                            <div class="card-body">
+                                @for (int i = 0; i < Model.Claims.Count; i++)
+                                {
+                                    <div class="form-check m-1">
+                                        <input type="hidden" asp-for="@Model.Claims[i].tipoClaim" />
+                                        <input asp-for="@Model.Claims[i].estaSeleccionado" class="form-check-input" />
+                                        <label class="form-check-label" asp-for="@Model.Claims[i].estaSeleccionado">
+                                            @Model.Claims[i].tipoClaim
+                                        </label>
+                                    </div>
+                                }
+                            <div asp-validation-summary="All" class="text-danger"></div>
+                            </div>
+                            <div class="card-footer">
+                                <input type="submit" value="Actualizar" class="btn btn-success" />
+                                <a asp-action="EditarUsuario" asp-route-Id="@Model.idUsuario" class="btn btn-danger" style="width: auto">
+                                    Cancelar
+                                </a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /.content-wrapper -->
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+    <script>
+
+        function guardarRol() {
+            Swal.fire({
+                text: '¿Desea guardar el rol?',
+                icon: 'question',
+                confirmButtonColor: '#afdb6e',
+                showDenyButton: true,
+                showCancelButton: false,
+                confirmButtonText: 'Guardar',
+                denyButtonText: 'Cancelar',
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    document.getElementById('crear-rol').submit();
+                }
+            })
+        }
+
+    </script>
+
+}

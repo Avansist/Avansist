@@ -2,13 +2,16 @@ using Avansist.DAL;
 using Avansist.Models.Entities;
 using Avansist.Services.Abstract;
 using Avansist.Services.Servicies;
+using Avansist.Web.Models;
 using Avansist.Web.Models.Email;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -35,14 +38,21 @@ namespace Avansist.Web
             services.AddDbContext<AvansistDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
+            //services.AddMvc(options => 
+            //{
+            //    var policy = new AuthorizationPolicyBuilder().RequireAuthenticatedUser().Build();
+            //    options.Filters.Add(new AuthorizeFilter(policy));
+            //}).AddXmlSerializerFormatters();
 
             //Configuracion para envio de correos
             services.Configure<EmailSenderOptions>(Configuration.GetSection("EmailSenderOptions"));
             services.AddSingleton<IEmailSender, EmailSender>();
 
             // Configuración libreria Identity
-            services.AddDefaultIdentity<UsuarioIdentity>(options => options.SignIn.RequireConfirmedAccount = true)
-                .AddEntityFrameworkStores<AvansistDbContext>();
+            services.AddIdentity<UsuarioIdentity, IdentityRole>(options => options.SignIn.RequireConfirmedAccount = true)
+                .AddErrorDescriber<ErroresCastellano>()
+                .AddEntityFrameworkStores<AvansistDbContext>()
+                .AddTokenProvider<DataProtectorTokenProvider<UsuarioIdentity>>(TokenOptions.DefaultProvider);
             services.Configure<IdentityOptions>(options =>
             {
                 options.Password.RequireDigit = false;
@@ -55,13 +65,18 @@ namespace Avansist.Web
 
             services.ConfigureApplicationCookie(options =>
             {
-                options.AccessDeniedPath = new PathString("/Usuario/Login");
-                options.LoginPath = new PathString("/Usuario/Login");
+                options.AccessDeniedPath = new PathString("/Acceso/Login");
+                options.LoginPath = new PathString("/Acceso/Login");
                 options.Cookie.Name = "Cookie";
                 options.Cookie.HttpOnly = true;
                 options.ExpireTimeSpan = TimeSpan.FromMinutes(5);
                 options.ReturnUrlParameter = CookieAuthenticationDefaults.ReturnUrlParameter;
                 options.SlidingExpiration = true;
+            });
+
+            services.AddAuthorization(options =>
+            {
+                options.AddPolicy("BorrarRolPolicy", policy => policy.RequireClaim("Borrar Rol"));
             });
 
             //Servicios para las inyecciones de dependencias
@@ -97,7 +112,7 @@ namespace Avansist.Web
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Usuario}/{action=Login}/{id?}");
+                    pattern: "{controller=Configuracion}/{action=Index}/{id?}");
             });
         }
     }

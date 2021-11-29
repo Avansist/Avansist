@@ -1,0 +1,114 @@
+﻿@model RolViewModel
+
+@{
+    ViewData["Title"] = "Crear rol";
+}
+
+
+@section Style {
+
+    <link href="~/css/AggBeneficiario.css" rel="stylesheet" />
+}
+
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header pb-0">
+        <div class="container-fluid">
+            <div class="row mt-5">
+                <div class="col-sm-6">
+                    <ul id="List"> <li class="heading" style="list-style: none; font-size: 25px" id="IconList"> Crear rol</li></ul>
+                </div><!-- /.col -->
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a asp-action="ListarRoles">Configuración</a></li>
+                        <li class="breadcrumb-item active">Crear rol</li>
+                    </ol>
+                </div><!-- /.col -->
+            </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12 p-2">
+                <div class="card mt-0 mb-3 p-5 mx-auto" style="width: 700px">
+                    <div class="col-sm-12 p-0">
+                        <div class="">
+                            <h4 class="text-left">
+                                <b id="Tite">
+                                    Crear rol
+                                </b>
+                            </h4>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 p-0">
+                        <hr />
+                    </div>
+                    <div class="form-group">
+                        <form method="post" asp-action="CrearRol" id="crear-rol" name="formulario">
+                            <input type="hidden" id="succeededRol" value="@ViewBag.Succeeded" />
+                            <div asp-validation-summary="All" class="text-danger small"></div>
+                            <div class="form-group">
+                                <label asp-for="NombreRol" class="control-label"></label>
+                                <input required asp-for="NombreRol" class="form-control" />
+                            </div>
+
+                            <div class="form-group">
+                                <input type="button" value="Guardar" class="btn btn-success" onclick="guardarRol()" />
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /.content-wrapper -->
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+<script>
+
+    document.addEventListener('DOMContentLoaded', function () {
+        $("#crear-rol").validate();
+    })
+
+    function guardarRol() {
+        if (!$("#crear-rol").valid()) {
+            $("label.error").css("color", "red");
+            $("label.error").css("font-weight", "300");
+
+            event.preventDefault();
+
+        } else {
+            Swal.fire({
+                text: '¿Desea guardar el rol?',
+                icon: 'question',
+                confirmButtonColor: '#afdb6e',
+                showDenyButton: true,
+                showCancelButton: false,
+                confirmButtonText: 'Guardar',
+                denyButtonText: 'Cancelar',
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    document.getElementById('crear-rol').submit();
+                }
+            })
+        }
+    }
+    
+
+    let rolGuardado = document.getElementById('succeededRol').value;
+
+    if (rolGuardado == 200) {
+        setTimeout(function () {
+            window.location.href = '@Url.Action("ListarRoles", "Configuracion")';
+        }, 1300);
+        alertify.success('Guardado');
+    }
+
+</script>
+
+}

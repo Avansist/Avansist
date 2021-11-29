@@ -1,0 +1,130 @@
+﻿@model EditarRolViewModel
+
+@{
+    ViewData["Title"] = "Editar rol";
+}
+
+
+@section Style {
+
+    <link href="~/css/AggBeneficiario.css" rel="stylesheet" />
+}
+
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header pb-0">
+        <div class="container-fluid">
+            <div class="row mt-5">
+                <div class="col-sm-6">
+                    <ul id="List"> <li class="heading" style="list-style: none; font-size: 25px" id="IconList"> Editar rol</li></ul>
+                </div><!-- /.col -->
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a asp-action="ListarRoles">Listar roles</a></li>
+                        <li class="breadcrumb-item active">Editar rol</li>
+                    </ol>
+                </div><!-- /.col -->
+            </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12 mx-auto p-2">
+                <div class="card mt-0 mb-3 p-5">
+                    <div class="col-sm-12">
+                        <div class="">
+                            <h4 class="text-left">
+                                <b id="Tite">
+                                    Editar rol
+                                </b>
+                            </h4>
+                        </div>
+                    </div>
+                    <div class="col-sm-12">
+                        <hr />
+                    </div>
+                    <form method="post" id="editar-rol">
+                        <div asp-validation-summary="All" class="text-danger"></div>
+                        <div class="d-flex justify-content-between col-sm-12">
+                            <div class="col-sm-6 pl-0">
+                                <div class="form-group row" style="display: none">
+                                    <label asp-for="Id" class="col-sm-2 col-form-label"></label>
+                                    <div class="col-sm-10">
+                                        <input asp-for="Id" disabled class="form-control">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="NombreRol">Nombre del rol</label>
+                                    <input asp-for="NombreRol" class="form-control">                                    
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-10">
+                                        <button type="button" class="btn btn-success" onclick="editarRol()">Actualizar</button>
+                                        <a asp-action="ListarRoles" class="btn btn-danger">Cancelar</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 pr-0">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h3>Usuarios en este rol</h3>
+                                    </div>
+                                    <div class="card-body">
+                                        @if (Model.Usuarios.Any())
+                                        {
+                                            for (int i = 0; i < Model.Usuarios.Count; i++)
+                                            {
+                                                <div class="d-flex justify-content-start">
+                                                    <h5 class="card-title">@Model.Usuarios[i]</h5>
+                                                </div>
+                                                
+                                            }
+                                        }
+                                        else
+                                        {
+                                            <h5 class="card-title">No existen usuarios</h5>
+                                        }
+                                    </div>
+                                    <div class="card-footer">
+                                        <a asp-controller="Configuracion" asp-action="EditarUsuarioRol" asp-route-RolId="@Model.Id"
+                                           class="btn btn-primary" style="width:auto">
+                                            Agregar o remover usuario
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /.content-wrapper -->
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+    <script>
+
+        function editarRol() {
+            Swal.fire({
+                text: '¿Desea actualizar el rol?',
+                icon: 'question',
+                confirmButtonColor: '#afdb6e',
+                showDenyButton: true,
+                showCancelButton: false,
+                confirmButtonText: 'Actualizar',
+                denyButtonText: 'Cancelar',
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    document.getElementById('editar-rol').submit();                   
+                }
+            })
+        }
+
+    </script>
+
+}

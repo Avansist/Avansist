@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Avansist.DAL.Migrations
 {
     [DbContext(typeof(AvansistDbContext))]
-    [Migration("20211111162237_Inicial")]
+    [Migration("20211128062144_Inicial")]
     partial class Inicial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -705,12 +705,10 @@ namespace Avansist.DAL.Migrations
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
                     b.Property<string>("LoginProvider")
-                        .HasMaxLength(128)
-                        .HasColumnType("nvarchar(128)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("ProviderKey")
-                        .HasMaxLength(128)
-                        .HasColumnType("nvarchar(128)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("ProviderDisplayName")
                         .HasColumnType("nvarchar(max)");
@@ -747,12 +745,10 @@ namespace Avansist.DAL.Migrations
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("LoginProvider")
-                        .HasMaxLength(128)
-                        .HasColumnType("nvarchar(128)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Name")
-                        .HasMaxLength(128)
-                        .HasColumnType("nvarchar(128)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Value")
                         .HasColumnType("nvarchar(max)");
@@ -780,7 +776,7 @@ namespace Avansist.DAL.Migrations
                     b.HasOne("Avansist.Models.Entities.Preinscripcion", "Preinscripcion")
                         .WithMany("AgendaBeneficiarios")
                         .HasForeignKey("PreinscripcionId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("Preinscripcion");
@@ -791,7 +787,7 @@ namespace Avansist.DAL.Migrations
                     b.HasOne("Avansist.Models.Entities.Preinscripcion", "Preinscripcion")
                         .WithMany("ControlAsistencias")
                         .HasForeignKey("PreinscripcionId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("Preinscripcion");
@@ -802,13 +798,13 @@ namespace Avansist.DAL.Migrations
                     b.HasOne("Avansist.Models.Entities.Preinscripcion", "Preinscripcion")
                         .WithMany("DetalleSalidas")
                         .HasForeignKey("PreinscripcionId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("Avansist.Models.Entities.SalidaExtracurricular", "SalidaExtracurricular")
                         .WithMany("DetalleSalidas")
                         .HasForeignKey("SalidaExtracurricularId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("Preinscripcion");
@@ -821,7 +817,7 @@ namespace Avansist.DAL.Migrations
                     b.HasOne("Avansist.Models.Entities.TipoDocumento", "TipoDocumento")
                         .WithMany("Padrino")
                         .HasForeignKey("TipoDocumentoId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("TipoDocumento");
@@ -832,49 +828,49 @@ namespace Avansist.DAL.Migrations
                     b.HasOne("Avansist.Models.Entities.Estado", "Estado")
                         .WithMany("Preinscripcions")
                         .HasForeignKey("EstadoId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("Avansist.Models.Entities.Etnia", "Etnia")
                         .WithMany("Preinscripcions")
                         .HasForeignKey("EtniaId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("Avansist.Models.Entities.Genero", "Genero")
                         .WithMany("Preinscripcions")
                         .HasForeignKey("GeneroId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("Avansist.Models.Entities.GrupoSanguineo", "GrupoSanguineo")
                         .WithMany("Preinscripcions")
                         .HasForeignKey("GrupoSanguineoId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("Avansist.Models.Entities.Jornada", "Jornada")
                         .WithMany("Preinscripcions")
                         .HasForeignKey("JornadaId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("Avansist.Models.Entities.Modalidad", "Modalidad")
                         .WithMany("Preinscripcions")
                         .HasForeignKey("ModalidadId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("Avansist.Models.Entities.Padrino", "Padrino")
                         .WithMany("Preinscripcions")
                         .HasForeignKey("PadrinoId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("Avansist.Models.Entities.TipoDocumento", "TipoDocumento")
                         .WithMany("Preinscripcions")
                         .HasForeignKey("TipoDocumentoId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("Estado");
@@ -899,7 +895,7 @@ namespace Avansist.DAL.Migrations
                     b.HasOne("Avansist.Models.Entities.Agenda", "Agenda")
                         .WithMany()
                         .HasForeignKey("AgendaId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("Agenda");
@@ -910,7 +906,7 @@ namespace Avansist.DAL.Migrations
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
                         .WithMany()
                         .HasForeignKey("RoleId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
                 });
 
@@ -919,7 +915,7 @@ namespace Avansist.DAL.Migrations
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
                 });
 
@@ -928,7 +924,7 @@ namespace Avansist.DAL.Migrations
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
                 });
 
@@ -937,13 +933,13 @@ namespace Avansist.DAL.Migrations
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
                         .WithMany()
                         .HasForeignKey("RoleId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
                 });
 
@@ -952,7 +948,7 @@ namespace Avansist.DAL.Migrations
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
                 });
 
