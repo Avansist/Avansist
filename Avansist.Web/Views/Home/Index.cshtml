@@ -106,10 +106,20 @@
                 </form>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-success" onclick="guardar()">Guardar</button>
-                <button type="button" class="btn btn-warning" onclick="editar()">Editar</button>
-                <button type="button" class="btn btn-danger" onclick="eliminar()">Eliminar</button>
-                <button type="button" class="btn btn-secondary cerrarModal" data-dismiss="modal">Cerrar</button>
+
+                    <button type="button" class="btn btn-success" onclick="guardar()">Guardar</button>
+                    <button type="button" class="btn btn-secondary cerrarModal" data-dismiss="modal">Cerrar</button>
+                    <button style="display:none" id="Editar" type="button" class="btn btn-warning" onclick="editar()">Editar</button>
+                    <button style="display:none" id="Eliminar" type="button" class="btn btn-danger" onclick="eliminar()">Eliminar</button>
+
+
+
+
+
+
+
+
+
             </div>
         </div>
     </div>
@@ -132,14 +142,12 @@
             listar();
         });
 
-
         $(".cerrarModal").click(function () {
             $("#modalCalendario").modal('hide')
         });
 
-        $(".cerrarModal2").click(function () {
-            $("#modalCalendario").modal('hide')
-        });
+
+        $("#Editar").css('visibility', 'hidden');
 
     </script>
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

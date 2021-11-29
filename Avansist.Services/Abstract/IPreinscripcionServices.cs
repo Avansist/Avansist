@@ -19,6 +19,7 @@ namespace Avansist.Services.Abstract
 
         //--------------------------------------------------
         Task<IEnumerable<Estado>> ObtenerListaEstados();
+        Task<IEnumerable<Estado>> ObtenerListaEstadosPreinscripcion();
         Task<IEnumerable<TipoDocumento>> ObtenerListaTipoDocumento();
         Task<IEnumerable<Padrino>> ObtenerListaPadrinos();
         Task<IEnumerable<Modalidad>> ObtenerListaModalidad();
@@ -39,10 +40,10 @@ namespace Avansist.Services.Abstract
         //Matricula
         IEnumerable<BeneficiarioResumenDto> ListarMatriculaDto();
         Task EditarMatricula(Preinscripcion preinscripcion);
-        Task GuardarRetiro(PreinscripcionDto preinscripcionDto);
+        Task GuardarRetiro(Preinscripcion preinscripcion);
 
         //Retiro
         IEnumerable<BeneficiarioResumenDto> ListarRetiroDto();
-        Task EditarRetiro(PreinscripcionDto preinscripcionDto);
+        Task EditarRetiro(Preinscripcion preinscripcion);
     }
 }

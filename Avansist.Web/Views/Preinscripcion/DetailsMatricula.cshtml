@@ -1,7 +1,7 @@
 ﻿@model Avansist.Services.DTOs.PreinscripcionDto
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Detail Matricula";
 }
 
 @section Style {
@@ -30,8 +30,8 @@
     <!-- /.content-header -->
     <div class="container">
         <div class="row">
-            <div class="col-sm-11 p-0 mt-3 mb-2">
-                <div class="card p-5 mt-0 mb-3 mx-auto" style="width: 700px">
+            <div class="col-sm-12 mx-auto p-2">
+                <div class="card p-5 mt-0 mb-3 pt-3">
                     <div class="col-sm-12">
                         <div class="">
                             <h4 class="text-left">
@@ -48,57 +48,53 @@
                         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                         <input type="hidden" asp-for="PreinscripcionId" />
                         <div class="d-flex justify-content-around">
-                            <div class="form-group col-sm-6">
+                            <div class="form-group col-sm-3">
                                 <label asp-for="PrimerNombreBeneficiario" class="control-label"></label>
-                                <input readonly asp-for="PrimerNombreBeneficiario" class="form-control" />
+                                <input disabled asp-for="PrimerNombreBeneficiario" class="form-control" />
                                 <span asp-validation-for="PrimerNombreBeneficiario" class="text-danger"></span>
                             </div>
-                            <div class="form-group col-sm-6">
+                            <div class="form-group col-sm-3">
                                 <label asp-for="PrimerApellidoBeneficiario" class="control-label"></label>
-                                <input readonly asp-for="PrimerApellidoBeneficiario" class="form-control" />
+                                <input disabled asp-for="PrimerApellidoBeneficiario" class="form-control" />
                                 <span asp-validation-for="PrimerApellidoBeneficiario" class="text-danger"></span>
                             </div>
-                        </div>
-                        <div class="d-flex justify-content-around">
-                            <div class="form-group col-sm-6">
+                            <div class="form-group col-sm-3">
                                 <label asp-for="InstitucionEducativa" class="control-label"></label>
-                                <input readonly asp-for="InstitucionEducativa" class="form-control" />
+                                <input disabled asp-for="InstitucionEducativa" class="form-control" />
                                 <span asp-validation-for="InstitucionEducativa" class="text-danger"></span>
                             </div>
-                            <div class="form-group col-sm-6">
-                                <label asp-for="NivelEscolaridad" class="control-label"></label>
-                                <input readonly asp-for="NivelEscolaridad" class="form-control" />
-                                <span asp-validation-for="NivelEscolaridad" class="text-danger"></span>
-                            </div>
-                        </div>
-                        <div class="d-flex justify-content-around">
-                            <div class="form-group col-sm-6">
-                                <label asp-for="FechaMatricula" class="control-label"></label>
-                                <input readonly asp-for="FechaMatricula" type="date" class="form-control" />
-                                <span asp-validation-for="FechaMatricula" class="text-danger"></span>
-                            </div>
-                            <div class="form-group col-sm-6">
+                            <div class="form-group col-sm-3">
                                 <label asp-for="JornadaId" class="control-label"></label>
-                                <select readonly asp-for="JornadaId" class="form-control" asp-items="ViewBag.listaJornadas">
+                                <select disabled asp-for="JornadaId" class="form-control" asp-items="ViewBag.listaJornadas">
                                     <option>Seleccione</option>
                                 </select>
                             </div>
                         </div>
-                        <div class="form-group col-sm-6">
-                            <label asp-for="EstadoId" class="control-label"></label>
-                            <select disabled asp-for="EstadoId" class="form-control" asp-items="ViewBag.listaEstados">
-                                <option>Seleccione</option>
-                            </select>
-                        </div>                        
-                        <div class="col-sm-12">
-                            <hr />
+                        <div class="d-flex justify-content-around">
+
+                            <div class="form-group col-sm-4">
+                                <label asp-for="NivelEscolaridad" class="control-label"></label>
+                                <input disabled asp-for="NivelEscolaridad" class="form-control" />
+                                <span asp-validation-for="NivelEscolaridad" class="text-danger"></span>
+                            </div>
+                            <div class="form-group col-sm-4">
+                                <label asp-for="FechaMatricula" class="control-label"></label>
+                                <input disabled asp-for="FechaMatricula" type="date" class="form-control" />
+                                <span asp-validation-for="FechaMatricula" class="text-danger"></span>
+                            </div>
+                            <div class="form-group col-sm-4">
+                                <label asp-for="EstadoId" class="control-label"></label>
+                                <select disabled asp-for="EstadoId" class="form-control" asp-items="ViewBag.listaEstados">
+                                    <option>Seleccione</option>
+                                </select>
+                            </div>
                         </div>
                         <div class="d-flex justify-content-around">
                             <div class="form-group col-sm-6">
                                 <input type="button" value="Atras" id="btn-cancelar" class="btn btn-danger float-right" />
                             </div>
                             <div class="form-group col-sm-6">
-                                <a class="btn btn-success float-right" asp-controller="Preinscripcion" asp-action="EditMatricula" asp-route-id="@Model.PreinscripcionId">Ir a Actualizar</a>                                
+                                <a class="btn btn-success float-right" asp-controller="Preinscripcion" asp-action="EditMatricula" asp-route-id="@Model.PreinscripcionId">Ir a Actualizar</a>
                             </div>
                         </div>
                     </form>

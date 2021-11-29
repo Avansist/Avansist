@@ -331,6 +331,11 @@ namespace Avansist.Services.Servicies
             return await _context.Estados.ToListAsync();
         }
 
+        public async Task<IEnumerable<Estado>> ObtenerListaEstadosPreinscripcion()
+        {
+            return await _context.Estados.Where(e => e.EstadoId == 2 || e.EstadoId == 3 || e.EstadoId == 1003).ToListAsync();
+        }
+
         public async Task<IEnumerable<Estado>> ObtenerEstadoMatricula()
         {
             return await _context.Estados.Where(e => e.EstadoId == 3).ToListAsync();
@@ -600,9 +605,9 @@ namespace Avansist.Services.Servicies
             await _context.SaveChangesAsync();
         }
 
-        public async Task GuardarRetiro(PreinscripcionDto preinscripcionDto)
+        public async Task GuardarRetiro(Preinscripcion preinscripcion)
         {
-            Preinscripcion preinscripcion = new()
+           /* Preinscripcion preinscripcion = new()
             {
                 PreinscripcionId = preinscripcionDto.PreinscripcionId,
                 ModalidadId = preinscripcionDto.ModalidadId,
@@ -672,7 +677,7 @@ namespace Avansist.Services.Servicies
                 //Retiro
                 FechaRetiro = preinscripcionDto.FechaRetiro,
                 ObservacionRetiro = preinscripcionDto.ObservacionRetiro
-            };
+            };*/
             _context.Update(preinscripcion);
             await _context.SaveChangesAsync();
         }
@@ -705,9 +710,9 @@ namespace Avansist.Services.Servicies
             return listaBeneficiariosDto;
         }
 
-        public async Task EditarRetiro(PreinscripcionDto preinscripcionDto)
+        public async Task EditarRetiro(Preinscripcion preinscripcion)
         {
-            Preinscripcion preinscripcion = new()
+            /*Preinscripcion preinscripcion = new()
             {
                 PreinscripcionId = preinscripcionDto.PreinscripcionId,
                 ModalidadId = preinscripcionDto.ModalidadId,
@@ -781,7 +786,7 @@ namespace Avansist.Services.Servicies
                 //Retiro
                 FechaRetiro = preinscripcionDto.FechaRetiro,
                 ObservacionRetiro = preinscripcionDto.ObservacionRetiro
-            };
+            };*/
             _context.Update(preinscripcion);
             await _context.SaveChangesAsync();
         }

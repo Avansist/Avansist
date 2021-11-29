@@ -43,7 +43,7 @@ namespace Avansist.Web.Controllers
             ViewData["listaEtnias"] = new SelectList(await _preinscripcionServices.ObtenerListaEtnia(), "EtniaId", "NombreEtnia");
             ViewData["listaJornadas"] = new SelectList(await _preinscripcionServices.ObtenerListaJornada(), "JornadaId", "NombreJornada");
             ViewData["listaPadrinos"] = new SelectList(await _preinscripcionServices.ObtenerListaPadrinos(), "PadrinoId", "NombrePadrino");
-            ViewData["listaEstados"] = new SelectList(await _preinscripcionServices.ObtenerListaEstados(), "EstadoId", "NombreEstado");
+            ViewData["listaEstados"] = new SelectList(await _preinscripcionServices.ObtenerListaEstadosPreinscripcion(), "EstadoId", "NombreEstado");
             return View();
         }
 
@@ -250,7 +250,7 @@ namespace Avansist.Web.Controllers
             ViewData["listaEtnias"] = new SelectList(await _preinscripcionServices.ObtenerListaEtnia(), "EtniaId", "NombreEtnia");
             ViewData["listaJornadas"] = new SelectList(await _preinscripcionServices.ObtenerListaJornada(), "JornadaId", "NombreJornada");
             ViewData["listaPadrinos"] = new SelectList(await _preinscripcionServices.ObtenerListaPadrinos(), "PadrinoId", "NombrePadrino");
-            ViewData["listaEstados"] = new SelectList(await _preinscripcionServices.ObtenerListaEstados(), "EstadoId", "NombreEstado");            
+            ViewData["listaEstados"] = new SelectList(await _preinscripcionServices.ObtenerListaEstadosPreinscripcion(), "EstadoId", "NombreEstado");            
 
             return View(preinscripcionDto);
         }
@@ -389,6 +389,79 @@ namespace Avansist.Web.Controllers
             }
 
             var beneficiario = await _preinscripcionServices.ObtenerBeneficiarioPorId(id.Value);
+
+            PreinscripcionDto preinscripcionDto = new()
+            {
+                PreinscripcionId = beneficiario.PreinscripcionId,
+                ModalidadId = beneficiario.ModalidadId,
+                FechaRegistro = beneficiario.FechaRegistro,
+                PrimerNombreBeneficiario = beneficiario.PrimerNombreBeneficiario,
+                SegundoNombreBeneficiario = beneficiario.SegundoNombreBeneficiario,
+                PrimerApellidoBeneficiario = beneficiario.PrimerApellidoBeneficiario,
+                SegundoApellidoBeneficiario = beneficiario.SegundoApellidoBeneficiario,
+                GeneroId = beneficiario.GeneroId,
+                Edad = beneficiario.Edad,
+                TallaCamisa = beneficiario.TallaCamisa,
+                TallaPantalon = beneficiario.TallaPantalon,
+                TallaZapatos = beneficiario.TallaZapatos,
+                GrupoSanguineoId = beneficiario.GrupoSanguineoId,
+                FechaNacimiento = beneficiario.FechaNacimiento,
+                LugarNacimiento = beneficiario.LugarNacimiento,
+                TipoDocumentoId = beneficiario.TipoDocumentoId,
+                NumeroDocumento = beneficiario.NumeroDocumento,
+                LugarExpedicionDocumento = beneficiario.LugarExpedicionDocumento,
+                NombreEps = beneficiario.NombreEps,
+                GrupoSisben = beneficiario.GrupoSisben,
+                EtniaId = beneficiario.EtniaId,
+                AntecedenteMedico = beneficiario.AntecedenteMedico,
+                DescripcionEnfermedad = beneficiario.DescripcionEnfermedad,
+                AntecedentePsicologico = beneficiario.AntecedentePsicologico,
+                DescripcionPsicologica = beneficiario.DescripcionPsicologica,
+                JornadaId = beneficiario.JornadaId,
+                Municipio = beneficiario.Municipio,
+                CustodiaBeneficiario = beneficiario.CustodiaBeneficiario,
+                DireccionResidencia = beneficiario.DireccionResidencia,
+                PadrinoId = beneficiario.PadrinoId,
+                AporteEconomicoPadrino = beneficiario.AporteEconomicoPadrino,
+                NombreMadre = beneficiario.NombreMadre,
+                ApellidoMadre = beneficiario.ApellidoMadre,
+                NumeroDocumentoMadre = beneficiario.NumeroDocumentoMadre,
+                LugarExpedicionDocumentoMadre = beneficiario.LugarExpedicionDocumentoMadre,
+                OcupacionMadre = beneficiario.OcupacionMadre,
+                NivelEscolaridadMadre = beneficiario.NivelEscolaridadMadre,
+                TelefonoMadre = beneficiario.TelefonoMadre,
+                DireccionMadre = beneficiario.DireccionMadre,
+                BarrioMadre = beneficiario.BarrioMadre,
+                MunicipioMadre = beneficiario.MunicipioMadre,
+                IngresoEconomicoMadre = beneficiario.IngresoEconomicoMadre,
+                NombrePadre = beneficiario.NombrePadre,
+                ApellidoPadre = beneficiario.ApellidoPadre,
+                NumeroDocumentoPadre = beneficiario.NumeroDocumentoPadre,
+                LugarExpedicionDocumentoPadre = beneficiario.LugarExpedicionDocumentoPadre,
+                OcupacionPadre = beneficiario.OcupacionPadre,
+                NivelEscolaridadPadre = beneficiario.NivelEscolaridadPadre,
+                TelefonoPadre = beneficiario.TelefonoPadre,
+                DireccionPadre = beneficiario.DireccionPadre,
+                BarrioPadre = beneficiario.BarrioPadre,
+                MunicipioPadre = beneficiario.MunicipioPadre,
+                IngresoEconomicoPadre = beneficiario.IngresoEconomicoPadre,
+                NombreAcudiente = beneficiario.NombreAcudiente,
+                ApellidoAcudiente = beneficiario.ApellidoAcudiente,
+                NumeroDocumentoAcudiente = beneficiario.NumeroDocumentoAcudiente,
+                LugarExpedicionDocumentoAcudiente = beneficiario.LugarExpedicionDocumentoAcudiente,
+                OcupacionAcudiente = beneficiario.OcupacionAcudiente,
+                NivelEscolaridadAcudiente = beneficiario.NivelEscolaridadAcudiente,
+                TelefonoAcudiente = beneficiario.TelefonoAcudiente,
+                DireccionAcudiente = beneficiario.DireccionAcudiente,
+                BarrioAcudiente = beneficiario.BarrioAcudiente,
+                MunicipioAcudiente = beneficiario.MunicipioAcudiente,
+                IngresoEconomicoAcudiente = beneficiario.IngresoEconomicoAcudiente,
+                EstadoId = beneficiario.EstadoId,
+                AutorizacionData = beneficiario.AutorizacionData,
+                AutorizacionFoto = beneficiario.AutorizacionFoto,
+                NombreImagen = beneficiario.NombreImagen
+            };
+
             //ViewBag.beneficiarioId = beneficiario.PreinscripcionId;
             //ViewBag.TipoDocumento = beneficiario.NombreTipoDocumento;
             ViewData["listaTipoDocumentos"] = new SelectList(await _preinscripcionServices.ObtenerListaTipoDocumento(), "TipoDocumentoId", "NombreTipoDocumento");
@@ -404,7 +477,7 @@ namespace Avansist.Web.Controllers
                 return NotFound();
             }
 
-            return View(beneficiario);
+            return View(preinscripcionDto);
         }
 
         //**********************************|--------------|**********************************
@@ -465,6 +538,84 @@ namespace Avansist.Web.Controllers
             }
 
             var beneficiario = await _preinscripcionServices.ObtenerBeneficiarioPorId(id.Value);
+
+            if (beneficiario == null)
+            {
+                return NotFound();
+            }
+
+            PreinscripcionDto preinscripcionDto = new()
+            {
+                PreinscripcionId = beneficiario.PreinscripcionId,
+                ModalidadId = beneficiario.ModalidadId,
+                FechaRegistro = beneficiario.FechaRegistro,
+                PrimerNombreBeneficiario = beneficiario.PrimerNombreBeneficiario,
+                SegundoNombreBeneficiario = beneficiario.SegundoNombreBeneficiario,
+                PrimerApellidoBeneficiario = beneficiario.PrimerApellidoBeneficiario,
+                SegundoApellidoBeneficiario = beneficiario.SegundoApellidoBeneficiario,
+                GeneroId = beneficiario.GeneroId,
+                Edad = beneficiario.Edad,
+                TallaCamisa = beneficiario.TallaCamisa,
+                TallaPantalon = beneficiario.TallaPantalon,
+                TallaZapatos = beneficiario.TallaZapatos,
+                GrupoSanguineoId = beneficiario.GrupoSanguineoId,
+                FechaNacimiento = beneficiario.FechaNacimiento,
+                LugarNacimiento = beneficiario.LugarNacimiento,
+                TipoDocumentoId = beneficiario.TipoDocumentoId,
+                NumeroDocumento = beneficiario.NumeroDocumento,
+                LugarExpedicionDocumento = beneficiario.LugarExpedicionDocumento,
+                NombreEps = beneficiario.NombreEps,
+                GrupoSisben = beneficiario.GrupoSisben,
+                EtniaId = beneficiario.EtniaId,
+                AntecedenteMedico = beneficiario.AntecedenteMedico,
+                DescripcionEnfermedad = beneficiario.DescripcionEnfermedad,
+                AntecedentePsicologico = beneficiario.AntecedentePsicologico,
+                DescripcionPsicologica = beneficiario.DescripcionPsicologica,
+                JornadaId = beneficiario.JornadaId,
+                Municipio = beneficiario.Municipio,
+                CustodiaBeneficiario = beneficiario.CustodiaBeneficiario,
+                DireccionResidencia = beneficiario.DireccionResidencia,
+                PadrinoId = beneficiario.PadrinoId,
+                AporteEconomicoPadrino = beneficiario.AporteEconomicoPadrino,
+                NombreMadre = beneficiario.NombreMadre,
+                ApellidoMadre = beneficiario.ApellidoMadre,
+                NumeroDocumentoMadre = beneficiario.NumeroDocumentoMadre,
+                LugarExpedicionDocumentoMadre = beneficiario.LugarExpedicionDocumentoMadre,
+                OcupacionMadre = beneficiario.OcupacionMadre,
+                NivelEscolaridadMadre = beneficiario.NivelEscolaridadMadre,
+                TelefonoMadre = beneficiario.TelefonoMadre,
+                DireccionMadre = beneficiario.DireccionMadre,
+                BarrioMadre = beneficiario.BarrioMadre,
+                MunicipioMadre = beneficiario.MunicipioMadre,
+                IngresoEconomicoMadre = beneficiario.IngresoEconomicoMadre,
+                NombrePadre = beneficiario.NombrePadre,
+                ApellidoPadre = beneficiario.ApellidoPadre,
+                NumeroDocumentoPadre = beneficiario.NumeroDocumentoPadre,
+                LugarExpedicionDocumentoPadre = beneficiario.LugarExpedicionDocumentoPadre,
+                OcupacionPadre = beneficiario.OcupacionPadre,
+                NivelEscolaridadPadre = beneficiario.NivelEscolaridadPadre,
+                TelefonoPadre = beneficiario.TelefonoPadre,
+                DireccionPadre = beneficiario.DireccionPadre,
+                BarrioPadre = beneficiario.BarrioPadre,
+                MunicipioPadre = beneficiario.MunicipioPadre,
+                IngresoEconomicoPadre = beneficiario.IngresoEconomicoPadre,
+                NombreAcudiente = beneficiario.NombreAcudiente,
+                ApellidoAcudiente = beneficiario.ApellidoAcudiente,
+                NumeroDocumentoAcudiente = beneficiario.NumeroDocumentoAcudiente,
+                LugarExpedicionDocumentoAcudiente = beneficiario.LugarExpedicionDocumentoAcudiente,
+                OcupacionAcudiente = beneficiario.OcupacionAcudiente,
+                NivelEscolaridadAcudiente = beneficiario.NivelEscolaridadAcudiente,
+                TelefonoAcudiente = beneficiario.TelefonoAcudiente,
+                DireccionAcudiente = beneficiario.DireccionAcudiente,
+                BarrioAcudiente = beneficiario.BarrioAcudiente,
+                MunicipioAcudiente = beneficiario.MunicipioAcudiente,
+                IngresoEconomicoAcudiente = beneficiario.IngresoEconomicoAcudiente,
+                EstadoId = beneficiario.EstadoId,
+                AutorizacionData = beneficiario.AutorizacionData,
+                AutorizacionFoto = beneficiario.AutorizacionFoto,
+                NombreImagen = beneficiario.NombreImagen
+            };
+
             ViewData["listaTipoDocumentos"] = new SelectList(await _preinscripcionServices.ObtenerListaTipoDocumento(), "TipoDocumentoId", "NombreTipoDocumento");
             ViewData["listaGeneros"] = new SelectList(await _preinscripcionServices.ObtenerListaGenero(), "GeneroId", "NombreGenero");
             ViewData["listaGrupoSanguineos"] = new SelectList(await _preinscripcionServices.ObtenerListaGrupoSanguineo(), "GrupoSanguineoId", "Rh");
@@ -477,7 +628,7 @@ namespace Avansist.Web.Controllers
             {
                 return NotFound();
             }
-            return View(beneficiario);
+            return View(preinscripcionDto);
         }
 
         //Crear Matricula Beneficiario Post
@@ -595,6 +746,11 @@ namespace Avansist.Web.Controllers
 
             var beneficiario = await _preinscripcionServices.ObtenerBeneficiarioPorId(id.Value);
 
+            if (beneficiario == null)
+            {
+                return NotFound();
+            }
+
             PreinscripcionDto preinscripcionDto = new()
             {
                 PreinscripcionId = beneficiario.PreinscripcionId,
@@ -693,6 +849,7 @@ namespace Avansist.Web.Controllers
             {
 
                 Preinscripcion preinscripcion = new()
+
                 {
                     PreinscripcionId = preinscripcionDto.PreinscripcionId,
                     ModalidadId = preinscripcionDto.ModalidadId,
@@ -788,6 +945,82 @@ namespace Avansist.Web.Controllers
             }
 
             var beneficiario = await _preinscripcionServices.ObtenerBeneficiarioPorId(id.Value);
+
+            PreinscripcionDto preinscripcionDto = new()
+            {
+                PreinscripcionId = beneficiario.PreinscripcionId,
+                ModalidadId = beneficiario.ModalidadId,
+                FechaRegistro = beneficiario.FechaRegistro,
+                PrimerNombreBeneficiario = beneficiario.PrimerNombreBeneficiario,
+                SegundoNombreBeneficiario = beneficiario.SegundoNombreBeneficiario,
+                PrimerApellidoBeneficiario = beneficiario.PrimerApellidoBeneficiario,
+                SegundoApellidoBeneficiario = beneficiario.SegundoApellidoBeneficiario,
+                GeneroId = beneficiario.GeneroId,
+                Edad = beneficiario.Edad,
+                TallaCamisa = beneficiario.TallaCamisa,
+                TallaPantalon = beneficiario.TallaPantalon,
+                TallaZapatos = beneficiario.TallaZapatos,
+                GrupoSanguineoId = beneficiario.GrupoSanguineoId,
+                FechaNacimiento = beneficiario.FechaNacimiento,
+                LugarNacimiento = beneficiario.LugarNacimiento,
+                TipoDocumentoId = beneficiario.TipoDocumentoId,
+                NumeroDocumento = beneficiario.NumeroDocumento,
+                LugarExpedicionDocumento = beneficiario.LugarExpedicionDocumento,
+                NombreEps = beneficiario.NombreEps,
+                GrupoSisben = beneficiario.GrupoSisben,
+                EtniaId = beneficiario.EtniaId,
+                AntecedenteMedico = beneficiario.AntecedenteMedico,
+                DescripcionEnfermedad = beneficiario.DescripcionEnfermedad,
+                AntecedentePsicologico = beneficiario.AntecedentePsicologico,
+                DescripcionPsicologica = beneficiario.DescripcionPsicologica,
+                JornadaId = beneficiario.JornadaId,
+                Municipio = beneficiario.Municipio,
+                CustodiaBeneficiario = beneficiario.CustodiaBeneficiario,
+                DireccionResidencia = beneficiario.DireccionResidencia,
+                InstitucionEducativa = beneficiario.InstitucionEducativa,
+                NivelEscolaridad = beneficiario.NivelEscolaridad,
+                FechaMatricula = beneficiario.FechaMatricula,
+                PadrinoId = beneficiario.PadrinoId,
+                AporteEconomicoPadrino = beneficiario.AporteEconomicoPadrino,
+                NombreMadre = beneficiario.NombreMadre,
+                ApellidoMadre = beneficiario.ApellidoMadre,
+                NumeroDocumentoMadre = beneficiario.NumeroDocumentoMadre,
+                LugarExpedicionDocumentoMadre = beneficiario.LugarExpedicionDocumentoMadre,
+                OcupacionMadre = beneficiario.OcupacionMadre,
+                NivelEscolaridadMadre = beneficiario.NivelEscolaridadMadre,
+                TelefonoMadre = beneficiario.TelefonoMadre,
+                DireccionMadre = beneficiario.DireccionMadre,
+                BarrioMadre = beneficiario.BarrioMadre,
+                MunicipioMadre = beneficiario.MunicipioMadre,
+                IngresoEconomicoMadre = beneficiario.IngresoEconomicoMadre,
+                NombrePadre = beneficiario.NombrePadre,
+                ApellidoPadre = beneficiario.ApellidoPadre,
+                NumeroDocumentoPadre = beneficiario.NumeroDocumentoPadre,
+                LugarExpedicionDocumentoPadre = beneficiario.LugarExpedicionDocumentoPadre,
+                OcupacionPadre = beneficiario.OcupacionPadre,
+                NivelEscolaridadPadre = beneficiario.NivelEscolaridadPadre,
+                TelefonoPadre = beneficiario.TelefonoPadre,
+                DireccionPadre = beneficiario.DireccionPadre,
+                BarrioPadre = beneficiario.BarrioPadre,
+                MunicipioPadre = beneficiario.MunicipioPadre,
+                IngresoEconomicoPadre = beneficiario.IngresoEconomicoPadre,
+                NombreAcudiente = beneficiario.NombreAcudiente,
+                ApellidoAcudiente = beneficiario.ApellidoAcudiente,
+                NumeroDocumentoAcudiente = beneficiario.NumeroDocumentoAcudiente,
+                LugarExpedicionDocumentoAcudiente = beneficiario.LugarExpedicionDocumentoAcudiente,
+                OcupacionAcudiente = beneficiario.OcupacionAcudiente,
+                NivelEscolaridadAcudiente = beneficiario.NivelEscolaridadAcudiente,
+                TelefonoAcudiente = beneficiario.TelefonoAcudiente,
+                DireccionAcudiente = beneficiario.DireccionAcudiente,
+                BarrioAcudiente = beneficiario.BarrioAcudiente,
+                MunicipioAcudiente = beneficiario.MunicipioAcudiente,
+                IngresoEconomicoAcudiente = beneficiario.IngresoEconomicoAcudiente,
+                EstadoId = beneficiario.EstadoId,
+                AutorizacionData = beneficiario.AutorizacionData,
+                AutorizacionFoto = beneficiario.AutorizacionFoto,
+                NombreImagen = beneficiario.NombreImagen
+            };
+
             ViewData["listaTipoDocumentos"] = new SelectList(await _preinscripcionServices.ObtenerListaTipoDocumento(), "TipoDocumentoId", "NombreTipoDocumento");
             ViewData["listaGeneros"] = new SelectList(await _preinscripcionServices.ObtenerListaGenero(), "GeneroId", "NombreGenero");
             ViewData["listaGrupoSanguineos"] = new SelectList(await _preinscripcionServices.ObtenerListaGrupoSanguineo(), "GrupoSanguineoId", "Rh");
@@ -800,7 +1033,7 @@ namespace Avansist.Web.Controllers
             {
                 return NotFound();
             }
-            return View(beneficiario);
+            return View(preinscripcionDto);
         }
 
         //Crear Matricula Beneficiario Get
@@ -812,6 +1045,89 @@ namespace Avansist.Web.Controllers
             }
 
             var beneficiario = await _preinscripcionServices.ObtenerBeneficiarioPorId(id.Value);
+
+            if (beneficiario == null)
+            {
+                return NotFound();
+            }
+
+            PreinscripcionDto preinscripcionDto = new()
+            {
+                PreinscripcionId = beneficiario.PreinscripcionId,
+                ModalidadId = beneficiario.ModalidadId,
+                FechaRegistro = beneficiario.FechaRegistro,
+                PrimerNombreBeneficiario = beneficiario.PrimerNombreBeneficiario,
+                SegundoNombreBeneficiario = beneficiario.SegundoNombreBeneficiario,
+                PrimerApellidoBeneficiario = beneficiario.PrimerApellidoBeneficiario,
+                SegundoApellidoBeneficiario = beneficiario.SegundoApellidoBeneficiario,
+                GeneroId = beneficiario.GeneroId,
+                Edad = beneficiario.Edad,
+                TallaCamisa = beneficiario.TallaCamisa,
+                TallaPantalon = beneficiario.TallaPantalon,
+                TallaZapatos = beneficiario.TallaZapatos,
+                GrupoSanguineoId = beneficiario.GrupoSanguineoId,
+                FechaNacimiento = beneficiario.FechaNacimiento,
+                LugarNacimiento = beneficiario.LugarNacimiento,
+                TipoDocumentoId = beneficiario.TipoDocumentoId,
+                NumeroDocumento = beneficiario.NumeroDocumento,
+                LugarExpedicionDocumento = beneficiario.LugarExpedicionDocumento,
+                NombreEps = beneficiario.NombreEps,
+                GrupoSisben = beneficiario.GrupoSisben,
+                EtniaId = beneficiario.EtniaId,
+                AntecedenteMedico = beneficiario.AntecedenteMedico,
+                DescripcionEnfermedad = beneficiario.DescripcionEnfermedad,
+                AntecedentePsicologico = beneficiario.AntecedentePsicologico,
+                DescripcionPsicologica = beneficiario.DescripcionPsicologica,
+                JornadaId = beneficiario.JornadaId,
+                Municipio = beneficiario.Municipio,
+                CustodiaBeneficiario = beneficiario.CustodiaBeneficiario,
+                DireccionResidencia = beneficiario.DireccionResidencia,
+                PadrinoId = beneficiario.PadrinoId,
+                AporteEconomicoPadrino = beneficiario.AporteEconomicoPadrino,
+                NombreMadre = beneficiario.NombreMadre,
+                ApellidoMadre = beneficiario.ApellidoMadre,
+                NumeroDocumentoMadre = beneficiario.NumeroDocumentoMadre,
+                LugarExpedicionDocumentoMadre = beneficiario.LugarExpedicionDocumentoMadre,
+                OcupacionMadre = beneficiario.OcupacionMadre,
+                NivelEscolaridadMadre = beneficiario.NivelEscolaridadMadre,
+                TelefonoMadre = beneficiario.TelefonoMadre,
+                DireccionMadre = beneficiario.DireccionMadre,
+                BarrioMadre = beneficiario.BarrioMadre,
+                MunicipioMadre = beneficiario.MunicipioMadre,
+                IngresoEconomicoMadre = beneficiario.IngresoEconomicoMadre,
+                NombrePadre = beneficiario.NombrePadre,
+                ApellidoPadre = beneficiario.ApellidoPadre,
+                NumeroDocumentoPadre = beneficiario.NumeroDocumentoPadre,
+                LugarExpedicionDocumentoPadre = beneficiario.LugarExpedicionDocumentoPadre,
+                OcupacionPadre = beneficiario.OcupacionPadre,
+                NivelEscolaridadPadre = beneficiario.NivelEscolaridadPadre,
+                TelefonoPadre = beneficiario.TelefonoPadre,
+                DireccionPadre = beneficiario.DireccionPadre,
+                BarrioPadre = beneficiario.BarrioPadre,
+                MunicipioPadre = beneficiario.MunicipioPadre,
+                IngresoEconomicoPadre = beneficiario.IngresoEconomicoPadre,
+                NombreAcudiente = beneficiario.NombreAcudiente,
+                ApellidoAcudiente = beneficiario.ApellidoAcudiente,
+                NumeroDocumentoAcudiente = beneficiario.NumeroDocumentoAcudiente,
+                LugarExpedicionDocumentoAcudiente = beneficiario.LugarExpedicionDocumentoAcudiente,
+                OcupacionAcudiente = beneficiario.OcupacionAcudiente,
+                NivelEscolaridadAcudiente = beneficiario.NivelEscolaridadAcudiente,
+                TelefonoAcudiente = beneficiario.TelefonoAcudiente,
+                DireccionAcudiente = beneficiario.DireccionAcudiente,
+                BarrioAcudiente = beneficiario.BarrioAcudiente,
+                MunicipioAcudiente = beneficiario.MunicipioAcudiente,
+                IngresoEconomicoAcudiente = beneficiario.IngresoEconomicoAcudiente,
+                FechaRetiro = beneficiario.FechaRetiro,
+                ObservacionRetiro = beneficiario.ObservacionRetiro,
+                EstadoId = beneficiario.EstadoId,
+                AutorizacionData = beneficiario.AutorizacionData,
+                AutorizacionFoto = beneficiario.AutorizacionFoto,
+                NombreImagen = beneficiario.NombreImagen,
+                InstitucionEducativa = beneficiario.InstitucionEducativa,
+                FechaMatricula = beneficiario.FechaMatricula,
+                NivelEscolaridad = beneficiario.NivelEscolaridad
+            };
+
             ViewData["listaTipoDocumentos"] = new SelectList(await _preinscripcionServices.ObtenerListaTipoDocumento(), "TipoDocumentoId", "NombreTipoDocumento");
             ViewData["listaGeneros"] = new SelectList(await _preinscripcionServices.ObtenerListaGenero(), "GeneroId", "NombreGenero");
             ViewData["listaGrupoSanguineos"] = new SelectList(await _preinscripcionServices.ObtenerListaGrupoSanguineo(), "GrupoSanguineoId", "Rh");
@@ -824,7 +1140,7 @@ namespace Avansist.Web.Controllers
             {
                 return NotFound();
             }
-            return View(beneficiario);
+            return View(preinscripcionDto);
         }
 
         //Crear Retiro Beneficiario Post
@@ -833,9 +1149,86 @@ namespace Avansist.Web.Controllers
         {
             if (ModelState.IsValid)
             {
+                Preinscripcion preinscripcion = new()
+                {
+                    PreinscripcionId = preinscripcionDto.PreinscripcionId,
+                    ModalidadId = preinscripcionDto.ModalidadId,
+                    FechaRegistro = preinscripcionDto.FechaRegistro,
+                    PrimerNombreBeneficiario = preinscripcionDto.PrimerNombreBeneficiario,
+                    SegundoNombreBeneficiario = preinscripcionDto.SegundoNombreBeneficiario,
+                    PrimerApellidoBeneficiario = preinscripcionDto.PrimerApellidoBeneficiario,
+                    SegundoApellidoBeneficiario = preinscripcionDto.SegundoApellidoBeneficiario,
+                    GeneroId = preinscripcionDto.GeneroId,
+                    Edad = preinscripcionDto.Edad,
+                    TallaCamisa = preinscripcionDto.TallaCamisa,
+                    TallaPantalon = preinscripcionDto.TallaPantalon,
+                    TallaZapatos = preinscripcionDto.TallaZapatos,
+                    GrupoSanguineoId = preinscripcionDto.GrupoSanguineoId,
+                    FechaNacimiento = preinscripcionDto.FechaNacimiento,
+                    LugarNacimiento = preinscripcionDto.LugarNacimiento,
+                    TipoDocumentoId = preinscripcionDto.TipoDocumentoId,
+                    NumeroDocumento = preinscripcionDto.NumeroDocumento,
+                    LugarExpedicionDocumento = preinscripcionDto.LugarExpedicionDocumento,
+                    NombreEps = preinscripcionDto.NombreEps,
+                    GrupoSisben = preinscripcionDto.GrupoSisben,
+                    EtniaId = preinscripcionDto.EtniaId,
+                    AntecedenteMedico = preinscripcionDto.AntecedenteMedico,
+                    DescripcionEnfermedad = preinscripcionDto.DescripcionEnfermedad,
+                    AntecedentePsicologico = preinscripcionDto.AntecedentePsicologico,
+                    DescripcionPsicologica = preinscripcionDto.DescripcionPsicologica,
+                    JornadaId = preinscripcionDto.JornadaId,
+                    Municipio = preinscripcionDto.Municipio,
+                    CustodiaBeneficiario = preinscripcionDto.CustodiaBeneficiario,
+                    DireccionResidencia = preinscripcionDto.DireccionResidencia,
+                    PadrinoId = preinscripcionDto.PadrinoId,
+                    AporteEconomicoPadrino = preinscripcionDto.AporteEconomicoPadrino,
+                    NombreMadre = preinscripcionDto.NombreMadre,
+                    ApellidoMadre = preinscripcionDto.ApellidoMadre,
+                    NumeroDocumentoMadre = preinscripcionDto.NumeroDocumentoMadre,
+                    LugarExpedicionDocumentoMadre = preinscripcionDto.LugarExpedicionDocumentoMadre,
+                    OcupacionMadre = preinscripcionDto.OcupacionMadre,
+                    NivelEscolaridadMadre = preinscripcionDto.NivelEscolaridadMadre,
+                    TelefonoMadre = preinscripcionDto.TelefonoMadre,
+                    DireccionMadre = preinscripcionDto.DireccionMadre,
+                    BarrioMadre = preinscripcionDto.BarrioMadre,
+                    MunicipioMadre = preinscripcionDto.MunicipioMadre,
+                    IngresoEconomicoMadre = preinscripcionDto.IngresoEconomicoMadre,
+                    NombrePadre = preinscripcionDto.NombrePadre,
+                    ApellidoPadre = preinscripcionDto.ApellidoPadre,
+                    NumeroDocumentoPadre = preinscripcionDto.NumeroDocumentoPadre,
+                    LugarExpedicionDocumentoPadre = preinscripcionDto.LugarExpedicionDocumentoPadre,
+                    OcupacionPadre = preinscripcionDto.OcupacionPadre,
+                    NivelEscolaridadPadre = preinscripcionDto.NivelEscolaridadPadre,
+                    TelefonoPadre = preinscripcionDto.TelefonoPadre,
+                    DireccionPadre = preinscripcionDto.DireccionPadre,
+                    BarrioPadre = preinscripcionDto.BarrioPadre,
+                    MunicipioPadre = preinscripcionDto.MunicipioPadre,
+                    IngresoEconomicoPadre = preinscripcionDto.IngresoEconomicoPadre,
+                    NombreAcudiente = preinscripcionDto.NombreAcudiente,
+                    ApellidoAcudiente = preinscripcionDto.ApellidoAcudiente,
+                    NumeroDocumentoAcudiente = preinscripcionDto.NumeroDocumentoAcudiente,
+                    LugarExpedicionDocumentoAcudiente = preinscripcionDto.LugarExpedicionDocumentoAcudiente,
+                    OcupacionAcudiente = preinscripcionDto.OcupacionAcudiente,
+                    NivelEscolaridadAcudiente = preinscripcionDto.NivelEscolaridadAcudiente,
+                    TelefonoAcudiente = preinscripcionDto.TelefonoAcudiente,
+                    DireccionAcudiente = preinscripcionDto.DireccionAcudiente,
+                    BarrioAcudiente = preinscripcionDto.BarrioAcudiente,
+                    MunicipioAcudiente = preinscripcionDto.MunicipioAcudiente,
+                    IngresoEconomicoAcudiente = preinscripcionDto.IngresoEconomicoAcudiente,
+                    EstadoId = preinscripcionDto.EstadoId,
+                    FechaMatricula = preinscripcionDto.FechaMatricula,
+                    InstitucionEducativa = preinscripcionDto.InstitucionEducativa,
+                    NivelEscolaridad = preinscripcionDto.NivelEscolaridad,
+                    FechaRetiro = preinscripcionDto.FechaRetiro,
+                    ObservacionRetiro = preinscripcionDto.ObservacionRetiro,
+                    AutorizacionData = preinscripcionDto.AutorizacionData,
+                    AutorizacionFoto = preinscripcionDto.AutorizacionFoto,
+                    NombreImagen = preinscripcionDto.NombreImagen
+                };
+
                 try
                 {
-                    await _preinscripcionServices.GuardarRetiro(preinscripcionDto);
+                    await _preinscripcionServices.GuardarRetiro(preinscripcion);
                     return Json(new { status = true });
                 }
                 catch (Exception)
@@ -866,6 +1259,89 @@ namespace Avansist.Web.Controllers
             }
 
             var beneficiario = await _preinscripcionServices.ObtenerBeneficiarioPorId(id.Value);
+
+            if (beneficiario == null)
+            {
+                return NotFound();
+            }
+
+            PreinscripcionDto preinscripcionDto = new()
+            {
+                PreinscripcionId = beneficiario.PreinscripcionId,
+                ModalidadId = beneficiario.ModalidadId,
+                FechaRegistro = beneficiario.FechaRegistro,
+                PrimerNombreBeneficiario = beneficiario.PrimerNombreBeneficiario,
+                SegundoNombreBeneficiario = beneficiario.SegundoNombreBeneficiario,
+                PrimerApellidoBeneficiario = beneficiario.PrimerApellidoBeneficiario,
+                SegundoApellidoBeneficiario = beneficiario.SegundoApellidoBeneficiario,
+                GeneroId = beneficiario.GeneroId,
+                Edad = beneficiario.Edad,
+                TallaCamisa = beneficiario.TallaCamisa,
+                TallaPantalon = beneficiario.TallaPantalon,
+                TallaZapatos = beneficiario.TallaZapatos,
+                GrupoSanguineoId = beneficiario.GrupoSanguineoId,
+                FechaNacimiento = beneficiario.FechaNacimiento,
+                LugarNacimiento = beneficiario.LugarNacimiento,
+                TipoDocumentoId = beneficiario.TipoDocumentoId,
+                NumeroDocumento = beneficiario.NumeroDocumento,
+                LugarExpedicionDocumento = beneficiario.LugarExpedicionDocumento,
+                NombreEps = beneficiario.NombreEps,
+                GrupoSisben = beneficiario.GrupoSisben,
+                EtniaId = beneficiario.EtniaId,
+                AntecedenteMedico = beneficiario.AntecedenteMedico,
+                DescripcionEnfermedad = beneficiario.DescripcionEnfermedad,
+                AntecedentePsicologico = beneficiario.AntecedentePsicologico,
+                DescripcionPsicologica = beneficiario.DescripcionPsicologica,
+                JornadaId = beneficiario.JornadaId,
+                Municipio = beneficiario.Municipio,
+                CustodiaBeneficiario = beneficiario.CustodiaBeneficiario,
+                DireccionResidencia = beneficiario.DireccionResidencia,
+                PadrinoId = beneficiario.PadrinoId,
+                AporteEconomicoPadrino = beneficiario.AporteEconomicoPadrino,
+                NombreMadre = beneficiario.NombreMadre,
+                ApellidoMadre = beneficiario.ApellidoMadre,
+                NumeroDocumentoMadre = beneficiario.NumeroDocumentoMadre,
+                LugarExpedicionDocumentoMadre = beneficiario.LugarExpedicionDocumentoMadre,
+                OcupacionMadre = beneficiario.OcupacionMadre,
+                NivelEscolaridadMadre = beneficiario.NivelEscolaridadMadre,
+                TelefonoMadre = beneficiario.TelefonoMadre,
+                DireccionMadre = beneficiario.DireccionMadre,
+                BarrioMadre = beneficiario.BarrioMadre,
+                MunicipioMadre = beneficiario.MunicipioMadre,
+                IngresoEconomicoMadre = beneficiario.IngresoEconomicoMadre,
+                NombrePadre = beneficiario.NombrePadre,
+                ApellidoPadre = beneficiario.ApellidoPadre,
+                NumeroDocumentoPadre = beneficiario.NumeroDocumentoPadre,
+                LugarExpedicionDocumentoPadre = beneficiario.LugarExpedicionDocumentoPadre,
+                OcupacionPadre = beneficiario.OcupacionPadre,
+                NivelEscolaridadPadre = beneficiario.NivelEscolaridadPadre,
+                TelefonoPadre = beneficiario.TelefonoPadre,
+                DireccionPadre = beneficiario.DireccionPadre,
+                BarrioPadre = beneficiario.BarrioPadre,
+                MunicipioPadre = beneficiario.MunicipioPadre,
+                IngresoEconomicoPadre = beneficiario.IngresoEconomicoPadre,
+                NombreAcudiente = beneficiario.NombreAcudiente,
+                ApellidoAcudiente = beneficiario.ApellidoAcudiente,
+                NumeroDocumentoAcudiente = beneficiario.NumeroDocumentoAcudiente,
+                LugarExpedicionDocumentoAcudiente = beneficiario.LugarExpedicionDocumentoAcudiente,
+                OcupacionAcudiente = beneficiario.OcupacionAcudiente,
+                NivelEscolaridadAcudiente = beneficiario.NivelEscolaridadAcudiente,
+                TelefonoAcudiente = beneficiario.TelefonoAcudiente,
+                DireccionAcudiente = beneficiario.DireccionAcudiente,
+                BarrioAcudiente = beneficiario.BarrioAcudiente,
+                MunicipioAcudiente = beneficiario.MunicipioAcudiente,
+                IngresoEconomicoAcudiente = beneficiario.IngresoEconomicoAcudiente,
+                EstadoId = beneficiario.EstadoId,
+                AutorizacionData = beneficiario.AutorizacionData,
+                AutorizacionFoto = beneficiario.AutorizacionFoto,
+                NombreImagen = beneficiario.NombreImagen,
+                FechaRetiro = beneficiario.FechaRetiro,
+                ObservacionRetiro = beneficiario.ObservacionRetiro,
+                InstitucionEducativa = beneficiario.InstitucionEducativa,
+                FechaMatricula = beneficiario.FechaMatricula,
+                NivelEscolaridad = beneficiario.NivelEscolaridad
+            };
+
             ViewData["listaTipoDocumentos"] = new SelectList(await _preinscripcionServices.ObtenerListaTipoDocumento(), "TipoDocumentoId", "NombreTipoDocumento");
             ViewData["listaGeneros"] = new SelectList(await _preinscripcionServices.ObtenerListaGenero(), "GeneroId", "NombreGenero");
             ViewData["listaGrupoSanguineos"] = new SelectList(await _preinscripcionServices.ObtenerListaGrupoSanguineo(), "GrupoSanguineoId", "Rh");
@@ -878,7 +1354,7 @@ namespace Avansist.Web.Controllers
             {
                 return NotFound();
             }
-            return View(beneficiario);
+            return View(preinscripcionDto);
         }
 
         //Editar Retiro Beneficiario Post
@@ -887,9 +1363,87 @@ namespace Avansist.Web.Controllers
         {
             if (ModelState.IsValid)
             {
+
+                Preinscripcion preinscripcion = new()
+                {
+                    PreinscripcionId = preinscripcionDto.PreinscripcionId,
+                    ModalidadId = preinscripcionDto.ModalidadId,
+                    FechaRegistro = preinscripcionDto.FechaRegistro,
+                    PrimerNombreBeneficiario = preinscripcionDto.PrimerNombreBeneficiario,
+                    SegundoNombreBeneficiario = preinscripcionDto.SegundoNombreBeneficiario,
+                    PrimerApellidoBeneficiario = preinscripcionDto.PrimerApellidoBeneficiario,
+                    SegundoApellidoBeneficiario = preinscripcionDto.SegundoApellidoBeneficiario,
+                    GeneroId = preinscripcionDto.GeneroId,
+                    Edad = preinscripcionDto.Edad,
+                    TallaCamisa = preinscripcionDto.TallaCamisa,
+                    TallaPantalon = preinscripcionDto.TallaPantalon,
+                    TallaZapatos = preinscripcionDto.TallaZapatos,
+                    GrupoSanguineoId = preinscripcionDto.GrupoSanguineoId,
+                    FechaNacimiento = preinscripcionDto.FechaNacimiento,
+                    LugarNacimiento = preinscripcionDto.LugarNacimiento,
+                    TipoDocumentoId = preinscripcionDto.TipoDocumentoId,
+                    NumeroDocumento = preinscripcionDto.NumeroDocumento,
+                    LugarExpedicionDocumento = preinscripcionDto.LugarExpedicionDocumento,
+                    NombreEps = preinscripcionDto.NombreEps,
+                    GrupoSisben = preinscripcionDto.GrupoSisben,
+                    EtniaId = preinscripcionDto.EtniaId,
+                    AntecedenteMedico = preinscripcionDto.AntecedenteMedico,
+                    DescripcionEnfermedad = preinscripcionDto.DescripcionEnfermedad,
+                    AntecedentePsicologico = preinscripcionDto.AntecedentePsicologico,
+                    DescripcionPsicologica = preinscripcionDto.DescripcionPsicologica,
+                    JornadaId = preinscripcionDto.JornadaId,
+                    Municipio = preinscripcionDto.Municipio,
+                    CustodiaBeneficiario = preinscripcionDto.CustodiaBeneficiario,
+                    DireccionResidencia = preinscripcionDto.DireccionResidencia,
+                    PadrinoId = preinscripcionDto.PadrinoId,
+                    AporteEconomicoPadrino = preinscripcionDto.AporteEconomicoPadrino,
+                    NombreMadre = preinscripcionDto.NombreMadre,
+                    ApellidoMadre = preinscripcionDto.ApellidoMadre,
+                    NumeroDocumentoMadre = preinscripcionDto.NumeroDocumentoMadre,
+                    LugarExpedicionDocumentoMadre = preinscripcionDto.LugarExpedicionDocumentoMadre,
+                    OcupacionMadre = preinscripcionDto.OcupacionMadre,
+                    NivelEscolaridadMadre = preinscripcionDto.NivelEscolaridadMadre,
+                    TelefonoMadre = preinscripcionDto.TelefonoMadre,
+                    DireccionMadre = preinscripcionDto.DireccionMadre,
+                    BarrioMadre = preinscripcionDto.BarrioMadre,
+                    MunicipioMadre = preinscripcionDto.MunicipioMadre,
+                    IngresoEconomicoMadre = preinscripcionDto.IngresoEconomicoMadre,
+                    NombrePadre = preinscripcionDto.NombrePadre,
+                    ApellidoPadre = preinscripcionDto.ApellidoPadre,
+                    NumeroDocumentoPadre = preinscripcionDto.NumeroDocumentoPadre,
+                    LugarExpedicionDocumentoPadre = preinscripcionDto.LugarExpedicionDocumentoPadre,
+                    OcupacionPadre = preinscripcionDto.OcupacionPadre,
+                    NivelEscolaridadPadre = preinscripcionDto.NivelEscolaridadPadre,
+                    TelefonoPadre = preinscripcionDto.TelefonoPadre,
+                    DireccionPadre = preinscripcionDto.DireccionPadre,
+                    BarrioPadre = preinscripcionDto.BarrioPadre,
+                    MunicipioPadre = preinscripcionDto.MunicipioPadre,
+                    IngresoEconomicoPadre = preinscripcionDto.IngresoEconomicoPadre,
+                    NombreAcudiente = preinscripcionDto.NombreAcudiente,
+                    ApellidoAcudiente = preinscripcionDto.ApellidoAcudiente,
+                    NumeroDocumentoAcudiente = preinscripcionDto.NumeroDocumentoAcudiente,
+                    LugarExpedicionDocumentoAcudiente = preinscripcionDto.LugarExpedicionDocumentoAcudiente,
+                    OcupacionAcudiente = preinscripcionDto.OcupacionAcudiente,
+                    NivelEscolaridadAcudiente = preinscripcionDto.NivelEscolaridadAcudiente,
+                    TelefonoAcudiente = preinscripcionDto.TelefonoAcudiente,
+                    DireccionAcudiente = preinscripcionDto.DireccionAcudiente,
+                    BarrioAcudiente = preinscripcionDto.BarrioAcudiente,
+                    MunicipioAcudiente = preinscripcionDto.MunicipioAcudiente,
+                    IngresoEconomicoAcudiente = preinscripcionDto.IngresoEconomicoAcudiente,
+                    EstadoId = preinscripcionDto.EstadoId,
+                    FechaMatricula = preinscripcionDto.FechaMatricula,
+                    InstitucionEducativa = preinscripcionDto.InstitucionEducativa,
+                    NivelEscolaridad = preinscripcionDto.NivelEscolaridad,
+                    AutorizacionData = preinscripcionDto.AutorizacionData,
+                    AutorizacionFoto = preinscripcionDto.AutorizacionFoto,
+                    NombreImagen = preinscripcionDto.NombreImagen,
+                    FechaRetiro = preinscripcionDto.FechaRetiro,
+                    ObservacionRetiro = preinscripcionDto.ObservacionRetiro
+                };
+
                 try
                 {
-                    await _preinscripcionServices.EditarRetiro(preinscripcionDto);
+                    await _preinscripcionServices.EditarRetiro(preinscripcion);
                     return Json(new { status = true });
                 }
                 catch (Exception)
@@ -908,6 +1462,84 @@ namespace Avansist.Web.Controllers
             }
 
             var beneficiario = await _preinscripcionServices.ObtenerBeneficiarioPorId(id.Value);
+
+            PreinscripcionDto preinscripcionDto = new()
+            {
+                PreinscripcionId = beneficiario.PreinscripcionId,
+                ModalidadId = beneficiario.ModalidadId,
+                FechaRegistro = beneficiario.FechaRegistro,
+                PrimerNombreBeneficiario = beneficiario.PrimerNombreBeneficiario,
+                SegundoNombreBeneficiario = beneficiario.SegundoNombreBeneficiario,
+                PrimerApellidoBeneficiario = beneficiario.PrimerApellidoBeneficiario,
+                SegundoApellidoBeneficiario = beneficiario.SegundoApellidoBeneficiario,
+                GeneroId = beneficiario.GeneroId,
+                Edad = beneficiario.Edad,
+                TallaCamisa = beneficiario.TallaCamisa,
+                TallaPantalon = beneficiario.TallaPantalon,
+                TallaZapatos = beneficiario.TallaZapatos,
+                GrupoSanguineoId = beneficiario.GrupoSanguineoId,
+                FechaNacimiento = beneficiario.FechaNacimiento,
+                LugarNacimiento = beneficiario.LugarNacimiento,
+                TipoDocumentoId = beneficiario.TipoDocumentoId,
+                NumeroDocumento = beneficiario.NumeroDocumento,
+                LugarExpedicionDocumento = beneficiario.LugarExpedicionDocumento,
+                NombreEps = beneficiario.NombreEps,
+                GrupoSisben = beneficiario.GrupoSisben,
+                EtniaId = beneficiario.EtniaId,
+                AntecedenteMedico = beneficiario.AntecedenteMedico,
+                DescripcionEnfermedad = beneficiario.DescripcionEnfermedad,
+                AntecedentePsicologico = beneficiario.AntecedentePsicologico,
+                DescripcionPsicologica = beneficiario.DescripcionPsicologica,
+                JornadaId = beneficiario.JornadaId,
+                Municipio = beneficiario.Municipio,
+                CustodiaBeneficiario = beneficiario.CustodiaBeneficiario,
+                DireccionResidencia = beneficiario.DireccionResidencia,
+                PadrinoId = beneficiario.PadrinoId,
+                AporteEconomicoPadrino = beneficiario.AporteEconomicoPadrino,
+                NombreMadre = beneficiario.NombreMadre,
+                ApellidoMadre = beneficiario.ApellidoMadre,
+                NumeroDocumentoMadre = beneficiario.NumeroDocumentoMadre,
+                LugarExpedicionDocumentoMadre = beneficiario.LugarExpedicionDocumentoMadre,
+                OcupacionMadre = beneficiario.OcupacionMadre,
+                NivelEscolaridadMadre = beneficiario.NivelEscolaridadMadre,
+                TelefonoMadre = beneficiario.TelefonoMadre,
+                DireccionMadre = beneficiario.DireccionMadre,
+                BarrioMadre = beneficiario.BarrioMadre,
+                MunicipioMadre = beneficiario.MunicipioMadre,
+                IngresoEconomicoMadre = beneficiario.IngresoEconomicoMadre,
+                NombrePadre = beneficiario.NombrePadre,
+                ApellidoPadre = beneficiario.ApellidoPadre,
+                NumeroDocumentoPadre = beneficiario.NumeroDocumentoPadre,
+                LugarExpedicionDocumentoPadre = beneficiario.LugarExpedicionDocumentoPadre,
+                OcupacionPadre = beneficiario.OcupacionPadre,
+                NivelEscolaridadPadre = beneficiario.NivelEscolaridadPadre,
+                TelefonoPadre = beneficiario.TelefonoPadre,
+                DireccionPadre = beneficiario.DireccionPadre,
+                BarrioPadre = beneficiario.BarrioPadre,
+                MunicipioPadre = beneficiario.MunicipioPadre,
+                IngresoEconomicoPadre = beneficiario.IngresoEconomicoPadre,
+                NombreAcudiente = beneficiario.NombreAcudiente,
+                ApellidoAcudiente = beneficiario.ApellidoAcudiente,
+                NumeroDocumentoAcudiente = beneficiario.NumeroDocumentoAcudiente,
+                LugarExpedicionDocumentoAcudiente = beneficiario.LugarExpedicionDocumentoAcudiente,
+                OcupacionAcudiente = beneficiario.OcupacionAcudiente,
+                NivelEscolaridadAcudiente = beneficiario.NivelEscolaridadAcudiente,
+                TelefonoAcudiente = beneficiario.TelefonoAcudiente,
+                DireccionAcudiente = beneficiario.DireccionAcudiente,
+                BarrioAcudiente = beneficiario.BarrioAcudiente,
+                MunicipioAcudiente = beneficiario.MunicipioAcudiente,
+                IngresoEconomicoAcudiente = beneficiario.IngresoEconomicoAcudiente,
+                EstadoId = beneficiario.EstadoId,
+                AutorizacionData = beneficiario.AutorizacionData,
+                AutorizacionFoto = beneficiario.AutorizacionFoto,
+                NombreImagen = beneficiario.NombreImagen,
+                FechaRetiro = beneficiario.FechaRetiro,
+                ObservacionRetiro = beneficiario.ObservacionRetiro,
+                InstitucionEducativa = beneficiario.InstitucionEducativa,
+                FechaMatricula = beneficiario.FechaMatricula,
+                NivelEscolaridad = beneficiario.NivelEscolaridad
+            };
+
             ViewData["listaTipoDocumentos"] = new SelectList(await _preinscripcionServices.ObtenerListaTipoDocumento(), "TipoDocumentoId", "NombreTipoDocumento");
             ViewData["listaGeneros"] = new SelectList(await _preinscripcionServices.ObtenerListaGenero(), "GeneroId", "NombreGenero");
             ViewData["listaGrupoSanguineos"] = new SelectList(await _preinscripcionServices.ObtenerListaGrupoSanguineo(), "GrupoSanguineoId", "Rh");
@@ -920,7 +1552,7 @@ namespace Avansist.Web.Controllers
             {
                 return NotFound();
             }
-            return View(beneficiario);
+            return View(preinscripcionDto);
         }
     }
 }
