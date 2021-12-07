@@ -1,6 +1,7 @@
 ﻿using Avansist.Models.Entities;
 using Avansist.Services.Abstract;
 using Avansist.Services.DTOs;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -12,6 +13,7 @@ using System.Threading.Tasks;
 
 namespace Avansist.Web.Controllers
 {
+    [Authorize]
     public class PreinscripcionController : Controller
     {
         private readonly IPreinscripcionServices _preinscripcionServices;

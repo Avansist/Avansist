@@ -62,11 +62,12 @@ namespace Avansist.Web.Controllers
         // GET: Usuarios/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
+
             if (id == null)
             {
                 return NotFound();
             }
-
+            ViewBag.ModalEditar = id;
             var agenda = await _calendarioServices.ObtenerAgendaPorId(id.Value);
             if (!ModelState.IsValid)
             {

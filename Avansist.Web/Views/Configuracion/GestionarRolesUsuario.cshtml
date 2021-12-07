@@ -38,7 +38,7 @@
             <div class="col-sm-12 p-2">
                 <div class="card mt-0 mb-3 p-5 mx-auto" style="width: 800px">
 
-                    <form method="post">
+                    <form method="post" id="formGestionarRolUsuario">
                         <div class="card">
                             <div class="card-header">
                                 <h2>Agregar o remover roles de este usuario</h2>
@@ -49,7 +49,7 @@
                                     <div class="form-check m-1">
                                         <input type="hidden" asp-for="@Model[i].RolId" />
                                         <input type="hidden" asp-for="@Model[i].RolNombre" />
-                                        <input asp-for="@Model[i].EstaSeleccionado" class="form-check-input" />
+                                        <input type="checkbox" asp-for="@Model[i].EstaSeleccionado" class="form-check-input only-one" />
                                         <label class="form-check-label" asp-for="@Model[i].EstaSeleccionado">
                                             @Model[i].RolNombre
                                         </label>
@@ -70,3 +70,29 @@
     </div>
 </div>
 <!-- /.content-wrapper -->
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+    <script>
+
+        document.addEventListener('DOMContentLoaded', function () {
+            let Checked = null;
+            //The class name can vary
+            for (let CheckBox of document.getElementsByClassName('only-one')) {
+                CheckBox.onclick = function () {
+                    if (Checked != null) {
+                        Checked.checked = false;
+                        Checked = CheckBox;
+                    }
+                    Checked = CheckBox;
+                }
+            }
+        })        
+
+
+
+
+    </script>
+
+}

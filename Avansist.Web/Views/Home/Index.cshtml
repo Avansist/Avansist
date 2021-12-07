@@ -37,6 +37,93 @@
 </div>
 <!-- /.content-wrapper -->
 
+
+@if (ViewBag.ModalEditar != 0)
+{
+    @*<iframe src="~/css/ModalCalendario2.cshtml"></iframe>*@
+    <div class="modal fade" id="modalCalendario2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel"><b>Crear evento</b></h5>
+                    <button type="button" class="close cerrarModal2" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="formularioEvento2" method="post">
+                        <input type="hidden" asp-for="AgendaId" id="AgendaId1" name="AgendaId" />
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <div class="d-flex justify-content-center">
+                                    <label asp-for="NombreEvento" class="col-form-label"></label>
+                                    <span style="color:red">*</span>
+                                </div>
+                                <input asp-for="NombreEvento" type="text" class="form-control" id="NombreEvento1" name="NombreEvento" />
+                                <span asp-validation-for="NombreEvento" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label asp-for="EmpleadoEncargado" class="col-form-label"></label><span style="color:red">*</span>
+                                    <input asp-for="EmpleadoEncargado" type="text" class="form-control" id="EmpleadoEncargado1" name="EmpleadoEncargado" />
+                                    <span asp-validation-for="EmpleadoEncargado" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="Direccion" class="col-form-label"></label><span style="color:red">*</span>
+                                    <input asp-for="Direccion" type="text" class="form-control" id="Direccion1" name="Direccion" />
+                                    <span asp-validation-for="Direccion" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="HoraInicioEvento" class="col-form-label"></label><span style="color:red">*</span>
+                                    <input asp-for="HoraInicioEvento" type="time" class="form-control" id="HoraInicioEvento1" name="HoraInicioEvento" />
+                                    <span asp-validation-for="HoraInicioEvento" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label asp-for="NumeroDocumento" class="col-form-label"></label><span style="color:red">*</span>
+                                    <input asp-for="NumeroDocumento" type="text" class="form-control" id="NumeroDocumento1" name="NumeroDocumento" />
+                                    <span asp-validation-for="NumeroDocumento" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="Telefono" class="col-form-label"></label><span style="color:red">*</span>
+                                    <input asp-for="Telefono" type="text" class="form-control" id="Telefono1" name="Telefono" />
+                                    <span asp-validation-for="Telefono" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="HoraFinEvento" class="col-form-label"></label><span style="color:red">*</span>
+                                    <input asp-for="HoraFinEvento" type="time" class="form-control" id="HoraFinEvento1" name="HoraFinEvento" />
+                                    <span asp-validation-for="HoraFinEvento" class="text-danger"></span>
+                                </div>
+                                @*<div class="form-group">
+                                        <label asp-for="FechaFinEvento" class="col-form-label"></label>
+                                        <input asp-for="FechaFinEvento" type="date" class="form-control" id="FechaFinEvento" name="FechaFinEvento" />
+                                        <span asp-validation-for="FechaFinEvento" class="text-danger"></span>
+                                    </div>*@
+                            </div>
+                            <div class="form-group col-sm-7">
+                                <label asp-for="FechaInicioEvento" class="col-form-label"></label><span style="color:red">*</span>
+                                <input readonly asp-for="FechaInicioEvento" type="date" class="form-control" id="FechaInicioEvento1" name="FechaInicioEvento" />
+                                <span asp-validation-for="FechaInicioEvento" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    @*<button type="button" class="btn btn-success" onclick="guardar()">Guardar</button>*@
+                    <button type="button" class="btn btn-warning"id="btn-editar">Editar</button>
+                    <button type="button" class="btn btn-danger" onclick="eliminar()">Eliminar</button>
+                    <button type="button" class="btn btn-secondary cerrarModal2" data-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+}
+
 <div class="modal fade" id="modalCalendario" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
@@ -52,68 +139,83 @@
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                     <div class="col-sm-12">
                         <div class="form-group">
-                            <label asp-for="NombreEvento" class="col-form-label d-flex justify-content-center"></label>
-                            <input asp-for="NombreEvento" type="text" class="form-control" id="NombreEvento" name="NombreEvento" />
+                            <div class="d-flex justify-content-center">
+                                <label asp-for="NombreEvento" class="col-form-label"></label>
+                                <span style="color:red">*</span>
+                            </div>
+                            <input required asp-for="NombreEvento" type="text" class="form-control" id="NombreEvento" name="NombreEvento" />
                             <span asp-validation-for="NombreEvento" class="text-danger"></span>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-sm-6">
                             <div class="form-group">
-                                <label asp-for="EmpleadoEncargado" class="col-form-label"></label>
-                                <input asp-for="EmpleadoEncargado" type="text" class="form-control" id="EmpleadoEncargado" name="EmpleadoEncargado" />
+                                <label asp-for="EmpleadoEncargado" class="col-form-label"></label><span style="color:red">*</span>
+                                <input required asp-for="EmpleadoEncargado" type="text" class="form-control" id="EmpleadoEncargado" name="EmpleadoEncargado" />
                                 <span asp-validation-for="EmpleadoEncargado" class="text-danger"></span>
                             </div>
                             <div class="form-group">
-                                <label asp-for="Direccion" class="col-form-label"></label>
-                                <input asp-for="Direccion" type="text" class="form-control" id="Direccion" name="Direccion" />
+                                <label asp-for="Direccion" class="col-form-label"></label><span style="color:red">*</span>
+                                <input required asp-for="Direccion" type="text" class="form-control" id="Direccion" name="Direccion" />
                                 <span asp-validation-for="Direccion" class="text-danger"></span>
                             </div>
                             <div class="form-group">
-                                <label asp-for="HoraInicioEvento" class="col-form-label"></label>
-                                <input asp-for="HoraInicioEvento" type="time" class="form-control" id="HoraInicioEvento" name="HoraInicioEvento" />
+                                <label asp-for="HoraInicioEvento" class="col-form-label"></label><span style="color:red">*</span>
+                                <input required asp-for="HoraInicioEvento" type="time" class="form-control" id="HoraInicioEvento" name="HoraInicioEvento" />
                                 <span asp-validation-for="HoraInicioEvento" class="text-danger"></span>
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <div class="form-group">
-                                <label asp-for="NumeroDocumento" class="col-form-label"></label>
-                                <input asp-for="NumeroDocumento" type="text" class="form-control" id="NumeroDocumento" name="NumeroDocumento" />
+                                <label asp-for="NumeroDocumento" class="col-form-label"></label><span style="color:red">*</span>
+                                <input required asp-for="NumeroDocumento" type="text" class="form-control" id="NumeroDocumento" name="NumeroDocumento" />
                                 <span asp-validation-for="NumeroDocumento" class="text-danger"></span>
                             </div>
                             <div class="form-group">
-                                <label asp-for="Telefono" class="col-form-label"></label>
-                                <input asp-for="Telefono" type="text" class="form-control" id="Telefono" name="Telefono" />
+                                <label asp-for="Telefono" class="col-form-label"></label><span style="color:red">*</span>
+                                <input required asp-for="Telefono" type="text" class="form-control" id="Telefono" name="Telefono" />
                                 <span asp-validation-for="Telefono" class="text-danger"></span>
                             </div>
                             <div class="form-group">
-                                <label asp-for="HoraFinEvento" class="col-form-label"></label>
-                                <input asp-for="HoraFinEvento" type="time" class="form-control" id="HoraFinEvento" name="HoraFinEvento" />
+                                <label asp-for="HoraFinEvento" class="col-form-label"></label><span style="color:red">*</span>
+                                <input required asp-for="HoraFinEvento" type="time" class="form-control" id="HoraFinEvento" name="HoraFinEvento" />
                                 <span asp-validation-for="HoraFinEvento" class="text-danger"></span>
                             </div>
                             @*<div class="form-group">
-                                <label asp-for="FechaFinEvento" class="col-form-label"></label>
-                                <input asp-for="FechaFinEvento" type="date" class="form-control" id="FechaFinEvento" name="FechaFinEvento" />
-                                <span asp-validation-for="FechaFinEvento" class="text-danger"></span>
-                            </div>*@
+                        <label asp-for="FechaFinEvento" class="col-form-label"></label>
+                        <input asp-for="FechaFinEvento" type="date" class="form-control" id="FechaFinEvento" name="FechaFinEvento" />
+                        <span asp-validation-for="FechaFinEvento" class="text-danger"></span>
+                    </div>*@
                         </div>
                         <div class="form-group col-sm-7">
-                            <label asp-for="FechaInicioEvento" class="col-form-label"></label>
+                            <label asp-for="FechaInicioEvento" class="col-form-label"></label><span style="color:red">*</span>
                             <input readonly asp-for="FechaInicioEvento" type="date" class="form-control" id="FechaInicioEvento" name="FechaInicioEvento" />
                             <span asp-validation-for="FechaInicioEvento" class="text-danger"></span>
                         </div>
                     </div>
                 </form>
+                @*<form>
+                    <input type="checkbox" onclick="stopDefAction(event);" />
+                    <label for="checkbox">Selección</label>
+                </form>
+                <p>Por favor entra tu nombre en letras minúsculas solamente.</p>
+                <form>
+                    <input type="text" onkeypress="checkName(event);" />
+                </form>*@
+
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-success" onclick="guardar()">Guardar</button>
+                <button type="button" class="btn btn-success" id="btn-guardar" @*onclick="guardar()"*@>Guardar</button>
+                @*<button type="button" class="btn btn-warning" onclick="editar()">Editar</button>
+                    <button type="button" class="btn btn-danger" onclick="eliminar()">Eliminar</button>*@
                 <button type="button" class="btn btn-secondary cerrarModal" data-dismiss="modal">Cerrar</button>
-                <button id="Editar" type="button" class="btn btn-warning" onclick="editar()">Editar</button>
-                <button id="Eliminar" type="button" class="btn btn-danger" onclick="eliminar()">Eliminar</button>
             </div>
         </div>
     </div>
 </div>
+
+
+
 
 @section Scripts{
 
@@ -127,6 +229,29 @@
     <script src="~/js/Calendar.js"></script>
     <script>
 
+        //function stopDefAction(evt) {
+        //    evt.preventDefault();
+        //}
+
+        //function checkName(evt) {
+        //    var charCode = evt.charCode;
+
+        //    if (charCode != 0) {
+        //        if (charCode < 97 || charCode > 122) {
+        //            evt.preventDefault();
+        //            alert("Por favor usa sólo letras minúsculas." + "\n"
+        //                + "charCode: " + charCode + "\n"
+        //            );
+        //        }
+        //    }
+        //}
+
+        document.addEventListener('DOMContentLoaded', function () {
+            $("formularioEvento").validate();
+            $("formularioEvento2").validate();
+        })
+
+
         $(function () {
             calendario();
             listar();
@@ -135,7 +260,12 @@
         $(".cerrarModal").click(function () {
             $("#modalCalendario").modal('hide')
         });
-        
+
+        $(".cerrarModal2").click(function () {
+            $("#modalCalendario2").modal('hide')
+        });
+
+
     </script>
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }

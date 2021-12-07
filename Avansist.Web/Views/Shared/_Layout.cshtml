@@ -1,4 +1,5 @@
 ﻿@inject SignInManager<Avansist.Models.Entities.UsuarioIdentity> SignInManager
+@inject RoleManager<Microsoft.AspNetCore.Identity.IdentityRole> RolesManager
 
 <!DOCTYPE html>
 <html>
@@ -56,6 +57,7 @@
 
 </head>
 <body class="hold-transition sidebar-mini" style="font-family: Poppins;">
+
     <!-- Navbar -->
     <nav class="main-header navbar navbar-expand avansist-style navbar-light fixed-top">
         <!-- Left navbar links -->
@@ -131,7 +133,7 @@
             <nav class="mt-3">
                 <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                     <!-- Add icons to the links using the .nav-icon class
-    with font-awesome or any other icon font library -->
+                    with font-awesome or any other icon font library -->
                     <li class="nav-item">
                         <a asp-controller="Home" asp-action="Index" class="nav-link">
                             <i class="nav-icon fas fa-home"></i>
@@ -214,55 +216,55 @@
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a href="#" class="nav-link">
+                                <a asp-controller="Reporte" asp-action="AprobadosVSNoAProbados" class="nav-link">
                                     <i class="far fa-chart-bar nav-icon"></i>
                                     <p style="font-size: 13px">Inscripción aprobados VS No aprobados</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="#" class="nav-link">
+                                <a asp-controller="Reporte" asp-action="MatriculadosVSRetirados" class="nav-link">
                                     <i class="far fa-chart-bar nav-icon"></i>
                                     <p style="font-size: 13px">Matriculados VS Retirados</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="#" class="nav-link">
+                                <a asp-controller="Reporte" asp-action="SolicitudesAprobadasVSMatriculados" class="nav-link">
                                     <i class="far fa-chart-bar nav-icon"></i>
                                     <p style="font-size: 13px">Solicitudes aprobadas VS Matriculados</p>
                                 </a>
                             </li>
                         </ul>
                     </li>
-                    <li class="nav-item mt-5">
-                        <a href="#" class="nav-link">
-                            <i class="nav-icon fas fa-cog"></i>
-                            <p>
-                                Configuración
-                                <i class="right fas fa-angle-left"></i>
-                            </p>
-                        </a>
-                        <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <a asp-controller="Configuracion" asp-action="ListarRoles" class="nav-link">
-                                    <i class="far fa-user-cog nav-icon"></i>
-                                    <p style="font-size: 13px">
-                                        Gestión de roles
-                                    </p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a asp-controller="Configuracion" asp-action="Index" class="nav-link">
-                                    <i class="far fa-user-friends nav-icon"></i>
-                                    <p style="font-size: 13px">
-                                        Gestión de usuarios
-                                    </p>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    @if (SignInManager.IsSignedIn(User) && User.IsInRole("Admin"))
-                    {
 
+                    @if (SignInManager.IsSignedIn(User) && User.IsInRole("Administrador"))
+                    {
+                        <li class="nav-item mt-5">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-cog"></i>
+                                <p>
+                                    Configuración
+                                    <i class="right fas fa-angle-left"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a asp-controller="Configuracion" asp-action="ListarRoles" class="nav-link">
+                                        <i class="far fa-user-cog nav-icon"></i>
+                                        <p style="font-size: 13px">
+                                            Gestión de roles
+                                        </p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a asp-controller="Configuracion" asp-action="Index" class="nav-link">
+                                        <i class="far fa-user-friends nav-icon"></i>
+                                        <p style="font-size: 13px">
+                                            Gestión de usuarios
+                                        </p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
                     }
                 </ul>
             </nav>
@@ -319,5 +321,6 @@
 
 
     @RenderSection("Scripts", false)
+
 </body>
 </html>

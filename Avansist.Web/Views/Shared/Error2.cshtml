@@ -1,0 +1,83 @@
+﻿@{
+    ViewBag.Title = "Error";
+    Layout = null;
+}
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Error</title>
+    <link rel="shortcut icon" href="~/lib/adminlte/img/Avansist_Logo.png" />
+    <link rel="stylesheet" href="~/lib/adminlte/dist/css/Style.css">
+
+    <!-- Google Font: Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
+    <!-- Google Font: lobster -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+
+    <!-- Google Font: Source Sans Pro -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="~/lib/adminlte/plugins/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+
+    <!-- Theme style -->
+    <link rel="stylesheet" href="~/lib/adminlte/dist/css/adminlte.min.css">
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF" crossorigin="anonymous">
+
+</head>
+<body>
+    <!-- Content Wrapper. Contains page content -->
+
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-12 d-flex align-content-center" style="margin-top: 150px">
+                    <div class="mt-0 mx-auto" style="width: 700px">
+                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                            @*<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>*@
+                            <h1 class="alert-heading">Error 404!</h1>
+                            <p>Recurso no encontrado</p>
+                            <hr>
+                            <p class="mb-0">
+                                @ViewBag.ErrorMessage
+                            </p>
+                            <div class="d-flex justify-content-end mt-5" >
+                                <a class="btn btn-success" style="text-decoration: none" asp-action="Index" asp-controller="Home">
+                                    Ir a la pagina de inicio
+                                </a>
+                            </div>
+                        </div>
+
+                        @*<h1>@ViewBag.ErrorMessage</h1>*@
+                    
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    <!-- /.content-wrapper -->
+
+
+    <!-- REQUIRED SCRIPTS -->
+    <!-- jQuery -->
+    <script src="~/lib/adminlte/plugins/jquery/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+
+    <!-- Bootstrap 5 -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-kQtW33rZJAHjgefvhyyzcGF3C5TFyBQBA13V1RKPf4uH+bwyzQxZ6CmMZHmNBEfJ" crossorigin="anonymous"></script>
+
+    <!-- AdminLTE App -->
+    <script src="~/lib/adminlte/dist/js/adminlte.min.js"></script>
+</body>
+</html>
