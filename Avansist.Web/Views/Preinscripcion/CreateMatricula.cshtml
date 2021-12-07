@@ -50,12 +50,12 @@
                         <input type="hidden" asp-for="PreinscripcionId" id="preinscripcionId" />
                         <div class="d-flex justify-content-between mb-4">
                             <div class="form-group col-sm-3">
-                                <label asp-for="PrimerNombreBeneficiario" class="control-label"></label>
+                                <label asp-for="PrimerNombreBeneficiario" class="control-label"></label> <label id="asterisco">*</label>
                                 <input readonly asp-for="PrimerNombreBeneficiario" id="primerNomB" class="form-control" />
                                 <span asp-validation-for="PrimerNombreBeneficiario" class="text-danger"></span>
                             </div>
                             <div class="form-group col-sm-3">
-                                <label asp-for="PrimerApellidoBeneficiario" class="control-label"></label>
+                                <label asp-for="PrimerApellidoBeneficiario" class="control-label"></label> <label id="asterisco">*</label>
                                 <input readonly asp-for="PrimerApellidoBeneficiario" id="primerApeB" class="form-control" />
                                 <span asp-validation-for="PrimerApellidoBeneficiario" class="text-danger"></span>
                             </div>
@@ -66,9 +66,9 @@
 
                             </div>
                             <div class="form-group col-sm-3">
-                                <label asp-for="JornadaId" class="control-label"></label>
+                                <label asp-for="JornadaId" class="control-label"></label> <label id="asterisco">*</label>
                                 <select required asp-for="JornadaId" class="form-control" id="jornada" asp-items="ViewBag.listaJornadas">
-                                    <option>Seleccione</option>
+                                    <option value="">Seleccione</option>
                                 </select>
                             </div>
                         </div>
@@ -84,7 +84,7 @@
                                 <span asp-validation-for="FechaMatricula" class="text-danger"></span>
                             </div>
                             <div class="form-group col-sm-4">
-                                <label asp-for="EstadoId" class="control-label"></label>
+                                <label asp-for="EstadoId" class="control-label"></label> <label id="asterisco">*</label>
                                 <select disabled asp-for="EstadoId" id="estado" class="form-control">
                                     <option value="4">Matriculado</option>
                                 </select>

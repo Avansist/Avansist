@@ -185,7 +185,7 @@ namespace Avansist.Services.Servicies
         public IEnumerable<BeneficiarioResumenDto> ListarBeneficiarioResumenDto()
         {
             List<BeneficiarioResumenDto> listaBeneficiariosDto = new();
-            _context.Preinscripcions.Include(t => t.TipoDocumento).Include(m => m.Modalidad).Include(e => e.Estado)
+            _context.Preinscripcions.Include(t => t.TipoDocumento).Include(m => m.Modalidad).Include(e => e.Estado).Where(e => e.EstadoId == 1 || e.EstadoId == 3)
                 .OrderByDescending(b => b.PreinscripcionId).ToList().ForEach(be =>
                 {
                     BeneficiarioResumenDto beneficiarioDto = new()
@@ -333,7 +333,17 @@ namespace Avansist.Services.Servicies
 
         public async Task<IEnumerable<Estado>> ObtenerListaEstadosPreinscripcion()
         {
-            return await _context.Estados.Where(e => e.EstadoId == 2 || e.EstadoId == 3 || e.EstadoId == 1003).ToListAsync();
+            return await _context.Estados.Where(e => e.EstadoId == 1 || e.EstadoId == 2).ToListAsync();
+        }
+
+        public async Task<IEnumerable<Estado>> ObtenerListaEstadosInscripcion()
+        {
+            return await _context.Estados.Where(e => e.EstadoId == 2).ToListAsync();
+        }
+
+        public async Task<IEnumerable<Estado>> ObtenerListaEstadosPreinscripcionEditar()
+        {
+            return await _context.Estados.Where(e => e.EstadoId == 1 || e.EstadoId == 2 || e.EstadoId == 3).ToListAsync();
         }
 
         public async Task<IEnumerable<Estado>> ObtenerEstadoMatricula()

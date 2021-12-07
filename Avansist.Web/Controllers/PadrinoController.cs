@@ -1,4 +1,5 @@
-﻿using Avansist.Services.Abstract;
+﻿using Avansist.Models.Entities;
+using Avansist.Services.Abstract;
 using Avansist.Services.DTOs;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -40,15 +41,31 @@ namespace Avansist.Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                try
+                var PadrinoTem = await _padrinoServices.ObtenerPadrinoPorDocumento(padrinoDto.NumeroDocumento);
+                if (PadrinoTem == null)
                 {
-                    await _padrinoServices.GuardarPadrino(padrinoDto);
-                    return RedirectToAction(nameof(Index));
-                }
-                catch (Exception)
-                {
+                    Padrino padrino = new()
+                    {
+                        PadrinoId = padrinoDto.PadrinoId,
+                        NombrePadrino = padrinoDto.NombrePadrino,
+                        ApellidoPadrino = padrinoDto.ApellidoPadrino,
+                        TipoDocumentoId = padrinoDto.TipoDocumentoId,
+                        NumeroDocumento = padrinoDto.NumeroDocumento,
+                        Ocupacion = padrinoDto.Ocupacion,
+                        Telefono = padrinoDto.Telefono,
+                        CorreoElectronico = padrinoDto.CorreoElectronico
+                    };
 
-                    throw;
+                    try
+                    {
+                        await _padrinoServices.GuardarPadrino(padrinoDto);
+                        return RedirectToAction(nameof(Index));
+                    }
+                    catch (Exception)
+                    {
+
+                        throw;
+                    }
                 }
             }
             return View(padrinoDto);
