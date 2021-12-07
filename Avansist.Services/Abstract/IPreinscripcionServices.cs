@@ -20,6 +20,8 @@ namespace Avansist.Services.Abstract
         //--------------------------------------------------
         Task<IEnumerable<Estado>> ObtenerListaEstados();
         Task<IEnumerable<Estado>> ObtenerListaEstadosPreinscripcion();
+        Task<IEnumerable<Estado>> ObtenerListaEstadosPreinscripcionEditar();
+        Task<IEnumerable<Estado>> ObtenerListaEstadosInscripcion();
         Task<IEnumerable<TipoDocumento>> ObtenerListaTipoDocumento();
         Task<IEnumerable<Padrino>> ObtenerListaPadrinos();
         Task<IEnumerable<Modalidad>> ObtenerListaModalidad();

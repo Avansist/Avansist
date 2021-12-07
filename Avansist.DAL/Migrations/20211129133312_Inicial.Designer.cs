@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Avansist.DAL.Migrations
 {
     [DbContext(typeof(AvansistDbContext))]
-    [Migration("20211110010525_Noviembre")]
-    partial class Noviembre
+    [Migration("20211129133312_Inicial")]
+    partial class Inicial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -470,6 +470,9 @@ namespace Avansist.DAL.Migrations
                     b.Property<int>("PadrinoId")
                         .HasColumnType("int");
 
+                    b.Property<int?>("PreinscripcionsPreinscripcionId")
+                        .HasColumnType("int");
+
                     b.Property<string>("PrimerApellidoBeneficiario")
                         .HasColumnType("nvarchar(50)");
 
@@ -519,6 +522,8 @@ namespace Avansist.DAL.Migrations
 
                     b.HasIndex("PadrinoId");
 
+                    b.HasIndex("PreinscripcionsPreinscripcionId");
+
                     b.HasIndex("TipoDocumentoId");
 
                     b.ToTable("Preinscripcions");
@@ -531,12 +536,33 @@ namespace Avansist.DAL.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("AgendaId")
+                    b.Property<string>("Direccion")
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("DocumentoResponsable")
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<bool>("EstadoEvento")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime>("FechaRegresoEvento")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("FechaSalidadEvento")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("NombreSalidadEvento")
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<int>("PreinscripcionId")
                         .HasColumnType("int");
+
+                    b.Property<string>("ResponsableEvento")
+                        .HasColumnType("nvarchar(50)");
 
                     b.HasKey("SalidaExtracurricularId");
 
-                    b.HasIndex("AgendaId");
+                    b.HasIndex("PreinscripcionId");
 
                     b.ToTable("SalidaExtracurriculars");
                 });
@@ -619,6 +645,10 @@ namespace Avansist.DAL.Migrations
                         .IsConcurrencyToken()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Discriminator")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Email")
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
@@ -670,6 +700,8 @@ namespace Avansist.DAL.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers");
+
+                    b.HasDiscriminator<string>("Discriminator").HasValue("IdentityUser");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
@@ -752,6 +784,19 @@ namespace Avansist.DAL.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
+            modelBuilder.Entity("Avansist.Models.Entities.UsuarioIdentity", b =>
+                {
+                    b.HasBaseType("Microsoft.AspNetCore.Identity.IdentityUser");
+
+                    b.Property<bool>("CambiarEstado")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Nombre")
+                        .HasColumnType("nvarchar(50)");
+
+                    b.HasDiscriminator().HasValue("UsuarioIdentity");
+                });
+
             modelBuilder.Entity("Avansist.Models.Entities.AgendaBeneficiario", b =>
                 {
                     b.HasOne("Avansist.Models.Entities.Preinscripcion", "Preinscripcion")
@@ -776,7 +821,7 @@ namespace Avansist.DAL.Migrations
 
             modelBuilder.Entity("Avansist.Models.Entities.DetalleSalida", b =>
                 {
-                    b.HasOne("Avansist.Models.Entities.Preinscripcion", "Preinscripcion")
+                    b.HasOne("Avansist.Models.Entities.Preinscripcion", "Preinscripcions")
                         .WithMany("DetalleSalidas")
                         .HasForeignKey("PreinscripcionId")
                         .OnDelete(DeleteBehavior.Restrict)
@@ -788,7 +833,7 @@ namespace Avansist.DAL.Migrations
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.Navigation("Preinscripcion");
+                    b.Navigation("Preinscripcions");
 
                     b.Navigation("SalidaExtracurricular");
                 });
@@ -848,6 +893,11 @@ namespace Avansist.DAL.Migrations
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
+                    b.HasOne("Avansist.Models.Entities.Preinscripcion", "Preinscripcions")
+                        .WithMany()
+                        .HasForeignKey("PreinscripcionsPreinscripcionId")
+                        .OnDelete(DeleteBehavior.Restrict);
+
                     b.HasOne("Avansist.Models.Entities.TipoDocumento", "TipoDocumento")
                         .WithMany("Preinscripcions")
                         .HasForeignKey("TipoDocumentoId")
@@ -868,18 +918,20 @@ namespace Avansist.DAL.Migrations
 
                     b.Navigation("Padrino");
 
+                    b.Navigation("Preinscripcions");
+
                     b.Navigation("TipoDocumento");
                 });
 
             modelBuilder.Entity("Avansist.Models.Entities.SalidaExtracurricular", b =>
                 {
-                    b.HasOne("Avansist.Models.Entities.Agenda", "Agenda")
-                        .WithMany()
-                        .HasForeignKey("AgendaId")
+                    b.HasOne("Avansist.Models.Entities.Preinscripcion", "Preinscripcion")
+                        .WithMany("SalidaExtracurricular")
+                        .HasForeignKey("PreinscripcionId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.Navigation("Agenda");
+                    b.Navigation("Preinscripcion");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -975,6 +1027,8 @@ namespace Avansist.DAL.Migrations
                     b.Navigation("ControlAsistencias");
 
                     b.Navigation("DetalleSalidas");
+
+                    b.Navigation("SalidaExtracurricular");
                 });
 
             modelBuilder.Entity("Avansist.Models.Entities.SalidaExtracurricular", b =>

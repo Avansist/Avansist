@@ -162,25 +162,6 @@ namespace Avansist.DAL.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "SalidaExtracurriculars",
-                columns: table => new
-                {
-                    SalidaExtracurricularId = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    AgendaId = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_SalidaExtracurriculars", x => x.SalidaExtracurricularId);
-                    table.ForeignKey(
-                        name: "FK_SalidaExtracurriculars_Agendas_AgendaId",
-                        column: x => x.AgendaId,
-                        principalTable: "Agendas",
-                        principalColumn: "AgendaId",
-                        onDelete: ReferentialAction.Restrict);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "AspNetRoleClaims",
                 columns: table => new
                 {
@@ -388,7 +369,8 @@ namespace Avansist.DAL.Migrations
                     EstadoId = table.Column<int>(type: "int", nullable: false),
                     AutorizacionFoto = table.Column<bool>(type: "bit", nullable: false),
                     AutorizacionData = table.Column<bool>(type: "bit", nullable: false),
-                    NombreImagen = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    NombreImagen = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    PreinscripcionsPreinscripcionId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -434,6 +416,12 @@ namespace Avansist.DAL.Migrations
                         column: x => x.PadrinoId,
                         principalTable: "Padrinos",
                         principalColumn: "PadrinoId",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Preinscripcions_Preinscripcions_PreinscripcionsPreinscripcionId",
+                        column: x => x.PreinscripcionsPreinscripcionId,
+                        principalTable: "Preinscripcions",
+                        principalColumn: "PreinscripcionId",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_Preinscripcions_TipoDocumentos_TipoDocumentoId",
@@ -487,6 +475,32 @@ namespace Avansist.DAL.Migrations
                     table.PrimaryKey("PK_ControlAsistencias", x => x.ControlAsistenciaId);
                     table.ForeignKey(
                         name: "FK_ControlAsistencias_Preinscripcions_PreinscripcionId",
+                        column: x => x.PreinscripcionId,
+                        principalTable: "Preinscripcions",
+                        principalColumn: "PreinscripcionId",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "SalidaExtracurriculars",
+                columns: table => new
+                {
+                    SalidaExtracurricularId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    PreinscripcionId = table.Column<int>(type: "int", nullable: false),
+                    NombreSalidadEvento = table.Column<string>(type: "nvarchar(50)", nullable: true),
+                    Direccion = table.Column<string>(type: "nvarchar(50)", nullable: true),
+                    ResponsableEvento = table.Column<string>(type: "nvarchar(50)", nullable: true),
+                    DocumentoResponsable = table.Column<string>(type: "nvarchar(50)", nullable: true),
+                    EstadoEvento = table.Column<bool>(type: "bit", nullable: false),
+                    FechaSalidadEvento = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    FechaRegresoEvento = table.Column<DateTime>(type: "datetime2", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_SalidaExtracurriculars", x => x.SalidaExtracurricularId);
+                    table.ForeignKey(
+                        name: "FK_SalidaExtracurriculars_Preinscripcions_PreinscripcionId",
                         column: x => x.PreinscripcionId,
                         principalTable: "Preinscripcions",
                         principalColumn: "PreinscripcionId",
@@ -620,20 +634,28 @@ namespace Avansist.DAL.Migrations
                 column: "PadrinoId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Preinscripcions_PreinscripcionsPreinscripcionId",
+                table: "Preinscripcions",
+                column: "PreinscripcionsPreinscripcionId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Preinscripcions_TipoDocumentoId",
                 table: "Preinscripcions",
                 column: "TipoDocumentoId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_SalidaExtracurriculars_AgendaId",
+                name: "IX_SalidaExtracurriculars_PreinscripcionId",
                 table: "SalidaExtracurriculars",
-                column: "AgendaId");
+                column: "PreinscripcionId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
                 name: "AgendaBeneficiarios");
+
+            migrationBuilder.DropTable(
+                name: "Agendas");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoleClaims");
@@ -663,10 +685,10 @@ namespace Avansist.DAL.Migrations
                 name: "AspNetUsers");
 
             migrationBuilder.DropTable(
-                name: "Preinscripcions");
+                name: "SalidaExtracurriculars");
 
             migrationBuilder.DropTable(
-                name: "SalidaExtracurriculars");
+                name: "Preinscripcions");
 
             migrationBuilder.DropTable(
                 name: "Estados");
@@ -688,9 +710,6 @@ namespace Avansist.DAL.Migrations
 
             migrationBuilder.DropTable(
                 name: "Padrinos");
-
-            migrationBuilder.DropTable(
-                name: "Agendas");
 
             migrationBuilder.DropTable(
                 name: "TipoDocumentos");
