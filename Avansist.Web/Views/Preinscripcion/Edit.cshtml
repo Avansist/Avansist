@@ -216,8 +216,8 @@
                                     </div>
                                     <div class="mt-5 d-flex justify-content-between mb-4">
                                         <div class="form-group col-sm-4">
-                                            <label asp-for="NombreEps" class="control-label"></label> <label id="asterisco">*</label>
-                                            <input asp-for="NombreEps" class="form-control" rangelength="3,45" type="text" name="nombreEps" id="nombreEps" placeholder="Ingrese la EPS" required />
+                                            <label asp-for="NombreEps" class="control-label"></label>
+                                            <input asp-for="NombreEps" class="form-control" rangelength="3,45" type="text" name="nombreEps" id="nombreEps" placeholder="Ingrese la EPS"/>
                                             <span asp-validation-for="NombreEps" class="text-danger error"></span>
                                         </div>
                                         <div class="form-group col-sm-4">
@@ -228,8 +228,8 @@
                                             <span asp-validation-for="GrupoSanguineoId" class="text-danger error"></span>
                                         </div>
                                         <div class="form-group col-sm-4">
-                                            <label asp-for="GrupoSisben" class="form-label"></label> <label id="asterisco">*</label>
-                                            <input asp-for="GrupoSisben" class="form-control" type="text" name="grupoSisben" id="grupoSisben" placeholder="Ingrese la EPS" required />
+                                            <label asp-for="GrupoSisben" class="form-label"></label> 
+                                            <input asp-for="GrupoSisben" class="form-control" type="text" name="grupoSisben" id="grupoSisben" placeholder="Ingrese la EPS" />
                                             <span asp-validation-for="GrupoSisben" class="text-danger error"></span>
                                         </div>
                                     </div>
@@ -533,53 +533,23 @@
                             <div id="info-final" class="content" role="tabpanel" aria-labelledby="information-part-trigger">
                                 <form action="/" method="post" id="form-final" enctype="multipart/form-data">
                                     <div class="col-7 mt-3">
-                                        <h2 class="fs-title">Documentación:</h2>
+                                        <h2 class="fs-title">Documentación y Foto:</h2>
                                     </div>
                                     <div class="col-sm-12 mb-5">
                                         <hr />
                                     </div>
 
-                                    <div class="d-flex justify-content-between mb-4">
-                                        <div class="form-group form-check col-sm-6">
-                                            <input type="hidden" name="hiddenAutorizacionData" id="hiddenAutorizacionData" />
-                                            <label asp-for="AutorizacionData" class="form-check-label">
-                                                <input required asp-for="AutorizacionData" class="form-check-input" name="autorizacionData" id="autorizacionData" />
-                                                @Html.DisplayNameFor(model => model.AutorizacionData)
-                                            </label>
-                                            <p>
-                                                Sus datos personales han sido y están siendo tratados conforme con nuestra Política de Tratamiento de Datos Personales.
-                                                Ley de Protección de Datos Personales: “La autorización suministrada en el presente formulario faculta AVANSIST para
-                                                que dé a sus datos aquí recopilados el tratamiento señalado en la “Política de Privacidad para el Tratamiento de Datos
-                                                Personales” de AVANSIST, el cual incluye, entre otras, el envío de información promocional, así como la invitación a
-                                                eventos. El titular de los datos podrá, en cualquier momento, solicitar que la información sea modificada,
-                                                actualizada o retirada de las bases de datos de AVANSIST.
-                                            </p>
+                                    <div class="d-flex justify-content-lg-around mb-4">
+                                        <div class="ml-2 col-sm-4 mb-3">
+                                            <img src="https://placehold.it/80x80" id="preview" class="img-thumbnail">
                                         </div>
-                                        <div class="form-group form-check col-sm-6">
-                                            <input type="hidden" name="hiddenAutorizacionFoto" id="hiddenAutorizacionFoto" />
-                                            <label asp-for="AutorizacionFoto" class="form-check-label">
-                                                <input required asp-for="AutorizacionFoto" class="form-check-input" name="autorizacionFoto" id="autorizacionFoto" />
-                                                @Html.DisplayNameFor(model => model.AutorizacionFoto)
-                                            </label>
-                                            <p>
-                                                Autorizo AVANSIST, el derecho absoluto y la autorización para usar mi (s)
-                                                fotografía (s) , para fines publicitarios de carácter interno o externo. Comprendo que
-                                                las fotografías pueden ser utilizadas en una publicación, anuncio impreso, componente de
-                                                correo directo, medios electrónicos, valla, pendón, hacking u otro elemento de proyección de la
-                                                marca AVANSIST (ejemplo: videos, material multimedia, redes sociales, portal web, banner
-                                                electrónicos, entre otros), o cualquier tipo de publicación para promover los servicios de
-                                                AVANSIST. Reconozco el derecho de AVANSIST y la autorizó para recortar, alterar, transformar,
-                                                modificar, suprimir y editar la fotografía de cualquier manera a discreción exclusiva suya.
-                                                También reconozco que AVANSIST podría decidir no usar la fotografía (s) por el momento, pero
-                                                podría hacerlo a potestad exclusiva suya en cualquier fecha futura. Convengo en que cederé
-                                                derecho a un tercero sobre este material. Así mismo declaro que no tengo derecho a recibir
-                                                compensación ni reconocimiento alguno de cualquier tipo, en relación con el uso que la Caja
-                                                haga de las fotografías.
-                                                Deslindo de responsabilidades AVANSIST, al fotógrafo, a sus directores, funcionarios,
-                                                empleados, agentes y personas designadas y convengo en no demandar a los anteriores por
-                                                ninguna reclamación, responsabilidad, lesión o pérdida en relación con dicho uso.
-                                            </p>
+                                        <div class="row">
+                                            <div class="col-9">
+                                                <img src="@("~/image/" + Model.NombreImagen)" asp-append-version="true" width="250" height="250" />
+                                            </div>
                                         </div>
+                                        <input type="hidden" asp-for="PreinscripcionId" id="preinscripcionId" />
+                                        <input asp-for="NombreImagen" hidden id="NombreImagen" name="NombreImagen" />
                                     </div>
 
                                     <div class="d-flex justify-content-between mb-4">
@@ -604,48 +574,81 @@
                                         </div>
                                     </div>
 
-
-                                    <div class="d-flex justify-content-lg-around mb-4">
-                                        <div class="ml-2 col-sm-4 mb-3">
-                                            <img src="https://placehold.it/80x80" id="preview" class="img-thumbnail">
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-9">
-                                                <img src="@("~/image/" + Model.NombreImagen)" asp-append-version="true" width="250" height="250" />
-                                            </div>
-                                        </div>
-                                        <input type="hidden" asp-for="PreinscripcionId" id="preinscripcionId" />
-                                        <input asp-for="NombreImagen" hidden id="NombreImagen" name="NombreImagen" />
+                                    <div class="col-7 mt-3">
+                                        <h2 class="fs-title">Autorización, tramite y manejo de datos personales:</h2>
+                                    </div>
+                                    <div class="col-sm-12 mb-5">
+                                        <hr />
                                     </div>
 
+                                    <div class="d-flex justify-content-between mb-4">
+                                        <div class="form-group form-check col-sm-6">
+                                            <input type="hidden" name="hiddenAutorizacionData" id="hiddenAutorizacionData" />
+                                            <label asp-for="AutorizacionData" class="form-check-label">
+                                                <input required asp-for="AutorizacionData" class="form-check-input" name="autorizacionData" id="autorizacionData" disabled />
+                                                @Html.DisplayNameFor(model => model.AutorizacionData)
+                                            </label>
+                                            <p>
+                                                Sus datos personales han sido y están siendo tratados conforme con nuestra Política de Tratamiento de Datos Personales.
+                                                Ley de Protección de Datos Personales: “La autorización suministrada en el presente formulario faculta AVANSIST para
+                                                que dé a sus datos aquí recopilados el tratamiento señalado en la “Política de Privacidad para el Tratamiento de Datos
+                                                Personales” de AVANSIST, el cual incluye, entre otras, el envío de información promocional, así como la invitación a
+                                                eventos. El titular de los datos podrá, en cualquier momento, solicitar que la información sea modificada,
+                                                actualizada o retirada de las bases de datos de AVANSIST.
+                                            </p>
+                                        </div>
+                                        <div class="form-group form-check col-sm-6">
+                                            <input type="hidden" name="hiddenAutorizacionFoto" id="hiddenAutorizacionFoto" />
+                                            <label asp-for="AutorizacionFoto" class="form-check-label">
+                                                <input required asp-for="AutorizacionFoto" class="form-check-input" name="autorizacionFoto" id="autorizacionFoto" disabled />
+                                                @Html.DisplayNameFor(model => model.AutorizacionFoto)
+                                            </label>
+                                            <p>
+                                                Autorizo AVANSIST, el derecho absoluto y la autorización para usar mi (s)
+                                                fotografía (s) , para fines publicitarios de carácter interno o externo. Comprendo que
+                                                las fotografías pueden ser utilizadas en una publicación, anuncio impreso, componente de
+                                                correo directo, medios electrónicos, valla, pendón, hacking u otro elemento de proyección de la
+                                                marca AVANSIST (ejemplo: videos, material multimedia, redes sociales, portal web, banner
+                                                electrónicos, entre otros), o cualquier tipo de publicación para promover los servicios de
+                                                AVANSIST. Reconozco el derecho de AVANSIST y la autorizó para recortar, alterar, transformar,
+                                                modificar, suprimir y editar la fotografía de cualquier manera a discreción exclusiva suya.
+                                                También reconozco que AVANSIST podría decidir no usar la fotografía (s) por el momento, pero
+                                                podría hacerlo a potestad exclusiva suya en cualquier fecha futura. Convengo en que cederé
+                                                derecho a un tercero sobre este material. Así mismo declaro que no tengo derecho a recibir
+                                                compensación ni reconocimiento alguno de cualquier tipo, en relación con el uso que la Caja
+                                                haga de las fotografías.
+                                                Deslindo de responsabilidades AVANSIST, al fotógrafo, a sus directores, funcionarios,
+                                                empleados, agentes y personas designadas y convengo en no demandar a los anteriores por
+                                                ninguna reclamación, responsabilidad, lesión o pérdida en relación con dicho uso.
+                                            </p>
+                                        </div>
+                                    </div>
 
-                                        
-
-                                        <div class="col-7 mt-3">
-                                            <h2 class="fs-title">Información final:</h2>
+                                    <div class="col-7 mt-3">
+                                        <h2 class="fs-title">Información final:</h2>
+                                    </div>
+                                    <div class="col-sm-12 mb-5">
+                                        <hr />
+                                    </div>
+                                    <div class="d-flex justify-content-between mb-4">
+                                        <div class="form-group col-sm-6">
+                                            <label asp-for="FechaRegistro" class="control-label"></label> <label id="asterisco">*</label>
+                                            <input disabled asp-for="FechaRegistro" type="date" class="form-control" name="fechaReg" id="fechaReg" required />
+                                            <span asp-validation-for="FechaRegistro" class="text-danger error"></span>
                                         </div>
-                                        <div class="col-sm-12 mb-5">
-                                            <hr />
+                                        <div class="form-group col-sm-6">
+                                            <label asp-for="EstadoId" class="control-label"></label> <label id="asterisco">*</label>
+                                            <select asp-for="EstadoId" name="estado" id="estado" class="form-control" asp-items="ViewBag.listaEstados" required>
+                                                <option value="">Seleccione estado</option>
+                                            </select>
+                                            <span asp-validation-for="EstadoId" class="text-danger error"></span>
                                         </div>
-                                        <div class="d-flex justify-content-between mb-4">
-                                            <div class="form-group col-sm-6">
-                                                <label asp-for="FechaRegistro" class="control-label"></label> <label id="asterisco">*</label>
-                                                <input disabled asp-for="FechaRegistro" type="date" class="form-control" name="fechaReg" id="fechaReg" required />
-                                                <span asp-validation-for="FechaRegistro" class="text-danger error"></span>
-                                            </div>
-                                            <div class="form-group col-sm-6">
-                                                <label asp-for="EstadoId" class="control-label"></label> <label id="asterisco">*</label>
-                                                <select asp-for="EstadoId" name="estado" id="estado" class="form-control" asp-items="ViewBag.listaEstados" required>
-                                                    <option value="">Seleccione estado</option>
-                                                </select>
-                                                <span asp-validation-for="EstadoId" class="text-danger error"></span>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-12 d-flex justify-content-around">
-                                            <button type="button" class="btn btn-danger" id="btn-cancelar">Cancelar</button>
-                                            <button type="button" class="btn btn-secondary" onclick="stepperForm.previous()">Atras</button>
-                                            <button type="button" class="btn btn-success" id="btn-actualizar">Actualizar beneficiario</button>
-                                        </div>
+                                    </div>
+                                    <div class="col-sm-12 d-flex justify-content-around">
+                                        <button type="button" class="btn btn-danger" id="btn-cancelar">Cancelar</button>
+                                        <button type="button" class="btn btn-secondary" onclick="stepperForm.previous()">Atras</button>
+                                        <button type="button" class="btn btn-success" id="btn-actualizar">Actualizar beneficiario</button>
+                                    </div>
                                 </form>
                             </div>
                         </div>
@@ -667,6 +670,15 @@
     <script src="~/lib/bs-stepper/bs-stepper.min.js"></script>
 
     <script>
+
+        $.ajax({
+            type: 'GET',
+            URL: '/colombia.json',
+            dataType: 'json',
+            success: function (data) {
+                console.log(data)
+            }
+        });
 
         /*--------------------------------- BOTON CANCELAR ---------------------------*/
 
@@ -863,7 +875,7 @@
             let jornada = $('#jornada').val();
 
             if (jornada == "") {
-                document.getElementById("jornada").value = 3;
+                document.getElementById("jornada").value = 1;
             }
 
             // Validacion y metodo Editar

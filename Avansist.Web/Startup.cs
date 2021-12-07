@@ -112,7 +112,7 @@ namespace Avansist.Web
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Configuracion}/{action=Index}/{id?}");
+                    pattern: "{controller=Acceso}/{action=Login}/{id?}");
             });
         }
     }

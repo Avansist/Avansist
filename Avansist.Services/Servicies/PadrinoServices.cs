@@ -76,6 +76,11 @@ namespace Avansist.Services.Servicies
             return await _context.TipoDocumentos.ToListAsync();
         }
 
+        public async Task<Preinscripcion> ObtenerPadrinoPorDocumento(string doc)
+        {
+            return await _context.Preinscripcions.FirstOrDefaultAsync(n => n.NumeroDocumento == doc );
+        }
+
         public async Task<PadrinoDto> ObtenerPadrinoPorId(int id)
         {
             var pa = await _context.Padrinos.Where(p => p.PadrinoId == id).FirstAsync();
