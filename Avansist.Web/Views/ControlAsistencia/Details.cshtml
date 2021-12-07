@@ -6,6 +6,7 @@
 @section Style {
 
     <link href="~/css/AggBeneficiario.css" rel="stylesheet" />
+    <link href="~/css/toggle.css" rel="stylesheet" />
 }
 
 
@@ -28,74 +29,75 @@
         </div><!-- /.container-fluid -->
     </div>
     <!-- /.content-header -->
+    <!-- /.content-header -->
     <div class="container">
         <div class="row">
             <div class="col-sm-12 mx-auto p-2">
-                <div class="card mt-0 mb-3 pt-3">
-                    <div class="col-sm-11 mx-auto p-0 mt-3 mb-2">
-                        <div class="col-sm-12">
-                            <hr />
+                <div class="card p-3 mt-0 mb-3 pt-3">
+                    <div class="col-sm-12">
+                        <div class="">
+                            <h4 class="text-left">
+                                <b id="Tite">
+                                    Visualizar ingreso y salida
+                                </b>
+                            </h4>
                         </div>
-                        <form asp-action="Edit" method="post" id="formPadrino">
-                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-
-                            <input asp-for="ControlAsistenciaId" type="hidden" />
-
-                            <div class="d-flex justify-content-around">
-                                <div class="form-group">
-                                    <label asp-for="PreinscripcionId" class="control-label"></label>
-                                    <select asp-for="PreinscripcionId" class="form-control" asp-items="ViewBag.listaBeneficiarios">
-                                        <option>Seleccione</option>
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <label asp-for="FechaIngreso" class="control-label"></label>
-                                    <input asp-for="FechaIngreso" class="form-control" readonly />
-                                    <span asp-validation-for="FechaIngreso" class="text-danger"></span>
-                                </div>
-                                <div class="form-group">
-                                    <label asp-for="ObservacionIngreso" class="control-label"></label>
-                                    <input asp-for="ObservacionIngreso" class="form-control" readonly />
-                                    <span asp-validation-for="ObservacionIngreso" class="text-danger"></span>
-                                </div>
+                    </div>
+                    <div class="col-sm-12">
+                        <hr />
+                    </div>
+                    <form asp-action="Details" method="post" id="formPadrino">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <input asp-for="ControlAsistenciaId" type="hidden" />
+                        <div class="d-flex justify-content-right mb-4 col-sm-12">
+                            <div class="form-group col-sm-4">
+                                <label asp-for="PreinscripcionId" class="control-label"></label>
+                                <select disabled asp-for="PreinscripcionId" class="form-control" asp-items="ViewBag.listaBeneficiarios">
+                                    <option>Seleccione</option>
+                                </select>
                             </div>
-                            <div class="d-flex justify-content-around">
-                                <div class="form-group form-check col-sm-3">
-                                    <label asp-for="AutorizacionSalida" class="form-check-label">
-                                        <input asp-for="AutorizacionSalida" class="form-check-input" />
-                                        @Html.DisplayNameFor(model => model.AutorizacionSalida)
+                            <div class="form-group col-sm-4">
+                                <label asp-for="FechaIngreso" class="control-label"></label>
+                                <input asp-for="FechaIngreso" class="form-control" disabled />
+                                <span asp-validation-for="FechaIngreso" class="text-danger"></span>
+                            </div>
+                            <div class="form-group col-sm-4">
+                                <label asp-for="FechaSalida" class="control-label"></label>
+                                <input asp-for="FechaSalida" class="form-control" disabled />
+                                <span asp-validation-for="FechaSalida" class="text-danger"></span>
+                            </div>
+
+                        </div>
+                        <div class="d-flex justify-content-right mb-4 col-sm-12">
+                            <div class="form-group col-sm-6">
+                                <label asp-for="ObservacionIngreso" class="control-label"></label>
+                                <textarea disabled asp-for="ObservacionIngreso" id="ObservacionIngreso" class="form-control"></textarea>
+                                <span asp-validation-for="ObservacionIngreso" class="text-danger"></span>
+                            </div>
+                            <div class="form-group col-sm-6">
+                                <label asp-for="ObservacionSalida" class="control-label"></label>
+                                <textarea disabled asp-for="ObservacionSalida" id="ObservacionSalida" class="form-control"></textarea>
+                                <span asp-validation-for="ObservacionSalida" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-center mb-4 col-sm-12">
+                            <div class="col-sm-4">
+                                <label asp-for="AutorizacionSalida" class="control-label"></label>
+                                <div class="form-check p-0">
+                                    <label class="switch">
+                                        <input asp-for="AutorizacionSalida" type="checkbox">
+                                        <span class="slider round"></span>
                                     </label>
                                 </div>
-                                <div class="form-group col-sm-4">
-                                    <label asp-for="FechaSalida" class="control-label"></label>
-                                    <input asp-for="FechaSalida" value="0" class="form-control" />
-                                    <span asp-validation-for="FechaSalida" class="text-danger"></span>
-                                </div>
-
-                                <div class="form-group col-sm-3">
-                                    <label asp-for="ObservacionSalida" class="control-label"></label>
-                                    <input asp-for="ObservacionSalida" class="form-control" />
-                                    <span asp-validation-for="ObservacionSalida" class="text-danger"></span>
-                                </div>
                             </div>
-
-                            <div class="col-sm-12">
-                                <hr />
-                            </div>
-                            <div class="d-flex justify-content-around">
-                                <div class="form-group col-sm-12">
-                                    <input type="submit" value="Create" class="btn btn-success" />
-                                    <a type="button" asp-action="Index" class="btn btn-danger">Cancelar</a>
-                                </div>
-                            </div>
-
-
+                        </div>
+                        <div class="d-flex justify-content-center">
                             <div>
-
+                                <a type="button" asp-action="Index" class="btn btn-danger">Cancelar</a>
+                                <a class="btn btn-success" asp-controller="ControlAsistencia" asp-action="Edit" asp-route-id="@Model.ControlAsistenciaId">Ir a actualizar salida</a>
                             </div>
-
-                        </form>
-                    </div>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>

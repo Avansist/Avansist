@@ -45,9 +45,12 @@ namespace Avansist.Web.Controllers
             if (ModelState.IsValid)
             {
                 try
-                {
-                    await _controlAsistenciaServices.GuardarIngreso(controlAsistenciaDto);
-                    return RedirectToAction(nameof(Index));
+                { 
+                     await _controlAsistenciaServices.GuardarIngreso(controlAsistenciaDto);
+                    return Json(new
+                    {
+                        status = true
+                    });
                 }
                 catch (Exception)
                 {
@@ -83,12 +86,26 @@ namespace Avansist.Web.Controllers
         {
             if (controlAsistenciaDto.ControlAsistenciaId == controlAsistenciaDto.ControlAsistenciaId)
             {
-                if (ModelState.IsValid)
+                if (!ModelState.IsValid)
+                {
+                    return NotFound(); 
+                }
+                
+
+                try
                 {
                     await _controlAsistenciaServices.EditarIngreso(controlAsistenciaDto);
-                    return RedirectToAction(nameof(Index));
+                    return Json(new
+                    {
+                        status = true
+                    });
+
                 }
-                return View(controlAsistenciaDto);
+                catch (Exception)
+                {
+
+                    throw;
+                }
             }
             return NotFound();
         }
@@ -142,7 +159,7 @@ namespace Avansist.Web.Controllers
 
         public async Task<IActionResult> CreateSalidadextracurricular()
         {
-            ViewData["listaBeneficiarios"] = new SelectList(await _controlAsistenciaServices.ObtenerListaBeneficiario(), "PreinscripcionId", "PrimerNombreBeneficiario");
+            ViewData["listaBeneficiarios"] = new SelectList(await _controlAsistenciaServices.ObtenerListaBeneficiario(), "PreinscripcionId", "NumeroDocumento");
             return View();
         }
 
@@ -154,12 +171,16 @@ namespace Avansist.Web.Controllers
                 try
                 {
                     await _controlAsistenciaServices.GuardarSalidadExtracurricular(salidadExtracurricularDto);
-                    return RedirectToAction("IndexSalidadExtracurricular", "ControlAsistencia");
+                    return Json(new
+                    {
+                        status = true
+                    });
                 }
                 catch (Exception)
                 {
                     throw;
                 }
+                
             }
             return View(salidadExtracurricularDto);
         }
@@ -199,7 +220,11 @@ namespace Avansist.Web.Controllers
                 if (ModelState.IsValid)
                 {
                     await _controlAsistenciaServices.EditarSalidadExtracurricular(salidadExtracurricularDto);
-                    return RedirectToAction("IndexSalidadExtracurricular", "ControlAsistencia");
+                    
+                    return Json(new
+                    {
+                        status = true
+                    });
                 }
                 return View(salidadExtracurricularDto);
             }
@@ -235,8 +260,10 @@ namespace Avansist.Web.Controllers
                         FechaRegresoEvento = detalle.FechaRegresoEvento
 
                     };
+                    
                     _avansistDbContext.Add(salidaExtracurricular);
                     _avansistDbContext.SaveChanges();
+
                      
 
                     foreach (Preinscripcion item in _avansistDbContext.Preinscripcions)
@@ -254,6 +281,11 @@ namespace Avansist.Web.Controllers
                     
 
                     transaction.Commit();
+                    return Json(new
+                    {
+                        status = true
+                    });
+
                 }
                 catch (Exception)
                 {
