@@ -1,0 +1,188 @@
+﻿@model ReporteViewModel
+
+@{
+    ViewData["Title"] = "Reportes";
+}
+
+
+@section Style {
+
+    <link href="~/css/Reportes.css" rel="stylesheet" />
+}
+
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header pb-0">
+        <div class="container-fluid">
+            <div class="row mt-5">
+                <div class="col-sm-6">
+                    <ul id="Chart"> <li class="heading" style="list-style: none; font-size: 25px" id="Chart2"> Reportes</li></ul>
+                </div><!-- /.col -->
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a asp-action="ListarRoles">Inicio</a></li>
+                        <li class="breadcrumb-item active">Reportes</li>
+                    </ol>
+                </div><!-- /.col -->
+            </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12 p-2">
+                <div class="card mt-0 mb-3 p-4">
+                    <div class="col-sm-12 p-0">
+                        <div class="">
+                            <h4 class="text-left">
+                                <b id="Tite">
+                                    Matriculados VS Retirados
+                                </b>
+                            </h4>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 p-0">
+                        <hr />
+                    </div>
+                    <div class="form-group mb-0">
+                        <form method="post" id="form-reporte1" asp-action="MatriculadosVSRetirados">
+                            <div class="d-flex justify-content-around mb-5">
+                                <div class="form-group col-sm-4">
+                                    <label asp-for="FechaInicioReporte" class="form-label"></label><span class="text-danger">*</span>
+                                    <input required type="date" asp-for="FechaInicioReporte" class="form-control" id="FechaInicio" />
+                                </div>
+                                <div class="form-group col-sm-4">
+                                    <label asp-for="FechaFinReporte" class="form-label"></label><span class="text-danger">*</span>
+                                    <input required type="date" asp-for="FechaFinReporte" class="form-control" id="FechaFin" />
+                                </div>
+
+                                <div class="form-group col-sm-4 d-flex justify-content-center">
+                                    <button type="button" class="btn btn-success" id="btn-generar"><i class="fas fa-chart-bar"></i> Generar Reporte</button>
+                                </div>
+                            </div>
+                        </form>
+                        <canvas id="myChart" width="100"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /.content-wrapper -->
+
+@section Scripts {
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script>
+
+        document.addEventListener('DOMContentLoaded', function () {
+            $("form-reporte1").validate();
+        })
+
+        document.getElementById("btn-generar").addEventListener("click", function (event) {
+            if (!$("#form-reporte1").valid()) {
+                $("label.error").css("color", "red");
+                $("label.error").css("font-weight", "300");
+
+                event.preventDefault();
+
+            } else {
+                let state = true;
+
+                if ($($("#FechaInicio").val() != null && $("#FechaFin").val() != null)) {
+                    if ($("#FechaInicio").val() && $("#FechaInicio").val() >= $("#FechaFin").val()) {
+                        event.preventDefault();
+                        alertify.alert('Formato no permitido', 'La fecha de termino del evento, no puede ser igual o menor que la fecha de inicio del evento');
+                        state = false;
+                    }
+
+                }
+
+                if (state === true) {
+                let formData = new FormData();
+
+                    formData.append("FechaInicioReporte", document.getElementById('FechaInicio').value);
+
+                    formData.append("FechaFinReporte", document.getElementById('FechaFin').value);
+
+                    $.ajax({
+                        url: '@Url.Action("MatriculadosVSRetirados", "Reporte")',
+                        processData: false,
+                        contentType: false,
+                        data: formData,
+                        dataType: 'json',
+                        type: 'post'
+                    }).done(function (result) {
+                        console.log(result);
+                        const labels = [
+                            'Matricula',
+                            'Retiro'
+                        ];
+                        const data = {
+                            labels: labels,
+                            datasets: [{
+                                label: 'Matriculados VS Retirados',
+                                data: [result.estado4, result.estado5],
+                                backgroundColor: [
+                                    'rgba(255, 206, 86, 0.2)',
+                                    'rgba(75, 192, 192, 0.2)',
+                                ],
+                                borderColor: [
+                                    'rgba(255, 206, 86, 1)',
+                                    'rgba(75, 192, 192, 1)',
+                                ],
+                                borderWidth: 1
+                            }]
+                        };
+
+
+                        const config = {
+                            type: 'bar',
+                            data: data,
+                            options: {}
+                        };
+
+                        const myChart = new Chart(
+                            document.getElementById('myChart'),
+                            config
+                        );
+
+                    })
+                }
+            }
+        })
+
+        //    const ctx = document.getElementById('myChart').getContext('2d');
+        //    const myChart = new Chart(ctx, {
+        //        type: 'bar',
+        //        data: {
+        //            labels: ['Matricula', 'Retiro'],
+        //            datasets: [{
+        //                label: 'Matriculados VS Retirados',
+        //                data: [24, 45],
+        //                backgroundColor: [
+        //                    'rgba(255, 206, 86, 0.2)',
+        //                    'rgba(75, 192, 192, 0.2)',
+        //                ],
+        //                borderColor: [
+        //                    'rgba(255, 206, 86, 1)',
+        //                    'rgba(75, 192, 192, 1)',
+        //                ],
+        //                borderWidth: 1
+        //            }]
+        //        },
+        //        options: {
+        //            scales: {
+        //                y: {
+        //                    beginAtZero: true
+        //                }
+        //            }
+        //        }
+        //    });
+
+        //}
+
+    </script>
+}

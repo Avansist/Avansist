@@ -69,7 +69,7 @@ namespace Avansist.Web
                 options.LoginPath = new PathString("/Acceso/Login");
                 options.Cookie.Name = "Cookie";
                 options.Cookie.HttpOnly = true;
-                options.ExpireTimeSpan = TimeSpan.FromMinutes(5);
+                options.ExpireTimeSpan = TimeSpan.FromDays(1);
                 options.ReturnUrlParameter = CookieAuthenticationDefaults.ReturnUrlParameter;
                 options.SlidingExpiration = true;
             });
@@ -93,13 +93,23 @@ namespace Avansist.Web
         {
             if (env.IsDevelopment())
             {
-                app.UseDeveloperExceptionPage();
+                DeveloperExceptionPageOptions d = new()
+                {
+                    SourceCodeLineCount = 2
+                };
+                app.UseDeveloperExceptionPage(d);
+
+            }else if(env.IsProduction() || env.IsStaging())
+            {
+                app.UseExceptionHandler("/Error2");
+                app.UseStatusCodePagesWithRedirects("/Error2/{0}");
             }
             else
             {
-                app.UseExceptionHandler("/Home/Error");
-                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-                app.UseHsts();
+                //app.UseStatusCodePagesWithRedirects("/Error2/{0}");
+                //app.UseExceptionHandler("/Home/Error");
+                ////// The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+                //app.UseHsts();
             }
             app.UseHttpsRedirection();
             app.UseStaticFiles();
@@ -112,7 +122,7 @@ namespace Avansist.Web
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Configuracion}/{action=Index}/{id?}");
+                    pattern: "{controller=Acceso}/{action=Login}/{id?}");
             });
         }
     }

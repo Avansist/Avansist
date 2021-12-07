@@ -2,6 +2,7 @@
 using Avansist.Web.Models;
 using Avansist.Web.Models.Email;
 using Avansist.Web.ViewModel;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -18,6 +19,7 @@ using System.Threading.Tasks;
 
 namespace Avansist.Web.Controllers
 {
+    [Authorize(Roles = "Administrador")]
     public class ConfiguracionController : Controller
     {
 
@@ -94,22 +96,22 @@ namespace Avansist.Web.Controllers
                     var result = await _userManager.CreateAsync(user, usuarioViewModel.Password);
                     if (result.Succeeded)
                     {
-                        var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
-                        code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));
-                        var callbackUrl = Url.Action("ConfirmarEmailPost", "Configuracion", new
-                        {
-                            token = code,
-                            email = usuarioViewModel.Email
-                        }, Request.Scheme);
+                        //var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
+                        //code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));
+                        //var callbackUrl = Url.Action("ConfirmarEmailPost", "Configuracion", new
+                        //{
+                        //    token = code,
+                        //    email = usuarioViewModel.Email
+                        //}, Request.Scheme);
 
-                        await _emailSender.SendEmailAsync(usuarioViewModel.Email, "Confirmar correo eléctronico",
-                            $"<h1>¡Bienvenid@!</h1></br></br>" +
-                            $"<p>Estimad@ {usuarioViewModel.Nombre}, estas son las credenciales que debe utilizar para el inicio de sesión</p>" +
-                            $"<p>Usuario: <b>{usuarioViewModel.Email}</b></p>" +
-                            $"<p>Contraseña: <b>{usuarioViewModel.Password}</b></p></br>" +
-                            $"<p>En el siguiente enlace podra activar la cuenta" +
-                            $" y tener acceso al aplicativo <b>Avansist</b>.</br>" +
-                            $"<a style='font-size:13px' href='{HtmlEncoder.Default.Encode(callbackUrl)}'>Clic aquí</a>.");
+                        //await _emailSender.SendEmailAsync(usuarioViewModel.Email, "Confirmar correo eléctronico",
+                        //    $"<h1>¡Bienvenid@!</h1></br></br>" +
+                        //    $"<p>Estimad@ {usuarioViewModel.Nombre}, estas son las credenciales que debe utilizar para el inicio de sesión</p>" +
+                        //    $"<p>Usuario: <b>{usuarioViewModel.Email}</b></p>" +
+                        //    $"<p>Contraseña: <b>{usuarioViewModel.Password}</b></p></br>" +
+                        //    $"<p>En el siguiente enlace podra activar la cuenta" +
+                        //    $" y tener acceso al aplicativo <b>Avansist</b>.</br>" +
+                        //    $"<a style='font-size:13px' href='{HtmlEncoder.Default.Encode(callbackUrl)}'>Clic aquí</a>.");
 
                         //await _userManager.AddToRoleAsync(user, usuarioViewModel.RolSeleccionado);
                         //ViewBag para abrir modal en la vista de registrarUsuarioExterno
@@ -170,7 +172,8 @@ namespace Avansist.Web.Controllers
             var usuario = await _userManager.FindByIdAsync(id);
             if (usuario == null)
             {
-                return NotFound();
+                ViewBag.ErrorMessage = $"El usuario con id {id} no se encontró";
+                return View("Error2");
             }
 
             // Una lista de las notificaciones
@@ -197,7 +200,8 @@ namespace Avansist.Web.Controllers
             var usuario = await _userManager.FindByIdAsync(editarUsuarioViewModel.Id);
             if (usuario == null)
             {
-                NotFound();
+                ViewBag.ErrorMessage = $"El usuario con id {editarUsuarioViewModel.Id} no se encontró";
+                return View("Error2");
             }
             else
             {
@@ -218,7 +222,6 @@ namespace Avansist.Web.Controllers
 
                 return View(editarUsuarioViewModel);
             }
-            return View(editarUsuarioViewModel);
 
             //if (ModelState.IsValid)
             //{
@@ -265,20 +268,34 @@ namespace Avansist.Web.Controllers
             var usuario = await _userManager.FindByIdAsync(id);
             if (usuario == null)
             {
-                return NotFound();
+                ViewBag.ErrorMessage = $"El usuario con id {id} no se encontró";
+                return View("Error2");
             }
             else
             {
-                var result = await _userManager.DeleteAsync(usuario);
-                if (result.Succeeded)
+                try
                 {
-                    return RedirectToAction("Index", "Configuracion");
-                }
+                    var result = await _userManager.DeleteAsync(usuario);
+                    if (result.Succeeded)
+                    {
+                        //ViewData["Succeeded"] = "200";
+                        //ViewBag.Succeeded = 200;
+                        return RedirectToAction("Index", "Configuracion");
+                    }
 
-                foreach (var error in result.Errors)
-                {
-                    ModelState.AddModelError(string.Empty, error.Description);
+                    foreach (var error in result.Errors)
+                    {
+                        ModelState.AddModelError(string.Empty, error.Description);
+                    }
                 }
+                catch (DbUpdateException ex)
+                {
+                    //Pasamos el titulo del error y el mensaje
+                    ViewBag.ErrorTitle = $"Usuario {usuario.UserName} está siendo utilizado";
+                    ViewBag.ErrorMessage = $"El usuario{usuario.UserName} no se puede eliminar porque esta en uso, " +
+                        $"remueva el rol y los permisos de este usuario para eliminarlo";
+                    return View("ErrorGenerico");
+                }                
             }
 
             return RedirectToAction("Index", "Configuracion");
@@ -337,6 +354,7 @@ namespace Avansist.Web.Controllers
         //**********************************|---------|**********************************
         public IActionResult ListarRoles()
         {
+
             var listaRoles = _roleManager.Roles;
             return View(listaRoles);
         }
@@ -350,8 +368,8 @@ namespace Avansist.Web.Controllers
             var rol = await _roleManager.FindByIdAsync(id);
             if (rol == null)
             {
-                ViewData["Error"] = $"El rol con id {id} no se encontró"; // Organizar una vista de error
-                return View("NotFound");
+                ViewBag.ErrorMessage = $"El rol con id {id} no se encontró";
+                return View("Error2");
             }
             var editarRolViewModel = new EditarRolViewModel
             {
@@ -375,137 +393,154 @@ namespace Avansist.Web.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> EditarRol(EditarRolViewModel editarRolViewModel)
         {
-            var rol = await _roleManager.FindByIdAsync(editarRolViewModel.Id);
-            if (rol == null)
+            if (ModelState.IsValid)
             {
-                ViewData["Error"] = $"El rol con id {editarRolViewModel.Id} no se encontró"; // Organizar una vista de error
-                return View("NotFound");
-            }
-            else
-            {
-                rol.Name = editarRolViewModel.NombreRol;
-                var result = await _roleManager.UpdateAsync(rol);
-                if (result.Succeeded)
+                var rol = await _roleManager.FindByIdAsync(editarRolViewModel.Id);
+                if (rol == null)
                 {
-                    return RedirectToAction("ListarRoles");
+                    ViewBag.ErrorMessage = $"El rol con id {editarRolViewModel.Id} no se encontró";
+                    return View("Error2");
                 }
-                foreach (var error in result.Errors)
+                else
                 {
-                    ModelState.AddModelError("", error.Description);
+                    rol.Name = editarRolViewModel.NombreRol;
+                    var result = await _roleManager.UpdateAsync(rol);
+                    if (result.Succeeded)
+                    {
+                        ViewBag.Succeeded = 200;
+                        //return RedirectToAction("ListarRoles");
+                    }
+                    foreach (var error in result.Errors)
+                    {
+                        ModelState.AddModelError(string.Empty, error.Description);
 
+                    }
                 }
-            }
+            }           
 
             return View(editarRolViewModel);
         }
 
-        // ------------------------Petición GET del EditarUsuarioRol-------------------------
-        public async Task<IActionResult> EditarUsuarioRol(string rolId)
-        {
-            ViewBag.roleId = rolId;
+        //// ------------------------Petición GET del EditarUsuarioRol-------------------------
+        //public async Task<IActionResult> EditarUsuarioRol(string rolId)
+        //{
+        //    ViewBag.roleId = rolId;
 
-            var role = await _roleManager.FindByIdAsync(rolId);
+        //    var role = await _roleManager.FindByIdAsync(rolId);
 
-            if (role == null)
-            {
-                ViewBag.ErrorMessage = $"Rol con el Id = {rolId} no fue encontrado";
-                return View("Error");
-            }
+        //    if (role == null)
+        //    {
+        //        ViewBag.ErrorMessage = $"Rol con el Id = {rolId} no fue encontrado";
+        //        return View("Error2");
+        //    }
 
-            var model = new List<UsuarioRolViewModel>();
+        //    var model = new List<UsuarioRolViewModel>();
 
-            foreach (var user in _userManager.Users)
-            {
-                var usuarioRolModelo = new UsuarioRolViewModel
-                {
-                    UsuarioId = user.Id,
-                    UsuarioNombre = user.UserName
-                };
+        //    foreach (var user in _userManager.Users)
+        //    {
+        //        var usuarioRolModelo = new UsuarioRolViewModel
+        //        {
+        //            UsuarioId = user.Id,
+        //            UsuarioNombre = user.UserName
+        //        };
 
-                if (await _userManager.IsInRoleAsync(user, role.Name))
-                {
-                    usuarioRolModelo.EstaSeleccionado = true;
-                }
-                else
-                {
-                    usuarioRolModelo.EstaSeleccionado = false;
-                }
+        //        if (await _userManager.IsInRoleAsync(user, role.Name))
+        //        {
+        //            usuarioRolModelo.EstaSeleccionado = true;
+        //        }
+        //        else
+        //        {
+        //            usuarioRolModelo.EstaSeleccionado = false;
+        //        }
 
-                model.Add(usuarioRolModelo);
-            }
-            return View(model);
-        }
+        //        model.Add(usuarioRolModelo);
+        //    }
+        //    return View(model);
+        //}
 
-        // ------------------------Petición POST del EditarUsuarioRol-------------------------
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> EditarUsuarioRol(List<UsuarioRolViewModel> model, string rolId)
-        {
-            var rol = await _roleManager.FindByIdAsync(rolId);
+        //// ------------------------Petición POST del EditarUsuarioRol-------------------------
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public async Task<IActionResult> EditarUsuarioRol(List<UsuarioRolViewModel> model, string rolId)
+        //{
+        //    var rol = await _roleManager.FindByIdAsync(rolId);
 
-            if (rolId == null)
-            {
-                ViewBag.ErrorMessage = $"Rol con el Id {rolId} no fue encontrado";
-                return View("Error");
-            }
+        //    if (rolId == null)
+        //    {
+        //        ViewBag.ErrorMessage = $"Rol con el Id {rolId} no fue encontrado";
+        //        return View("Error");
+        //    }
 
-            for (int i = 0; i < model.Count; i++)
-            {
-                var user = await _userManager.FindByIdAsync(model[i].UsuarioId);
+        //    for (int i = 0; i < model.Count; i++)
+        //    {
+        //        var user = await _userManager.FindByIdAsync(model[i].UsuarioId);
 
-                IdentityResult result = null;
+        //        IdentityResult result = null;
 
-                if (model[i].EstaSeleccionado && !(await _userManager.IsInRoleAsync(user, rol.Name)))
-                {
-                    result = await _userManager.AddToRoleAsync(user, rol.Name);
-                }
-                else if (!model[i].EstaSeleccionado && await _userManager.IsInRoleAsync(user, rol.Name))
-                {
-                    result = await _userManager.RemoveFromRoleAsync(user, rol.Name);
-                }
-                else
-                {
-                    continue;
-                }
+        //        if (model[i].EstaSeleccionado && !(await _userManager.IsInRoleAsync(user, rol.Name)))
+        //        {
+        //            result = await _userManager.AddToRoleAsync(user, rol.Name);
+        //        }
+        //        else if (!model[i].EstaSeleccionado && await _userManager.IsInRoleAsync(user, rol.Name))
+        //        {
+        //            result = await _userManager.RemoveFromRoleAsync(user, rol.Name);
+        //        }
+        //        else
+        //        {
+        //            continue;
+        //        }
 
-                if (result.Succeeded)
-                {
-                    if (i < (model.Count - 1))
-                    {
-                        continue;
-                    }
-                    else
-                    {
-                        return RedirectToAction("EditarRol", new { Id = rolId });
-                    }
-                }
-            }
-            return RedirectToAction("EditarRol", new { Id = rolId });
-        }
+        //        if (result.Succeeded)
+        //        {
+        //            if (i < (model.Count - 1))
+        //            {
+        //                continue;
+        //            }
+        //            else
+        //            {
+        //                return RedirectToAction("EditarRol", new { Id = rolId });
+        //            }
+        //        }
+        //    }
+        //    return RedirectToAction("EditarRol", new { Id = rolId });
+        //}
 
         //**********************************|------------|**********************************
         //**********************************|ELIMINAR ROL|**********************************
         //**********************************|------------|**********************************
-        // ------------------------Petición POST del EliminarRol-------------------------
+        // ------------------------Petición POST del EliminarRol-------------------------        
         public async Task<IActionResult> EliminarRol(string id)
         {
-            var usuario = await _roleManager.FindByIdAsync(id);
-            if (usuario == null)
+            var rol = await _roleManager.FindByIdAsync(id);
+            if (rol == null)
             {
-                return NotFound();
+                ViewBag.ErrorMessage = $"Usuario con Id = {id} no fue encontrado";
+                return View("Error2");
             }
             else
             {
-                var result = await _roleManager.DeleteAsync(usuario);
-                if (result.Succeeded)
+                try
                 {
-                   ViewBag.Succeeded = 200;
+                    var result = await _roleManager.DeleteAsync(rol);
+                    if (result.Succeeded)
+                    {
+                        return ViewBag.Succeeded = 200;
+                    }
+
+                    foreach (var error in result.Errors)
+                    {
+                        ModelState.AddModelError(string.Empty, error.Description);
+                    }
+                }
+                catch (DbUpdateException ex)
+                {
+                    //Pasamos el titulo del error y el mensaje
+                    ViewBag.ErrorTitle = $"Rol {rol.Name} está siendo utilizado";
+                    ViewBag.ErrorMessage = $"El rol {rol.Name} no se puede eliminar porque esta en uso, " +
+                        $"remueva los usuarios de este rol para eliminarlo";
+                    return View("ErrorGenerico");
                 }
                 
-                foreach (var error in result.Errors)
-                {
-                    ModelState.AddModelError(string.Empty, error.Description);
-                }
             }
 
             return RedirectToAction("ListarRoles", "Configuracion");
@@ -562,6 +597,10 @@ namespace Avansist.Web.Controllers
             }
 
             var roles = await _userManager.GetRolesAsync(usuario);
+            //if (PasswordValidator<IdentityRole> != 1)
+            //{
+            //    throw new Exception("Solo se puede tener un rol por usuario");
+            //}
             var result = await _userManager.RemoveFromRolesAsync(usuario, roles);
 
             if (!result.Succeeded)
@@ -581,9 +620,9 @@ namespace Avansist.Web.Controllers
             return RedirectToAction("EditarUsuario", new { Id = IdUsuario });
         }
 
-        //**********************************|------------|**********************************
+        //**********************************|-----------------------|**********************************
         //**********************************|GESTIONAR USUARIOCLAIMS|**********************************
-        //**********************************|------------|**********************************
+        //**********************************|-----------------------|**********************************
         // ------------------------Petición GET del GestionarUsuarioClaims-------------------------
         public async Task<IActionResult> GestionarUsuarioClaims(string IdUsuario)
         {

@@ -24,8 +24,8 @@
                 </div><!-- /.col -->
                 <div class="col-sm-6 mt-5">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a asp-action="">Inicio</a></li>
-                        <li class="breadcrumb-item active">Usuarios</li>
+                        <li class="breadcrumb-item"><a asp-action="Index" asp-controller="Home">Inicio</a></li>
+                        <li class="breadcrumb-item active">Roles</li>
                     </ol>
                 </div><!-- /.col -->
             </div><!-- /.row -->
@@ -43,7 +43,7 @@
                 <table class="table table-striped table-bordered mx-auto" id="tabla">
                     <thead style="background-color: rgb(175,219,110,0.4)">
                         <tr>
-                            <th>
+                            <th class="d-flex justify-content-center">
                                 Nombre Rol
                             </th>
                             <th>Acciones</th>
@@ -57,10 +57,25 @@
                                     @Html.DisplayFor(modelItem => rol.Name)
                                 </td>
                                 <td>
-                                    <form id="frm-eliminar" asp-action="EliminarRol" asp-route-id="@rol.Id" method="post">                                        
-                                        <a class="btn btn-secondary" asp-action="EditarRol" asp-route-id="@rol.Id"><i class="fas fa-user-edit"></i></a> |
-                                        <button type="button" class="btn btn-danger" onclick="EliminarRol()"><i class="far fa-trash-alt"></i></button>
+                                    <form method="post" asp-action="EliminarRol" asp-route-id="@rol.Id">
+                                        <input type="hidden" id="succeededEliminarRol" value="@ViewBag.Succeeded" />
+                                        <a data-bs-toggle="tooltip" title="Editar" class="btn btn-secondary" asp-action="EditarRol" asp-route-id="@rol.Id"><i class="fas fa-user-edit"></i></a> |
+                                        <span id="confirmBorrarSpan_@rol.Id" style="display: none">
+                                            <span>¿Eliminar este rol?</span>
+                                            <button data-bs-toggle="tooltip" title="Aceptar" type="submit" class="btn btn-success"><i class="fas fa-check"></i></button>
+                                            <a data-bs-toggle="tooltip" title="Cancelar" href="#" class="btn btn-danger"
+                                               onclick="confirmBorrar('@rol.Id', false)"><i class="fas fa-times"></i></a>
+                                        </span>
+                                        <span id="BorrarSpan_@rol.Id">
+                                            <a data-bs-toggle="tooltip" title="Eliminar" href="#" class="btn btn-danger"
+                                               onclick="confirmBorrar('@rol.Id', true)"><i class="far fa-trash-alt"></i></a>
+                                        </span>
                                     </form>
+                                    
+                                    @*<a class="m1-1 btn btn-danger" onclick="return confirm('¿Desea eliminar el rol @rol.Name?')" asp-action="EliminarRol" asp-route-id="@rol.Id"><i class="far fa-trash-alt"></i></a>*@
+                                    @*<form id="frm-eliminar" method="post" asp-action="EliminarRol" asp-route-id="@rol.Id">
+                                        <button type="button" class="btn btn-danger" onclick="EliminarRol()"><i class="far fa-trash-alt"></i></button>
+                                    </form>*@
                                 </td>
                             </tr>
                         }
@@ -77,27 +92,51 @@
 
 
 @section Scripts{
-    <script>              
+    <script>
 
-        function EliminarRol() {
-            Swal.fire({
-                text: '¿Desea eliminar el rol?',
-                icon: 'error',
-                confirmButtonColor: '#afdb6e',
-                showDenyButton: true,
-                showCancelButton: false,
-                confirmButtonText: 'Aceptar',
-                denyButtonText: 'Cancelar',
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    if (result.isConfirmed) {
-                        document.getElementById('frm-eliminar').submit();
-                    }
-                } else if (result.isDenied) {
 
-                }
-            })
-        }        
+        function confirmBorrar(Id, seHizoClick) {
+            let confirmBorrar = 'BorrarSpan_' + Id;
+            let confirmBorrarSpan = 'confirmBorrarSpan_' + Id;
+
+            if (seHizoClick) {
+                $('#' + confirmBorrar).hide();
+                $('#' + confirmBorrarSpan).show();
+            } else {
+                $('#' + confirmBorrar).show();
+                $('#' + confirmBorrarSpan).hide();
+            }
+        }
+
+        @*let succeeded = document.getElementById('succeededEliminarRol').value;
+
+        if (succeeded == 200) {
+            setTimeout(function () {
+                window.location.href = '@Url.Action("ListarRoles", "Configuracion")';
+            }, 1300);
+            alertify.error('Eliminado');
+        }*@
+
+        
+        //function EliminarRol() {
+        //    Swal.fire({
+        //        text: '¿Desea eliminar el rol?',
+        //        icon: 'error',
+        //        confirmButtonColor: '#afdb6e',
+        //        showDenyButton: true,
+        //        showCancelButton: false,
+        //        confirmButtonText: 'Aceptar',
+        //        denyButtonText: 'Cancelar',
+        //    }).then((result) => {
+        //        if (result.isConfirmed) {
+        //            if (result.isConfirmed) {
+        //                document.getElementById('frm-eliminar').submit();
+        //            }
+        //        } else if (result.isDenied) {
+
+        //        }
+        //    })
+        //}
 
     </script>
 }
