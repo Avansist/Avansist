@@ -893,7 +893,8 @@ namespace Avansist.DAL.Migrations
 
                     b.HasOne("Avansist.Models.Entities.Preinscripcion", "Preinscripcions")
                         .WithMany()
-                        .HasForeignKey("PreinscripcionsPreinscripcionId");
+                        .HasForeignKey("PreinscripcionsPreinscripcionId")
+                        .OnDelete(DeleteBehavior.Restrict);
 
                     b.HasOne("Avansist.Models.Entities.TipoDocumento", "TipoDocumento")
                         .WithMany("Preinscripcions")
@@ -922,11 +923,10 @@ namespace Avansist.DAL.Migrations
 
             modelBuilder.Entity("Avansist.Models.Entities.SalidaExtracurricular", b =>
                 {
-                        b.HasOne("Avansist.Models.Entities.Agenda", "Agenda")
-                        .WithMany()
-                        .HasForeignKey("AgendaId")
+                    b.HasOne("Avansist.Models.Entities.Preinscripcion", "Preinscripcion")
+                        .WithMany("SalidaExtracurricular")
+                        .HasForeignKey("PreinscripcionId")
                         .OnDelete(DeleteBehavior.Restrict)
-
                         .IsRequired();
 
                     b.Navigation("Preinscripcion");
