@@ -67,9 +67,9 @@ namespace Avansist.Web.Controllers
         //**********************************|GESTIÓN DE USUARIO|**********************************
         //**********************************|------------------|**********************************
         // --------------------------Petición GET del CrearUsuario-------------------------
-        public IActionResult CrearUsuario()
+        public async Task<IActionResult> CrearUsuario()
         {
-            //ViewData["Roles"] = new SelectList(await _roleManager.Roles.ToListAsync(), "Name", "Name");
+            ViewData["Roles"] = new SelectList(await _roleManager.Roles.ToListAsync(), "Name", "Name");
             return View();
         }
 
@@ -113,7 +113,7 @@ namespace Avansist.Web.Controllers
                         //    $" y tener acceso al aplicativo <b>Avansist</b>.</br>" +
                         //    $"<a style='font-size:13px' href='{HtmlEncoder.Default.Encode(callbackUrl)}'>Clic aquí</a>.");
 
-                        //await _userManager.AddToRoleAsync(user, usuarioViewModel.RolSeleccionado);
+                        await _userManager.AddToRoleAsync(user, usuarioViewModel.RolSeleccionado);
                         //ViewBag para abrir modal en la vista de registrarUsuarioExterno
                         ViewBag.Succeeded = 200;
                     }
@@ -293,15 +293,15 @@ namespace Avansist.Web.Controllers
                     //Pasamos el titulo del error y el mensaje
                     ViewBag.ErrorTitle = $"Usuario {usuario.UserName} está siendo utilizado";
                     ViewBag.ErrorMessage = $"El usuario{usuario.UserName} no se puede eliminar porque esta en uso, " +
-                        $"remueva el rol y los permisos de este usuario para eliminarlo";
+                        $"remueva el rol de este usuario para eliminarlo";
                     return View("ErrorGenerico");
-                }                
+                }
             }
 
             return RedirectToAction("Index", "Configuracion");
         }
-         
-        
+
+
         /*************************************GESTIÓN DE ROLES******************************************************/
 
         //**********************************|----------------|**********************************
@@ -368,24 +368,52 @@ namespace Avansist.Web.Controllers
             var rol = await _roleManager.FindByIdAsync(id);
             if (rol == null)
             {
-                ViewBag.ErrorMessage = $"El rol con id {id} no se encontró";
+                ViewBag.ErrorMessage = $"El usuario con id {id} no se encontró";
                 return View("Error2");
             }
-            var editarRolViewModel = new EditarRolViewModel
+
+            // Una lista de las notificaciones
+            var rolClaims = await _roleManager.GetClaimsAsync(rol);
+
+            var model = new EditarRolViewModel
             {
                 Id = rol.Id,
-                NombreRol = rol.Name
+                NombreRol = rol.Name,
+                Notificaciones = rolClaims.Select(c => c.Value).ToList()
             };
 
             foreach (var user in _userManager.Users)
             {
                 if (await _userManager.IsInRoleAsync(user, rol.Name))
                 {
-                    editarRolViewModel.Usuarios.Add(user.UserName);
+                    model.Usuarios.Add(user.UserName);
                 }
-
             }
-            return View(editarRolViewModel);
+
+            return View(model);
+
+
+            //var rol = await _roleManager.FindByIdAsync(id);
+            //if (rol == null)
+            //{
+            //    ViewBag.ErrorMessage = $"El rol con id {id} no se encontró";
+            //    return View("Error2");
+            //}
+            //var editarRolViewModel = new EditarRolViewModel
+            //{
+            //    Id = rol.Id,
+            //    NombreRol = rol.Name
+            //};
+
+            //foreach (var user in _userManager.Users)
+            //{
+            //    if (await _userManager.IsInRoleAsync(user, rol.Name))
+            //    {
+            //        editarRolViewModel.Usuarios.Add(user.UserName);
+            //    }
+
+            //}
+            //return View(editarRolViewModel);
         }
 
         // ------------------------Petición GET del EditarRol-------------------------
@@ -416,11 +444,36 @@ namespace Avansist.Web.Controllers
 
                     }
                 }
-            }           
+            }
 
             return View(editarRolViewModel);
         }
 
+        public async Task<IActionResult> DetalleRol(string id)
+        {
+            var rol = await _roleManager.FindByIdAsync(id);
+            if (rol == null)
+            {
+                ViewBag.ErrorMessage = $"El usuario con id {id} no se encontró";
+                return View("Error2");
+            }
+
+            var model = new EditarRolViewModel
+            {
+                Id = rol.Id,
+                NombreRol = rol.Name
+            };
+
+            foreach (var user in _userManager.Users)
+            {
+                if (await _userManager.IsInRoleAsync(user, rol.Name))
+                {
+                    model.Usuarios.Add(user.UserName);
+                }
+            }
+
+            return View(model);
+        }
         //// ------------------------Petición GET del EditarUsuarioRol-------------------------
         //public async Task<IActionResult> EditarUsuarioRol(string rolId)
         //{
@@ -540,7 +593,7 @@ namespace Avansist.Web.Controllers
                         $"remueva los usuarios de este rol para eliminarlo";
                     return View("ErrorGenerico");
                 }
-                
+
             }
 
             return RedirectToAction("ListarRoles", "Configuracion");
@@ -695,5 +748,96 @@ namespace Avansist.Web.Controllers
 
             return RedirectToAction("EditarUsuario", new { Id = modelo.idUsuario });
         }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        //public async Task<IActionResult> GestionarRolClaims(string IdRol)
+        //{
+        //    var rol = await _roleManager.FindByIdAsync(IdRol);
+
+        //    if (rol == null)
+        //    {
+        //        ViewBag.ErrorMessage = $"El usuario con id = {IdRol} no se encontro";
+        //        return View("Error");
+        //    }
+
+        //    //Obtenemos todos los claims del usuario actual
+        //    var existingUserClaims = await _roleManager.GetClaimsAsync(rol);
+
+        //    var model = new RolClaimsViewModel
+        //    {
+        //        idUsuario = IdRol
+        //    };
+
+        //    //Recorremos los claims de nuestra aplicación
+        //    foreach (Claim claim in AlmacenClaims.todosLosClaims)
+        //    {
+        //        RolClaim rolClaim = new()
+        //        {
+        //            tipoClaim = claim.Type
+        //        };
+
+        //        // si el usuario tiene el claim que estamos recorriendo en este momento lo seleccionamos
+        //        if (existingUserClaims.Any(c => c.Type == claim.Type))
+        //        {
+        //            rolClaim.estaSeleccionado = true;
+        //        }
+
+        //        model.Claims.Add(rolClaim);
+        //    }
+        //    return View(model);
+        //}
+
+
+        //[HttpPost]
+        //public async Task<IActionResult> GestionarRolClaims(RolClaimsViewModel modelo)
+        //{
+        //    var rol = await _roleManager.FindByIdAsync(modelo.idUsuario);
+
+        //    if (rol == null)
+        //    {
+        //        ViewBag.ErrorMessage = $"El usuario con id = {modelo.idUsuario} no se encontro";
+        //        return View("Error");
+        //    }
+
+        //    //Obtenemos los claims del usuario y los borramos
+        //    var claims = await _roleManager.GetClaimsAsync(rol);
+        //    var result = await _roleManager.RemoveClaimAsync(rol, IEnumerable<claims> claims);
+
+        //    if (!result.Succeeded)
+        //    {
+        //        ModelState.AddModelError("", "No se pueden borrar los claims de este usuario");
+        //        return View(modelo);
+        //    }
+
+        //    // Volvemos a asociar los seleccionados en la interfaz grafica
+        //    result = await _roleManager.AddClaimAsync(rol, Claim claim));
+
+        //    if (!result.Succeeded)
+        //    {
+        //        ModelState.AddModelError("", "No se puede agregar el claim a este rol");
+        //        return View(modelo);
+        //    }
+
+        //    return RedirectToAction("EditarRol", new { Id = modelo.idUsuario });
+        //}
     }
 }

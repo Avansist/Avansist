@@ -20,7 +20,7 @@ namespace Avansist.Services.DTOs
         [StringLength(45, ErrorMessage = "El {0} debe tener al menos {2} y maximo {1} caracteres.", MinimumLength = 3)]
         public string EmpleadoEncargado { get; set; }
         [DisplayName("Número Documento")]
-        [Required(ErrorMessage = "El numero de docuemnto del empleado encargado es requerido")]
+        [Required(ErrorMessage = "El numero de documento del empleado encargado es requerido")]
         [StringLength(20, ErrorMessage = "El {0} debe tener al menos {2} y maximo {1} caracteres.", MinimumLength = 3)]
         public string NumeroDocumento { get; set; }
         [DisplayName("Teléfono")]
@@ -41,7 +41,7 @@ namespace Avansist.Services.DTOs
         [Required(ErrorMessage = "La hora del fin del evento es requerida")]
         public string HoraFinEvento { get; set; }
         [DataType(DataType.Date)]
-        [DisplayName("Fecha de Inicio Evento")]
+        [DisplayName("Fecha del evento")]
         [Required(ErrorMessage = "La fecha del inicio del evento es requerida")]
         public DateTime FechaInicioEvento { get; set; }
 

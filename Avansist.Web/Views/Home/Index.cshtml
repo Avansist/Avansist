@@ -68,34 +68,34 @@
                             <div class="col-sm-6">
                                 <div class="form-group">
                                     <label asp-for="EmpleadoEncargado" class="col-form-label"></label><span style="color:red">*</span>
-                                    <input asp-for="EmpleadoEncargado" type="text" class="form-control" id="EmpleadoEncargado1" name="EmpleadoEncargado" />
+                                    <input required asp-for="EmpleadoEncargado" onkeyup="soloLetras(this)" type="text" class="form-control" id="EmpleadoEncargado1" name="EmpleadoEncargado" />
                                     <span asp-validation-for="EmpleadoEncargado" class="text-danger"></span>
                                 </div>
                                 <div class="form-group">
                                     <label asp-for="Direccion" class="col-form-label"></label><span style="color:red">*</span>
-                                    <input asp-for="Direccion" type="text" class="form-control" id="Direccion1" name="Direccion" />
+                                    <input required asp-for="Direccion" type="text" class="form-control" id="Direccion1" name="Direccion" />
                                     <span asp-validation-for="Direccion" class="text-danger"></span>
                                 </div>
                                 <div class="form-group">
                                     <label asp-for="HoraInicioEvento" class="col-form-label"></label><span style="color:red">*</span>
-                                    <input asp-for="HoraInicioEvento" type="time" class="form-control" id="HoraInicioEvento1" name="HoraInicioEvento" />
+                                    <input required asp-for="HoraInicioEvento" type="time" class="form-control" id="HoraInicioEvento1" name="HoraInicioEvento" />
                                     <span asp-validation-for="HoraInicioEvento" class="text-danger"></span>
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="form-group">
                                     <label asp-for="NumeroDocumento" class="col-form-label"></label><span style="color:red">*</span>
-                                    <input asp-for="NumeroDocumento" type="text" class="form-control" id="NumeroDocumento1" name="NumeroDocumento" />
+                                    <input required asp-for="NumeroDocumento" onkeyup="soloNumeros(this)" class="form-control" id="NumeroDocumento1" name="NumeroDocumento" />
                                     <span asp-validation-for="NumeroDocumento" class="text-danger"></span>
                                 </div>
                                 <div class="form-group">
                                     <label asp-for="Telefono" class="col-form-label"></label><span style="color:red">*</span>
-                                    <input asp-for="Telefono" type="text" class="form-control" id="Telefono1" name="Telefono" />
+                                    <input required asp-for="Telefono" onkeyup="soloNumeros(this)" class="form-control" id="Telefono1" name="Telefono" />
                                     <span asp-validation-for="Telefono" class="text-danger"></span>
                                 </div>
                                 <div class="form-group">
                                     <label asp-for="HoraFinEvento" class="col-form-label"></label><span style="color:red">*</span>
-                                    <input asp-for="HoraFinEvento" type="time" class="form-control" id="HoraFinEvento1" name="HoraFinEvento" />
+                                    <input required asp-for="HoraFinEvento" type="time" class="form-control" id="HoraFinEvento1" name="HoraFinEvento" />
                                     <span asp-validation-for="HoraFinEvento" class="text-danger"></span>
                                 </div>
                                 @*<div class="form-group">
@@ -151,7 +151,7 @@
                         <div class="col-sm-6">
                             <div class="form-group">
                                 <label asp-for="EmpleadoEncargado" class="col-form-label"></label><span style="color:red">*</span>
-                                <input required asp-for="EmpleadoEncargado" type="text" class="form-control" id="EmpleadoEncargado" name="EmpleadoEncargado" />
+                                <input required asp-for="EmpleadoEncargado" onkeyup="soloLetras(this)" type="text" class="form-control" id="EmpleadoEncargado" name="EmpleadoEncargado" />
                                 <span asp-validation-for="EmpleadoEncargado" class="text-danger"></span>
                             </div>
                             <div class="form-group">
@@ -168,12 +168,12 @@
                         <div class="col-sm-6">
                             <div class="form-group">
                                 <label asp-for="NumeroDocumento" class="col-form-label"></label><span style="color:red">*</span>
-                                <input required asp-for="NumeroDocumento" type="text" class="form-control" id="NumeroDocumento" name="NumeroDocumento" />
+                                <input required asp-for="NumeroDocumento" onkeyup="soloNumeros(this)" class="form-control" id="NumeroDocumento" name="NumeroDocumento" />
                                 <span asp-validation-for="NumeroDocumento" class="text-danger"></span>
                             </div>
                             <div class="form-group">
                                 <label asp-for="Telefono" class="col-form-label"></label><span style="color:red">*</span>
-                                <input required asp-for="Telefono" type="text" class="form-control" id="Telefono" name="Telefono" />
+                                <input required asp-for="Telefono" onkeyup="soloNumeros(this)" class="form-control" id="Telefono" name="Telefono" />
                                 <span asp-validation-for="Telefono" class="text-danger"></span>
                             </div>
                             <div class="form-group">
@@ -251,6 +251,14 @@
             $("formularioEvento2").validate();
         })
 
+        function soloNumeros(objeto) {
+            // replace = remplazar
+            objeto.value = objeto.value.replace(/[^\d,]/g, ''); // Reconocer solo numeros
+        }
+
+        function soloLetras(objeto) {
+            objeto.value = objeto.value.replace(/[^\a-zA-Z ]/g, ''); // Reconocer solo letras
+        }
 
         $(function () {
             calendario();

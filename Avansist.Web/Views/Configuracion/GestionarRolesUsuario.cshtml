@@ -5,7 +5,7 @@
 }
 
 @{
-    ViewData["Title"] = "Agregar o remover usuario a rol";
+    ViewData["Title"] = "Agregar o remover rol del usuario";
 }
 
 
@@ -21,12 +21,12 @@
         <div class="container-fluid">
             <div class="row mt-5">
                 <div class="col-sm-6">
-                    <ul id="List"> <li class="heading" style="list-style: none; font-size: 25px" id="IconList"> Agregar o remover usuario</li></ul>
+                    <ul id="List"> <li class="heading" style="list-style: none; font-size: 25px" id="IconList"> Actualizar rol</li></ul>
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a asp-action="ListarRoles">Configuración</a></li>
-                        <li class="breadcrumb-item active">Crear rol</li>
+                        <li class="breadcrumb-item active">Gestionar rol</li>
                     </ol>
                 </div><!-- /.col -->
             </div><!-- /.row -->
@@ -36,12 +36,11 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-12 p-2">
-                <div class="card mt-0 mb-3 p-5 mx-auto" style="width: 800px">
-
+                <div class="card mt-0 mb-3 p-5 mx-auto">
                     <form method="post" id="formGestionarRolUsuario">
                         <div class="card">
                             <div class="card-header">
-                                <h2>Agregar o remover roles de este usuario</h2>
+                                <h2>Actualizar rol de este usuario</h2>
                             </div>
                             <div class="card-body">
                                 @for (int i = 0; i < Model.Count; i++)
@@ -57,7 +56,7 @@
                                 }
                             </div>
                             <div class="card-footer">
-                                <input type="submit" value="Actualizar" class="btn btn-success" />
+                                <input type="button" id="btn-actualizar" value="Actualizar" class="btn btn-success" />
                                 <a asp-action="EditarUsuario" asp-route-Id="@id" class="btn btn-danger" style="width: auto">
                                     Cancelar
                                 </a>
@@ -90,7 +89,21 @@
             }
         })        
 
-
+        document.getElementById("btn-actualizar").addEventListener("click", function (event) {
+            Swal.fire({
+                text: '¿Desea actualizar el rol de este usuario?',
+                icon: 'question',
+                confirmButtonColor: '#afdb6e',
+                showDenyButton: true,
+                showCancelButton: false,
+                confirmButtonText: 'Actualizar',
+                denyButtonText: 'Cancelar',
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    document.getElementById('formGestionarRolUsuario').submit();
+                }
+            })
+        })
 
 
     </script>

@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Avansist.DAL.Migrations
 {
     [DbContext(typeof(AvansistDbContext))]
-    [Migration("20211129133312_Inicial")]
-    partial class Inicial
+    [Migration("20211207150416_inicial")]
+    partial class inicial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
