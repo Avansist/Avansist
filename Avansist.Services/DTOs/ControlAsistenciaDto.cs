@@ -14,12 +14,14 @@ namespace Avansist.Services.DTOs
 
         //Inf Ingreso
         [DisplayName("Nombre Beneficiario")]
+        [Required(ErrorMessage = "Es requerido seleccionar el beneficiario")]
         public int PreinscripcionId { get; set; }
         [DisplayName("Fecha y Hora de Ingreso")]
         [Required(ErrorMessage = "La fecha del inicio del evento es requerida")]
         public DateTime FechaIngreso { get; set; }
         [DisplayName("Descripción del ingreso")]
         [StringLength(500, MinimumLength = 3)]
+        [Required(ErrorMessage = "La observacion es requerida")]
         public string ObservacionIngreso { get; set; }
 
         //Inf Salida
@@ -29,6 +31,7 @@ namespace Avansist.Services.DTOs
         public bool AutorizacionSalida { get; set; }
         [DisplayName("Descripción de la salida")]
         [StringLength(500, MinimumLength = 3)]
+        [Required(ErrorMessage = "La observacion es requerida")]
         public string ObservacionSalida { get; set; }
     }
 }
