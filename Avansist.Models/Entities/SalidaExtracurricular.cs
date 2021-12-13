@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
@@ -12,9 +13,9 @@ namespace Avansist.Models.Entities
     {
         [Key]
         public int SalidaExtracurricularId { get; set; }
+
         
-        
-        public int PreinscripcionId { get; set; }
+
 
         [Column(TypeName = "nvarchar(50)")]
         public string NombreSalidadEvento { get; set; }
@@ -30,8 +31,9 @@ namespace Avansist.Models.Entities
 
         public bool EstadoEvento { get; set; }
 
+        [DisplayName("Fecha salida del evento")]
         public DateTime FechaSalidadEvento { get; set; }
-
+        [DisplayName("Fecha regreso del evento")]
         public DateTime FechaRegresoEvento { get; set; }
 
 

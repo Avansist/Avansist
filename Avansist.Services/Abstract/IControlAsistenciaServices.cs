@@ -22,9 +22,11 @@ namespace Avansist.Services.Abstract
         Task<SalidaExtracurricular> ObtenerSalidadExtracurricularID(int id);
         Task EditarSalidadExtracurricular(SalidadExtracurricularDto salidadExtracurricularDto);
 
-        IEnumerable<DetalleDto> ListarBeneficiarioDetalleSalidaDto();
+        IEnumerable<DetalleDto> ListarBeneficiarioDetalleSalidaDto(int id);
         Task<DetalleDto> ObtenerDetalleID(int id);
         Task EliminarDetalleSalida(DetalleSalida detalleSalida);
+
+
 
     }
 }

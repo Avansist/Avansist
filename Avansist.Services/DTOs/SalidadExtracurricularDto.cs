@@ -11,8 +11,8 @@ namespace Avansist.Services.DTOs
     public class SalidadExtracurricularDto
     {
         public int SalidaExtracurricularId { get; set; }
+
         
-        public int PreinscripcionId { get; set; }
 
         [DisplayName("Nombre del evento")]
         [Required(ErrorMessage = "El nombre del evento es requerido")]
@@ -41,12 +41,10 @@ namespace Avansist.Services.DTOs
 
         [DisplayName("Fecha salidad del evento")]
         [Required(ErrorMessage = "La fecha de salidad es requerido")]
-        
         public DateTime FechaSalidadEvento { get; set; }
 
         [DisplayName("Fecha regreso del evento")]
         [Required(ErrorMessage = "La fecha de regreso es requerido")]
-        
         public DateTime FechaRegresoEvento { get; set; }
     }
 }

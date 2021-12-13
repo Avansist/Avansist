@@ -5,6 +5,7 @@
 }
 
 @section Style{
+    <link href="~/css/toggle.css" rel="stylesheet" />
 
 }
 
@@ -30,26 +31,26 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-12 mx-auto p-2">
-                <div class="card mt-0 mb-3">
+                <div class="card mt-0 mb-3 p-4">
                     <div class="col-sm-12">
-                        <hr />
-                        <form asp-action="EditarSalidadExtracurricular" method="post">
+                        
+                        <form asp-action="EditarSalidadExtracurricular" id="EditarSalidadExtracurricular" method="post">
                             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                            <input type="hidden" asp-for="SalidaExtracurricularId" id="SalidaExtracurricularId"/>
+                            <input type="hidden" asp-for="SalidaExtracurricularId" id="SalidaExtracurricularId" />
                             <div class="d-flex justify-content-between mb-4">
                                 <div class="form-group col-sm-4">
                                     <label class="control-label">Nombre del evento</label>
-                                    <input asp-for="NombreSalidadEvento" class="form-control" />
+                                    <input asp-for="NombreSalidadEvento" id="NombreSalidadEvento" class="form-control" />
                                     <span asp-validation-for="NombreSalidadEvento" class="text-danger"></span>
                                 </div>
                                 <div class="form-group col-sm-4">
                                     <label asp-for="Direccion" class="control-label"></label>
-                                    <input asp-for="Direccion" class="form-control" />
+                                    <input asp-for="Direccion" id="Direccion" class="form-control" />
                                     <span asp-validation-for="Direccion" class="text-danger"></span>
                                 </div>
                                 <div class="form-group col-sm-4">
                                     <label class="control-label">Responsable</label>
-                                    <input asp-for="ResponsableEvento" class="form-control" />
+                                    <input asp-for="ResponsableEvento" id="ResponsableEvento" class="form-control" />
                                     <span asp-validation-for="ResponsableEvento" class="text-danger"></span>
                                 </div>
 
@@ -57,58 +58,50 @@
                             <div class="d-flex justify-content-between mb-4">
                                 <div class="form-group col-sm-4">
                                     <label class="control-label">Documento</label>
-                                    <input asp-for="DocumentoResponsable" class="form-control" />
+                                    <input asp-for="DocumentoResponsable" id="DocumentoResponsable" class="form-control" />
                                     <span asp-validation-for="DocumentoResponsable" class="text-danger"></span>
                                 </div>
                                 <div class="form-group col-sm-4">
                                     <label asp-for="FechaSalidadEvento" class="control-label"></label>
-                                    <input asp-for="FechaSalidadEvento" class="form-control" />
+                                    <input asp-for="FechaSalidadEvento" id="FechaSalidadEvento" class="form-control" />
                                     <span asp-validation-for="FechaSalidadEvento" class="text-danger"></span>
                                 </div>
                                 <div class="form-group col-sm-4">
                                     <label asp-for="FechaRegresoEvento" class="control-label"></label>
-                                    <input asp-for="FechaRegresoEvento" class="form-control" />
+                                    <input asp-for="FechaRegresoEvento" id="FechaRegresoEvento" class="form-control" />
                                     <span asp-validation-for="FechaRegresoEvento" class="text-danger"></span>
                                 </div>
                             </div>
-                            <div class="form-group form-check col-sm-4 ">
-                                <label asp-for="EstadoEvento" class="form-check-label">
-                                    <input asp-for="EstadoEvento" class="form-check-input" />
-                                    @Html.DisplayNameFor(model => model.EstadoEvento)
-                                </label>
-                            </div>
-                            <div class="">
-                                <hr />
-                            </div>
-                            <div class="d-flex justify-content-center mb-4" >
-                                <div class="form-group" style="display:none">
-                                    <label asp-for="PreinscripcionId" class="control-label"></label>
-                                    <select asp-for="PreinscripcionId" class="form-control" asp-items="ViewBag.listaBeneficiarios">
-                                        <option value="1">N/A</option>
-                                    </select>
+
+                            <div class="d-flex justify-content-center mb-4 col-sm-12">
+                                <div class="col-sm-4">
+                                    <label asp-for="EstadoEvento" class="control-label"></label>
+                                    <div class="form-check p-0">
+                                        <label class="switch">
+                                            <input asp-for="EstadoEvento" id="EstadoEvento" type="checkbox">
+
+                                            <span class="slider round"></span>
+                                        </label>
+                                    </div>
                                 </div>
                             </div>
-                            @*
-        <div class="d-flex justify-content-center mb-4">
-            <button onclick="Agregar()" class="btn btn-primary" type="button">Agregar</button>
-        </div>
-                            *@
+                            
+                            
+                            
+
+                            
+
                             <div class="d-flex justify-content-center mb-4">
                                 <div class="col-sm-8">
-                                    <table id="Tabla" class="table table-bordered" style="display:none">
-                                        <thead>
-                                            <tr>
-                                                <th>codigo del niño</th>
-                                                <th>nombre del nino</th>
-                                                <th>acciones</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                        </tbody>
-                                    </table>
-                                    <div class="d-flex justify-content-around mb-4">
-                                        <button type="submit" class="btn btn-success mt-2" id="btn-guardar">Guardar</button>
-                                        <button type="button" class="btn btn-danger mt-2" id="btn-cancelar">Cancelar</button>
+                                    
+                                    <div class="d-flex justify-content-around m-0">
+                                        <div class="form-group col-sm-6 m-0">
+                                            <a type="button" asp-action="IndexSalidadExtracurricular" class="btn btn-danger float-right">Cancelar</a>
+                                        </div>
+
+                                        <div class="form-group col-sm-6 m-0">
+                                            <input type="button" value="Guardar" id="btn-guardar" class="btn btn-success float-right" />
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -118,39 +111,79 @@
             </div>
         </div>
 
-        
+
     </div>
     <!-- /.card -->
 </div>
 <!-- /.row -->
 @section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 
 
-    <script>
-        var contador = 0;
-        function Agregar() {
-            let rowCount = $('#Tabla tr').length;
+<script>
+        document.addEventListener('DOMContentLoaded', function () {
+            $('#EditarSalidadExtracurricular').validate();
 
-            let Beneficiario = $("#PreinscripcionId option:selected");
-            $("#Tabla tbody").append(`
-                        <tr id="${rowCount + 1}">
-                            <td>
-                                <input type="hidden" name="Preinscripcion[${contador}].PreinscripcionId" class="form-control" />
-                                ${Beneficiario.val()}
-                            </td>
-                            <td>${Beneficiario.text()}</td>
-                            <td>
-                                <button  class="btn btn-danger" onclick="EliminarRegistro(${rowCount + 1})">Eliminar</button>
-                            </td>
-                        </tr>
-                    `);
-            contador++;
 
+        })
+    document.getElementById("btn-guardar").addEventListener("click", function (event) {
+        if (!$("#EditarSalidadExtracurricular").valid()) {
+            $("label.error").css("color", "red");
+            $("label.error").css("font-weight", "300");
+
+            event.preventDefault();
+
+        } else {
+
+            Swal.fire({
+                    text: '¿Desea guardar la salida?',
+                    icon: 'question',
+                    confirmButtonColor: '#afdb6e',
+                    showDenyButton: true,
+                    showCancelButton: false,
+                    confirmButtonText: 'Guardar',
+                    denyButtonText: 'Cancelar',
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        let formData = new FormData();
+                        
+                        formData.append("SalidaExtracurricularId", document.getElementById("SalidaExtracurricularId").value);
+                        formData.append("NombreSalidadEvento", document.getElementById("NombreSalidadEvento").value);
+                        formData.append("Direccion", document.getElementById("Direccion").value);
+                        formData.append("ResponsableEvento", document.getElementById("ResponsableEvento").value);
+                        formData.append("DocumentoResponsable", document.getElementById("DocumentoResponsable").value);
+                        formData.append("FechaSalidadEvento", document.getElementById("FechaSalidadEvento").value);
+                        formData.append("FechaRegresoEvento", document.getElementById("FechaRegresoEvento").value);
+                        formData.append("EstadoEvento", document.getElementById("EstadoEvento").value);
+                        
+
+                        $.ajax({
+                            url: '@Url.Action("EditarSalidadExtracurricular", "ControlAsistencia")',
+                            type: 'post',
+                            processData: false,
+                            contentType: false,
+                            data: formData,
+                            dataType: 'json',
+                            success: function (result) {
+                                if (result.status == true) {
+                                    setTimeout(function () {
+                                        window.location.href = '@Url.Action("IndexSalidadExtracurricular", "ControlAsistencia")';
+                                    }, 1000);
+                                    alertify.success('Guardado');
+                                } else {
+                                    alertify.error('No se pudo guardar');
+                                }
+                            },
+                            error: function (err) {
+                                console.log(err.data);
+                            }
+                        });
+                    } else if (result.isDenied) {
+                        alertify.error('Cancelado');
+                    }
+                })
         }
+    })
 
-        function EliminarRegistro(id) {
-            $(`#${id}`).remove();
-
-        }
-    </script>
+</script>
 }
