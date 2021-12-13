@@ -1,0 +1,46 @@
+[  
+    {  
+        "id":0,
+		"escolaridad":"Primaria Grado 1"
+    },
+		{  
+        "id":1,
+		"escolaridad":"Primaria Grado 2"
+    },
+		{  
+        "id":2,
+		"escolaridad":"Primaria Grado 3"
+    },
+		{  
+        "id":3,
+		"escolaridad":"Primaria Grado 4"
+    },
+		{  
+        "id":4,
+		"escolaridad":"Primaria Grado 5"
+    },
+		{  
+        "id":5,
+		"escolaridad":"Secundaria Grado 6"
+    },
+		{  
+        "id":6,
+		"escolaridad":"Secundaria Grado 7"
+    },
+		{  
+        "id":7,
+		"escolaridad":"Secundaria Grado 8"
+    },
+		{  
+        "id":8,
+		"escolaridad":"Secundaria Grado 9"
+    },
+		{  
+        "id":9,
+		"escolaridad":"Secundaria Grado 10"
+    },
+		{  
+        "id":10,
+		"escolaridad":"Secundaria Grado 11"
+    }
+]

@@ -1,0 +1,58 @@
+[  
+    {  
+        "id":0,
+		"camiseta":"Newborn"
+    },
+		{  
+        "id":1,
+		"camiseta":"3M"
+    },
+		{  
+        "id":2,
+		"camiseta":"6M"
+    },
+		{  
+        "id":3,
+		"camiseta":"1T"
+    },
+		{  
+        "id":4,
+		"camiseta":"2T - 3T"
+    },
+		{  
+        "id":5,
+		"camiseta":"4T - 5T"
+    },
+		{  
+        "id":6,
+		"camiseta":"6T - XS/6"
+    },
+		{  
+        "id":7,
+		"camiseta":"S/7 - S/8"
+    },
+		{  
+        "id":8,
+		"camiseta":"M/9 - M/10"
+    },
+		{  
+        "id":9,
+		"camiseta":"M/12"
+    },
+		{  
+        "id":10,
+		"camiseta":"XS"
+    },
+		{  
+        "id":11,
+		"camiseta":"S"
+    },
+		{  
+        "id":12,
+		"camiseta":"M"
+    },
+		{  
+        "id":13,
+		"camiseta":"L"
+    }	
+]

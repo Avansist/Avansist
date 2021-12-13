@@ -1,0 +1,238 @@
+[  
+    {  
+        "id":0,
+		"sisben":"A1 Pobreza Extrema"
+    },
+		{  
+        "id":1,
+		"sisben":"A2 Pobreza Extrema"
+    },
+		{  
+        "id":2,
+		"sisben":"A3 Pobreza Extrema"
+    },
+		{  
+        "id":3,
+		"sisben":"A4 Pobreza Extrema"
+    },
+		{  
+        "id":4,
+		"sisben":"A5 Pobreza Extrema"
+    },
+		{  
+        "id":5,
+		"sisben":"B1 Pobreza Moderada"
+    },
+		{  
+        "id":6,
+		"sisben":"B2 Pobreza Moderada"
+    },
+		{  
+        "id":7,
+		"sisben":"B3 Pobreza Moderada"
+    },
+		{  
+        "id":8,
+		"sisben":"B4 Pobreza Moderada"
+    },
+		{  
+        "id":9,
+		"sisben":"B5 Pobreza Moderada"
+    },
+		{  
+        "id":10,
+		"sisben":"B6 Pobreza Moderada"
+    },
+		{  
+        "id":11,
+		"sisben":"B7 Pobreza Moderada"
+    },
+		{  
+        "id":12,
+		"sisben":"C1 Vulnerable"
+    },
+		{  
+        "id":13,
+		"sisben":"C2 Vulnerable"
+    },
+		{  
+        "id":14,
+		"sisben":"C3 Vulnerable"
+    },
+		{  
+        "id":15,
+		"sisben":"C4 Vulnerable"
+    },
+		{  
+        "id":16,
+		"sisben":"C5 Vulnerable"
+    },
+		{  
+        "id":17,
+		"sisben":"C6 Vulnerable"
+    },
+		{  
+        "id":18,
+		"sisben":"C7 Vulnerable"
+    },
+		{  
+        "id":19,
+		"sisben":"C8 Vulnerable"
+    },
+		{  
+        "id":20,
+		"sisben":"C9 Vulnerable"
+    },
+		{  
+        "id":21,
+		"sisben":"C10 Vulnerable"
+    },
+		{  
+        "id":22,
+		"sisben":"C11 Vulnerable"
+    },
+		{  
+        "id":23,
+		"sisben":"C12 Vulnerable"
+    },
+		{  
+        "id":24,
+		"sisben":"C13 Vulnerable"
+    },
+		{  
+        "id":25,
+		"sisben":"C14 Vulnerable"
+    },
+		{  
+        "id":26,
+		"sisben":"C15 Vulnerable"
+    },
+		{  
+        "id":27,
+		"sisben":"C16 Vulnerable"
+    },
+		{  
+        "id":28,
+		"sisben":"C17 Vulnerable"
+    },
+		{  
+        "id":29,
+		"sisben":"C18 Vulnerable"
+    },
+		{  
+        "id":30,
+		"sisben":"D1 No Pobre No Vulnerable"
+    },
+		{  
+        "id":31,
+		"sisben":"D2 No Pobre No Vulnerable"
+    },
+		{  
+        "id":32,
+		"sisben":"D3 No Pobre No Vulnerable"
+    },
+		{  
+        "id":33,
+		"sisben":"D4 No Pobre No Vulnerable"
+    },
+		{  
+        "id":34,
+		"sisben":"D5 No Pobre No Vulnerable"
+    },
+		{  
+        "id":35,
+		"sisben":"D6 No Pobre No Vulnerable"
+    },
+		{  
+        "id":36,
+		"sisben":"D7 No Pobre No Vulnerable"
+    },
+		{  
+        "id":37,
+		"sisben":"D8 No Pobre No Vulnerable"
+    },
+		{  
+        "id":38,
+		"sisben":"D9 No Pobre No Vulnerable"
+    },
+		{  
+        "id":39,
+		"sisben":"D10 No Pobre No Vulnerable"
+    },
+		{  
+        "id":40,
+		"sisben":"D11 No Pobre No Vulnerable"
+    },
+		{  
+        "id":41,
+		"sisben":"D12 No Pobre No Vulnerable"
+    },
+		{  
+        "id":42,
+		"sisben":"D13 No Pobre No Vulnerable"
+    },
+		{  
+        "id":43,
+		"sisben":"D14 No Pobre No Vulnerable"
+    },
+		{  
+        "id":44,
+		"sisben":"D15 No Pobre No Vulnerable"
+    },
+		{  
+        "id":45,
+		"sisben":"D16 No Pobre No Vulnerable"
+    },
+		{  
+        "id":46,
+		"sisben":"D17 No Pobre No Vulnerable"
+    },
+		{  
+        "id":47,
+		"sisben":"D18 No Pobre No Vulnerable"
+    },
+		{  
+        "id":48,
+		"sisben":"D19 No Pobre No Vulnerable"
+    },
+		{  
+        "id":49,
+		"sisben":"D20 No Pobre No Vulnerable"
+    },
+		{  
+        "id":50,
+		"sisben":"D21 No Pobre No Vulnerable"
+    },
+		{  
+        "id":51,
+		"sisben":"D22 No Pobre No Vulnerable"
+    },
+		{  
+        "id":52,
+		"sisben":"D23 No Pobre No Vulnerable"
+    },
+		{  
+        "id":53,
+		"sisben":"D24 No Pobre No Vulnerable"
+    },
+		{  
+        "id":54,
+		"sisben":"D25 No Pobre No Vulnerable"
+    },
+		{  
+        "id":55,
+		"sisben":"D26 No Pobre No Vulnerable"
+    },
+		{  
+        "id":56,
+		"sisben":"D27 No Pobre No Vulnerable"
+    },
+		{  
+        "id":57,
+		"sisben":"D28 No Pobre No Vulnerable"
+    },
+		{  
+        "id":58,
+		"sisben":"D29 No Pobre No Vulnerable"
+    }
+]

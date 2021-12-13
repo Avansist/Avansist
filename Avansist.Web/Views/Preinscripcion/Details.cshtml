@@ -572,6 +572,27 @@
                                     </div>
 
                                     <div class="col-7 mt-3">
+                                        <h2 class="fs-title">Información de registro:</h2>
+                                    </div>
+                                    <div class="col-sm-12 mb-5">
+                                        <hr />
+                                    </div>
+                                    <div class="d-flex justify-content-between mb-4">
+                                        <div class="form-group col-sm-6">
+                                            <label asp-for="FechaRegistro" class="control-label"></label> <label id="asterisco">*</label>
+                                            <input disabled asp-for="FechaRegistro" type="date" class="form-control" name="fechaReg" id="fechaReg" required />
+                                            <span asp-validation-for="FechaRegistro" class="text-danger error"></span>
+                                        </div>
+                                        <div class="form-group col-sm-6">
+                                            <label asp-for="EstadoId" class="control-label"></label> <label id="asterisco">*</label>
+                                            <select disabled asp-for="EstadoId" name="estado" id="estado" class="form-control" asp-items="ViewBag.listaEstados" required>
+                                                <option value="">Seleccione estado</option>
+                                            </select>
+                                            <span asp-validation-for="EstadoId" class="text-danger error"></span>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-7 mt-3">
                                         <h2 class="fs-title">Autorización, tramite y manejo de datos personales:</h2>
                                     </div>
                                     <div class="col-sm-12 mb-5">
@@ -621,26 +642,6 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-7 mt-3">
-                                        <h2 class="fs-title">Información final:</h2>
-                                    </div>
-                                    <div class="col-sm-12 mb-5">
-                                        <hr />
-                                    </div>
-                                    <div class="d-flex justify-content-between mb-4">
-                                        <div class="form-group col-sm-6">
-                                            <label asp-for="FechaRegistro" class="control-label"></label> <label id="asterisco">*</label>
-                                            <input disabled asp-for="FechaRegistro" type="date" class="form-control" name="fechaReg" id="fechaReg" required />
-                                            <span asp-validation-for="FechaRegistro" class="text-danger error"></span>
-                                        </div>
-                                        <div class="form-group col-sm-6">
-                                            <label asp-for="EstadoId" class="control-label"></label> <label id="asterisco">*</label>
-                                            <select disabled asp-for="EstadoId" name="estado" id="estado" class="form-control" asp-items="ViewBag.listaEstados" required>
-                                                <option value="">Seleccione estado</option>
-                                            </select>
-                                            <span asp-validation-for="EstadoId" class="text-danger error"></span>
-                                        </div>
-                                    </div>
                                     <div class="col-sm-12 d-flex justify-content-around">
                                         <button type="button" class="btn btn-danger" id="btn-cancelar">Cancelar</button>
                                         <button type="button" class="btn btn-secondary" onclick="stepperForm.previous()">Atras</button>

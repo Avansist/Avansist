@@ -1,0 +1,42 @@
+[  
+    {  
+        "id":0,
+		"escolaridad":"Primaria"
+    },
+		{  
+        "id":1,
+		"escolaridad":"Secundaria"
+    },
+		{  
+        "id":2,
+		"escolaridad":"Bachiller"
+    },
+		{  
+        "id":3,
+		"escolaridad":"Bachiller Técnico"
+    },
+		{  
+        "id":4,
+		"escolaridad":"Técnico Profesional"
+    },
+		{  
+        "id":5,
+		"escolaridad":"Tecnológico"
+    },
+		{  
+        "id":6,
+		"escolaridad":" Profesional"
+    },
+		{  
+        "id":7,
+		"escolaridad":"Especialista"
+    },
+		{  
+        "id":8,
+		"escolaridad":"Maestría"
+    },
+		{  
+        "id":9,
+		"escolaridad":"Doctorado"
+    }
+]

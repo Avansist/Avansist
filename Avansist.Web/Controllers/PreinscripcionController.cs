@@ -44,7 +44,7 @@ namespace Avansist.Web.Controllers
             ViewData["listaModalidads"] = new SelectList(await _preinscripcionServices.ObtenerListaModalidad(), "ModalidadId", "NombreModalidad");
             ViewData["listaEtnias"] = new SelectList(await _preinscripcionServices.ObtenerListaEtnia(), "EtniaId", "NombreEtnia");
             ViewData["listaJornadas"] = new SelectList(await _preinscripcionServices.ObtenerListaJornada(), "JornadaId", "NombreJornada");
-            ViewData["listaPadrinos"] = new SelectList(await _preinscripcionServices.ObtenerListaPadrinos(), "PadrinoId", "NombrePadrino");
+            ViewData["listaPadrinos"] = new SelectList(await _preinscripcionServices.ObtenerListaPadrinos(), "PadrinoId", "NombrePadrino", "ApellidoPadrino", "NumeroDocumento");
             ViewData["listaEstados"] = new SelectList(await _preinscripcionServices.ObtenerListaEstadosPreinscripcion(), "EstadoId", "NombreEstado");
             return View();
         }
@@ -251,7 +251,7 @@ namespace Avansist.Web.Controllers
             ViewData["listaModalidads"] = new SelectList(await _preinscripcionServices.ObtenerListaModalidad(), "ModalidadId", "NombreModalidad");
             ViewData["listaEtnias"] = new SelectList(await _preinscripcionServices.ObtenerListaEtnia(), "EtniaId", "NombreEtnia");
             ViewData["listaJornadas"] = new SelectList(await _preinscripcionServices.ObtenerListaJornada(), "JornadaId", "NombreJornada");
-            ViewData["listaPadrinos"] = new SelectList(await _preinscripcionServices.ObtenerListaPadrinos(), "PadrinoId", "NombrePadrino");
+            ViewData["listaPadrinos"] = new SelectList(await _preinscripcionServices.ObtenerListaPadrinos(), "PadrinoId", "NombrePadrino", "ApellidoPadrino", "NumeroDocumento");
             ViewData["listaEstados"] = new SelectList(await _preinscripcionServices.ObtenerListaEstadosPreinscripcionEditar(), "EstadoId", "NombreEstado");            
 
             return View(preinscripcionDto);
@@ -476,7 +476,7 @@ namespace Avansist.Web.Controllers
             ViewData["listaModalidads"] = new SelectList(await _preinscripcionServices.ObtenerListaModalidad(), "ModalidadId", "NombreModalidad");
             ViewData["listaEtnias"] = new SelectList(await _preinscripcionServices.ObtenerListaEtnia(), "EtniaId", "NombreEtnia");
             ViewData["listaJornadas"] = new SelectList(await _preinscripcionServices.ObtenerListaJornada(), "JornadaId", "NombreJornada");
-            ViewData["listaPadrinos"] = new SelectList(await _preinscripcionServices.ObtenerListaPadrinos(), "PadrinoId", "NombrePadrino");
+            ViewData["listaPadrinos"] = new SelectList(await _preinscripcionServices.ObtenerListaPadrinos(), "PadrinoId", "NombrePadrino", "ApellidoPadrino", "NumeroDocumento");
             ViewData["listaEstados"] = new SelectList(await _preinscripcionServices.ObtenerListaEstados(), "EstadoId", "NombreEstado");
             if (beneficiario == null)
             {
@@ -628,7 +628,7 @@ namespace Avansist.Web.Controllers
             ViewData["listaModalidads"] = new SelectList(await _preinscripcionServices.ObtenerListaModalidad(), "ModalidadId", "NombreModalidad");
             ViewData["listaEtnias"] = new SelectList(await _preinscripcionServices.ObtenerListaEtnia(), "EtniaId", "NombreEtnia");
             ViewData["listaJornadas"] = new SelectList(await _preinscripcionServices.ObtenerListaJornada(), "JornadaId", "NombreJornada");
-            ViewData["listaPadrinos"] = new SelectList(await _preinscripcionServices.ObtenerListaPadrinos(), "PadrinoId", "NombrePadrino");
+            ViewData["listaPadrinos"] = new SelectList(await _preinscripcionServices.ObtenerListaPadrinos(), "PadrinoId", "NombrePadrino", "ApellidoPadrino", "NumeroDocumento");
             ViewData["listaEstados"] = new SelectList(await _preinscripcionServices.ObtenerListaEstados(), "EstadoId", "NombreEstado");
             if (beneficiario == null)
             {
@@ -825,7 +825,7 @@ namespace Avansist.Web.Controllers
             ViewData["listaModalidads"] = new SelectList(await _preinscripcionServices.ObtenerListaModalidad(), "ModalidadId", "NombreModalidad");
             ViewData["listaEtnias"] = new SelectList(await _preinscripcionServices.ObtenerListaEtnia(), "EtniaId", "NombreEtnia");
             ViewData["listaJornadas"] = new SelectList(await _preinscripcionServices.ObtenerListaJornada(), "JornadaId", "NombreJornada");
-            ViewData["listaPadrinos"] = new SelectList(await _preinscripcionServices.ObtenerListaPadrinos(), "PadrinoId", "NombrePadrino");
+            ViewData["listaPadrinos"] = new SelectList(await _preinscripcionServices.ObtenerListaPadrinos(), "PadrinoId", "NombrePadrino", "ApellidoPadrino", "NumeroDocumento");
             ViewData["listaEstados"] = new SelectList(await _preinscripcionServices.ObtenerListaEstadosInscripcion(), "EstadoId", "NombreEstado");
 
             return View(preinscripcionDto);
@@ -1062,7 +1062,7 @@ namespace Avansist.Web.Controllers
             ViewData["listaModalidads"] = new SelectList(await _preinscripcionServices.ObtenerListaModalidad(), "ModalidadId", "NombreModalidad");
             ViewData["listaEtnias"] = new SelectList(await _preinscripcionServices.ObtenerListaEtnia(), "EtniaId", "NombreEtnia");
             ViewData["listaJornadas"] = new SelectList(await _preinscripcionServices.ObtenerListaJornada(), "JornadaId", "NombreJornada");
-            ViewData["listaPadrinos"] = new SelectList(await _preinscripcionServices.ObtenerListaPadrinos(), "PadrinoId", "NombrePadrino");
+            ViewData["listaPadrinos"] = new SelectList(await _preinscripcionServices.ObtenerListaPadrinos(), "PadrinoId", "NombrePadrino", "ApellidoPadrino", "NumeroDocumento");
             ViewData["listaEstados"] = new SelectList(await _preinscripcionServices.ObtenerEstadoMatricula(), "EstadoId", "NombreEstado");
             if (beneficiario == null)
             {
@@ -1257,7 +1257,7 @@ namespace Avansist.Web.Controllers
             ViewData["listaModalidads"] = new SelectList(await _preinscripcionServices.ObtenerListaModalidad(), "ModalidadId", "NombreModalidad");
             ViewData["listaEtnias"] = new SelectList(await _preinscripcionServices.ObtenerListaEtnia(), "EtniaId", "NombreEtnia");
             ViewData["listaJornadas"] = new SelectList(await _preinscripcionServices.ObtenerListaJornada(), "JornadaId", "NombreJornada");
-            ViewData["listaPadrinos"] = new SelectList(await _preinscripcionServices.ObtenerListaPadrinos(), "PadrinoId", "NombrePadrino");
+            ViewData["listaPadrinos"] = new SelectList(await _preinscripcionServices.ObtenerListaPadrinos(), "PadrinoId", "NombrePadrino", "ApellidoPadrino", "NumeroDocumento");
             ViewData["listaEstados"] = new SelectList(await _preinscripcionServices.ObtenerListaEstados(), "EstadoId", "NombreEstado");
             if (beneficiario == null)
             {
@@ -1364,7 +1364,7 @@ namespace Avansist.Web.Controllers
             ViewData["listaModalidads"] = new SelectList(await _preinscripcionServices.ObtenerListaModalidad(), "ModalidadId", "NombreModalidad");
             ViewData["listaEtnias"] = new SelectList(await _preinscripcionServices.ObtenerListaEtnia(), "EtniaId", "NombreEtnia");
             ViewData["listaJornadas"] = new SelectList(await _preinscripcionServices.ObtenerListaJornada(), "JornadaId", "NombreJornada");
-            ViewData["listaPadrinos"] = new SelectList(await _preinscripcionServices.ObtenerListaPadrinos(), "PadrinoId", "NombrePadrino");
+            ViewData["listaPadrinos"] = new SelectList(await _preinscripcionServices.ObtenerListaPadrinos(), "PadrinoId", "NombrePadrino", "ApellidoPadrino", "NumeroDocumento");
             ViewData["listaEstados"] = new SelectList(await _preinscripcionServices.ObtenerListaEstados(), "EstadoId", "NombreEstado");
             if (beneficiario == null)
             {
@@ -1578,7 +1578,7 @@ namespace Avansist.Web.Controllers
             ViewData["listaModalidads"] = new SelectList(await _preinscripcionServices.ObtenerListaModalidad(), "ModalidadId", "NombreModalidad");
             ViewData["listaEtnias"] = new SelectList(await _preinscripcionServices.ObtenerListaEtnia(), "EtniaId", "NombreEtnia");
             ViewData["listaJornadas"] = new SelectList(await _preinscripcionServices.ObtenerListaJornada(), "JornadaId", "NombreJornada");
-            ViewData["listaPadrinos"] = new SelectList(await _preinscripcionServices.ObtenerListaPadrinos(), "PadrinoId", "NombrePadrino");
+            ViewData["listaPadrinos"] = new SelectList(await _preinscripcionServices.ObtenerListaPadrinos(), "PadrinoId", "NombrePadrino", "ApellidoPadrino", "NumeroDocumento");
             ViewData["listaEstados"] = new SelectList(await _preinscripcionServices.ObtenerListaEstados(), "EstadoId", "NombreEstado");
             if (beneficiario == null)
             {
@@ -1776,7 +1776,7 @@ namespace Avansist.Web.Controllers
             ViewData["listaModalidads"] = new SelectList(await _preinscripcionServices.ObtenerListaModalidad(), "ModalidadId", "NombreModalidad");
             ViewData["listaEtnias"] = new SelectList(await _preinscripcionServices.ObtenerListaEtnia(), "EtniaId", "NombreEtnia");
             ViewData["listaJornadas"] = new SelectList(await _preinscripcionServices.ObtenerListaJornada(), "JornadaId", "NombreJornada");
-            ViewData["listaPadrinos"] = new SelectList(await _preinscripcionServices.ObtenerListaPadrinos(), "PadrinoId", "NombrePadrino");
+            ViewData["listaPadrinos"] = new SelectList(await _preinscripcionServices.ObtenerListaPadrinos(), "PadrinoId", "NombrePadrino", "ApellidoPadrino", "NumeroDocumento");
             ViewData["listaEstados"] = new SelectList(await _preinscripcionServices.ObtenerListaEstados(), "EstadoId", "NombreEstado");
             if (beneficiario == null)
             {

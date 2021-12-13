@@ -15,6 +15,6 @@ namespace Avansist.Services.Abstract
         IEnumerable<PadrinoResumenDto> ListarPadrinoResumenDto();
         Task<PadrinoDto> ObtenerPadrinoPorId(int id);
         Task<IEnumerable<TipoDocumento>> ObtenerListaTipoDocumento();
-        Task<Preinscripcion> ObtenerPadrinoPorDocumento(string doc);
+        Task<Padrino> ObtenerPadrinoPorDocumento(string doc);
     }
 }

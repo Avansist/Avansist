@@ -1,0 +1,58 @@
+[  
+    {  
+        "id":0,
+		"pantalon":"Newborn"
+    },
+		{  
+        "id":1,
+		"pantalon":"3M"
+    },
+		{  
+        "id":2,
+		"pantalon":"6M"
+    },
+		{  
+        "id":3,
+		"pantalon":"1T"
+    },
+		{  
+        "id":4,
+		"pantalon":"2T - 3T"
+    },
+		{  
+        "id":5,
+		"pantalon":"4T - 5T"
+    },
+		{  
+        "id":6,
+		"pantalon":"6T - XS/6"
+    },
+		{  
+        "id":7,
+		"pantalon":"S/7 - S/8"
+    },
+		{  
+        "id":8,
+		"pantalon":"M/9 - M/10"
+    },
+		{  
+        "id":9,
+		"pantalon":"M/12"
+    },
+		{  
+        "id":10,
+		"pantalon":"6 Mujer"
+    },
+		{  
+        "id":11,
+		"pantalon":"8 Mujer"
+    },
+		{  
+        "id":12,
+		"pantalon":"30 Hombre"
+    },
+		{  
+        "id":13,
+		"pantalon":"32 Hombre"
+    }	
+]

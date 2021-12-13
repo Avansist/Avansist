@@ -1,0 +1,54 @@
+[  
+    {  
+        "id":0,
+		"custodia":"Padre"
+    },
+		{  
+        "id":1,
+		"custodia":"Madre"
+    },
+		{  
+        "id":2,
+		"custodia":"Hermana"
+    },
+		{  
+        "id":3,
+		"custodia":"Hermano"
+    },
+		{  
+        "id":4,
+		"custodia":"Tio Paterno"
+    },
+		{  
+        "id":5,
+		"custodia":"Tio Materno"
+    },
+		{  
+        "id":6,
+		"custodia":"Tia Paterno"
+    },
+		{  
+        "id":7,
+		"custodia":"Tia Materna"
+    },
+		{  
+        "id":8,
+		"custodia":"Abuelo Materno"
+    },
+		{  
+        "id":9,
+		"custodia":"Abuelo Paterno"
+    },
+		{  
+        "id":10,
+		"custodia":"Abuela Paterno"
+    },
+		{  
+        "id":11,
+		"custodia":"Abuela Materna"
+    },
+		{  
+        "id":12,
+		"custodia":"Otro"
+    }
+]
