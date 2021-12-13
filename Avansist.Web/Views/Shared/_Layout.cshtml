@@ -66,7 +66,7 @@
                 <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
             </li>
             <li class="nav-item d-none d-sm-inline-block">
-                <a asp-controller="Admin" asp-action="Dashboard" class="nav-link">Inicio</a>
+                <a asp-controller="Home" asp-action="Dashboard" class="nav-link">Inicio</a>
             </li>
         </ul>
 
@@ -74,7 +74,11 @@
 
         <ul class="navbar-nav ml-auto ms-md-0 me-3 me-lg-4">
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
+                <div class="d-flex">
+                    <a href="https://www.youtube.com/playlist?list=PLNuelZdzu_I9IEMl9UEIJe-ZK7lZGiAWz" class="mt-2" style="color: white"><i class="far fa-question-circle"></i></a>
+                    <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
+                </div>
+        
                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                     <li><a class="dropdown-item" asp-area="Identity" asp-page="/Account/Manage/Index" title="Gestionar Cuenta">@User.Identity.Name</a></li>
                     <li><hr class="dropdown-divider" /></li>
