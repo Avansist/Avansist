@@ -552,7 +552,7 @@ namespace Avansist.DAL.Migrations
                     b.Property<string>("NombreSalidadEvento")
                         .HasColumnType("nvarchar(50)");
 
-                    b.Property<int>("PreinscripcionId")
+                    b.Property<int?>("PreinscripcionId")
                         .HasColumnType("int");
 
                     b.Property<string>("ResponsableEvento")
@@ -926,6 +926,7 @@ namespace Avansist.DAL.Migrations
                     b.HasOne("Avansist.Models.Entities.Preinscripcion", "Preinscripcion")
                         .WithMany("SalidaExtracurricular")
                         .HasForeignKey("PreinscripcionId")
+
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 

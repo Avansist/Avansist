@@ -72,7 +72,9 @@
                                 @Html.DisplayFor(modelItem => item.AutorizacionSalida)
                             </td>
                             <td>
-                                @Html.DisplayFor(modelItem => item.FechaSalida)
+                                
+                                    @Html.DisplayFor(modelItem => item.FechaSalida)
+                                
                             </td>
                             <td>
                                 <a data-bs-toggle="tooltip" title="Salida" class="btn btn-outline-danger" asp-action="Edit" asp-route-id="@item.ControlAsistenciaId"><i class="fas fa-running"></i></a>

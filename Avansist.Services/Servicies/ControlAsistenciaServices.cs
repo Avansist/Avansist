@@ -62,7 +62,7 @@ namespace Avansist.Services.Servicies
         {
             List<ControlAsistenciaResumenDto> listaControlAsistenciaDto = new();
             _context.ControlAsistencias.Include(p => p.Preinscripcion)
-                .OrderByDescending(c => c.ControlAsistenciaId).ToList().ForEach(ci =>
+                .OrderByDescending(c => c.FechaSalida).ToList().ForEach(ci =>
                 {
                     ControlAsistenciaResumenDto controlAsistenciaDto = new()
                     {
@@ -94,12 +94,13 @@ namespace Avansist.Services.Servicies
             };
             return controlAsistenciaDto;
         }
-
+        
         //Obtener Lista De Foraneas Para Control de ingreso
         public async Task<IEnumerable<Preinscripcion>> ObtenerListaBeneficiario()
         {
             return await _context.Preinscripcions.ToListAsync();
         }
+        
 
         //-----------------------------------
         // ESTE ES EL SERVICIP PARA MOSTRAR LA VISTA DEL INDEX
@@ -109,13 +110,11 @@ namespace Avansist.Services.Servicies
         {
             List<SalidadExtracurricularDto> listarSalidadExtracurricularDto = new();
             _context.SalidaExtracurriculars
-                .OrderByDescending(c => c.SalidaExtracurricularId).ToList().ForEach(ci =>
+                .OrderByDescending(c => c.FechaSalidadEvento).ToList().ForEach(ci =>
                 {
                     SalidadExtracurricularDto SalidadExtracurricularDto = new()
                     {
                         SalidaExtracurricularId = ci.SalidaExtracurricularId,
-                        
-                        PreinscripcionId = ci.PreinscripcionId,
                         NombreSalidadEvento = ci.NombreSalidadEvento,
                         Direccion = ci.Direccion,
                         ResponsableEvento = ci.ResponsableEvento,
@@ -153,7 +152,7 @@ namespace Avansist.Services.Servicies
             SalidaExtracurricular salidadExtracurricular= new()
             {
                 SalidaExtracurricularId = s.SalidaExtracurricularId,
-                PreinscripcionId = s.PreinscripcionId,
+                
                 NombreSalidadEvento = s.NombreSalidadEvento,
                 Direccion = s.Direccion,
                 ResponsableEvento = s.ResponsableEvento,
@@ -172,7 +171,7 @@ namespace Avansist.Services.Servicies
             SalidaExtracurricular salidadExtracurricular = new()
             {
                 SalidaExtracurricularId = salidadExtracurricularDto.SalidaExtracurricularId,
-                PreinscripcionId = salidadExtracurricularDto.PreinscripcionId,
+                
                 NombreSalidadEvento = salidadExtracurricularDto.NombreSalidadEvento,
                 Direccion = salidadExtracurricularDto.Direccion,
                 ResponsableEvento = salidadExtracurricularDto.ResponsableEvento,
@@ -186,17 +185,19 @@ namespace Avansist.Services.Servicies
         }
 
 
-        public IEnumerable<DetalleDto> ListarBeneficiarioDetalleSalidaDto()
+        public IEnumerable<DetalleDto> ListarBeneficiarioDetalleSalidaDto(int id)
         {
             List<DetalleDto> listaDetalleDto = new();
-            _context.DetalleSalidas.Include(pr => pr.Preinscripcions).OrderByDescending(ds => ds.DetalleSalidaId).ToList().ForEach(
+            _context.DetalleSalidas.Include(pr => pr.Preinscripcions).Include(se => se.SalidaExtracurricular).Where(sex => sex.SalidaExtracurricularId == id).OrderByDescending(ds => ds.DetalleSalidaId).ToList().ForEach(
                 t => {
                     DetalleDto detalleDto = new()
                     {
                         DetalleId = t.DetalleSalidaId,
+                        SalidaExtracurricularId = t.SalidaExtracurricularId,
                         NombreBeneficiario = t.Preinscripcions.PrimerNombreBeneficiario,
-                        
-                        
+                        AutorizacionSalidaExtracurricular = t.AutorizacionSalidaExtracurricular
+
+
                     };
                     listaDetalleDto.Add(detalleDto);
                 });
@@ -231,6 +232,8 @@ namespace Avansist.Services.Servicies
             }
 
         } 
+
+
 
 
 

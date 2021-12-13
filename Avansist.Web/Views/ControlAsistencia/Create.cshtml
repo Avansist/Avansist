@@ -7,6 +7,11 @@
     <link href="~/css/AggBeneficiario.css" rel="stylesheet" />
 }
 
+@section Style {
+
+    <link href="~/css/AggBeneficiario.css" rel="stylesheet" />
+}
+
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -42,15 +47,22 @@
                         <div class="col-sm-12">
                             <hr />
                         </div>
-                        <form asp-action="Create" id="Create-Ingreso" >
+
+                        <form asp-action="Create" id="Create-Ingreso">
                             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                            
+
                             <div class="d-flex justify-content-right mb-4 col-sm-12">
+
                                 <div class="form-group col-sm-6">
-                                    <label asp-for="PreinscripcionId" class="control-label"></label> <label id="asterisco">*</label>
-                                    <select required asp-for="PreinscripcionId" id="preinscripcionId" class="form-control" asp-items="ViewBag.listaBeneficiarios">
-                                        <option value="">Seleccione</option>
-                                    </select>
+                                    @*<label asp-for="PreinscripcionId" class="control-label"></label> <label id="asterisco">*</label>
+        <select required asp-for="PreinscripcionId" id="preinscripcionId" class="form-control" asp-items="ViewBag.listaBeneficiarios">
+            <option value="">Seleccione</option>
+        </select>*@
+                                    <div class="ui-widget">
+                                        <label asp-for="PreinscripcionId" class="control-label"></label> 
+                                        <input type="hidden" id="Preinscripcionid" value="" />
+                                        <input type="text" asp-for="PreinscripcionId" name="preinscripcionId" id="PreinscripcionId" class="form-control" />
+                                    </div>
                                 </div>
                                 <div class="form-group col-sm-6">
                                     <label asp-for="FechaIngreso" class="control-label"></label> <label id="asterisco">*</label>
@@ -64,13 +76,13 @@
                                 <textarea required asp-for="ObservacionIngreso" id="observacionIngreso" class="form-control"></textarea>
                                 <span asp-validation-for="ObservacionIngreso" class="text-danger"></span>
                             </div>
+                            <input type="hidden" asp-for="ObservacionSalida" id="ObservacionSalida" value="Describa la observacion" />
 
                             <div class="d-flex justify-content-around">
 
                                 <div class="form-group col-sm-6">
                                     <input type="button" value="Cancelar" id="btn-cancelar" class="btn btn-danger float-right" />
                                 </div>
-                                
                                 <div class="form-group col-sm-6">
                                     <input type="button" id="btn-guardar" value="Crear Ingreso" class="btn btn-success float-right" />
                                 </div>
@@ -91,6 +103,19 @@
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 <script>
+
+    $("#PreinscripcionId").autocomplete({
+        source: '@Url.Action("GetNombres" , "ControlAsistencia")',
+        minlength: 2,
+        select: function (event, result) {
+            this.value = result.value;
+            console.log(result.item.id)
+            document.getElementById('Preinscripcionid').value = result.item.id;
+        }
+    });
+
+
+
     document.addEventListener('DOMContentLoaded', function () {
         $('#Create-Ingreso').validate();
     })
@@ -114,10 +139,11 @@
                     if (result.isConfirmed) {
                         let formData = new FormData();
 
-                        formData.append("PreinscripcionId", document.getElementById("preinscripcionId").value);
+
+                        formData.append("PreinscripcionId", document.getElementById("Preinscripcionid").value);
                         formData.append("FechaIngreso", document.getElementById("fechaIngreso").value);
                         formData.append("ObservacionIngreso", document.getElementById("observacionIngreso").value);
-
+                        formData.append("ObservacionSalida", document.getElementById("ObservacionSalida").value);
                         $.ajax({
                             url: '@Url.Action("Create", "ControlAsistencia")',
                             type: 'post',
@@ -150,5 +176,6 @@
     window.location.href = '@Url.Action("Index", "ControlAsistencia")';
     });
 </script>
+
 
 }

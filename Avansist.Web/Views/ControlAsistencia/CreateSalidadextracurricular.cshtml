@@ -1,4 +1,4 @@
-﻿@model Avansist.Services.DTOs.DetalleDto
+﻿@model Avansist.Web.ViewModel.DetalleSalidaViewModel
 
 @{
     ViewData["Title"] = "Create";
@@ -37,8 +37,6 @@
 
                         <form asp-action="GuardarDetalle" id="GuardarDetalle" method="post">
                             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                            
-                           
                             <div class="d-flex justify-content-between mb-4">
                                 <div class="form-group col-sm-4">
                                     <label class="control-label">Nombre del evento</label> <label id="asterisco">*</label>
@@ -64,7 +62,6 @@
                                     <span asp-validation-for="DocumentoResponsable" class="text-danger"></span>
                                 </div>
                                 <div class="form-group col-sm-4">
-
                                     <label asp-for="FechaSalidadEvento" class="control-label"></label> <label id="asterisco">*</label>
                                     <input required asp-for="FechaSalidadEvento" class="form-control" id="FechaSalidadEvento" />
                                     <span asp-validation-for="FechaSalidadEvento" class="text-danger"></span>
@@ -79,7 +76,8 @@
 
                             <div class="d-flex justify-content-center mb-4 col-sm-12">
                                 <div class="col-sm-4">
-                                    <label asp-for="EstadoEvento" class="control-label"></label>
+
+                                    <label class="control-label">Estado (Activo e Inactivo)</label>
                                     <div class="form-check p-0">
                                         <label class="switch">
                                             <input asp-for="EstadoEvento" id="EstadoEvento" type="checkbox">
@@ -93,28 +91,28 @@
                                 <hr />
                             </div>
                             <div class="col-sm-12 d-flex justify-content-around mb-4">
-                                <div class="col-sm-6">
-                                    <div class="form-group" style="display:none">
+
+                                <div class="col-sm-4">
+                                    <div class="form-group">
                                         <label asp-for="PreinscripcionId" class="control-label"></label>
                                         <select asp-for="PreinscripcionId" id="PreinscripcionId" class="form-control" asp-items="ViewBag.listaBeneficiarios">
-                                            <option value="1">N/A</option>
+                                            <option value="">Seleccione Beneficiario</option>
                                         </select>
                                     </div>
-                                    @*
-                <div class=" mb-4">
-                    <button onclick="Agregar()" class="btn btn-primary " type="button">Agregar</button>
-                </div>
-                                    *@
+
+                                    <div class=" mb-4">
+                                        <button onclick="Agregar()" class="btn btn-primary " type="button">Agregar</button>
+                                    </div>
                                 </div>
 
-                                <div class="col-sm-6">
+                                <div class="col-sm-8">
                                     <div class="">
-                                        <table id="Tabla" class="table table-bordered" style="display:none">
+                                        <table id="Tabla" class="table table-bordered">
                                             <thead>
                                                 <tr>
-                                                    <th>codigo del niño</th>
-                                                    <th>nombre del nino</th>
-                                                    <th>acciones</th>
+                                                    <th>Codigo del niño</th>
+                                                    <th>Nombre del nino</th>
+                                                    <th>Acciones</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -158,7 +156,7 @@
             $("#Tabla tbody").append(`
                         <tr id="${rowCount + 1}">
                             <td>
-                                <input type="hidden" name="Preinscripcion[${contador}].PreinscripcionId" class="form-control" />
+                                <input type="hidden" name="Preinscripcions[${contador}].PreinscripcionId"  id="Preinscripcions[${contador}].PreinscripcionId" value="${Beneficiario.val()}" class="form-control" />
                                 ${Beneficiario.val()}
                             </td>
                             <td>${Beneficiario.text()}</td>
@@ -178,6 +176,7 @@
 
     document.addEventListener('DOMContentLoaded', function () {
         $('#GuardarDetalle').validate();
+
 
 
     })
@@ -236,9 +235,23 @@
                         formData.append("DocumentoResponsable", document.getElementById("DocumentoResponsable").value);
                         formData.append("FechaSalidadEvento", document.getElementById("FechaSalidadEvento").value);
                         formData.append("FechaRegresoEvento", document.getElementById("FechaRegresoEvento").value);
-                        formData.append("EstadoEvento", document.getElementById("EstadoEvento").value);
-                        formData.append("PreinscripcionId", document.getElementById("PreinscripcionId").value);
+
                         
+                        formData.append("EstadoEvento", document.getElementById("EstadoEvento").value);
+                        
+                        let rowCount = $('#Tabla tr').length;
+                        console.log(rowCount)
+                        let Cantidad = "";
+                        for (var i = 0; i < (rowCount -1); i++) {
+                            let value = document.getElementById(`Preinscripcions[${i}].PreinscripcionId`).value;
+                            Cantidad += `${value},`
+
+                        }
+                        console.log(Cantidad)
+                        formData.append("PreinscripcionId", Cantidad )
+                        
+                        
+                        console.log(formData.get("Preinscripcions"))
                         $.ajax({
                             url: '@Url.Action("GuardarDetalle", "ControlAsistencia")',
                             type: 'post',

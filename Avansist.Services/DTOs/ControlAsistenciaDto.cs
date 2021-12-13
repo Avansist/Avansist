@@ -30,7 +30,9 @@ namespace Avansist.Services.DTOs
         [DisplayName("Autorización Salida")]
         public bool AutorizacionSalida { get; set; }
         [DisplayName("Descripción de la salida")]
-        [StringLength(500, MinimumLength = 3)]
+
+        [StringLength(500, MinimumLength = 0)]
+
         [Required(ErrorMessage = "La observacion es requerida")]
         public string ObservacionSalida { get; set; }
     }

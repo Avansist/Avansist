@@ -2,6 +2,7 @@
 using Avansist.Models.Entities;
 using Avansist.Services.Abstract;
 using Avansist.Services.DTOs;
+using Avansist.Web.ViewModel;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -37,13 +38,15 @@ namespace Avansist.Web.Controllers
         //Crear Ingreso Beneficiario
         public async Task<IActionResult> Create()
         {
-            ViewData["listaBeneficiarios"] = new SelectList(await _controlAsistenciaServices.ObtenerListaBeneficiario(), "PreinscripcionId", "PrimerNombreBeneficiario");
+            ViewData["listaBeneficiarios"] = new SelectList(await _controlAsistenciaServices.ObtenerListaBeneficiario(), "PreinscripcionId", "NombreCompleto");
+            
             return View();
         }
 
         [HttpPost]
         public async Task<IActionResult> Create(ControlAsistenciaDto controlAsistenciaDto)
         {
+            
             if (ModelState.IsValid)
             {
                 try
@@ -60,6 +63,16 @@ namespace Avansist.Web.Controllers
                 }
             }
             return View(controlAsistenciaDto);
+        }
+
+        // filtrar por nombres
+        public IActionResult GetNombres(string term)
+        {
+            var result = (from U in _avansistDbContext.Preinscripcions.ToList()
+                          where U.NombreCompleto.Contains(term, System.StringComparison.CurrentCultureIgnoreCase)
+                          select new { value = U.NombreCompleto, id = U.PreinscripcionId}
+                          );
+            return Json(result);
         }
 
         //Crear Salida Beneficiario
@@ -161,7 +174,7 @@ namespace Avansist.Web.Controllers
 
         public async Task<IActionResult> CreateSalidadextracurricular()
         {
-            ViewData["listaBeneficiarios"] = new SelectList(await _controlAsistenciaServices.ObtenerListaBeneficiario(), "PreinscripcionId", "NumeroDocumento");
+            ViewData["listaBeneficiarios"] = new SelectList(await _controlAsistenciaServices.ObtenerListaBeneficiario(), "PreinscripcionId", "NombreCompleto");
             return View();
         }
 
@@ -235,16 +248,33 @@ namespace Avansist.Web.Controllers
 
 
 
-        public  IActionResult IndexDetalleSalida()
+        public  IActionResult IndexDetalleSalida(int id)
         {
-            var listarDetalleSalida =  _controlAsistenciaServices.ListarBeneficiarioDetalleSalidaDto();
+            var listarDetalleSalida =  _controlAsistenciaServices.ListarBeneficiarioDetalleSalidaDto(id);
             return View(listarDetalleSalida);
+        }
+
+        public IActionResult CambiarEstado(int id)
+        {
+            DetalleSalida detalleSalida = _avansistDbContext.DetalleSalidas.Find(id);
+            if (detalleSalida == null)
+            {
+                return RedirectToAction("IndexDetalleSalida", new { id = detalleSalida.SalidaExtracurricularId });
+
+            }
+            detalleSalida.AutorizacionSalidaExtracurricular = !detalleSalida.AutorizacionSalidaExtracurricular;
+            _avansistDbContext.Update(detalleSalida);
+            _avansistDbContext.SaveChanges();
+
+            return RedirectToAction("IndexDetalleSalida" , new {id = detalleSalida.SalidaExtracurricularId});
+
+
         }
 
 
 
         //--------------------------------------
-        public IActionResult GuardarDetalle(DetalleDto detalle)
+        public IActionResult GuardarDetalle(DetalleSalidaViewModel detalle)
         {
             using (var transaction = _avansistDbContext.Database.BeginTransaction())
             {
@@ -252,7 +282,7 @@ namespace Avansist.Web.Controllers
                 {
                     SalidaExtracurricular salidaExtracurricular = new()
                     {
-                        PreinscripcionId = detalle.PreinscripcionId,
+                        
                         NombreSalidadEvento = detalle.NombreSalidadEvento,
                         Direccion = detalle.Direccion,
                         ResponsableEvento = detalle.ResponsableEvento,
@@ -266,16 +296,20 @@ namespace Avansist.Web.Controllers
                     _avansistDbContext.Add(salidaExtracurricular);
                     _avansistDbContext.SaveChanges();
 
-                     
-
-                    foreach (Preinscripcion item in _avansistDbContext.Preinscripcions)
+                    string[] subs = detalle.PreinscripcionId.Split(',');
+                    foreach (var item in subs)
                     {
-                        DetalleSalida detalleSalida = new DetalleSalida()
+                        if (item.Length > 0)
                         {
-                            PreinscripcionId = item.PreinscripcionId,
-                            SalidaExtracurricularId = salidaExtracurricular.SalidaExtracurricularId
-                        };
-                        _avansistDbContext.Add(detalleSalida);
+                            DetalleSalida detalleSalida = new DetalleSalida()
+                            {
+                                PreinscripcionId = int.Parse(item),
+                                SalidaExtracurricularId = salidaExtracurricular.SalidaExtracurricularId
+                            };
+                            _avansistDbContext.Add(detalleSalida);
+
+                        }
+                        
                        
                     }
                     _avansistDbContext.SaveChanges();

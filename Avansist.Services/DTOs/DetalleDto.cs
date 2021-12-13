@@ -41,6 +41,7 @@ namespace Avansist.Services.DTOs
         public string DocumentoResponsable { get; set; }
         [DisplayName("Estado del evento")]
         public bool EstadoEvento { get; set; }
+        public bool AutorizacionSalidaExtracurricular { get; set; }
 
         [DisplayName("Fecha salidad del evento")]
         [Required(ErrorMessage = "La fecha de salidad es requerido")]
@@ -49,6 +50,7 @@ namespace Avansist.Services.DTOs
         [DisplayName("Fecha regreso del evento")]
         [Required(ErrorMessage = "La fecha de regreso es requerido")]
         public DateTime FechaRegresoEvento { get; set; }
-        public List<Preinscripcion> Preinscripcion { get; set; }
+
+        public List<Preinscripcion> Preinscripcions { get; set; }
     }
 }

@@ -10,6 +10,8 @@ namespace Avansist.Models.Entities
 {
     public class Preinscripcion
     {
+        
+
         [Key]
         public int PreinscripcionId { get; set; }
 
@@ -182,5 +184,6 @@ namespace Avansist.Models.Entities
         public ICollection<SalidaExtracurricular> SalidaExtracurricular { get; set; }
         public ICollection<DetalleSalida> DetalleSalidas { get; set; }
         public virtual List<AgendaBeneficiario> AgendaBeneficiarios { get; set; }
+        public string NombreCompleto { get { return NumeroDocumento + " " +  PrimerNombreBeneficiario + " " + SegundoNombreBeneficiario + " " + PrimerApellidoBeneficiario + " " + SegundoApellidoBeneficiario ;  }  }
     }
 }

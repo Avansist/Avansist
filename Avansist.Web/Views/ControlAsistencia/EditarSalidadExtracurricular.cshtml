@@ -31,9 +31,10 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-12 mx-auto p-2">
-                <div class="card mt-0 mb-3">
+                <div class="card mt-0 mb-3 p-4">
                     <div class="col-sm-12">
-                        <hr />
+
+                       
                         <form asp-action="EditarSalidadExtracurricular" id="EditarSalidadExtracurricular" method="post">
                             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                             <input type="hidden" asp-for="SalidaExtracurricularId" id="SalidaExtracurricularId" />
@@ -85,41 +86,21 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="">
-                                <hr />
-                            </div>
-                            <div class="d-flex justify-content-center mb-4">
-                                <div class="form-group" style="display:none">
-                                    <label asp-for="PreinscripcionId" class="control-label"></label>
-                                    <select asp-for="PreinscripcionId" id="PreinscripcionId" class="form-control" asp-items="ViewBag.listaBeneficiarios">
-                                        <option value="1">N/A</option>
-                                    </select>
-                                </div>
-                            </div>
-                            @*
-                                <div class="d-flex justify-content-center mb-4">
-                                    <button onclick="Agregar()" class="btn btn-primary" type="button">Agregar</button>
-                                </div>
-                            *@
+                            
+                            
+                            
+
+                            
+
                             <div class="d-flex justify-content-center mb-4">
                                 <div class="col-sm-8">
-                                    <table id="Tabla" class="table table-bordered" style="display:none">
-                                        <thead>
-                                            <tr>
-                                                <th>codigo del niño</th>
-                                                <th>nombre del nino</th>
-                                                <th>acciones</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                        </tbody>
-                                    </table>
-                                    <div class="d-flex justify-content-around mb-4">
-                                        <div class="form-group col-sm-6">
+                                    
+                                    <div class="d-flex justify-content-around m-0">
+                                        <div class="form-group col-sm-6 m-0">
                                             <a type="button" asp-action="IndexSalidadExtracurricular" class="btn btn-danger float-right">Cancelar</a>
                                         </div>
 
-                                        <div class="form-group col-sm-6">
+                                        <div class="form-group col-sm-6 m-0">
                                             <input type="button" value="Guardar" id="btn-guardar" class="btn btn-success float-right" />
                                         </div>
                                     </div>
@@ -144,17 +125,14 @@
 <script>
         document.addEventListener('DOMContentLoaded', function () {
             $('#EditarSalidadExtracurricular').validate();
-
-
-
         })
     document.getElementById("btn-guardar").addEventListener("click", function (event) {
         if (!$("#EditarSalidadExtracurricular").valid()) {
             $("label.error").css("color", "red");
             $("label.error").css("font-weight", "300");
 
-            event.preventDefault();
 
+            event.preventDefault();
         } else {
 
             Swal.fire({
@@ -177,7 +155,6 @@
                         formData.append("FechaSalidadEvento", document.getElementById("FechaSalidadEvento").value);
                         formData.append("FechaRegresoEvento", document.getElementById("FechaRegresoEvento").value);
                         formData.append("EstadoEvento", document.getElementById("EstadoEvento").value);
-                        formData.append("PreinscripcionId", document.getElementById("PreinscripcionId").value);
 
                         $.ajax({
                             url: '@Url.Action("EditarSalidadExtracurricular", "ControlAsistencia")',
