@@ -96,7 +96,6 @@
                                         </div>
                                     </div>
                                     <div class="d-flex justify-content-between mb-4">
-
                                         <div class="form-group col-sm-4">
                                             <label asp-for="SegundoApellidoBeneficiario" class="control-label"></label> <label id="asterisco">*</label>
                                             <input asp-for="SegundoApellidoBeneficiario" class="form-control" rangelength="3,45" type="text" name="segundoApeB" id="segundoApeB" placeholder="Ingrese el segundo apellido" required />
@@ -114,10 +113,11 @@
                                         </div>
                                     </div>
                                     <div class="d-flex justify-content-between mb-4">
-
                                         <div class="form-group col-sm-4">
                                             <label asp-for="LugarNacimiento" class="control-label"></label> <label id="asterisco">*</label>
-                                            <input asp-for="LugarNacimiento" class="form-control" rangelength="3,45" type="text" name="lugNaci" id="lugNaci" placeholder="Ingrese el lugar de nacimiento" required />
+                                            <select asp-for="LugarNacimiento" class="form-control" name="lugNaci" id="lugNaci" required>
+                                                <option value="">Seleccionar</option>
+                                            </select>
                                             <span asp-validation-for="LugarNacimiento" class="text-danger error"></span>
                                         </div>
                                         <div class="form-group col-sm-4">
@@ -130,14 +130,15 @@
                                         <div class="form-group col-sm-4">
                                             <label asp-for="NumeroDocumento" class="control-label"></label> <label id="asterisco">*</label>
                                             <input asp-for="NumeroDocumento" class="form-control" type="text" name="numDoc" id="numDoc" placeholder="Ingrese el n° de documento" required />
-                                            <span asp-validation-for="NumeroDocumento" class="text-danger error"></span>
+                                            <span asp-validation-for="NumeroDocumento" class="text-danger error">@ViewData["errorDoc"]</span>
                                         </div>
                                     </div>
                                     <div class="d-flex justify-content-between mb-4">
-
                                         <div class="form-group col-sm-4">
                                             <label asp-for="LugarExpedicionDocumento" class="form-label"></label> <label id="asterisco">*</label>
-                                            <input asp-for="LugarExpedicionDocumento" class="form-control" rangelength="3,45" type="text" name="expedido" id="expedido" placeholder="Lugar de expedición" required />
+                                            <select asp-for="LugarExpedicionDocumento" class="form-control" name="expedido" id="expedido" required>
+                                                <option value="">Seleccionar</option>
+                                            </select>
                                             <span asp-validation-for="LugarExpedicionDocumento" class="text-danger error"></span>
                                         </div>
                                         <div class="form-group col-sm-4">
@@ -149,11 +150,12 @@
                                         </div>
                                         <div class="form-group col-sm-4">
                                             <label asp-for="CustodiaBeneficiario" class="form-label"></label> <label id="asterisco">*</label>
-                                            <input asp-for="CustodiaBeneficiario" class="form-control" rangelength="3,45" type="text" name="custodiaBeneficiario" id="custodiaBeneficiario" placeholder="Ingrese la custodia" required />
+                                            <select asp-for="CustodiaBeneficiario" class="form-control" name="custodiaBeneficiario" id="custodiaBeneficiario" required>
+                                                <option value="">Seleccionar</option>
+                                            </select>
                                             <span asp-validation-for="CustodiaBeneficiario" class="text-danger error"></span>
                                         </div>
                                     </div>
-
                                     <div class="d-flex justify-content-between mb-4">
                                         <div class="form-group col-sm-4">
                                             <label asp-for="DireccionResidencia" class="form-label"></label> <label id="asterisco">*</label>
@@ -161,9 +163,11 @@
                                             <span asp-validation-for="DireccionResidencia" class="text-danger error"></span>
                                         </div>
                                         <div class="form-group col-sm-4">
-                                            <label asp-for="Municipio" class="form-label"></label>  <label id="asterisco">*</label>
-                                            <input asp-for="Municipio" class="form-control" rangelength="3,45" type="text" name="municipio" id="municipio" placeholder="Ingrese el municipio" required />
-                                            <span asp-validation-for="Municipio" class="text-danger error"></span>
+                                            <label asp-for="Municipio" class="control-label"></label> <label id="asterisco">*</label>
+                                            <select asp-for="Municipio" class="form-control" name="municipio" id="municipio" required>
+                                                <option value="">Seleccionar</option>
+                                            </select>
+                                            <span asp-validation-for="LugarNacimiento" class="text-danger error"></span>
                                         </div>
                                         <div class="form-group col-sm-4">
                                             <label asp-for="EtniaId" class="control-label"></label> <label id="asterisco">*</label>
@@ -174,7 +178,6 @@
                                         </div>
                                     </div>
                                     <div class="d-flex justify-content-between mb-4">
-
                                         <div class="form-group col-sm-3">
                                             <label asp-for="GeneroId" class="control-label"></label> <label id="asterisco">*</label>
                                             <select asp-for="GeneroId" class="form-control" id="genero" name="genero" asp-items="ViewBag.listaGeneros" required>
@@ -184,18 +187,24 @@
                                         </div>
                                         <div class="form-group col-sm-3">
                                             <label asp-for="TallaCamisa" class="control-label"></label>
-                                            <input asp-for="TallaCamisa" class="form-control" type="text" name="tallaCamisa" id="tallaCamisa" placeholder="Ingrese la talla de la camisa" />
-                                            <span asp-validation-for="TallaCamisa" class="text-danger"></span>
+                                            <select asp-for="TallaCamisa" class="form-control" name="tallaCamisa" id="tallaCamisa">
+                                                <option value="">Seleccionar</option>
+                                            </select>
+                                            <span asp-validation-for="TallaCamisa" class="text-danger error"></span>
                                         </div>
                                         <div class="form-group col-sm-3">
                                             <label asp-for="TallaPantalon" class="control-label"></label>
-                                            <input asp-for="TallaPantalon" class="form-control" type="text" name="tallaPantalon" id="tallaPantalon" placeholder="Ingrese la talla del pantalon" />
-                                            <span asp-validation-for="TallaPantalon" class="text-danger"></span>
+                                            <select asp-for="TallaPantalon" class="form-control" name="tallaPantalon" id="tallaPantalon">
+                                                <option value="">Seleccionar</option>
+                                            </select>
+                                            <span asp-validation-for="TallaPantalon" class="text-danger error"></span>
                                         </div>
                                         <div class="form-group col-sm-3">
-                                            <label asp-for="TallaZapatos" class="form-label"></label>
-                                            <input asp-for="TallaZapatos" class="form-control" type="text" name="tallaZapatos" id="tallaZapatos" placeholder="Ingrese la talla de zapatos" />
-                                            <span asp-validation-for="TallaZapatos" class="text-danger"></span>
+                                            <label asp-for="TallaZapatos" class="control-label"></label>
+                                            <select asp-for="TallaZapatos" class="form-control" name="tallaZapatos" id="tallaZapatos">
+                                                <option value="">Seleccionar</option>
+                                            </select>
+                                            <span asp-validation-for="TallaZapatos" class="text-danger error"></span>
                                         </div>
                                     </div>
                                     <div class="col-sm-10 text-right">
@@ -216,8 +225,10 @@
                                     </div>
                                     <div class="mt-5 d-flex justify-content-between mb-4">
                                         <div class="form-group col-sm-4">
-                                            <label asp-for="NombreEps" class="control-label"></label>
-                                            <input asp-for="NombreEps" class="form-control" rangelength="3,45" type="text" name="nombreEps" id="nombreEps" placeholder="Ingrese la EPS" />
+                                            <label asp-for="NombreEps" class="form-label"></label> <label id="asterisco"></label>
+                                            <select asp-for="NombreEps" class="form-control" name="nombreEps" id="nombreEps">
+                                                <option value="">Seleccionar</option>
+                                            </select>
                                             <span asp-validation-for="NombreEps" class="text-danger error"></span>
                                         </div>
                                         <div class="form-group col-sm-4">
@@ -228,8 +239,10 @@
                                             <span asp-validation-for="GrupoSanguineoId" class="text-danger error"></span>
                                         </div>
                                         <div class="form-group col-sm-4">
-                                            <label asp-for="GrupoSisben" class="form-label"></label>
-                                            <input asp-for="GrupoSisben" class="form-control" type="text" name="grupoSisben" id="grupoSisben" placeholder="Ingrese la EPS" />
+                                            <label asp-for="GrupoSisben" class="form-label"></label> <label id="asterisco"></label>
+                                            <select asp-for="GrupoSisben" class="form-control" name="grupoSisben" id="grupoSisben">
+                                                <option value="">Seleccionar</option>
+                                            </select>
                                             <span asp-validation-for="GrupoSisben" class="text-danger error"></span>
                                         </div>
                                     </div>
@@ -261,15 +274,15 @@
                                     </div>
 
                                     @*<div class="col-7">
-                                            <h2 class="fs-title">Información Educativa:</h2>
-                                        </div>
-                                        <div class="col-sm-12 mb-5">
-                                            <hr />
-                                        </div>*@
+                    <h2 class="fs-title">Información Educativa:</h2>
+                </div>
+                <div class="col-sm-12 mb-5">
+                    <hr />
+                </div>*@
                                     <div class="mb-4">
                                         <div class="form-group col-sm-4" style="display: none">
                                             <label asp-for="JornadaId" class="form-label"></label> <label id="asterisco">*</label>
-                                            <select disabled asp-for="JornadaId" class="form-control" name="jornada" id="jornada" asp-items="ViewBag.listaJornadas" required>
+                                            <select asp-for="JornadaId" class="form-control" name="jornada" id="jornada" asp-items="ViewBag.listaJornadas" required>
                                                 <option value="">Seleccione la jornada</option>
                                             </select>
                                             <span asp-validation-for="JornadaId" class="text-danger error"></span>
@@ -331,11 +344,12 @@
                                         </div>
                                     </div>
                                     <div class="d-flex justify-content-between mb-4">
-
                                         <div class="form-group col-sm-4">
-                                            <label asp-for="LugarExpedicionDocumentoMadre" class="control-label"></label>
-                                            <input asp-for="LugarExpedicionDocumentoMadre" class="form-control" rangelength="3,45" name="lugExpMa" id="lugExpMa" placeholder="Ingrese el lugar de expedición" />
-                                            <span asp-validation-for="LugarExpedicionDocumentoMadre" class="text-danger"></span>
+                                            <label asp-for="LugarExpedicionDocumentoMadre" class="form-label"></label> <label id="asterisco"></label>
+                                            <select asp-for="LugarExpedicionDocumentoMadre" class="form-control" name="lugExpMa" id="lugExpMa">
+                                                <option value="">Seleccionar</option>
+                                            </select>
+                                            <span asp-validation-for="LugarExpedicionDocumentoMadre" class="text-danger error"></span>
                                         </div>
                                         <div class="form-group col-sm-4">
                                             <label asp-for="OcupacionMadre" class="control-label"></label>
@@ -348,7 +362,6 @@
                                             <span asp-validation-for="TelefonoMadre" class="text-danger"></span>
                                         </div>
                                     </div>
-
                                     <div class="d-flex justify-content-between mb-4">
                                         <div class="form-group col-sm-4">
                                             <label asp-for="DireccionMadre" class="control-label"></label>
@@ -361,16 +374,20 @@
                                             <span asp-validation-for="BarrioMadre" class="text-danger"></span>
                                         </div>
                                         <div class="form-group col-sm-4">
-                                            <label asp-for="MunicipioMadre" class="control-label"></label>
-                                            <input asp-for="MunicipioMadre" class="form-control" rangelength="3,45" name="municipioMa" id="municipioMa" placeholder="Ingrese el municipio" />
-                                            <span asp-validation-for="MunicipioMadre" class="text-danger"></span>
+                                            <label asp-for="MunicipioMadre" class="form-label"></label> <label id="asterisco"></label>
+                                            <select asp-for="MunicipioMadre" class="form-control" name="municipioMa" id="municipioMa">
+                                                <option value="">Seleccionar</option>
+                                            </select>
+                                            <span asp-validation-for="MunicipioMadre" class="text-danger error"></span>
                                         </div>
                                     </div>
                                     <div class="d-flex justify-content-between mb-4">
                                         <div class="form-group col-sm-5">
-                                            <label asp-for="NivelEscolaridadMadre" class="control-label"></label>
-                                            <input asp-for="NivelEscolaridadMadre" name="escolaridadMa" id="escolaridadMa" class="form-control" placeholder="Ingrese el nivel de escolaridad" />
-                                            <span asp-validation-for="NivelEscolaridadMadre" class="text-danger"></span>
+                                            <label asp-for="NivelEscolaridadMadre" class="form-label"></label> <label id="asterisco"></label>
+                                            <select asp-for="NivelEscolaridadMadre" class="form-control" name="escolaridadMa" id="escolaridadMa">
+                                                <option value="">Seleccionar</option>
+                                            </select>
+                                            <span asp-validation-for="NivelEscolaridadMadre" class="text-danger error"></span>
                                         </div>
                                         <div class="form-group col-sm-5">
                                             <label asp-for="IngresoEconomicoMadre" class="control-label"></label>
@@ -402,11 +419,12 @@
                                         </div>
                                     </div>
                                     <div class="d-flex justify-content-between mb-4">
-
-                                        <div class="form-group col-sm-4">
-                                            <label asp-for="LugarExpedicionDocumentoPadre" class="control-label"></label>
-                                            <input asp-for="LugarExpedicionDocumentoPadre" class="form-control" rangelength="3,45" name="lugExpPa" id="lugExpPa" placeholder="Ingrese el lugar de expedición" />
-                                            <span asp-validation-for="LugarExpedicionDocumentoPadre" class="text-danger"></span>
+                                        <div class="form-group col-sm-5">
+                                            <label asp-for="LugarExpedicionDocumentoPadre" class="form-label"></label> <label id="asterisco"></label>
+                                            <select asp-for="LugarExpedicionDocumentoPadre" class="form-control" name="lugExpPa" id="lugExpPa">
+                                                <option value="">Seleccionar</option>
+                                            </select>
+                                            <span asp-validation-for="LugarExpedicionDocumentoPadre" class="text-danger error"></span>
                                         </div>
                                         <div class="form-group col-sm-4">
                                             <label asp-for="OcupacionPadre" class="control-label"></label>
@@ -419,7 +437,6 @@
                                             <span asp-validation-for="TelefonoPadre" class="text-danger"></span>
                                         </div>
                                     </div>
-
                                     <div class="d-flex justify-content-between mb-4">
                                         <div class="form-group col-sm-4">
                                             <label asp-for="DireccionPadre" class="control-label"></label>
@@ -432,16 +449,20 @@
                                             <span asp-validation-for="BarrioPadre" class="text-danger"></span>
                                         </div>
                                         <div class="form-group col-sm-4">
-                                            <label asp-for="MunicipioPadre" class="control-label"></label>
-                                            <input asp-for="MunicipioPadre" class="form-control" rangelength="3,45" name="municipioPa" id="municipioPa" placeholder="Ingrese el municipio" />
-                                            <span asp-validation-for="MunicipioPadre" class="text-danger"></span>
+                                            <label asp-for="MunicipioPadre" class="form-label"></label> <label id="asterisco"></label>
+                                            <select asp-for="MunicipioPadre" class="form-control" name="municipioPa" id="municipioPa">
+                                                <option value="">Seleccionar</option>
+                                            </select>
+                                            <span asp-validation-for="MunicipioPadre" class="text-danger error"></span>
                                         </div>
                                     </div>
                                     <div class="d-flex justify-content-between mb-4">
                                         <div class="form-group col-sm-5">
-                                            <label asp-for="NivelEscolaridadPadre" class="control-label"></label>
-                                            <input asp-for="NivelEscolaridadPadre" name="escolaridadPa" id="escolaridadPa" class="form-control" placeholder="Ingrese el nivel de escolaridad" />
-                                            <span asp-validation-for="NivelEscolaridadPadre" class="text-danger"></span>
+                                            <label asp-for="NivelEscolaridadPadre" class="form-label"></label> <label id="asterisco"></label>
+                                            <select asp-for="NivelEscolaridadPadre" class="form-control" name="escolaridadPa" id="escolaridadPa">
+                                                <option value="">Seleccionar</option>
+                                            </select>
+                                            <span asp-validation-for="NivelEscolaridadPadre" class="text-danger error"></span>
                                         </div>
                                         <div class="form-group col-sm-5">
                                             <label asp-for="IngresoEconomicoPadre" class="control-label"></label>
@@ -474,7 +495,6 @@
 
                                     </div>
                                     <div class="d-flex justify-content-between mb-4">
-
                                         <div class="form-group col-sm-4">
                                             <label asp-for="LugarExpedicionDocumentoAcudiente" class="control-label"></label>
                                             <input asp-for="LugarExpedicionDocumentoAcudiente" class="form-control" rangelength="3,45" name="lugExpAcu" id="lugExpAcu" placeholder="Ingrese el lugar de expedición" />
@@ -511,9 +531,11 @@
                                     </div>
                                     <div class="d-flex justify-content-between mb-4">
                                         <div class="form-group col-sm-5">
-                                            <label asp-for="NivelEscolaridadAcudiente" class="control-label"></label>
-                                            <input asp-for="NivelEscolaridadAcudiente" name="escolaridadAcu" id="escolaridadAcu" class="form-control" />
-                                            <span asp-validation-for="NivelEscolaridadAcudiente" class="text-danger"></span>
+                                            <label asp-for="NivelEscolaridadAcudiente" class="form-label"></label> <label id="asterisco"></label>
+                                            <select asp-for="NivelEscolaridadAcudiente" class="form-control" name="escolaridadAcu" id="escolaridadAcu">
+                                                <option value="">Seleccionar</option>
+                                            </select>
+                                            <span asp-validation-for="NivelEscolaridadAcudiente" class="text-danger error"></span>
                                         </div>
                                         <div class="form-group col-sm-5">
                                             <label asp-for="IngresoEconomicoAcudiente" class="control-label"></label>
@@ -573,6 +595,26 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="col-7 mt-3">
+                                        <h2 class="fs-title">Información final:</h2>
+                                    </div>
+                                    <div class="col-sm-12 mb-5">
+                                        <hr />
+                                    </div>
+                                    <div class="d-flex justify-content-between mb-4">
+                                        <div class="form-group col-sm-6">
+                                            <label asp-for="FechaRegistro" class="control-label"></label> <label id="asterisco">*</label>
+                                            <input disabled asp-for="FechaRegistro" type="date" class="form-control" name="fechaReg" id="fechaReg" required />
+                                            <span asp-validation-for="FechaRegistro" class="text-danger error"></span>
+                                        </div>
+                                        <div class="form-group col-sm-6">
+                                            <label asp-for="EstadoId" class="control-label"></label> <label id="asterisco">*</label>
+                                            <select disabled asp-for="EstadoId" name="estado" id="estado" class="form-control" asp-items="ViewBag.listaEstados" required>
+                                                <option value="">Seleccione estado</option>
+                                            </select>
+                                            <span asp-validation-for="EstadoId" class="text-danger error"></span>
+                                        </div>
+                                    </div>
 
                                     <div class="col-7 mt-3">
                                         <h2 class="fs-title">Autorización, tramite y manejo de datos personales:</h2>
@@ -621,27 +663,6 @@
                                                 empleados, agentes y personas designadas y convengo en no demandar a los anteriores por
                                                 ninguna reclamación, responsabilidad, lesión o pérdida en relación con dicho uso.
                                             </p>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-7 mt-3">
-                                        <h2 class="fs-title">Información final:</h2>
-                                    </div>
-                                    <div class="col-sm-12 mb-5">
-                                        <hr />
-                                    </div>
-                                    <div class="d-flex justify-content-between mb-4">
-                                        <div class="form-group col-sm-6">
-                                            <label asp-for="FechaRegistro" class="control-label"></label> <label id="asterisco">*</label>
-                                            <input disabled asp-for="FechaRegistro" type="date" class="form-control" name="fechaReg" id="fechaReg" required />
-                                            <span asp-validation-for="FechaRegistro" class="text-danger error"></span>
-                                        </div>
-                                        <div class="form-group col-sm-6">
-                                            <label asp-for="EstadoId" class="control-label"></label> <label id="asterisco">*</label>
-                                            <select disabled asp-for="EstadoId" name="estado" id="estado" class="form-control" asp-items="ViewBag.listaEstados" required>
-                                                <option value="">Seleccione estado</option>
-                                            </select>
-                                            <span asp-validation-for="EstadoId" class="text-danger error"></span>
                                         </div>
                                     </div>
                                     <div class="col-sm-12 d-flex justify-content-around">
@@ -721,6 +742,168 @@
         var stepperForm
 
         document.addEventListener('DOMContentLoaded', function () {
+
+            $.ajax({
+                type: 'GET',
+                url: '/municipios.json',
+                dataType: 'json',
+                success: function (data) {
+                    data.map(e => {
+                        $("#lugNaci").append('<option value=' + e.municipio + '>' + e.municipio + '</option>');
+                    });
+                }
+            });
+            $.ajax({
+                type: 'GET',
+                url: '/municipios.json',
+                dataType: 'json',
+                success: function (data) {
+                    data.map(e => {
+                        $("#expedido").append('<option value=' + e.municipio + '>' + e.municipio + '</option>');
+                    });
+                }
+            });
+            $.ajax({
+                type: 'GET',
+                url: '/municipios.json',
+                dataType: 'json',
+                success: function (data) {
+                    data.map(e => {
+                        $("#municipio").append('<option value=' + e.municipio + '>' + e.municipio + '</option>');
+                    });
+                }
+            });
+            $.ajax({
+                type: 'GET',
+                url: '/custodia.json',
+                dataType: 'json',
+                success: function (data) {
+                    data.map(c => {
+                        $("#custodiaBeneficiario").append('<option value=' + c.custodia + '>' + c.custodia + '</option>');
+                    });
+                }
+            });
+            $.ajax({
+                type: 'GET',
+                url: '/camiseta.json',
+                dataType: 'json',
+                success: function (data) {
+                    data.map(e => {
+                        $("#tallaCamisa").append('<option value=' + e.camiseta + '>' + e.camiseta + '</option>');
+                    });
+                }
+            });
+            $.ajax({
+                type: 'GET',
+                url: '/pantalon.json',
+                dataType: 'json',
+                success: function (data) {
+                    data.map(e => {
+                        $("#tallaPantalon").append('<option value=' + e.pantalon + '>' + e.pantalon + '</option>');
+                    });
+                }
+            });
+            $.ajax({
+                type: 'GET',
+                url: '/zapato.json',
+                dataType: 'json',
+                success: function (data) {
+                    data.map(e => {
+                        $("#tallaZapatos").append('<option value=' + e.zapato + '>' + e.zapato + '</option>');
+                    });
+                }
+            });
+            $.ajax({
+                type: 'GET',
+                url: '/sisben.json',
+                dataType: 'json',
+                success: function (data) {
+                    data.map(s => {
+                        $("#grupoSisben").append('<option value=' + s.sisben + '>' + s.sisben + '</option>');
+                    });
+                }
+            });
+            $.ajax({
+                type: 'GET',
+                url: '/salud.json',
+                dataType: 'json',
+                success: function (data) {
+                    data.map(s => {
+                        $("#nombreEps").append('<option value=' + s.salud + '>' + s.salud + '</option>');
+                    });
+                }
+            });
+            $.ajax({
+                type: 'GET',
+                url: '/municipios.json',
+                dataType: 'json',
+                success: function (data) {
+                    data.map(e => {
+                        $("#lugExpMa").append('<option value=' + e.municipio + '>' + e.municipio + '</option>');
+                    });
+                }
+            });
+            $.ajax({
+                type: 'GET',
+                url: '/municipios.json',
+                dataType: 'json',
+                success: function (data) {
+                    data.map(e => {
+                        $("#municipioMa").append('<option value=' + e.municipio + '>' + e.municipio + '</option>');
+                    });
+                }
+            });
+            $.ajax({
+                type: 'GET',
+                url: '/nivelEscolaridad.json',
+                dataType: 'json',
+                success: function (data) {
+                    data.map(e => {
+                        $("#escolaridadMa").append('<option value=' + e.escolaridad + '>' + e.escolaridad + '</option>');
+                    });
+                }
+            });
+            $.ajax({
+                type: 'GET',
+                url: '/municipios.json',
+                dataType: 'json',
+                success: function (data) {
+                    data.map(e => {
+                        $("#lugExpPa").append('<option value=' + e.municipio + '>' + e.municipio + '</option>');
+                    });
+                }
+            });
+            $.ajax({
+                type: 'GET',
+                url: '/municipios.json',
+                dataType: 'json',
+                success: function (data) {
+                    data.map(e => {
+                        $("#municipioPa").append('<option value=' + e.municipio + '>' + e.municipio + '</option>');
+                    });
+                }
+            });
+            $.ajax({
+                type: 'GET',
+                url: '/nivelEscolaridad.json',
+                dataType: 'json',
+                success: function (data) {
+                    data.map(e => {
+                        $("#escolaridadPa").append('<option value=' + e.escolaridad + '>' + e.escolaridad + '</option>');
+                    });
+                }
+            });
+            $.ajax({
+                type: 'GET',
+                url: '/nivelEscolaridad.json',
+                dataType: 'json',
+                success: function (data) {
+                    data.map(e => {
+                        $("#escolaridadAcu").append('<option value=' + e.escolaridad + '>' + e.escolaridad + '</option>');
+                    });
+                }
+            });
+
             $("#form-general").validate();
             $("#form-complementaria").validate();
             $("#form-familiar").validate();

@@ -48,17 +48,17 @@
                         <div class="d-flex justify-content-around">
                             <div class="form-group col-sm-4">
                                 <label asp-for="NombrePadrino" class="control-label"></label> <label id="asterisco">*</label>
-                                <input asp-for="NombrePadrino" class="form-control" type="text" name="NombrePadrino" id="NombrePadrino" placeholder="Ingrese el nombre" required />
+                                <input asp-for="NombrePadrino" class="form-control" type="text" name="NombrePadrino" id="NombrePadrino" placeholder="Ingrese el nombre" readonly />
                                 <span asp-validation-for="NombrePadrino" class="text-danger error"></span>
                             </div>
                             <div class="form-group col-sm-4">
                                 <label asp-for="ApellidoPadrino" class="control-label"></label> <label id="asterisco">*</label>
-                                <input asp-for="ApellidoPadrino" class="form-control" type="text" name="ApellidoPadrino" id="ApellidoPadrino" placeholder="Ingrese el apellido" required />
+                                <input asp-for="ApellidoPadrino" class="form-control" type="text" name="ApellidoPadrino" id="ApellidoPadrino" placeholder="Ingrese el apellido" readonly />
                                 <span asp-validation-for="ApellidoPadrino" class="text-danger"></span>
                             </div>
                             <div class="form-group col-sm-4">
                                 <label asp-for="TipoDocumentoId" class="control-label"></label>
-                                <select asp-for="TipoDocumentoId" class="form-control" asp-items="ViewBag.listaTipoDocumentos">
+                                <select disabled asp-for="TipoDocumentoId" class="form-control" asp-items="ViewBag.listaTipoDocumentos" readonly>
                                     <option value="0">Seleccione</option>
                                 </select>
                                 <span asp-validation-for="TipoDocumentoId" class="text-danger"></span>
@@ -68,22 +68,22 @@
 
                             <div class="form-group col-sm-3">
                                 <label asp-for="NumeroDocumento" class="control-label"></label> <label id="asterisco">*</label>
-                                <input asp-for="NumeroDocumento" class="form-control" type="text" name="NumeroDocumento" id="NumeroDocumento" placeholder="Ingrese el n° documento" required />
+                                <input asp-for="NumeroDocumento" class="form-control" type="text" name="NumeroDocumento" id="NumeroDocumento" placeholder="Ingrese el n° documento" readonly />
                                 <span asp-validation-for="NumeroDocumento" class="text-danger error"></span>
                             </div>
                             <div class="form-group col-sm-3">
                                 <label asp-for="Ocupacion" class="control-label"></label> <label id="asterisco">*</label>
-                                <input asp-for="Ocupacion" class="form-control" type="text" name="ocupacion" id="ocupacion" placeholder="Ingrese la ocupación" required />
+                                <input asp-for="Ocupacion" class="form-control" type="text" name="ocupacion" id="ocupacion" placeholder="Ingrese la ocupación" readonly />
                                 <span asp-validation-for="Ocupacion" class="text-danger error"></span>
                             </div>
                             <div class="form-group col-sm-3">
                                 <label asp-for="Telefono" class="control-label"></label> <label id="asterisco">*</label>
-                                <input asp-for="Telefono" class="form-control" type="text" name="telefono" id="telefono" placeholder="Ingrese el telefono" required />
+                                <input asp-for="Telefono" class="form-control" type="text" name="telefono" id="telefono" placeholder="Ingrese el telefono" readonly />
                                 <span asp-validation-for="Telefono" class="text-danger error"></span>
                             </div>
                             <div class="form-group col-sm-3">
                                 <label asp-for="CorreoElectronico" class="control-label"></label> <label id="asterisco">*</label>
-                                <input asp-for="CorreoElectronico" class="form-control" type="email" name="correoElectronico" id="correoElectronico" placeholder="Ingrese el correo" required />
+                                <input asp-for="CorreoElectronico" class="form-control" type="email" name="correoElectronico" id="correoElectronico" placeholder="Ingrese el correo" readonly />
                                 <span asp-validation-for="CorreoElectronico" class="text-danger error"></span>
                             </div>
                         </div>
@@ -95,9 +95,6 @@
                         <div class="d-flex justify-content-around">
                             <div class="form-group col-sm-6">
                                 <input type="button" value="Cancelar" id="btn-cancelar" class="btn btn-danger float-right" />
-                            </div>
-                            <div class="form-group col-sm-6">
-                                <input type="submit" value="Guardar Padrino" class="btn btn-success float-right" />
                             </div>
                         </div>
                     </form>

@@ -1,0 +1,170 @@
+[  
+    {  
+        "id":0,
+		"salud":"SALUD TOTAL"
+    },
+		{  
+        "id":1,
+		"salud":"COMFENALCO VALLE"
+    },
+		{  
+        "id":2,
+		"salud":"COOSALUD E.S.S."
+    },
+		{  
+        "id":3,
+		"salud":"ASMET SALUD"
+    },
+		{  
+        "id":4,
+		"salud":"AMBUQ"
+    },
+		{  
+        "id":5,
+		"salud":"COMFASUCRE"
+    },
+		{  
+        "id":6,
+		"salud":"COMFAMILIAR CARTAGENA"
+    },
+		{  
+        "id":7,
+		"salud":"CONVIDA"
+    },
+		{  
+        "id":8,
+		"salud":"MUTUAL SER"
+    },
+		{  
+        "id":9,
+		"salud":"CRUZ BLANCA"
+    },
+		{  
+        "id":10,
+		"salud":"COMPARTA"
+    },
+		{  
+        "id":11,
+		"salud":"CAFESALUD"
+    },
+		{  
+        "id":12,
+		"salud":"ALIANSALUD"
+    },
+		{  
+        "id":13,
+		"salud":"EMDISALUD"
+    },
+		{  
+        "id":14,
+		"salud":"CAPITAL SALUD"
+    },
+		{  
+        "id":15,
+		"salud":"NUEVA salud"
+    },
+		{  
+        "id":16,
+		"salud":"COMFACUNDI"
+    },
+		{  
+        "id":17,
+		"salud":"EMSSANAR E.S.S."
+    },
+		{  
+        "id":18,
+		"salud":"COMPENSAR"
+    },
+		{  
+        "id":19,
+		"salud":"COOMEVA"
+    },
+		{  
+        "id":20,
+		"salud":"AIC-EPSI-I"
+    },
+		{  
+        "id":21,
+		"salud":"MEDIMAS"
+    },
+		{  
+        "id":22,
+		"salud":"FAMISANAR"
+    },
+		{  
+        "id":23,
+		"salud":"SURA"
+    },
+		{  
+        "id":24,
+		"salud":"SANITAS"
+    },
+		{  
+        "id":25,
+		"salud":"SALUDVIDA"
+    },
+		{  
+        "id":26,
+		"salud":"CAJACOPI ATLANTICO"
+    },
+		{  
+        "id":27,
+		"salud":"COMFACOR"
+    },
+		{  
+        "id":28,
+		"salud":"PIJAOS SALUD"
+    },
+		{  
+        "id":29,
+		"salud":"CAPRESOCA"
+    },
+		{  
+        "id":30,
+		"salud":"ASOCIACIÓN MUTUAL BARRIOS UNIDOS DE QUIBDÓ"
+    },
+		{  
+        "id":31,
+		"salud":"CAJA DE COMPENSACIÓN FAMILIAR DE LA GUAJIRA"
+    },
+		{  
+        "id":32,
+		"salud":"MALLAMAS"
+    },
+		{  
+        "id":33,
+		"salud":"ASOCIACIÓN INDÍGENA DEL CAUCA"
+    },
+		{  
+        "id":34,
+		"salud":"ECOOSALUD"
+    },
+		{  
+        "id":35,
+		"salud":"ECOOPSOS"
+    },
+		{  
+        "id":36,
+		"salud":"DUSAWAKI"
+    },
+		{  
+        "id":37,
+		"salud":"COMFAMILIAR HUILA"
+    },
+		{  
+        "id":38,
+		"salud":"COMFAORIENTE"
+    },
+		{  
+        "id":39,
+		"salud":"COMFAMILIAR NARIÑO"
+    },
+		{  
+        "id":40,
+		"salud":"ANASWAYUU"
+    },
+		{  
+        "id":41,
+		"salud":"COMFACHOCÓ"
+    }	
+]

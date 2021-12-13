@@ -34,14 +34,14 @@
         <p>No pudo registrarse</p>
         <hr>
         <p class="mb-0">
-            El registro se encuentra activo, por favor revisa el número de documento del beneficiario.
+            El registro se encuentra creado, por favor revisa el número de documento del padrino.
         </p>
     </div>
     <!-- /.content-header -->
     <div class="container">
         <div class="row">
             <div class="col-sm-12 mx-auto p-2">
-                <div class="card mt-0 mb-3 pt-3">
+                <div class="card mt-0 mb-3 p-4">
                     <div class="col-sm-12">
                         <div class="">
                             <h4 class="text-left">
@@ -68,9 +68,9 @@
                                 <span asp-validation-for="ApellidoPadrino" class="text-danger"></span>
                             </div>
                             <div class="form-group col-sm-4">
-                                <label asp-for="TipoDocumentoId" class="control-label"></label>
-                                <select asp-for="TipoDocumentoId" class="form-control" asp-items="ViewBag.listaTipoDocumentos">
-                                    <option value="0">Seleccione</option>
+                                <label asp-for="TipoDocumentoId" class="control-label"></label> <label id="asterisco">*</label>
+                                <select asp-for="TipoDocumentoId" id="TipoDocumento" class="form-control" asp-items="ViewBag.listaTipoDocumentos" required>
+                                    <option value="">Seleccione</option>
                                 </select>
                                 <span asp-validation-for="TipoDocumentoId" class="text-danger"></span>
                             </div>
@@ -98,19 +98,10 @@
                                 <span asp-validation-for="CorreoElectronico" class="text-danger error"></span>
                             </div>
                         </div>
-                        <div class="d-flex justify-content-around">
-
-
-                        </div>
-
 
                         <div class="d-flex justify-content-around">
-                            <div class="form-group col-sm-6">
-                                <input type="button" value="Cancelar" id="btn-cancelar" class="btn btn-danger float-right" />
-                            </div>
-                            <div class="form-group col-sm-6">
-                                <input type="submit" value="Guardar Padrino" class="btn btn-success float-right" />
-                            </div>
+                            <button type="button" class="btn btn-danger" id="btn-cancelar">Cancelar</button>
+                            <button type="button" class="btn btn-success" id="btn-guardar">Guardar Padrino</button>
                         </div>
                     </form>
                 </div>
@@ -123,12 +114,79 @@
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 
-    <script>
+<script>
 
     document.getElementById("btn-cancelar").addEventListener("click", function (event) {
     window.location.href = '@Url.Action("Index", "Padrino")';
     });
 
-    </script>
+    /*--------------------------------- GUARDAR FORMULARIO ---------------------------*/
+
+    document.addEventListener('DOMContentLoaded', function () {
+        $('#formPadrino').validate();
+    })
+
+    document.getElementById("btn-guardar").addEventListener("click", function (event) {
+        if (!$("#formPadrino").valid()) {
+        $("label.error").css("color", "red");
+        $("label.error").css("font-weight", "300");
+
+        event.preventDefault();
+
+    } else {
+        Swal.fire({
+            text: '¿Desea guardar el registro?',
+            icon: 'question',
+            confirmButtonColor: '#afdb6e',
+            showDenyButton: true,
+            showCancelButton: false,
+            confirmButtonText: 'Guardar',
+            denyButtonText: 'Cancelar',
+        }).then((result) => {
+            if (result.isConfirmed) {
+                let formData = new FormData();
+
+                formData.append("NombrePadrino", document.getElementById("NombrePadrino").value);
+                formData.append("ApellidoPadrino", document.getElementById("ApellidoPadrino").value);
+                formData.append("TipoDocumentoId", document.getElementById("TipoDocumento").value);
+                formData.append("NumeroDocumento", document.getElementById("NumeroDocumento").value);
+                formData.append("Ocupacion", document.getElementById("ocupacion").value);
+                formData.append("Telefono", document.getElementById("telefono").value);
+                formData.append("CorreoElectronico", document.getElementById("correoElectronico").value);
+
+                $.ajax({
+                            url: '@Url.Action("Create", "Padrino")',
+                            type: 'post',
+                            processData: false,
+                            contentType: false,
+                            data: formData,
+                            dataType: 'json',
+                            success: function (result) {
+                                if (result.status == true) {
+                                    setTimeout(function () {
+                                        window.location.href = '@Url.Action("Index", "PAdrino")';
+                                    }, 1000);
+                                    alertify.success('Guardado');
+                                } else if (result.status == 500) {
+
+                                    $("#alerta-beneficiario").show();
+
+                                } else {
+                                    alertify.error('No se pudo guardar');
+                                }
+                            },
+                            error: function (err) {
+                                console.log(err.data);
+                            }
+                        });
+                    } else if (result.isDenied) {
+                        alertify.error('Cancelado');
+                    }
+                })
+            }
+    })
+
+
+</script>
 
 }

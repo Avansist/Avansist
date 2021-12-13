@@ -56,14 +56,25 @@ namespace Avansist.Web.Controllers
 
                     try
                     {
-                        await _padrinoServices.GuardarPadrino(padrinoDto);
-                        return RedirectToAction(nameof(Index));
+                        var result = _padrinoServices.GuardarPadrino(padrinoDto);
+                        return Json(new 
+                        {
+                            status = true
+                        });
+                        //return RedirectToAction(nameof(Index));
                     }
                     catch (Exception)
                     {
 
                         throw;
                     }
+                }
+                if (PadrinoTem != null)
+                {
+                    return Json(new
+                    {
+                        status = 500
+                    });
                 }
             }
             return View(padrinoDto);

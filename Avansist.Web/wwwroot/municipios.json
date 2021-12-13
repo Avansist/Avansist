@@ -1,0 +1,3369 @@
+[  
+    {  
+        "id":0,
+		"municipio":"Leticia"
+    },
+		{  
+        "id":1,
+		"municipio":"Abejorral"
+    },
+		{  
+        "id":2,
+		"municipio":"Abejorral"
+    },
+		{  
+        "id":3,
+		"municipio":"Abriaqu\u00ed"
+    },
+		{  
+        "id":4,
+		"municipio":"Alejandr\u00eda"
+    },
+		{  
+        "id":5,
+		"municipio":"Amag\u00e1"
+    },
+		{  
+        "id":6,
+		"municipio":"Amalfi"
+    },
+		{  
+        "id":7,
+		"municipio":"Andes"
+    },
+		{  
+        "id":8,
+		"municipio":"Angel\u00f3polis"
+    },
+		{  
+        "id":9,
+		"municipio":"Angostura"
+    },
+		{  
+        "id":10,
+		"municipio":"Anor\u00ed"
+    },
+		{  
+        "id":11,
+		"municipio":"Anz\u00e1"
+    },
+		{  
+        "id":12,
+		"municipio":"Apartad\u00f3"
+    },
+		{  
+        "id":13,
+		"municipio":"Arboletes"
+    },
+		{  
+        "id":14,
+		"municipio":"Argelia"
+    },
+		{  
+        "id":15,
+		"municipio":"Armenia"
+    },
+		{  
+        "id":16,
+		"municipio":"Barbosa"
+    },
+		{  
+        "id":17,
+		"municipio":"Bello"
+    },
+		{  
+        "id":18,
+		"municipio":"Belmira"
+    },
+		{  
+        "id":19,
+		"municipio":"Betania"
+    },
+		{  
+        "id":20,
+		"municipio":"Betulia"
+    },
+		{  
+        "id":21,
+		"municipio":"Brice\u00f1o"
+    },
+		{  
+        "id":22,
+		"municipio":"Buritic\u00e1"
+    },
+		{  
+        "id":23,
+		"municipio":"C\u00e1ceres"
+    },
+		{  
+        "id":24,
+		"municipio":"Caicedo"
+    },	{  
+        "id":25,
+		"municipio":"Caldas"
+    },
+		{  
+        "id":26,
+		"municipio":"Campamento"
+    },	{  
+        "id":27,
+		"municipio":"Ca\u00f1asgordas"
+    },
+		{  
+        "id":28,
+		"municipio":"Caracol\u00ed"
+    },	{  
+        "id":29,
+		"municipio":"Caramanta"
+    },	{  
+        "id":30,
+		"municipio":"Carepa"
+    },
+		{  
+        "id":31,
+		"municipio":"Carolina del Pr\u00edncipe"
+    },	{  
+        "id":32,
+		"municipio":"Caucasia"
+    },	{  
+        "id":33,
+		"municipio":"Chigorod\u00f3"
+    },	{  
+        "id":34,
+		"municipio":"Cisneros"
+    },
+		{  
+        "id":35,
+		"municipio":"Ciudad Bol\u00edvar"
+    },	
+	{  
+        "id":36,
+		"municipio":"Cocorn\u00e1"
+    },	{  
+        "id":37,
+		"municipio":"Concepci\u00f3n"
+    },	
+	{  
+        "id":38,
+		"municipio":"Concordia"
+    },	
+	{  
+        "id":39,
+		"municipio":"Copacabana"
+    },	
+	{  
+        "id":40,
+		"municipio":"Dabeiba"
+    },	
+	{  
+        "id":41,
+		"municipio":"Donmat\u00edas"
+    },	
+	{  
+        "id":42,
+		"municipio":"Eb\u00e9jico"
+    },	
+	{  
+        "id":43,
+		"municipio":"El Bagre"
+    },	
+	{  
+        "id":44,
+		"municipio":"El Carmen de Viboral"
+    },	
+	{  
+        "id":45,
+		"municipio":"El Pe\u00f1ol"
+    },	
+	{  
+        "id":46,
+		"municipio":"El Retiro"
+    },	
+	{  
+        "id":47,
+		"municipio":"El Santuario"
+    },	
+	{  
+        "id":48,
+		"municipio":"Entrerr\u00edos"
+    },
+		{  
+        "id":49,
+		"municipio":"Envigado"
+    },
+		{  
+        "id":50,
+		"municipio":"Fredonia"
+    },
+		{  
+        "id":52,
+		"municipio":"Frontino"
+    },
+		{  
+        "id":53,
+		"municipio":"Giraldo"
+    },
+		{  
+        "id":54,
+		"municipio":"Girardota"
+    },
+		{  
+        "id":55,
+		"municipio":"G\u00f3mez Plata"
+    },
+		{  
+        "id":56,
+		"municipio":"Granada"
+    },
+		{  
+        "id":57,
+		"municipio":"Guadalupe"
+    },	{  
+        "id":58,
+		"municipio":"Guarne"
+    },
+		{  
+        "id":59,
+		"municipio":"Guatap\u00e9"
+    },
+		{  
+        "id":60,
+		"municipio":"Heliconia"
+    },
+		{  
+        "id":61,
+		"municipio":"Hispania"
+    },
+		{  
+        "id":62,
+		"municipio":"Itag\u00fc\u00ed"
+    },	{  
+        "id":63,
+		"municipio":"Ituango"
+    },
+		{  
+        "id":64,
+		"municipio":"Jard\u00edn"
+    },	{  
+        "id":65,
+		"municipio":"Jeric\u00f3"
+    },	{  
+        "id":66,
+		"municipio":"La Ceja"
+    },	{  
+        "id":67,
+		"municipio":"La Estrella"
+    },	{  
+        "id":68,
+		"municipio":"La Pintada"
+    },	{  
+        "id":69,
+		"municipio":"La Uni\u00f3n"
+    },	{  
+        "id":70,
+		"municipio":"Liborina"
+    },	{  
+        "id":71,
+		"municipio":"Maceo"
+    },	{  
+        "id":72,
+		"municipio":"Marinilla"
+    },	{  
+        "id":73,
+		"municipio":"Medell\u00edn"
+    },
+		{  
+        "id":74,
+		"municipio":"Montebello"
+    },
+		{  
+        "id":75,
+		"municipio":"Murind\u00f3"
+    },
+		{  
+        "id":76,
+		"municipio":"Mutat\u00e1"
+    },
+		{  
+        "id":77,
+		"municipio":"Nari\u00f1o"
+    },	{  
+        "id":78,
+		"municipio":"Nech\u00ed"
+    },	{  
+        "id":79,
+		"municipio":"Necocl\u00ed"
+    },	{  
+        "id":80,
+		"municipio":"Olaya"
+    },	{  
+        "id":81,
+		"municipio":"Peque"
+    },	{  
+        "id":82,
+		"municipio":"Pueblorrico"
+    },	{  
+        "id":83,
+		"municipio":"Puerto Berr\u00edo"
+    },	{  
+        "id":84,
+		"municipio":"Puerto Nare"
+    },	{  
+        "id":85,
+		"municipio":"Puerto Triunfo"
+    },	{  
+        "id":86,
+		"municipio":"Remedios"
+    },	{  
+        "id":87,
+		"municipio":"Rionegro"
+    },	{  
+        "id":88,
+		"municipio":"Sabanalarga"
+    },	{  
+        "id":89,
+		"municipio":"Sabaneta"
+    },	{  
+        "id":90,
+		"municipio":"Salgar"
+    },	{  
+        "id":91,
+		"municipio":"San Andr\u00e9s de Cuerquia"
+    },	{  
+        "id":92,
+		"municipio":"San Carlos"
+    },	{  
+        "id":93,
+		"municipio":"San Francisco"
+    },	{  
+        "id":94,
+		"municipio":"San Jer\u00f3nimo"
+    },	{  
+        "id":95,
+		"municipio":"San Jos\u00e9 de la Monta\u00f1a"
+    },	{  
+        "id":96,
+		"municipio":"San Juan de Urab\u00e1"
+    },	{  
+        "id":97,
+		"municipio":"San Luis"
+    },	{  
+        "id":98,
+		"municipio":"San Pedro de Urab\u00e1"
+    },	{  
+        "id":99,
+		"municipio":"San Pedro de los Milagros"
+    },	{  
+        "id":100,
+		"municipio":"San Rafael"
+    },	{  
+        "id":101,
+		"municipio":"San Roque"
+    },	{  
+        "id":102,
+		"municipio":"San Vicente"
+    },	{  
+        "id":103,
+		"municipio":"Santa B\u00e1rbara"
+    },	{  
+        "id":104,
+		"municipio":"Santa Fe de Antioquia"
+    },	{  
+        "id":105,
+		"municipio":"Santa Rosa de Osos"
+    },	{  
+        "id":106,
+		"municipio":"Santo Domingo"
+    },	{  
+        "id":107,
+		"municipio":"Segovia"
+    },	{  
+        "id":108,
+		"municipio":"Sons\u00f3n"
+    },	{  
+        "id":109,
+		"municipio":"Sopetr\u00e1n"
+    },	{  
+        "id":110,
+		"municipio":"T\u00e1mesis"
+    },	{  
+        "id":111,
+		"municipio":"Taraz\u00e1"
+    },	{  
+        "id":112,
+		"municipio":"Tarso"
+    },	{  
+        "id":113,
+		"municipio":"Titirib\u00ed"
+    },	{  
+        "id":114,
+		"municipio":"Toledo"
+    },	{  
+        "id":115,
+		"municipio":"Turbo"
+    },	{  
+        "id":116,
+		"municipio":"Uramita"
+    },	{  
+        "id":117,
+		"municipio":"Urrao"
+    },	{  
+        "id":118,
+		"municipio":"Valdivia"
+    },	{  
+        "id":119,
+		"municipio":"Valpara\u00edso"
+    },	{  
+        "id":120,
+		"municipio":"Vegach\u00ed"
+    },	{  
+        "id":121,
+		"municipio":"Venecia"
+    },	{  
+        "id":122,
+		"municipio":"Vig\u00eda del Fuerte"
+    },	{  
+        "id":123,
+		"municipio":"Yal\u00ed"
+    },	{  
+        "id":124,
+		"municipio":"Yarumal"
+    },	{  
+        "id":125,
+		"municipio":"Yolomb\u00f3"
+    },	{  
+        "id":126,
+		"municipio":"Yond\u00f3"
+    },	{  
+        "id":127,
+		"municipio":"Zaragoza"
+    },	{  
+        "id":128,
+		"municipio":"Arauca"
+    },	{  
+        "id":129,
+		"municipio":"Arauquita"
+    },	{  
+        "id":130,
+		"municipio":"Cravo Norte"
+    },	
+	{  
+        "id":131,
+		"municipio":"Fortul"
+    },	{  
+        "id":132,
+		"municipio":"Puerto Rond\u00f3n"
+    },	{  
+        "id":133,
+		"municipio":"Saravena"
+    },	{  
+        "id":134,
+		"municipio":"Tame"
+    },	{  
+        "id":135,
+		"municipio":"Baranoa"
+    },	{  
+        "id":136,
+		"municipio":"Barranquilla"
+    },	{  
+        "id":137,
+		"municipio":"Campo de la Cruz"
+    },	{  
+        "id":138,
+		"municipio":"Candelaria"
+    },	{  
+        "id":139,
+		"municipio":"Galapa"
+    },	{  
+        "id":140,
+		"municipio":"Juan de Acosta"
+    },	{  
+        "id":141,
+		"municipio":"Luruaco"
+    },	{  
+        "id":142,
+		"municipio":"Malambo"
+    },	{  
+        "id":143,
+		"municipio":"Manat\u00ed"
+    },	{  
+        "id":144,
+		"municipio":"Palmar de Varela"
+    },	{  
+        "id":145,
+		"municipio":"Pioj\u00f3"
+    },	{  
+        "id":146,
+		"municipio":"Polonuevo"
+    },	{  
+        "id":147,
+		"municipio":"Ponedera"
+    },	{  
+        "id":148,
+		"municipio":"Puerto Colombia"
+    },	{  
+        "id":149,
+		"municipio":"Repel\u00f3n"
+    },	{  
+        "id":150,
+		"municipio":"Sabanagrande"
+    },	{  
+        "id":151,
+		"municipio":"Sabanalarga"
+    },	{  
+        "id":152,
+		"municipio":"Santa Luc\u00eda"
+    },	{  
+        "id":153,
+		"municipio":"Santo Tom\u00e1s"
+    },	{  
+        "id":154,
+		"municipio":"Soledad"
+    },	{  
+        "id":155,
+		"municipio":"Su\u00e1n"
+    },	{  
+        "id":156,
+		"municipio":"Tubar\u00e1"
+    },	{  
+        "id":157,
+		"municipio":"Usiacur\u00ed"
+    },	{  
+        "id":158,
+		"municipio":"Ach\u00ed"
+    },	{  
+        "id":159,
+		"municipio":"Altos del Rosario"
+    },	{  
+        "id":160,
+		"municipio":"Arenal"
+    },	{  
+        "id":161,
+		"municipio":"Arjona"
+    },	{  
+        "id":162,
+		"municipio":"Arroyohondo"
+    },	{  
+        "id":163,
+		"municipio":"Barranco de Loba"
+    },	{  
+        "id":164,
+		"municipio":"Brazuelo de Papayal"
+    },	{  
+        "id":165,
+		"municipio":"Calamar"
+    },	{  
+        "id":166,
+		"municipio":"Cantagallo"
+    },	{  
+        "id":167,
+		"municipio":"Cartagena de Indias"
+    },	{  
+        "id":168,
+		"municipio":"Cicuco"
+    },	{  
+        "id":169,
+		"municipio":"Clemencia"
+    },	{  
+        "id":170,
+		"municipio":"C\u00f3rdoba"
+    },	{  
+        "id":171,
+		"municipio":"El Carmen de Bol\u00edvar"
+    },	{  
+        "id":172,
+		"municipio":"El Guamo"
+    },	{  
+        "id":173,
+		"municipio":"El Pe\u00f1\u00f3n"
+    },	{  
+        "id":174,
+		"municipio":"Hatillo de Loba"
+    },	{  
+        "id":175,
+		"municipio":"Magangu\u00e9"
+    },	{  
+        "id":176,
+		"municipio":"Mahates"
+    },	{  
+        "id":177,
+		"municipio":"Margarita"
+    },	{  
+        "id":178,
+		"municipio":"Mar\u00eda la Baja"
+    },	{  
+        "id":179,
+		"municipio":"Momp\u00f3s"
+    },	{  
+        "id":180,
+		"municipio":"Montecristo"
+    },	{  
+        "id":181,
+		"municipio":"Morales"
+    },	{  
+        "id":182,
+		"municipio":"Noros\u00ed"
+    },	{  
+        "id":183,
+		"municipio":"Pinillos"
+    },	{  
+        "id":184,
+		"municipio":"Regidor"
+    },	{  
+        "id":185,
+		"municipio":"R\u00edo Viejo"
+    },	{  
+        "id":186,
+		"municipio":"San Crist\u00f3bal"
+    },	{  
+        "id":187,
+		"municipio":"San Estanislao"
+    },	{  
+        "id":188,
+		"municipio":"San Fernando"
+    },	{  
+        "id":189,
+		"municipio":"San Jacinto del Cauca"
+    },	{  
+        "id":190,
+		"municipio":"San Jacinto"
+    },	{  
+        "id":191,
+		"municipio":"San Juan Nepomuceno"
+    },	{  
+        "id":192,
+		"municipio":"San Mart\u00edn de Loba"
+    },	{  
+        "id":193,
+		"municipio":"San Pablo"
+    },	{  
+        "id":194,
+		"municipio":"Santa Catalina"
+    },	{  
+        "id":195,
+		"municipio":"Santa Rosa"
+    },	{  
+        "id":196,
+		"municipio":"Santa Rosa del Sur"
+    },	{  
+        "id":197,
+		"municipio":"Simit\u00ed"
+    },	{  
+        "id":198,
+		"municipio":"Soplaviento"
+    },	{  
+        "id":199,
+		"municipio":"Talaigua Nuevo"
+    },	{  
+        "id":200,
+		"municipio":"Tiquisio"
+    },	{  
+        "id":201,
+		"municipio":"Turbaco"
+    },	{  
+        "id":202,
+		"municipio":"Turban\u00e1"
+    },	{  
+        "id":203,
+		"municipio":"Villanueva"
+    },	{  
+        "id":204,
+		"municipio":"Zambrano"
+    },	{  
+        "id":205,
+		"municipio":"Almeida"
+    },	{  
+        "id":206,
+		"municipio":"Aquitania"
+    },	{  
+        "id":207,
+		"municipio":"Arcabuco"
+    },	{  
+        "id":208,
+		"municipio":"Bel\u00e9n"
+    },	{  
+        "id":209,
+		"municipio":"Berbeo"
+    },	{  
+        "id":210,
+		"municipio":"Bet\u00e9itiva"
+    },	{  
+        "id":211,
+		"municipio":"Boavita"
+    },	{  
+        "id":212,
+		"municipio":"Boyac\u00e1"
+    },	{  
+        "id":213,
+		"municipio":"Brice\u00f1o"
+    },	{  
+        "id":214,
+		"municipio":"Buenavista"
+    },	{  
+        "id":215,
+		"municipio":"Busbanz\u00e1"
+    },	{  
+        "id":216,
+		"municipio":"Caldas"
+    },	{  
+        "id":217,
+		"municipio":"Campohermoso"
+    },	{  
+        "id":218,
+		"municipio":"Cerinza"
+    },	{  
+        "id":219,
+		"municipio":"Chiquinquir\u00e1"
+    },	{  
+        "id":220,
+		"municipio":"Ch\u00edquiza"
+    },	{  
+        "id":221,
+		"municipio":"Chiscas"
+    },	{  
+        "id":222,
+		"municipio":"Chita"
+    },	{  
+        "id":223,
+		"municipio":"Chitaraque"
+    },	{  
+        "id":224,
+		"municipio":"Chivat\u00e1"
+    },	{  
+        "id":225,
+		"municipio":"Chivor"
+    },	{  
+        "id":226,
+		"municipio":"Ci\u00e9nega"
+    },	{  
+        "id":227,
+		"municipio":"C\u00f3mbita"
+    },	{  
+        "id":228,
+		"municipio":"Coper"
+    },	{  
+        "id":229,
+		"municipio":"Corrales"
+    },	{  
+        "id":230,
+		"municipio":"Covarach\u00eda"
+    },	{  
+        "id":231,
+		"municipio":"Cubar\u00e1"
+    },	{  
+        "id":232,
+		"municipio":"Cucaita"
+    },	{  
+        "id":234,
+		"municipio":"Cu\u00edtiva"
+    },	{  
+        "id":235,
+		"municipio":"Duitama"
+    },	{  
+        "id":236,
+		"municipio":"El Cocuy"
+    },	{  
+        "id":237,
+		"municipio":"El Espino"
+    },	{  
+        "id":238,
+		"municipio":"Firavitoba"
+    },	{  
+        "id":239,
+		"municipio":"Floresta"
+    },	{  
+        "id":240,
+		"municipio":"Gachantiv\u00e1"
+    },	{  
+        "id":241,
+		"municipio":"G\u00e1meza"
+    },	{  
+        "id":242,
+		"municipio":"Garagoa"
+    },	{  
+        "id":243,
+		"municipio":"Guacamayas"
+    },	{  
+        "id":244,
+		"municipio":"Guateque"
+    },	{  
+        "id":245,
+		"municipio":"Guayat\u00e1"
+    },	{  
+        "id":246,
+		"municipio":"G\u00fcic\u00e1n"
+    },	{  
+        "id":247,
+		"municipio":"Iza"
+    },	{  
+        "id":248,
+		"municipio":"Jenesano"
+    },	{  
+        "id":249,
+		"municipio":"Jeric\u00f3"
+    },	{  
+        "id":250,
+		"municipio":"La Capilla"
+    },	{  
+        "id":251,
+		"municipio":"La Uvita"
+    },	{  
+        "id":252,
+		"municipio":"La Victoria"
+    },	{  
+        "id":253,
+		"municipio":"Labranzagrande"
+    },	{  
+        "id":254,
+		"municipio":"Macanal"
+    },	{  
+        "id":255,
+		"municipio":"Marip\u00ed"
+    },	{  
+        "id":256,
+		"municipio":"Miraflores"
+    },	{  
+        "id":257,
+		"municipio":"Mongua"
+    },	{  
+        "id":258,
+		"municipio":"Mongu\u00ed"
+    },	{  
+        "id":259,
+		"municipio":"Moniquir\u00e1"
+    },	{  
+        "id":260,
+		"municipio":"Motavita"
+    },	{  
+        "id":261,
+		"municipio":"Muzo"
+    },	{  
+        "id":262,
+		"municipio":"Nobsa"
+    },	{  
+        "id":263,
+		"municipio":"Nuevo Col\u00f3n"
+    },	{  
+        "id":264,
+		"municipio":"Oicat\u00e1"
+    },	{  
+        "id":265,
+		"municipio":"Otanche"
+    },	{  
+        "id":266,
+		"municipio":"Pachavita"
+    },	{  
+        "id":267,
+		"municipio":"P\u00e1ez"
+    },	{  
+        "id":268,
+		"municipio":"Paipa"
+    },	{  
+        "id":269,
+		"municipio":"Pajarito"
+    },	{  
+        "id":270,
+		"municipio":"Panqueba"
+    },	{  
+        "id":271,
+		"municipio":"Pauna"
+    },	{  
+        "id":272,
+		"municipio":"Paya"
+    },	{  
+        "id":273,
+		"municipio":"Paz del R\u00edo"
+    },	{  
+        "id":274,
+		"municipio":"Pesca"
+    },	{  
+        "id":275,
+		"municipio":"Pisba"
+    },	{  
+        "id":276,
+		"municipio":"Puerto Boyac\u00e1"
+    },	{  
+        "id":277,
+		"municipio":"Qu\u00edpama"
+    },	{  
+        "id":278,
+		"municipio":"Ramiriqu\u00ed"
+    },	{  
+        "id":279,
+		"municipio":"R\u00e1quira"
+    },	{  
+        "id":280,
+		"municipio":"Rond\u00f3n"
+    },	{  
+        "id":281,
+		"municipio":"Saboy\u00e1"
+    },	{  
+        "id":282,
+		"municipio":"S\u00e1chica"
+    },	{  
+        "id":283,
+		"municipio":"Samac\u00e1"
+    },	{  
+        "id":284,
+		"municipio":"San Eduardo"
+    },	{  
+        "id":285,
+		"municipio":"San Jos\u00e9 de Pare"
+    },	{  
+        "id":286,
+		"municipio":"San Luis de Gaceno"
+    },	{  
+        "id":287,
+		"municipio":"San Mateo"
+    },	{  
+        "id":288,
+		"municipio":"San Miguel de Sema"
+    },	{  
+        "id":289,
+		"municipio":"San Pablo de Borbur"
+    },	{  
+        "id":290,
+		"municipio":"Santa Mar\u00eda"
+    },	{  
+        "id":291,
+		"municipio":"Santa Rosa de Viterbo"
+    },	{  
+        "id":292,
+		"municipio":"Santa Sof\u00eda"
+    },	{  
+        "id":293,
+		"municipio":"Santana"
+    },	{  
+        "id":294,
+		"municipio":"Sativanorte"
+    },	{  
+        "id":295,
+		"municipio":"Sativasur"
+    },	{  
+        "id":296,
+		"municipio":"Siachoque"
+    },	{  
+        "id":297,
+		"municipio":"Soat\u00e1"
+    },	{  
+        "id":298,
+		"municipio":"Socha"
+    },	{  
+        "id":299,
+		"municipio":"Socot\u00e1"
+    },	{  
+        "id":300,
+		"municipio":"Sogamoso"
+    },	{  
+        "id":301,
+		"municipio":"Somondoco"
+    },	{  
+        "id":302,
+		"municipio":"Sora"
+    },	{  
+        "id":303,
+		"municipio":"Sorac\u00e1"
+    },	{  
+        "id":304,
+		"municipio":"Sotaquir\u00e1"
+    },	{  
+        "id":305,
+		"municipio":"Susac\u00f3n"
+    },	{  
+        "id":306,
+		"municipio":"Sutamarch\u00e1n"
+    },	{  
+        "id":307,
+		"municipio":"Sutatenza"
+    },	{  
+        "id":308,
+		"municipio":"Tasco"
+    },	{  
+        "id":309,
+		"municipio":"Tenza"
+    },	{  
+        "id":310,
+		"municipio":"Tiban\u00e1"
+    },	{  
+        "id":311,
+		"municipio":"Tibasosa"
+    },	{  
+        "id":312,
+		"municipio":"Tinjac\u00e1"
+    },	{  
+        "id":313,
+		"municipio":"Tipacoque"
+    },	{  
+        "id":314,
+		"municipio":"Toca"
+    },	{  
+        "id":315,
+		"municipio":"Tog\u00fc\u00ed"
+    },	{  
+        "id":316,
+		"municipio":"T\u00f3paga"
+    },	{  
+        "id":317,
+		"municipio":"Tota"
+    },	{  
+        "id":318,
+		"municipio":"Tunja"
+    },	{  
+        "id":319,
+		"municipio":"Tunungu\u00e1"
+    },	{  
+        "id":320,
+		"municipio":"Turmequ\u00e9"
+    },	{  
+        "id":321,
+		"municipio":"Tuta"
+    },	{  
+        "id":322,
+		"municipio":"Tutaz\u00e1"
+    },	{  
+        "id":323,
+		"municipio":"\u00dambita"
+    },	{  
+        "id":324,
+		"municipio":"Ventaquemada"
+    },	{  
+        "id":325,
+		"municipio":"Villa de Leyva"
+    },	{  
+        "id":326,
+		"municipio":"Viracach\u00e1"
+    },	{  
+        "id":327,
+		"municipio":"Zetaquira"
+    },{  
+        "id":328,
+		"municipio":"Aguadas"
+    },{  
+        "id":329,
+		"municipio":"Anserma"
+    },{  
+        "id":330,
+		"municipio":"Aranzazu"
+    },{  
+        "id":331,
+		"municipio":"Belalc\u00e1zar"
+    },{  
+        "id":332,
+		"municipio":"Chinchin\u00e1"
+    },{  
+        "id":333,
+		"municipio":"Filadelfia"
+    },{  
+        "id":334,
+		"municipio":"La Dorada"
+    },{  
+        "id":335,
+		"municipio":"La Merced"
+    },{  
+        "id":336,
+		"municipio":"Manizales"
+    },{  
+        "id":337,
+		"municipio":"Manzanares"
+    },{  
+        "id":338,
+		"municipio":"Marmato"
+    },{  
+        "id":339,
+		"municipio":"Marquetalia"
+    },{  
+        "id":340,
+		"municipio":"Marulanda"
+    },{  
+        "id":341,
+		"municipio":"Neira"
+    },{  
+        "id":342,
+		"municipio":"Norcasia"
+    },{  
+        "id":343,
+		"municipio":"P\u00e1cora"
+    },{  
+        "id":344,
+		"municipio":"Palestina"
+    },{  
+        "id":345,
+		"municipio":"Pensilvania"
+    },{  
+        "id":346,
+		"municipio":"Riosucio"
+    },{  
+        "id":347,
+		"municipio":"Risaralda"
+    },{  
+        "id":348,
+		"municipio":"Salamina"
+    },{  
+        "id":349,
+		"municipio":"Saman\u00e1"
+    },{  
+        "id":350,
+		"municipio":"San Jos\u00e9"
+    },{  
+        "id":351,
+		"municipio":"Sup\u00eda"
+    },{  
+        "id":352,
+		"municipio":"Victoria"
+    },{  
+        "id":353,
+		"municipio":"Villamar\u00eda"
+    },{  
+        "id":354,
+		"municipio":"Viterbo"
+    },{  
+        "id":355,
+		"municipio":"Albania"
+    },{  
+        "id":356,
+		"municipio":"Bel\u00e9n de los Andaqu\u00edes"
+    },{  
+        "id":357,
+		"municipio":"Cartagena del Chair\u00e1"
+    },{  
+        "id":358,
+		"municipio":"Curillo"
+    },{  
+        "id":359,
+		"municipio":"El Doncello"
+    },{  
+        "id":360,
+		"municipio":"El Paujil"
+    },{  
+        "id":361,
+		"municipio":"Florencia"
+    },{  
+        "id":362,
+		"municipio":"La Monta\u00f1ita"
+    },{  
+        "id":363,
+		"municipio":"Mil\u00e1n"
+    },{  
+        "id":364,
+		"municipio":"Morelia"
+    },{  
+        "id":365,
+		"municipio":"Puerto Rico"
+    },{  
+        "id":366,
+		"municipio":"San Jos\u00e9 del Fragua"
+    },{  
+        "id":367,
+		"municipio":"San Vicente del Cagu\u00e1n"
+    },{  
+        "id":368,
+		"municipio":"Solano"
+    },{  
+        "id":369,
+		"municipio":"Solita"
+    },{  
+        "id":370,
+		"municipio":"Valpara\u00edso"
+    },{  
+        "id":371,
+		"municipio":"Aguazul"
+    },{  
+        "id":372,
+		"municipio":"Ch\u00e1meza"
+    },{  
+        "id":373,
+		"municipio":"Hato Corozal"
+    },{  
+        "id":374,
+		"municipio":"La Salina"
+    },{  
+        "id":375,
+		"municipio":"Man\u00ed"
+    },{  
+        "id":376,
+		"municipio":"Monterrey"
+    },{  
+        "id":377,
+		"municipio":"Nunch\u00eda"
+    },{  
+        "id":378,
+		"municipio":"Orocu\u00e9"
+    },{  
+        "id":379,
+		"municipio":"Paz de Ariporo"
+    },{  
+        "id":380,
+		"municipio":"Pore"
+    },{  
+        "id":381,
+		"municipio":"Recetor"
+    },{  
+        "id":382,
+		"municipio":"Sabanalarga"
+    },{  
+        "id":383,
+		"municipio":"S\u00e1cama"
+    },{  
+        "id":384,
+		"municipio":"San Luis de Palenque"
+    },{  
+        "id":385,
+		"municipio":"T\u00e1mara"
+    },{  
+        "id":386,
+		"municipio":"Tauramena"
+    },{  
+        "id":387,
+		"municipio":"Trinidad"
+    },{  
+        "id":388,
+		"municipio":"Villanueva"
+    },{  
+        "id":389,
+		"municipio":"Yopal"
+    },{  
+        "id":390,
+		"municipio":"Almaguer"
+    },{  
+        "id":391,
+		"municipio":"Argelia"
+    },{  
+        "id":392,
+		"municipio":"Balboa"
+    },{  
+        "id":393,
+		"municipio":"Bol\u00edvar"
+    },{  
+        "id":394,
+		"municipio":"Buenos Aires"
+    },{  
+        "id":395,
+		"municipio":"Cajib\u00edo"
+    },{  
+        "id":396,
+		"municipio":"Caldono"
+    },{  
+        "id":397,
+		"municipio":"Caloto"
+    },{  
+        "id":398,
+		"municipio":"Corinto"
+    },{  
+        "id":399,
+		"municipio":"El Tambo"
+    },{  
+        "id":400,
+		"municipio":"Florencia"
+    },{  
+        "id":401,
+		"municipio":"Guachen\u00e9"
+    },{  
+        "id":402,
+		"municipio":"Guap\u00ed"
+    },{  
+        "id":403,
+		"municipio":"Inz\u00e1"
+    },{  
+        "id":404,
+		"municipio":"Jambal\u00f3"
+    },{  
+        "id":405,
+		"municipio":"La Sierra"
+    },{  
+        "id":406,
+		"municipio":"La Vega"
+    },{  
+        "id":407,
+		"municipio":"L\u00f3pez de Micay"
+    },{  
+        "id":408,
+		"municipio":"Mercaderes"
+    },{  
+        "id":409,
+		"municipio":"Miranda"
+    },{  
+        "id":410,
+		"municipio":"Morales"
+    },{  
+        "id":411,
+		"municipio":"Padilla"
+    },{  
+        "id":412,
+		"municipio":"P\u00e1ez"
+    },{  
+        "id":413,
+		"municipio":"Pat\u00eda"
+    },{  
+        "id":414,
+		"municipio":"Piamonte"
+    },{  
+        "id":415,
+		"municipio":"Piendam\u00f3"
+    },{  
+        "id":416,
+		"municipio":"Popay\u00e1n"
+    },{  
+        "id":417,
+		"municipio":"Puerto Tejada"
+    },{  
+        "id":418,
+		"municipio":"Purac\u00e9"
+    },{  
+        "id":419,
+		"municipio":"Rosas"
+    },{  
+        "id":420,
+		"municipio":"San Sebasti\u00e1n"
+    },{  
+        "id":421,
+		"municipio":"Santa Rosa"
+    },{  
+        "id":422,
+		"municipio":"Santander de Quilichao"
+    },{  
+        "id":423,
+		"municipio":"Silvia"
+    },{  
+        "id":424,
+		"municipio":"Sotar\u00e1"
+    },{  
+        "id":425,
+		"municipio":"Su\u00e1rez"
+    },{  
+        "id":426,
+		"municipio":"Sucre"
+    },{  
+        "id":427,
+		"municipio":"Timb\u00edo"
+    },{  
+        "id":428,
+		"municipio":"Timbiqu\u00ed"
+    },{  
+        "id":429,
+		"municipio":"Torib\u00edo"
+    },{  
+        "id":430,
+		"municipio":"Totor\u00f3"
+    },{  
+        "id":431,
+		"municipio":"Villa Rica"
+    },{  
+        "id":432,
+		"municipio":"Aguachica"
+    },{  
+        "id":433,
+		"municipio":"Agust\u00edn Codazzi"
+    },{  
+        "id":434,
+		"municipio":"Astrea"
+    },{  
+        "id":435,
+		"municipio":"Becerril"
+    },{  
+        "id":436,
+		"municipio":"Bosconia"
+    },{  
+        "id":437,
+		"municipio":"Chimichagua"
+    },{  
+        "id":438,
+		"municipio":"Chiriguan\u00e1"
+    },{  
+        "id":439,
+		"municipio":"Curuman\u00ed"
+    },{  
+        "id":440,
+		"municipio":"El Copey"
+    },{  
+        "id":441,
+		"municipio":"El Paso"
+    },{  
+        "id":442,
+		"municipio":"Gamarra"
+    },{  
+        "id":443,
+		"municipio":"Gonz\u00e1lez"
+    },{  
+        "id":444,
+		"municipio":"La Gloria (Cesar)"
+    },{  
+        "id":445,
+		"municipio":"La Jagua de Ibirico"
+    },{  
+        "id":446,
+		"municipio":"La Paz"
+    },{  
+        "id":447,
+		"municipio":"Manaure Balc\u00f3n del Cesar"
+    },{  
+        "id":448,
+		"municipio":"Pailitas"
+    },{  
+        "id":449,
+		"municipio":"Pelaya"
+    },{  
+        "id":450,
+		"municipio":"Pueblo Bello"
+    },{  
+        "id":451,
+		"municipio":"R\u00edo de Oro"
+    },{  
+        "id":452,
+		"municipio":"San Alberto"
+    },{  
+        "id":453,
+		"municipio":"San Diego"
+    },{  
+        "id":454,
+		"municipio":"San Diego"
+    },{  
+        "id":455,
+		"municipio":"San Mart\u00edn"
+    },{  
+        "id":456,
+		"municipio":"Tamalameque"
+    },{  
+        "id":457,
+		"municipio":"Valledupar"
+    },{  
+        "id":458,
+		"municipio":"Acand\u00ed"
+    },{  
+        "id":459,
+		"municipio":"Alto Baud\u00f3"
+    },{  
+        "id":460,
+		"municipio":"Bagad\u00f3"
+    },{  
+        "id":461,
+		"municipio":"Bah\u00eda Solano"
+    },{  
+        "id":462,
+		"municipio":"Bajo Baud\u00f3"
+    },{  
+        "id":463,
+		"municipio":"Bojay\u00e1"
+    },{  
+        "id":464,
+		"municipio":"Cant\u00f3n de San Pablo"
+    },{  
+        "id":465,
+		"municipio":"C\u00e9rtegui"
+    },{  
+        "id":466,
+		"municipio":"Condoto"
+    },{  
+        "id":467,
+		"municipio":"El Atrato"
+    },{  
+        "id":468,
+		"municipio":"El Carmen de Atrato"
+    },{  
+        "id":469,
+		"municipio":"El Carmen del Dari\u00e9n"
+    },{  
+        "id":470,
+		"municipio":"Istmina"
+    },{  
+        "id":471,
+		"municipio":"Jurad\u00f3"
+    },{  
+        "id":472,
+		"municipio":"Litoral de San Juan"
+    },{  
+        "id":473,
+		"municipio":"Llor\u00f3"
+    },{  
+        "id":474,
+		"municipio":"Medio Atrato"
+    },{  
+        "id":475,
+		"municipio":"Medio Baud\u00f3"
+    },{  
+        "id":476,
+		"municipio":"Medio San Juan"
+    },{  
+        "id":477,
+		"municipio":"N\u00f3vita"
+    },{  
+        "id":478,
+		"municipio":"Nuqu\u00ed"
+    },{  
+        "id":479,
+		"municipio":"Quibd\u00f3"
+    },{  
+        "id":480,
+		"municipio":"R\u00edo Ir\u00f3"
+    },{  
+        "id":481,
+		"municipio":"R\u00edo Quito"
+    },{  
+        "id":482,
+		"municipio":"Riosucio"
+    },{  
+        "id":483,
+		"municipio":"San Jos\u00e9 del Palmar"
+    },{  
+        "id":484,
+		"municipio":"Sip\u00ed"
+    },{  
+        "id":485,
+		"municipio":"Tad\u00f3"
+    },{  
+        "id":486,
+		"municipio":"Uni\u00f3n Panamericana"
+    },{  
+        "id":487,
+		"municipio":"Ungu\u00eda"
+    },{  
+        "id":488,
+		"municipio":"Agua de Dios"
+    },{  
+        "id":489,
+		"municipio":"Alb\u00e1n"
+    },{  
+        "id":490,
+		"municipio":"Anapoima"
+    },{  
+        "id":491,
+		"municipio":"Anolaima"
+    },{  
+        "id":492,
+		"municipio":"Apulo"
+    },{  
+        "id":493,
+		"municipio":"Arbel\u00e1ez"
+    },{  
+        "id":494,
+		"municipio":"Beltr\u00e1n"
+    },{  
+        "id":495,
+		"municipio":"Bituima"
+    },{  
+        "id":496,
+		"municipio":"Bogot\u00e1"
+    },{  
+        "id":497,
+		"municipio":"Bojac\u00e1"
+    },{  
+        "id":498,
+		"municipio":"Cabrera"
+    },{  
+        "id":499,
+		"municipio":"Cachipay"
+    },{  
+        "id":500,
+		"municipio":"Cajic\u00e1"
+    },{  
+        "id":501,
+		"municipio":"Caparrap\u00ed"
+    },{  
+        "id":502,
+		"municipio":"C\u00e1queza"
+    },{  
+        "id":503,
+		"municipio":"Carmen de Carupa"
+    },{  
+        "id":504,
+		"municipio":"Chaguan\u00ed"
+    },{  
+        "id":505,
+		"municipio":"Ch\u00eda"
+    },{  
+        "id":506,
+		"municipio":"Chipaque"
+    },{  
+        "id":507,
+		"municipio":"Choach\u00ed"
+    },{  
+        "id":508,
+		"municipio":"Chocont\u00e1"
+    },{  
+        "id":509,
+		"municipio":"Cogua"
+    },{  
+        "id":510,
+		"municipio":"Cota"
+    },{  
+        "id":511,
+		"municipio":"Cucunub\u00e1"
+    },{  
+        "id":512,
+		"municipio":"El Colegio"
+    },{  
+        "id":513,
+		"municipio":"El Pe\u00f1\u00f3n"
+    },{  
+        "id":514,
+		"municipio":"El Rosal"
+    },{  
+        "id":515,
+		"municipio":"Facatativ\u00e1"
+    },{  
+        "id":516,
+		"municipio":"F\u00f3meque"
+    },{  
+        "id":517,
+		"municipio":"Fosca"
+    },{  
+        "id":518,
+		"municipio":"Funza"
+    },{  
+        "id":519,
+		"municipio":"F\u00faquene"
+    },{  
+        "id":520,
+		"municipio":"Fusagasug\u00e1"
+    },{  
+        "id":521,
+		"municipio":"Gachal\u00e1"
+    },{  
+        "id":522,
+		"municipio":"Gachancip\u00e1"
+    },{  
+        "id":523,
+		"municipio":"Gachet\u00e1"
+    },{  
+        "id":524,
+		"municipio":"Gama"
+    },{  
+        "id":525,
+		"municipio":"Girardot"
+    },{  
+        "id":526,
+		"municipio":"Granada"
+    },{  
+        "id":527,
+		"municipio":"Guachet\u00e1"
+    },{  
+        "id":528,
+		"municipio":"Guaduas"
+    },{  
+        "id":529,
+		"municipio":"Guasca"
+    },{  
+        "id":530,
+		"municipio":"Guataqu\u00ed"
+    },{  
+        "id":531,
+		"municipio":"Guatavita"
+    },{  
+        "id":532,
+		"municipio":"Guayabal de S\u00edquima"
+    },{  
+        "id":533,
+		"municipio":"Guayabetal"
+    },{  
+        "id":534,
+		"municipio":"Guti\u00e9rrez"
+    },{  
+        "id":535,
+		"municipio":"Jerusal\u00e9n"
+    },{  
+        "id":536,
+		"municipio":"Jun\u00edn"
+    },{  
+        "id":537,
+		"municipio":"La Calera"
+    },{  
+        "id":538,
+		"municipio":"La Mesa"
+    },{  
+        "id":539,
+		"municipio":"La Palma"
+    },{  
+        "id":540,
+		"municipio":"La Pe\u00f1a"
+    },{  
+        "id":541,
+		"municipio":"La Vega"
+    },{  
+        "id":542,
+		"municipio":"Lenguazaque"
+    },{  
+        "id":543,
+		"municipio":"Machet\u00e1"
+    },{  
+        "id":544,
+		"municipio":"Madrid"
+    },{  
+        "id":545,
+		"municipio":"Manta"
+    },{  
+        "id":546,
+		"municipio":"Medina"
+    },{  
+        "id":547,
+		"municipio":"Mosquera"
+    },{  
+        "id":548,
+		"municipio":"Nari\u00f1o"
+    },{  
+        "id":549,
+		"municipio":"Nemoc\u00f3n"
+    },{  
+        "id":550,
+		"municipio":"Nilo"
+    },{  
+        "id":551,
+		"municipio":"Nimaima"
+    },{  
+        "id":552,
+		"municipio":"Nocaima"
+    },{  
+        "id":553,
+		"municipio":"Pacho"
+    },{  
+        "id":554,
+		"municipio":"Paime"
+    },{  
+        "id":555,
+		"municipio":"Pandi"
+    },{  
+        "id":556,
+		"municipio":"Paratebueno"
+    },{  
+        "id":557,
+		"municipio":"Pasca"
+    },{  
+        "id":558,
+		"municipio":"Puerto Salgar"
+    },{  
+        "id":559,
+		"municipio":"Pul\u00ed"
+    },{  
+        "id":560,
+		"municipio":"Quebradanegra"
+    },{  
+        "id":561,
+		"municipio":"Quetame"
+    },{  
+        "id":562,
+		"municipio":"Quipile"
+    },{  
+        "id":563,
+		"municipio":"Ricaurte"
+    },{  
+        "id":564,
+		"municipio":"San Antonio del Tequendama"
+    },{  
+        "id":565,
+		"municipio":"San Bernardo"
+    },{  
+        "id":566,
+		"municipio":"San Cayetano"
+    },{  
+        "id":567,
+		"municipio":"San Francisco"
+    },{  
+        "id":568,
+		"municipio":"San Juan de Rioseco"
+    },{  
+        "id":569,
+		"municipio":"Sasaima"
+    },{  
+        "id":570,
+		"municipio":"Sesquil\u00e9"
+    },{  
+        "id":571,
+		"municipio":"Sibat\u00e9"
+    },{  
+        "id":572,
+		"municipio":"Silvania"
+    },{  
+        "id":573,
+		"municipio":"Simijaca"
+    },{  
+        "id":574,
+		"municipio":"Soacha"
+    },{  
+        "id":575,
+		"municipio":"Sop\u00f3"
+    },{  
+        "id":576,
+		"municipio":"Subachoque"
+    },{  
+        "id":577,
+		"municipio":"Suesca"
+    },{  
+        "id":578,
+		"municipio":"Supat\u00e1"
+    },{  
+        "id":579,
+		"municipio":"Sutatausa"
+    },{  
+        "id":580,
+		"municipio":"Tena"
+    },{  
+        "id":581,
+		"municipio":"Tausa"
+    },{  
+        "id":582,
+		"municipio":"Tabio"
+    },{  
+        "id":583,
+		"municipio":"Susa"
+    },{  
+        "id":584,
+		"municipio":"Tena"
+    },{  
+        "id":585,
+		"municipio":"Tenjo"
+    },{  
+        "id":586,
+		"municipio":"Tibacuy"
+    },{  
+        "id":587,
+		"municipio":"Tibirita"
+    },{  
+        "id":589,
+		"municipio":"Tocaima"
+    },{  
+        "id":590,
+		"municipio":"Tocancip\u00e1"
+    },{  
+        "id":591,
+		"municipio":"Topaip\u00ed"
+    },{  
+        "id":592,
+		"municipio":"Ubal\u00e1"
+    },{  
+        "id":593,
+		"municipio":"Ubaque"
+    },{  
+        "id":594,
+		"municipio":"Ubat\u00e9"
+    },{  
+        "id":595,
+		"municipio":"Une"
+    },{  
+        "id":596,
+		"municipio":"\u00datica"
+    },{  
+        "id":597,
+		"municipio":"Venecia"
+    },{  
+        "id":598,
+		"municipio":"Vergara"
+    },{  
+        "id":599,
+		"municipio":"Vian\u00ed"
+    },{  
+        "id":600,
+		"municipio":"Villag\u00f3mez"
+    },{  
+        "id":601,
+		"municipio":"Villapinz\u00f3n"
+    },{  
+        "id":602,
+		"municipio":"Villeta"
+    },{  
+        "id":603,
+		"municipio":"Viot\u00e1"
+    },{  
+        "id":604,
+		"municipio":"Yacop\u00ed"
+    },{  
+        "id":605,
+		"municipio":"Zipac\u00f3n"
+    },{  
+        "id":606,
+		"municipio":"Zipaquir\u00e1"
+    },{  
+        "id":607,
+		"municipio":"Ayapel"
+    },{  
+        "id":608,
+		"municipio":"Buenavista"
+    },{  
+        "id":609,
+		"municipio":"Canalete"
+    },{  
+        "id":610,
+		"municipio":"Ceret\u00e9"
+    },{  
+        "id":611,
+		"municipio":"Chim\u00e1"
+    },{  
+        "id":612,
+		"municipio":"Chin\u00fa"
+    },{  
+        "id":613,
+		"municipio":"Ci\u00e9naga de Oro"
+    },{  
+        "id":614,
+		"municipio":"Cotorra"
+    },{  
+        "id":615,
+		"municipio":"La Apartada"
+    },{  
+        "id":616,
+		"municipio":"Lorica"
+    },{  
+        "id":617,
+		"municipio":"Los C\u00f3rdobas"
+    },{  
+        "id":618,
+		"municipio":"Momil"
+    },{  
+        "id":619,
+		"municipio":"Montel\u00edbano"
+    },{  
+        "id":620,
+		"municipio":"Monter\u00eda"
+    },{  
+        "id":621,
+		"municipio":"Mo\u00f1itos"
+    },{  
+        "id":622,
+		"municipio":"Planeta Rica"
+    },{  
+        "id":623,
+		"municipio":"Pueblo Nuevo"
+    },{  
+        "id":624,
+		"municipio":"Puerto Escondido"
+    },{  
+        "id":625,
+		"municipio":"Puerto Libertador"
+    },{  
+        "id":626,
+		"municipio":"Pur\u00edsima"
+    },{  
+        "id":627,
+		"municipio":"Sahag\u00fan"
+    },{  
+        "id":628,
+		"municipio":"San Andr\u00e9s de Sotavento"
+    },{  
+        "id":629,
+		"municipio":"San Antero"
+    },{  
+        "id":630,
+		"municipio":"San Bernardo del Viento"
+    },{  
+        "id":631,
+		"municipio":"San Carlos"
+    },{  
+        "id":632,
+		"municipio":"San Jos\u00e9 de Ur\u00e9"
+    },{  
+        "id":633,
+		"municipio":"San Pelayo"
+    },{  
+        "id":634,
+		"municipio":"Tierralta"
+    },{  
+        "id":635,
+		"municipio":"Tuch\u00edn"
+    },{  
+        "id":636,
+		"municipio":"Valencia"
+    },{  
+        "id":637,
+		"municipio":"In\u00edrida"
+    },{  
+        "id":638,
+		"municipio":"Calamar"
+    },{  
+        "id":639,
+		"municipio":"El Retorno"
+    },{  
+        "id":640,
+		"municipio":"Miraflores"
+    },{  
+        "id":641,
+		"municipio":"San Jos\u00e9 del Guaviare"
+    },{  
+        "id":642,
+		"municipio":"Acevedo"
+    },{  
+        "id":643,
+		"municipio":"Agrado"
+    },{  
+        "id":644,
+		"municipio":"Aipe"
+    },{  
+        "id":645,
+		"municipio":"Algeciras"
+    },{  
+        "id":646,
+		"municipio":"Altamira"
+    },{  
+        "id":647,
+		"municipio":"Baraya"
+    },{  
+        "id":648,
+		"municipio":"Campoalegre"
+    },{  
+        "id":649,
+		"municipio":"Colombia"
+    },{  
+        "id":650,
+		"municipio":"El Pital"
+    },{  
+        "id":651,
+		"municipio":"El\u00edas"
+    },
+	{  
+        "id":652,
+		"municipio":"Garz\u00f3n"
+    },
+	{  
+        "id":653,
+		"municipio":"Gigante"
+    },{  
+        "id":654,
+		"municipio":"Guadalupe"
+    },{  
+        "id":655,
+		"municipio":"Hobo"
+    },{  
+        "id":656,
+		"municipio":"\u00cdquira"
+    },{  
+        "id":657,
+		"municipio":"Isnos"
+    },{  
+        "id":658,
+		"municipio":"La Argentina"
+    },{  
+        "id":659,
+		"municipio":"La Plata"
+    },{  
+        "id":660,
+		"municipio":"N\u00e1taga"
+    },{  
+        "id":661,
+		"municipio":"Neiva"
+    },{  
+        "id":662,
+		"municipio":"Oporapa"
+    },{  
+        "id":663,
+		"municipio":"Paicol"
+    },{  
+        "id":664,
+		"municipio":"Palermo"
+    },{  
+        "id":665,
+		"municipio":"Palestina"
+    },{  
+        "id":666,
+		"municipio":"Pitalito"
+    },{  
+        "id":667,
+		"municipio":"Rivera"
+    },{  
+        "id":668,
+		"municipio":"Saladoblanco"
+    },{  
+        "id":669,
+		"municipio":"San Agust\u00edn"
+    },{  
+        "id":670,
+		"municipio":"Santa Mar\u00eda"
+    },{  
+        "id":671,
+		"municipio":"Suaza"
+    },{  
+        "id":672,
+		"municipio":"Tarqui"
+    },{  
+        "id":673,
+		"municipio":"Tello"
+    },{  
+        "id":674,
+		"municipio":"Teruel"
+    },{  
+        "id":675,
+		"municipio":"Tesalia"
+    },{  
+        "id":676,
+		"municipio":"Timan\u00e1"
+    },{  
+        "id":677,
+		"municipio":"Villavieja"
+    },{  
+        "id":678,
+		"municipio":"Yaguar\u00e1"
+    },{  
+        "id":679,
+		"municipio":"Albania"
+    },{  
+        "id":680,
+		"municipio":"Barrancas"
+    },{  
+        "id":681,
+		"municipio":"Dibulla"
+    },{  
+        "id":682,
+		"municipio":"Distracci\u00f3n"
+    },{  
+        "id":683,
+		"municipio":"El Molino"
+    },{  
+        "id":684,
+		"municipio":"Fonseca"
+    },{  
+        "id":685,
+		"municipio":"Hatonuevo"
+    },{  
+        "id":686,
+		"municipio":"La Jagua del Pilar"
+    },{  
+        "id":687,
+		"municipio":"Maicao"
+    },{  
+        "id":688,
+		"municipio":"Manaure"
+    },{  
+        "id":689,
+		"municipio":"Riohacha"
+    },{  
+        "id":690,
+		"municipio":"San Juan del Cesar"
+    },{  
+        "id":691,
+		"municipio":"Uribia"
+    },{  
+        "id":692,
+		"municipio":"Urumita"
+    },{  
+        "id":693,
+		"municipio":"Villanueva"
+    },{  
+        "id":694,
+		"municipio":"Algarrobo"
+    },{  
+        "id":695,
+		"municipio":"Aracataca"
+    },{  
+        "id":696,
+		"municipio":"Ariguan\u00ed"
+    },{  
+        "id":697,
+		"municipio":"Cerro de San Antonio"
+    },{  
+        "id":698,
+		"municipio":"Chibolo"
+    },{  
+        "id":699,
+		"municipio":"Ci\u00e9naga"
+    },{  
+        "id":700,
+		"municipio":"Concordia"
+    },{  
+        "id":701,
+		"municipio":"El Banco"
+    },{  
+        "id":702,
+		"municipio":"El Pi\u00f1\u00f3n"
+    },{  
+        "id":703,
+		"municipio":"El Ret\u00e9n"
+    },{  
+        "id":704,
+		"municipio":"Fundaci\u00f3n"
+    },{  
+        "id":705,
+		"municipio":"Guamal"
+    },{  
+        "id":706,
+		"municipio":"Nueva Granada"
+    },{  
+        "id":707,
+		"municipio":"Pedraza"
+    },{  
+        "id":708,
+		"municipio":"Piji\u00f1o del Carmen"
+    },{  
+        "id":709,
+		"municipio":"Pivijay"
+    },{  
+        "id":710,
+		"municipio":"Plato"
+    },{  
+        "id":711,
+		"municipio":"Pueblo Viejo"
+    },{  
+        "id":712,
+		"municipio":"Remolino"
+    },{  
+        "id":713,
+		"municipio":"Sabanas de San \u00c1ngel"
+    },{  
+        "id":714,
+		"municipio":"Salamina"
+    },{  
+        "id":715,
+		"municipio":"San Sebasti\u00e1n de Buenavista"
+    },{  
+        "id":716,
+		"municipio":"San Zen\u00f3n"
+    },{  
+        "id":717,
+		"municipio":"Santa Ana"
+    },{  
+        "id":718,
+		"municipio":"Santa B\u00e1rbara de Pinto"
+    },{  
+        "id":719,
+		"municipio":"Santa Marta"
+    },{  
+        "id":720,
+		"municipio":"Sitionuevo"
+    },{  
+        "id":721,
+		"municipio":"Tenerife"
+    },{  
+        "id":722,
+		"municipio":"Zapay\u00e1n"
+    },{  
+        "id":723,
+		"municipio":"ona Bananera"
+    },{  
+        "id":724,
+		"municipio":"Acac\u00edas"
+    },{  
+        "id":725,
+		"municipio":"Barranca de Up\u00eda"
+    },{  
+        "id":726,
+		"municipio":"Cabuyaro"
+    },{  
+        "id":727,
+		"municipio":"Castilla la Nueva"
+    },{  
+        "id":728,
+		"municipio":"Cubarral"
+    },{  
+        "id":729,
+		"municipio":"Cumaral"
+    },{  
+        "id":730,
+		"municipio":"El Calvario"
+    },{  
+        "id":731,
+		"municipio":"El Castillo"
+    },{  
+        "id":732,
+		"municipio":"El Dorado"
+    },{  
+        "id":733,
+		"municipio":"Fuente de Oro"
+    },{  
+        "id":734,
+		"municipio":"Granada"
+    },{  
+        "id":735,
+		"municipio":"Guamal"
+    },{  
+        "id":736,
+		"municipio":"La Macarena"
+    },{  
+        "id":738,
+		"municipio":"La Uribe"
+    },{  
+        "id":739,
+		"municipio":"Lejan\u00edas"
+    },{  
+        "id":740,
+		"municipio":"Mapirip\u00e1n"
+    },{  
+        "id":741,
+		"municipio":"Mesetas"
+    },{  
+        "id":742,
+		"municipio":"Puerto Concordia"
+    },{  
+        "id":743,
+		"municipio":"Puerto Gait\u00e1n"
+    },{  
+        "id":744,
+		"municipio":"Puerto Lleras"
+    },{  
+        "id":745,
+		"municipio":"Puerto L\u00f3pez"
+    },{  
+        "id":746,
+		"municipio":"Puerto Rico"
+    },{  
+        "id":747,
+		"municipio":"Restrepo"
+    },{  
+        "id":748,
+		"municipio":"San Carlos de Guaroa"
+    },{  
+        "id":749,
+		"municipio":"San Juan de Arama"
+    },{  
+        "id":750,
+		"municipio":"San Juanito"
+    },{  
+        "id":751,
+		"municipio":"San Mart\u00edn"
+    },{  
+        "id":752,
+		"municipio":"Villavicencio"
+    },{  
+        "id":753,
+		"municipio":"Vista Hermosa"
+    },{  
+        "id":754,
+		"municipio":"Aldana"
+    },{  
+        "id":755,
+		"municipio":"Ancuy\u00e1"
+    },{  
+        "id":756,
+		"municipio":"Arboleda"
+    },{  
+        "id":757,
+		"municipio":"Barbacoas"
+    },{  
+        "id":758,
+		"municipio":"Bel\u00e9n"
+    },{  
+        "id":759,
+		"municipio":"Buesaco"
+    },{  
+        "id":760,
+		"municipio":"Chachag\u00fc\u00ed"
+    },{  
+        "id":761,
+		"municipio":"Col\u00f3n"
+    },{  
+        "id":762,
+		"municipio":"Consac\u00e1"
+    },{  
+        "id":763,
+		"municipio":"Contadero"
+    },{  
+        "id":764,
+		"municipio":"C\u00f3rdoba"
+    },{  
+        "id":765,
+		"municipio":"Cuaspud"
+    },{  
+        "id":766,
+		"municipio":"Cumbal"
+    },{  
+        "id":767,
+		"municipio":"Cumbitara"
+    },{  
+        "id":768,
+		"municipio":"El Charco"
+    },{  
+        "id":769,
+		"municipio":"El Pe\u00f1ol"
+    },{  
+        "id":770,
+		"municipio":"El Rosario"
+    },{  
+        "id":771,
+		"municipio":"El Tabl\u00f3n"
+    },{  
+        "id":772,
+		"municipio":"El Tambo"
+    },{  
+        "id":773,
+		"municipio":"Francisco Pizarro"
+    },{  
+        "id":774,
+		"municipio":"Funes"
+    },{  
+        "id":775,
+		"municipio":"Guachucal"
+    },{  
+        "id":776,
+		"municipio":"Guaitarilla"
+    },{  
+        "id":777,
+		"municipio":"Gualmat\u00e1n"
+    },{  
+        "id":778,
+		"municipio":"Iles"
+    },{  
+        "id":779,
+		"municipio":"Imu\u00e9s"
+    },{  
+        "id":780,
+		"municipio":"Ipiales"
+    },{  
+        "id":781,
+		"municipio":"La Cruz"
+    },{  
+        "id":782,
+		"municipio":"La Florida"
+    },{  
+        "id":783,
+		"municipio":"La Llanada"
+    },{  
+        "id":784,
+		"municipio":"La Tola"
+    },{  
+        "id":785,
+		"municipio":"La Uni\u00f3n"
+    },{  
+        "id":786,
+		"municipio":"Leiva"
+    },{  
+        "id":787,
+		"municipio":"Linares"
+    },{  
+        "id":788,
+		"municipio":"Los Andes"
+    },{  
+        "id":789,
+		"municipio":"Mag\u00fc\u00ed Pay\u00e1n"
+    },{  
+        "id":790,
+		"municipio":"Mallama"
+    },{  
+        "id":791,
+		"municipio":"Mosquera"
+    },{  
+        "id":792,
+		"municipio":"Nari\u00f1o"
+    },{  
+        "id":793,
+		"municipio":"Olaya Herrera"
+    },{  
+        "id":794,
+		"municipio":"Ospina"
+    },{  
+        "id":795,
+		"municipio":"Pasto"
+    },{  
+        "id":796,
+		"municipio":"Policarpa"
+    },{  
+        "id":797,
+		"municipio":"Potos\u00ed"
+    },{  
+        "id":798,
+		"municipio":"Providencia"
+    },{  
+        "id":799,
+		"municipio":"Puerres"
+    },{  
+        "id":800,
+		"municipio":"Pupiales"
+    },{  
+        "id":801,
+		"municipio":"Ricaurte"
+    },{  
+        "id":802,
+		"municipio":"Roberto Pay\u00e1n"
+    },{  
+        "id":803,
+		"municipio":"Samaniego"
+    },{  
+        "id":804,
+		"municipio":"San Bernardo"
+    },{  
+        "id":805,
+		"municipio":"San Jos\u00e9 de Alb\u00e1n"
+    },{  
+        "id":806,
+		"municipio":"San Lorenzo"
+    },{  
+        "id":807,
+		"municipio":"San Pablo"
+    },{  
+        "id":808,
+		"municipio":"San Pedro de Cartago"
+    },{  
+        "id":809,
+		"municipio":"Sandon\u00e1"
+    },{  
+        "id":810,
+		"municipio":"Santa B\u00e1rbara"
+    },{  
+        "id":811,
+		"municipio":"Santacruz"
+    },{  
+        "id":812,
+		"municipio":"Sapuyes"
+    },{  
+        "id":813,
+		"municipio":"Taminango"
+    },{  
+        "id":814,
+		"municipio":"Tangua"
+    },{  
+        "id":815,
+		"municipio":"Tumaco"
+    },{  
+        "id":816,
+		"municipio":"T\u00faquerres"
+    },{  
+        "id":817,
+		"municipio":"Yacuanquer"
+    },{  
+        "id":818,
+		"municipio":"\u00c1brego"
+    },{  
+        "id":819,
+		"municipio":"Arboledas"
+    },{  
+        "id":820,
+		"municipio":"Bochalema"
+    },{  
+        "id":821,
+		"municipio":"Bucarasica"
+    },{  
+        "id":822,
+		"municipio":"C\u00e1chira"
+    },{  
+        "id":823,
+		"municipio":"C\u00e1cota"
+    },{  
+        "id":824,
+		"municipio":"Chin\u00e1cota"
+    },{  
+        "id":825,
+		"municipio":"Chitag\u00e1"
+    },{  
+        "id":826,
+		"municipio":"Convenci\u00f3n"
+    },{  
+        "id":827,
+		"municipio":"C\u00facuta"
+    },{  
+        "id":828,
+		"municipio":"Cucutilla"
+    },{  
+        "id":829,
+		"municipio":"Duran\u00eda"
+    },{  
+        "id":830,
+		"municipio":"El Carmen"
+    },{  
+        "id":831,
+		"municipio":"El Tarra"
+    },{  
+        "id":832,
+		"municipio":"El Zulia"
+    },{  
+        "id":833,
+		"municipio":"Gramalote"
+    },{  
+        "id":834,
+		"municipio":"Hacar\u00ed"
+    },{  
+        "id":835,
+		"municipio":"Herr\u00e1n"
+    },{  
+        "id":836,
+		"municipio":"La Esperanza"
+    },{  
+        "id":837,
+		"municipio":"La Playa de Bel\u00e9n"
+    },{  
+        "id":838,
+		"municipio":"Labateca"
+    },{  
+        "id":839,
+		"municipio":"Los Patios"
+    },{  
+        "id":840,
+		"municipio":"Lourdes"
+    },{  
+        "id":841,
+		"municipio":"Mutiscua"
+    },{  
+        "id":842,
+		"municipio":"Oca\u00f1a"
+    },{  
+        "id":843,
+		"municipio":"Pamplona"
+    },{  
+        "id":844,
+		"municipio":"Pamplonita"
+    },{  
+        "id":845,
+		"municipio":"Puerto Santander"
+    },{  
+        "id":846,
+		"municipio":"Ragonvalia"
+    },{  
+        "id":847,
+		"municipio":"Salazar de Las Palmas"
+    },{  
+        "id":848,
+		"municipio":"San Calixto"
+    },{  
+        "id":849,
+		"municipio":"San Cayetano"
+    },{  
+        "id":850,
+		"municipio":"Santiago"
+    },{  
+        "id":851,
+		"municipio":"Santo Domingo de Silos"
+    },{  
+        "id":852,
+		"municipio":"Sardinata"
+    },{  
+        "id":853,
+		"municipio":"Teorama"
+    },{  
+        "id":854,
+		"municipio":"Tib\u00fa"
+    },{  
+        "id":855,
+		"municipio":"Toledo"
+    },{  
+        "id":856,
+		"municipio":"Villa Caro"
+    },{  
+        "id":857,
+		"municipio":"Villa del Rosario"
+    },{  
+        "id":858,
+		"municipio":"Col\u00f3n"
+    },{  
+        "id":859,
+		"municipio":"Mocoa"
+    },{  
+        "id":860,
+		"municipio":"Orito"
+    },{  
+        "id":861,
+		"municipio":"Puerto As\u00eds"
+    },{  
+        "id":862,
+		"municipio":"Puerto Caicedo"
+    },{  
+        "id":863,
+		"municipio":"Puerto Guzm\u00e1n"
+    },{  
+        "id":864,
+		"municipio":"Puerto Legu\u00edzamo"
+    },{  
+        "id":865,
+		"municipio":"San Francisco"
+    },{  
+        "id":866,
+		"municipio":"San Miguel"
+    },{  
+        "id":867,
+		"municipio":"Santiago"
+    },{  
+        "id":868,
+		"municipio":"Sibundoy"
+    },{  
+        "id":869,
+		"municipio":"Valle del Guamuez"
+    },{  
+        "id":870,
+		"municipio":"Villagarz\u00f3n"
+    },{  
+        "id":871,
+		"municipio":"Armenia"
+    },{  
+        "id":872,
+		"municipio":"Buenavista"
+    },{  
+        "id":873,
+		"municipio":"Calarc\u00e1"
+    },{  
+        "id":874,
+		"municipio":"Circasia"
+    },{  
+        "id":875,
+		"municipio":"C\u00f3rdoba"
+    },{  
+        "id":876,
+		"municipio":"Filandia"
+    },{  
+        "id":877,
+		"municipio":"G\u00e9nova"
+    },{  
+        "id":878,
+		"municipio":"La Tebaida"
+    },{  
+        "id":879,
+		"municipio":"Montenegro"
+    },{  
+        "id":880,
+		"municipio":"Pijao"
+    },{  
+        "id":881,
+		"municipio":"Quimbaya"
+    },{  
+        "id":882,
+		"municipio":"Salento"
+    },{  
+        "id":883,
+		"municipio":"Ap\u00eda"
+    },{  
+        "id":884,
+		"municipio":"Balboa"
+    },{  
+        "id":885,
+		"municipio":"Bel\u00e9n de Umbr\u00eda"
+    },{  
+        "id":886,
+		"municipio":"Dosquebradas"
+    },{  
+        "id":887,
+		"municipio":"Gu\u00e1tica"
+    },{  
+        "id":888,
+		"municipio":"La Celia"
+    },{  
+        "id":889,
+		"municipio":"La Virginia"
+    },{  
+        "id":890,
+		"municipio":"Marsella"
+    },{  
+        "id":891,
+		"municipio":"Mistrat\u00f3"
+    },{  
+        "id":892,
+		"municipio":"Pereira"
+    },{  
+        "id":893,
+		"municipio":"Pueblo Rico"
+    },{  
+        "id":894,
+		"municipio":"Quinch\u00eda"
+    },{  
+        "id":895,
+		"municipio":"Santa Rosa de Cabal"
+    },{  
+        "id":896,
+		"municipio":"Santuario"
+    },{  
+        "id":897,
+		"municipio":"Providencia y Santa Catalina Islas"
+    },{  
+        "id":898,
+		"municipio":"San Andr\u00e9s"
+    },{  
+        "id":899,
+		"municipio":"Aguada"
+    },{  
+        "id":900,
+		"municipio":"Albania"
+    },{  
+        "id":901,
+		"municipio":"Aratoca"
+    },{  
+        "id":902,
+		"municipio":"Barbosa"
+    },{  
+        "id":903,
+		"municipio":"Barichara"
+    },{  
+        "id":904,
+		"municipio":"Barrancabermeja"
+    },{  
+        "id":905,
+		"municipio":"Betulia"
+    },{  
+        "id":906,
+		"municipio":"Bol\u00edvar"
+    },{  
+        "id":907,
+		"municipio":"Bucaramanga"
+    },{  
+        "id":908,
+		"municipio":"Cabrera"
+    },{  
+        "id":909,
+		"municipio":"California"
+    },{  
+        "id":910,
+		"municipio":"Capitanejo"
+    },{  
+        "id":911,
+		"municipio":"Carcas\u00ed"
+    },{  
+        "id":912,
+		"municipio":"Cepit\u00e1"
+    },{  
+        "id":913,
+		"municipio":"Cerrito"
+    },{  
+        "id":914,
+		"municipio":"Charal\u00e1"
+    },{  
+        "id":915,
+		"municipio":"Charta"
+    },{  
+        "id":916,
+		"municipio":"Chima"
+    },{  
+        "id":917,
+		"municipio":"Chipat\u00e1"
+    },{  
+        "id":918,
+		"municipio":"Cimitarra"
+    },{  
+        "id":919,
+		"municipio":"Concepci\u00f3n"
+    },{  
+        "id":920,
+		"municipio":"Confines"
+    },{  
+        "id":921,
+		"municipio":"Contrataci\u00f3n"
+    },{  
+        "id":922,
+		"municipio":"Coromoro"
+    },{  
+        "id":923,
+		"municipio":"Curit\u00ed"
+    },{  
+        "id":924,
+		"municipio":"El Carmen de Chucur\u00ed"
+    },{  
+        "id":925,
+		"municipio":"El Guacamayo"
+    },{  
+        "id":926,
+		"municipio":"El Pe\u00f1\u00f3n"
+    },{  
+        "id":927,
+		"municipio":"El Play\u00f3n"
+    },{  
+        "id":928,
+		"municipio":"El Socorro"
+    },{  
+        "id":929,
+		"municipio":"Encino"
+    },{  
+        "id":930,
+		"municipio":"Flori\u00e1n"
+    },{  
+        "id":931,
+		"municipio":"Floridablanca"
+    },{  
+        "id":932,
+		"municipio":"Gal\u00e1n"
+    },{  
+        "id":933,
+		"municipio":"G\u00e1mbita"
+    },{  
+        "id":934,
+		"municipio":"Gir\u00f3n"
+    },{  
+        "id":935,
+		"municipio":"Guaca"
+    },{  
+        "id":936,
+		"municipio":"Guadalupe"
+    },{  
+        "id":937,
+		"municipio":"Guapot\u00e1"
+    },{  
+        "id":938,
+		"municipio":"Guavat\u00e1"
+    },{  
+        "id":939,
+		"municipio":"G\u00fcepsa"
+    },{  
+        "id":940,
+		"municipio":"Hato"
+    },{  
+        "id":941,
+		"municipio":"Jes\u00fas Mar\u00eda"
+    },{  
+        "id":942,
+		"municipio":"Jord\u00e1n"
+    },{  
+        "id":943,
+		"municipio":"La Belleza"
+    },{  
+        "id":944,
+		"municipio":"La Paz"
+    },{  
+        "id":945,
+		"municipio":"Land\u00e1zuri"
+    },{  
+        "id":946,
+		"municipio":"Lebrija"
+    },{  
+        "id":947,
+		"municipio":"Los Santos"
+    },{  
+        "id":948,
+		"municipio":"Macaravita"
+    },{  
+        "id":949,
+		"municipio":"M\u00e1laga"
+    },{  
+        "id":950,
+		"municipio":"Matanza"
+    },{  
+        "id":951,
+		"municipio":"Mogotes"
+    },{  
+        "id":952,
+		"municipio":"Molagavita"
+    },{  
+        "id":953,
+		"municipio":"Ocamonte"
+    },{  
+        "id":954,
+		"municipio":"Oiba"
+    },{  
+        "id":955,
+		"municipio":"Onzaga"
+    },{  
+        "id":956,
+		"municipio":"Palmar"
+    },{  
+        "id":957,
+		"municipio":"Palmas del Socorro"
+    },{  
+        "id":958,
+		"municipio":"P\u00e1ramo"
+    },{  
+        "id":959,
+		"municipio":"Piedecuesta"
+    },{  
+        "id":960,
+		"municipio":"Pinchote"
+    },{  
+        "id":961,
+		"municipio":"Puente Nacional"
+    },{  
+        "id":962,
+		"municipio":"Puerto Parra"
+    },{  
+        "id":963,
+		"municipio":"Puerto Wilches"
+    },{  
+        "id":964,
+		"municipio":"Rionegro"
+    },{  
+        "id":965,
+		"municipio":"Sabana de Torres"
+    },{  
+        "id":966,
+		"municipio":"San Andr\u00e9s"
+    },{  
+        "id":967,
+		"municipio":"San Benito"
+    },{  
+        "id":968,
+		"municipio":"San Gil"
+    },{  
+        "id":969,
+		"municipio":"San Joaqu\u00edn"
+    },{  
+        "id":970,
+		"municipio":"San Jos\u00e9 de Miranda"
+    },{  
+        "id":971,
+		"municipio":"San Miguel"
+    },{  
+        "id":972,
+		"municipio":"San Vicente de Chucur\u00ed"
+    },{  
+        "id":973,
+		"municipio":"Santa B\u00e1rbara"
+    },{  
+        "id":974,
+		"municipio":"Santa Helena del Op\u00f3n"
+    },{  
+        "id":975,
+		"municipio":"Simacota"
+    },{  
+        "id":976,
+		"municipio":"Suaita"
+    },{  
+        "id":977,
+		"municipio":"Surat\u00e1"
+    },{  
+        "id":978,
+		"municipio":"Sucre"
+    },{  
+        "id":979,
+		"municipio":"Tona"
+    },{  
+        "id":980,
+		"municipio":"Valle de San Jos\u00e9"
+    },{  
+        "id":981,
+		"municipio":"V\u00e9lez"
+    },{  
+        "id":982,
+		"municipio":"Vetas"
+    },{  
+        "id":984,
+		"municipio":"Villanueva"
+    },{  
+        "id":985,
+		"municipio":"Zapatoca"
+    },{  
+        "id":986,
+		"municipio":"Buenavista"
+    },{  
+        "id":987,
+		"municipio":"Caimito"
+    },{  
+        "id":988,
+		"municipio":"Chal\u00e1n"
+    },{  
+        "id":989,
+		"municipio":"Colos\u00f3"
+    },{  
+        "id":990,
+		"municipio":"Corozal"
+    },{  
+        "id":991,
+		"municipio":"Cove\u00f1as"
+    },{  
+        "id":992,
+		"municipio":"El Roble"
+    },{  
+        "id":993,
+		"municipio":"Galeras"
+    },{  
+        "id":994,
+		"municipio":"Guaranda"
+    },{  
+        "id":995,
+		"municipio":"La Uni\u00f3n"
+    },{  
+        "id":996,
+		"municipio":"Los Palmitos"
+    },{  
+        "id":997,
+		"municipio":"Majagual"
+    },{  
+        "id":998,
+		"municipio":"Morroa"
+    },{  
+        "id":999,
+		"municipio":"Ovejas"
+    },{  
+        "id":1001,
+		"municipio":"Sampu\u00e9s"
+    },{  
+        "id":1002,
+		"municipio":"San Antonio de Palmito"
+    },{  
+        "id":1003,
+		"municipio":"San Benito Abad"
+    },{  
+        "id":1004,
+		"municipio":"San Juan de Betulia"
+    },{  
+        "id":1005,
+		"municipio":"San Marcos"
+    },{  
+        "id":1006,
+		"municipio":"San Onofre"
+    },{  
+        "id":1007,
+		"municipio":"San Pedro"
+    },{  
+        "id":1008,
+		"municipio":"Sinc\u00e9"
+    },{  
+        "id":1009,
+		"municipio":"Sincelejo"
+    },{  
+        "id":1010,
+		"municipio":"Tol\u00fa"
+    },{  
+        "id":1011,
+		"municipio":"Tol\u00fa Viejo"
+    },{  
+        "id":1012,
+		"municipio":"Alpujarra"
+    },{  
+        "id":1013,
+		"municipio":"Alvarado"
+    },{  
+        "id":1014,
+		"municipio":"Ambalema"
+    },{  
+        "id":1015,
+		"municipio":"Anzo\u00e1tegui"
+    },{  
+        "id":1016,
+		"municipio":"Armero"
+    },{  
+        "id":1017,
+		"municipio":"Ataco"
+    },{  
+        "id":1018,
+		"municipio":"Cajamarca"
+    },{  
+        "id":1019,
+		"municipio":"Carmen de Apical\u00e1"
+    },{  
+        "id":1020,
+		"municipio":"Casabianca"
+    },{  
+        "id":1021,
+		"municipio":"Chaparral"
+    },{  
+        "id":1022,
+		"municipio":"Coello"
+    },{  
+        "id":1023,
+		"municipio":"Coyaima"
+    },{  
+        "id":1024,
+		"municipio":"Cunday"
+    },{  
+        "id":1025,
+		"municipio":"Dolores"
+    },{  
+        "id":1026,
+		"municipio":"El Espinal"
+    },{  
+        "id":1027,
+		"municipio":"Fal\u00e1n"
+    },{  
+        "id":1028,
+		"municipio":"Flandes"
+    },{  
+        "id":1029,
+		"municipio":"Fresno"
+    },{  
+        "id":1030,
+		"municipio":"Guamo"
+    },{  
+        "id":1031,
+		"municipio":"Herveo"
+    },{  
+        "id":1032,
+		"municipio":"Honda"
+    },{  
+        "id":1033,
+		"municipio":"Ibagu\u00e9"
+    },{  
+        "id":1034,
+		"municipio":"Icononzo"
+    },{  
+        "id":1035,
+		"municipio":"L\u00e9rida"
+    },{  
+        "id":1036,
+		"municipio":"L\u00edbano"
+    },{  
+        "id":1037,
+		"municipio":"Mariquita"
+    },{  
+        "id":1038,
+		"municipio":"Melgar"
+    },{  
+        "id":1039,
+		"municipio":"Murillo"
+    },{  
+        "id":1040,
+		"municipio":"Natagaima"
+    },{  
+        "id":1041,
+		"municipio":"Ortega"
+    },{  
+        "id":1041,
+		"municipio":"Palocabildo"
+    },{  
+        "id":1041,
+		"municipio":"Piedras"
+    },{  
+        "id":1042,
+		"municipio":"Planadas"
+    },{  
+        "id":1043,
+		"municipio":"Prado"
+    },{  
+        "id":1044,
+		"municipio":"Purificaci\u00f3n"
+    },{  
+        "id":1045,
+		"municipio":"Rioblanco"
+    },{  
+        "id":1046,
+		"municipio":"Roncesvalles"
+    },{  
+        "id":1047,
+		"municipio":"Rovira"
+    },{  
+        "id":1048,
+		"municipio":"Salda\u00f1a"
+    },{  
+        "id":1049,
+		"municipio":"San Antonio"
+    },{  
+        "id":1050,
+		"municipio":"San Luis"
+    },{  
+        "id":1051,
+		"municipio":"Santa Isabel"
+    },{  
+        "id":1052,
+		"municipio":"Su\u00e1rez"
+    },{  
+        "id":1053,
+		"municipio":"Valle de San Juan"
+    },{  
+        "id":1054,
+		"municipio":"Venadillo"
+    },{  
+        "id":1055,
+		"municipio":"Villahermosa"
+    },{  
+        "id":1056,
+		"municipio":"Villarrica"
+    },{  
+        "id":1057,
+		"municipio":"Alcal\u00e1"
+    },{  
+        "id":1058,
+		"municipio":"Andaluc\u00eda"
+    },{  
+        "id":1059,
+		"municipio":"Ansermanuevo"
+    },{  
+        "id":1060,
+		"municipio":"Argelia"
+    },{  
+        "id":1061,
+		"municipio":"Bol\u00edvar"
+    },{  
+        "id":1062,
+		"municipio":"Buenaventura"
+    },{  
+        "id":1063,
+		"municipio":"Buga"
+    },{  
+        "id":1064,
+		"municipio":"Bugalagrande"
+    },{  
+        "id":1065,
+		"municipio":"Caicedonia"
+    },{  
+        "id":1066,
+		"municipio":"Cali"
+    },{  
+        "id":1067,
+		"municipio":"Calima"
+    },{  
+        "id":1068,
+		"municipio":"Candelaria"
+    },{  
+        "id":1069,
+		"municipio":"Cartago"
+    },{  
+        "id":1070,
+		"municipio":"Dagua"
+    },{  
+        "id":1071,
+		"municipio":"El \u00c1guila"
+    },{  
+        "id":1072,
+		"municipio":"El Cairo"
+    },{  
+        "id":1073,
+		"municipio":"El Cerrito"
+    },{  
+        "id":1074,
+		"municipio":"El Dovio"
+    },{  
+        "id":1075,
+		"municipio":"Florida"
+    },{  
+        "id":1076,
+		"municipio":"Ginebra"
+    },{  
+        "id":1077,
+		"municipio":"Guacar\u00ed"
+    },{  
+        "id":1078,
+		"municipio":"Jamund\u00ed"
+    },{  
+        "id":1079,
+		"municipio":"La Cumbre"
+    },{  
+        "id":1080,
+		"municipio":"La Uni\u00f3n"
+    },{  
+        "id":1081,
+		"municipio":"La Victoria"
+    },{  
+        "id":1082,
+		"municipio":"Obando"
+    },{  
+        "id":1083,
+		"municipio":"Palmira"
+    },{  
+        "id":1084,
+		"municipio":"Pradera"
+    },{  
+        "id":1085,
+		"municipio":"Restrepo"
+    },{  
+        "id":1086,
+		"municipio":"Riofr\u00edo"
+    },{  
+        "id":1087,
+		"municipio":"Roldanillo"
+    },{  
+        "id":1088,
+		"municipio":"San Pedro"
+    },{  
+        "id":1089,
+		"municipio":"Sevilla"
+    },{  
+        "id":1090,
+		"municipio":"Toro"
+    },{  
+        "id":1091,
+		"municipio":"Trujillo"
+    },{  
+        "id":1092,
+		"municipio":"Tulu\u00e1"
+    },{  
+        "id":1093,
+		"municipio":"Ulloa"
+    },{  
+        "id":1094,
+		"municipio":"Versalles"
+    },{  
+        "id":1095,
+		"municipio":"Vijes"
+    },{  
+        "id":1096,
+		"municipio":"Yotoco"
+    },{  
+        "id":1097,
+		"municipio":"Yumbo"
+    },{  
+        "id":1098,
+		"municipio":"Zarzal"
+    },{  
+        "id":1099,
+		"municipio":"Carur\u00fa"
+    },{  
+        "id":1100,
+		"municipio":"Mit\u00fa"
+    },{  
+        "id":1101,
+		"municipio":"Taraira"
+    },{  
+        "id":1102,
+		"municipio":"La Primavera"
+    },{  
+        "id":1103,
+		"municipio":"Cumaribo"
+    },{  
+        "id":1104,
+		"municipio":"Puerto Carre\u00f1o"
+    },{  
+        "id":1105,
+		"municipio":"Santa Rosal\u00eda"
+    }
+]
