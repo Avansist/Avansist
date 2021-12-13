@@ -35,7 +35,7 @@ namespace Avansist.Web.ViewModel
 
         [Required(ErrorMessage = "El nombre es requerido")]
         [DisplayName("Nombre y apellido")]
-        [RegularExpression(@"^[a-zA-ZÀ-ÿ\u00f1\u00d1]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$", ErrorMessage = "Utilice caracteres solamente")]
+        [RegularExpression(@"^[a-zA-ZÀ-ÿ\u00f1\u00d1]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ \u00f1\u00d1]+$", ErrorMessage = "En el nombre utilice solo caracteres válidos.")]
         [StringLength(25, ErrorMessage = "El {0} debe tener al menos {2} y maximo {1} caracteres.", MinimumLength = 2)]
         public string Nombre { get; set; }
 
@@ -43,6 +43,7 @@ namespace Avansist.Web.ViewModel
         public bool CambiarEstado { get; set; }
 
         public List<string> Rol { get; set; }
+        [DisplayName("Seleccione el rol")]
         public string RolSeleccionado { get; set; }
     }
 }

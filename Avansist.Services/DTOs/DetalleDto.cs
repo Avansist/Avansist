@@ -39,6 +39,7 @@ namespace Avansist.Services.DTOs
         [Required(ErrorMessage = "El documento es requerido")]
         [StringLength(45, MinimumLength = 3)]
         public string DocumentoResponsable { get; set; }
+        [DisplayName("Estado del evento")]
         public bool EstadoEvento { get; set; }
         public bool AutorizacionSalidaExtracurricular { get; set; }
 

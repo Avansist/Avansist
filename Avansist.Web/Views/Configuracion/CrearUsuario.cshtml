@@ -33,7 +33,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-12 p-2">
-                <div class="card mt-0 mb-3 p-5 mx-auto" style="width: 700px">
+                <div class="card mt-0 mb-3 p-5 mx-auto">
                     <div class="col-sm-12">
                         <div class="">
                             <h4 class="text-left">
@@ -46,68 +46,58 @@
                     <div class="col-sm-12">
                         <hr />
                     </div>
-                    <form asp-action="CrearUsuario" asp-controller="Configuracion" method="post">
+                    <form asp-action="CrearUsuario" asp-controller="Configuracion" id="frm-crearUsuario" method="post">
                         <div asp-validation-summary="All" class="text-danger small"></div>
                         <input type="hidden" id="succeeded" value="@ViewBag.Succeeded" />
                         <div class="d-flex justify-content-between">
-                            <div class="form-group">
-                                <div class="input-group mt-0">
-                                    <input asp-for="Nombre" class="form-control" placeholder="Nombre y apellido" />
-                                    <div class="input-group-append">
-                                        <div class="input-group-text" style="border: 1px solid red">
-                                            <span class="fas fa-user"></span>
-                                        </div>
-                                    </div>
-                                </div>
+                            <div class="form-group col-sm-4">
+                                <label asp-for="Nombre" class="control-label">Nombre y Apellido</label><span style="color: red">*</span>
+                                <input required asp-for="Nombre" class="form-control" id="nombre" placeholder="Nombre y apellido" />
                             </div>
-                            <div class="form-group">
-                                <div class="input-group">
-                                    <input asp-for="Email" class="form-control" placeholder="Correo electrónico" />
-                                    <div class="input-group-append">
-                                        <div class="input-group-text" style="border: 1px solid red">
-                                            <span class="fas fa-envelope"></span>
-                                        </div>
-                                    </div>
-                                </div>
+                            <div class="form-group col-sm-4">
+                                <label asp-for="Email" class="control-label">Correo eléctronico</label><span style="color: red">*</span>
+                                <input required type="email" asp-for="Email" id="email" class="form-control" placeholder="Correo electrónico" />
+                            </div>
+                            <div class="form-group col-sm-4">
+                                <label asp-for="RolSeleccionado" class="form-label"></label> <label id="asterisco">*</label>
+                                <select required asp-for="RolSeleccionado" id="rolSeleccionado" class="form-control" asp-items="ViewBag.Roles">
+                                    <option value="">Seleccione</option>
+                                </select>
+                                <span asp-validation-for="RolSeleccionado" class="text-danger error"></span>
                             </div>
                         </div>
                         <div class="d-flex justify-content-between">
-                            <div class="form-group">
-                                <div class="input-group">
-                                    <input type="password" asp-for="Password" class="form-control" placeholder="Contraseña" />
-                                    <div class="input-group-append">
-                                        <div class="input-group-text" style="border: 1px solid red">
-                                            <span class="fas fa-lock"></span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="input-group">
-                                    <input type="password" asp-for="ConfirmarPassword" class="form-control" placeholder="Confirmar Contraseña" />
-                                    <div class="input-group-append">
-                                        <div class="input-group-text" style="border: 1px solid red">
-                                            <span class="fas fa-lock"></span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-12">
+                            <div class=" form-group col-sm-4">
                                 <label class="control-label">Estado (Activo e Inactivo)</label>
                                 <div class="form-check p-0">
                                     <label class="switch">
-                                        <input asp-for="CambiarEstado" type="checkbox" name="cambiarEstado" id="cambiarEstado">
+                                        <input asp-for="CambiarEstado" id="cambiarEstado" type="checkbox" name="cambiarEstado">
                                         @Html.DisplayNameFor(m => m.CambiarEstado)
                                         <span class="slider round"></span>
                                     </label>
                                 </div>
                             </div>
+                            <div class="form-group col-sm-4">
+
+                                <label asp-for="Password" class="control-label">Contraseña</label><span style="color: red">*</span>
+                                <input required type="password" asp-for="Password" id="password" class="form-control" placeholder="Contraseña" />
+
+                            </div>
+                            <div class="form-group col-sm-4">
+                                <label asp-for="ConfirmarPassword" class="control-label">Confirmar contraseña</label><span style="color: red">*</span>
+                                <input required type="password" asp-for="ConfirmarPassword" id="confirmPassword" class="form-control" placeholder="Confirmar Contraseña" />
+                            </div>
                         </div>
-                        <div class="form-group row d-flex justify-content-end col-sm-12">
+                        
+                        <div class="d-flex justify-content-between mt-3">
+                            <div class="row">
+                                
+                            </div>
+                            
+                        </div>
+                        <div class="form-group row d-flex justify-content-end mt-3 col-sm-12">
                             <div class="col-sm-12 d-flex justify-content-end">
-                                <input type="submit" value="Guardar" class="btn btn-success" style="margin-right: 10px" />
+                                <input type="button" value="Guardar" id="btn-guardar" class="btn btn-success" style="margin-right: 10px" />
                                 <a asp-controller="Configuracion" asp-action="Index" class="btn btn-danger">Cancelar</a>
                             </div>
                         </div>
@@ -123,6 +113,70 @@
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 
 <script>
+
+    document.addEventListener('DOMContentLoaded', function () {
+        $("#frm-crearUsuario").validate();
+    })
+
+    document.getElementById("btn-guardar").addEventListener("click", function (event) {
+        if (!$("#frm-crearUsuario").valid()) {
+            $("label.error").css("color", "red");
+            $("label.error").css("font-weight", "300");
+
+            event.preventDefault();
+
+        } else {
+            Swal.fire({
+                text: '¿Desea crear el usuario?',
+                icon: 'question',
+                confirmButtonColor: '#afdb6e',
+                showDenyButton: true,
+                showCancelButton: false,
+                confirmButtonText: 'Aceptar',
+                denyButtonText: 'Cancelar',
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    document.getElementById('frm-crearUsuario').submit();
+                    @*let formData = new FormData();
+
+                    formData.append("Nombre", document.getElementById("nombre").value);
+                    formData.append("Email", document.getElementById("email").value);
+                    formData.append("Password", document.getElementById("password").value);
+                    formData.append("ConfirmarPassword", document.getElementById("confirmPassword").value);
+                    formData.append("CambiarEstado", document.getElementById("cambiarEstado").value);
+                    formData.append("RolSeleccionado", document.getElementById("rolSeleccionado").value);
+
+                    $.ajax({
+                            url: '@Url.Action("CrearUsuario", "Configuracion")',
+                            type: 'post',
+                            processData: false,
+                            contentType: false,
+                            data: formData,
+                            dataType: 'json',
+                            success: function (result) {
+                                if (result.status == true) {
+                                    setTimeout(function () {
+                                        window.location.href = '@Url.Action("Index", "Configuracion")';
+                                    }, 1000);
+                                    alertify.success('Guardado');
+                                } else {
+                                    alertify.error('No se pudo guardar');
+                                }
+                            },
+                            error: function (err) {
+                                console.log(err.data);
+                            }
+                        });*@
+                    //if (result.isConfirmed) {
+                        
+                    //}
+                } else if (result.isDenied) {
+
+                }
+            })
+        }
+    })
+
 
     let succeeded = document.getElementById('succeeded').value;
     if (succeeded == 200) {

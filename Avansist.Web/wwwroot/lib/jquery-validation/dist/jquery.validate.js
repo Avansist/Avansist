@@ -371,11 +371,11 @@ $.extend( $.validator, {
 	messages: {
 		required: "Este campo es obligatorio.",
 		remote: "Por favor, completá este campo.",
-		email: "Por favor, escribí una dirección de correo válida.",
+		email: "Por favor, escribir correo válido. 'ejemplo@ejemplo.com'",
 		url: "Por favor, escribí una URL válida.",
-		date: "Por favor, escribí una fecha válida.",
+		date: "Por favor, escribir una fecha válida.",
 		dateISO: "Por favor, escribí una fecha (ISO) válida.",
-		number: "Por favor, escribí un número entero válido.",
+		number: "Caracteres no permitidos, solo puede ingresar números",
 		digits: "Por favor, escribí sólo dígitos.",
 		creditcard: "Por favor, escribí un número de tarjeta válido.",
 		equalTo: "Por favor, escribí el mismo valor de nuevo.",
@@ -1424,7 +1424,7 @@ $.extend( $.validator, {
 			// Retrieved 2014-01-14
 			// If you have a problem with this implementation, report a bug against the above spec
 			// Or use custom methods to implement your own email validation
-			return this.optional( element ) || /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/.test( value );
+			return this.optional( element ) || /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/.test( value );
 		},
 
 		// https://jqueryvalidation.org/url-method/

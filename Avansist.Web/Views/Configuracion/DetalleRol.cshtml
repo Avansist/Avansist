@@ -1,0 +1,97 @@
+﻿@model EditarRolViewModel
+
+@{
+    ViewData["Title"] = "Detalle rol";
+}
+
+
+@section Style {
+
+    <link href="~/css/AggBeneficiario.css" rel="stylesheet" />
+}
+
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header pb-0">
+        <div class="container-fluid">
+            <div class="row mt-5">
+                <div class="col-sm-6">
+                    <ul id="List"> <li class="heading" style="list-style: none; font-size: 25px" id="IconList"> Detalle rol</li></ul>
+                </div><!-- /.col -->
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a asp-action="ListarRoles">Listar roles</a></li>
+                        <li class="breadcrumb-item active">Detalle rol</li>
+                    </ol>
+                </div><!-- /.col -->
+            </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12 mx-auto p-2">
+                <div class="card mt-0 mb-3 p-5">
+                    <div class="col-sm-12">
+                        <div class="">
+                            <h4 class="text-left">
+                                <b id="Tite">
+                                    Detalle rol
+                                </b>
+                            </h4>
+                        </div>
+                    </div>
+                    <div class="col-sm-12">
+                        <hr />
+                    </div>
+                    <input type="hidden" asp-for="Id" disabled class="form-control">
+                    <form method="post" asp-action="EditarRol" id="editar-rol">
+                        <div asp-validation-summary="All" class="text-danger"></div>                        
+                        <div class="d-flex justify-content-between col-sm-12">
+                            <div class="col-sm-5 p-0">                                
+                                <div class="form-group">
+                                    <label asp-for="NombreRol">Nombre del rol</label>
+                                    <input disabled asp-for="NombreRol" class="form-control">
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-10">                                        
+                                        <a asp-action="ListarRoles" class="btn btn-secondary">Atras</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-5 pr-0">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h3>Usuarios en este rol</h3>
+                                    </div>
+                                    <div class="card-body">
+                                        @if (Model.Usuarios.Any())
+                                        {
+                                            for (int i = 0; i < Model.Usuarios.Count; i++)
+                                            {
+                                                <div class="d-flex justify-content-start">
+                                                    <h5 class="card-title">@Model.Usuarios[i]</h5>
+                                                </div>
+                                            }
+                                        }
+                                        else
+                                        {
+                                            <h5 class="card-title">No existen usuarios</h5>
+                                        }
+                                    </div>                                    
+                                </div>
+                            </div>
+                        </div>                        
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /.content-wrapper -->
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}    
+
+}

@@ -3,6 +3,7 @@ using Avansist.Models.Entities;
 using Avansist.Services.Abstract;
 using Avansist.Services.DTOs;
 using Avansist.Web.ViewModel;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
@@ -12,6 +13,7 @@ using System.Threading.Tasks;
 
 namespace Avansist.Web.Controllers
 {
+    [Authorize]
     public class ControlAsistenciaController : Controller
     {
         private readonly IControlAsistenciaServices _controlAsistenciaServices;
@@ -293,7 +295,6 @@ namespace Avansist.Web.Controllers
                     
                     _avansistDbContext.Add(salidaExtracurricular);
                     _avansistDbContext.SaveChanges();
-
 
                     string[] subs = detalle.PreinscripcionId.Split(',');
                     foreach (var item in subs)

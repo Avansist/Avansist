@@ -1,4 +1,5 @@
 ﻿@inject SignInManager<Avansist.Models.Entities.UsuarioIdentity> SignInManager
+@inject RoleManager<Microsoft.AspNetCore.Identity.IdentityRole> RolesManager
 
 <!DOCTYPE html>
 <html>
@@ -59,6 +60,7 @@
 
 </head>
 <body class="hold-transition sidebar-mini" style="font-family: Poppins;">
+
     <!-- Navbar -->
     <nav class="main-header navbar navbar-expand avansist-style navbar-light fixed-top">
         <!-- Left navbar links -->
@@ -67,7 +69,7 @@
                 <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
             </li>
             <li class="nav-item d-none d-sm-inline-block">
-                <a asp-controller="Admin" asp-action="Dashboard" class="nav-link">Inicio</a>
+                <a asp-controller="Home" asp-action="Dashboard" class="nav-link">Inicio</a>
             </li>
         </ul>
 
@@ -75,7 +77,11 @@
 
         <ul class="navbar-nav ml-auto ms-md-0 me-3 me-lg-4">
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
+                <div class="d-flex">
+                    <a href="https://www.youtube.com/playlist?list=PLNuelZdzu_I9IEMl9UEIJe-ZK7lZGiAWz" class="mt-2" style="color: white"><i class="far fa-question-circle"></i></a>
+                    <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
+                </div>
+        
                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                     <li><a class="dropdown-item" asp-area="Identity" asp-page="/Account/Manage/Index" title="Gestionar Cuenta">@User.Identity.Name</a></li>
                     <li><hr class="dropdown-divider" /></li>
@@ -217,55 +223,55 @@
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a href="#" class="nav-link">
+                                <a asp-controller="Reporte" asp-action="AprobadosVSNoAProbados" class="nav-link">
                                     <i class="far fa-chart-bar nav-icon"></i>
                                     <p style="font-size: 13px">Inscripción aprobados VS No aprobados</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="#" class="nav-link">
+                                <a asp-controller="Reporte" asp-action="MatriculadosVSRetirados" class="nav-link">
                                     <i class="far fa-chart-bar nav-icon"></i>
                                     <p style="font-size: 13px">Matriculados VS Retirados</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="#" class="nav-link">
+                                <a asp-controller="Reporte" asp-action="SolicitudesAprobadasVSMatriculados" class="nav-link">
                                     <i class="far fa-chart-bar nav-icon"></i>
                                     <p style="font-size: 13px">Solicitudes aprobadas VS Matriculados</p>
                                 </a>
                             </li>
                         </ul>
                     </li>
-                    <li class="nav-item mt-5">
-                        <a href="#" class="nav-link">
-                            <i class="nav-icon fas fa-cog"></i>
-                            <p>
-                                Configuración
-                                <i class="right fas fa-angle-left"></i>
-                            </p>
-                        </a>
-                        <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <a asp-controller="Configuracion" asp-action="ListarRoles" class="nav-link">
-                                    <i class="far fa-user-cog nav-icon"></i>
-                                    <p style="font-size: 13px">
-                                        Gestión de roles
-                                    </p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a asp-controller="Configuracion" asp-action="Index" class="nav-link">
-                                    <i class="far fa-user-friends nav-icon"></i>
-                                    <p style="font-size: 13px">
-                                        Gestión de usuarios
-                                    </p>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    @if (SignInManager.IsSignedIn(User) && User.IsInRole("Admin"))
-                    {
 
+                    @if (SignInManager.IsSignedIn(User) && User.IsInRole("Administrador"))
+                    {
+                        <li class="nav-item mt-5">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-cog"></i>
+                                <p>
+                                    Configuración
+                                    <i class="right fas fa-angle-left"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a asp-controller="Configuracion" asp-action="ListarRoles" class="nav-link">
+                                        <i class="far fa-user-cog nav-icon"></i>
+                                        <p style="font-size: 13px">
+                                            Gestión de roles
+                                        </p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a asp-controller="Configuracion" asp-action="Index" class="nav-link">
+                                        <i class="far fa-user-friends nav-icon"></i>
+                                        <p style="font-size: 13px">
+                                            Gestión de usuarios
+                                        </p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
                     }
                 </ul>
             </nav>
@@ -323,5 +329,6 @@
 
 
     @RenderSection("Scripts", false)
+
 </body>
 </html>

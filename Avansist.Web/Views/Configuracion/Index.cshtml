@@ -19,7 +19,7 @@
                 </div><!-- /.col -->
                 <div class="col-sm-6 mt-5">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a asp-action="">Inicio</a></li>
+                        <li class="breadcrumb-item"><a asp-action="Index" asp-controller="Home">Inicio</a></li>
                         <li class="breadcrumb-item active">Usuarios</li>
                     </ol>
                 </div><!-- /.col -->
@@ -36,7 +36,7 @@
                 </p>
                 <table class="table table-striped table-bordered" style="width:100%" id="tabla">
                     <thead style="background-color: rgb(175,219,110,0.4)">
-                        <tr>                           
+                        <tr>
                             <th>
                                 @Html.DisplayNameFor(model => model.Nombre)
                             </th>
@@ -46,14 +46,17 @@
                             <th>
                                 @Html.DisplayNameFor(model => model.CambiarEstado)
                             </th>
-                            
+                            <th>
+                                Rol
+                            </th>
+
                             <th>Acciones</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach (var item in Model)
                         {
-                            <tr>                                
+                            <tr>
                                 <td>
                                     @Html.DisplayFor(modelItem => item.Nombre)
                                 </td>
@@ -63,20 +66,33 @@
                                 <td>
                                     <div class="d-flex justify-content-center mt-3">
                                         @Html.DisplayFor(modelItem => item.CambiarEstado)
-                                    </div>                                    
+                                    </div>
                                 </td>
-                                
                                 <td>
-                                    <form id="frm-eliminar" asp-action="EliminarUsuario" asp-route-id="@item.Id" method="post">
-                                        <a class="btn btn-primary" asp-action="EditarUsuario" asp-route-id="@item.Id"><i class="far fa-edit"></i></a>
-                                        <button type="button" class="btn btn-danger" onclick="EliminarUsuario()"><i class="far fa-trash-alt"></i></button>
+                                    @string.Join(" ", item.Rol.ToList())
+                                </td>
+
+                                <td>
+                                    <form method="post" asp-action="EliminarUsuario" asp-route-id="@item.Id">
+                                        <input type="hidden" id="succeededEliminarUsuario" value="@ViewBag.Succeeded" />
+                                        <a data-bs-toggle="tooltip" title="Editar" class="btn btn-secondary" asp-action="EditarUsuario" asp-route-id="@item.Id"><i class="fas fa-user-edit"></i></a> |
+                                        <span id="confirmBorrarSpan_@item.Id" style="display: none">
+                                            <span>¿Eliminar este usuario?</span>
+                                            <button data-bs-toggle="tooltip" title="Aceptar" type="submit" class="btn btn-success"><i class="fas fa-check"></i></button>
+                                            <a data-bs-toggle="tooltip" title="Cancelar" href="#" class="btn btn-danger"
+                                               onclick="confirmBorrar('@item.Id', false)"><i class="fas fa-times"></i></a>
+                                        </span>
+                                        <span id="BorrarSpan_@item.Id">
+                                            <a data-bs-toggle="tooltip" title="Eliminar" href="#" class="btn btn-danger"
+                                               onclick="confirmBorrar('@item.Id', true)"><i class="far fa-trash-alt"></i></a>
+                                        </span>
                                     </form>
                                 </td>
                             </tr>
                         }
                     </tbody>
                 </table>
-            </div>            
+            </div>
             <!-- /.card -->
         </div>
         <!-- /.row -->
@@ -85,37 +101,32 @@
 </div>
 <!-- /.content-wrapper -->
 
-@if (ViewBag.Succeeded == 200)
-{
-    <script>
-        alertify.error('Eliminado');        
-    </script>
-}
-
 
 @section Scripts{
     <script>
 
 
-        function EliminarUsuario() {
-            Swal.fire({
-                text: '¿Desea eliminar el usuario?',
-                icon: 'error',
-                confirmButtonColor: '#afdb6e',
-                showDenyButton: true,
-                showCancelButton: false,
-                confirmButtonText: 'Aceptar',
-                denyButtonText: 'Cancelar',
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    if (result.isConfirmed) {
-                        document.getElementById('frm-eliminar').submit();                        
-                    }
-                } else if (result.isDenied) {
+        function confirmBorrar(Id, seHizoClick) {
+            let confirmBorrar = 'BorrarSpan_' + Id;
+            let confirmBorrarSpan = 'confirmBorrarSpan_' + Id;
 
-                }
-            })
+            if (seHizoClick) {
+                $('#' + confirmBorrar).hide();
+                $('#' + confirmBorrarSpan).show();
+            } else {
+                $('#' + confirmBorrar).show();
+                $('#' + confirmBorrarSpan).hide();
+            }
         }
+
+
+        @*let succeeded = document.getElementById('succeededEliminarUsuario').value;
+        if (succeeded == 200) {
+            setTimeout(function () {
+                window.location.href = '@Url.Action("Index", "Configuracion")';
+            }, 1300);
+            alertify.error('Eliminado');
+        }*@
 
     </script>
 }

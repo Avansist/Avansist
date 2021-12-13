@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31624.102
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Avansist.DAL", "Avansist.DAL\Avansist.DAL.csproj", "{92A38685-F6F5-4118-A2AC-9B62770C0926}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Avansist.DAL", "Avansist.DAL\Avansist.DAL.csproj", "{92A38685-F6F5-4118-A2AC-9B62770C0926}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Avansist.Models", "Avansist.Models\Avansist.Models.csproj", "{651522CA-C138-4C5C-876B-A3E08B6695A9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Avansist.Models", "Avansist.Models\Avansist.Models.csproj", "{651522CA-C138-4C5C-876B-A3E08B6695A9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Avansist.Services", "Avansist.Services\Avansist.Services.csproj", "{34A284B2-241D-43BA-A3E5-7998EAA4F83C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Avansist.Services", "Avansist.Services\Avansist.Services.csproj", "{34A284B2-241D-43BA-A3E5-7998EAA4F83C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Avansist.Web", "Avansist.Web\Avansist.Web.csproj", "{2552999F-4415-4230-84B2-C8C5228C1A64}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Avansist.Web", "Avansist.Web\Avansist.Web.csproj", "{2552999F-4415-4230-84B2-C8C5228C1A64}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

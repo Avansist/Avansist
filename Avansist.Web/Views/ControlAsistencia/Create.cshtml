@@ -1,7 +1,10 @@
 ﻿@model Avansist.Services.DTOs.ControlAsistenciaDto
 
-@{
-    ViewData["Title"] = "Create";
+@{ ViewData["Title"] = "Create"; }
+
+@section Style {
+
+    <link href="~/css/AggBeneficiario.css" rel="stylesheet" />
 }
 
 @section Style {
@@ -44,6 +47,7 @@
                         <div class="col-sm-12">
                             <hr />
                         </div>
+
                         <form asp-action="Create" id="Create-Ingreso">
                             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
@@ -65,7 +69,6 @@
                                     <input required asp-for="FechaIngreso" id="fechaIngreso" class="form-control" />
                                     <span asp-validation-for="FechaIngreso" class="text-danger"></span>
                                 </div>
-                                
 
                             </div>
                             <div class="form-group col-sm-12">
@@ -80,14 +83,10 @@
                                 <div class="form-group col-sm-6">
                                     <input type="button" value="Cancelar" id="btn-cancelar" class="btn btn-danger float-right" />
                                 </div>
-
                                 <div class="form-group col-sm-6">
                                     <input type="button" id="btn-guardar" value="Crear Ingreso" class="btn btn-success float-right" />
                                 </div>
                             </div>
-
-
-
                         </form>
                     </div>
                 </div>
@@ -104,6 +103,7 @@
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 <script>
+
     $("#PreinscripcionId").autocomplete({
         source: '@Url.Action("GetNombres" , "ControlAsistencia")',
         minlength: 2,
@@ -118,8 +118,6 @@
 
     document.addEventListener('DOMContentLoaded', function () {
         $('#Create-Ingreso').validate();
-        
-        
     })
     document.getElementById("btn-guardar").addEventListener("click", function (event) {
         if (!$("#Create-Ingreso").valid()) {
@@ -129,7 +127,6 @@
             event.preventDefault();
 
         } else {
-            
             Swal.fire({
                     text: '¿Desea guardar el ingreso?',
                     icon: 'question',
@@ -141,6 +138,7 @@
                 }).then((result) => {
                     if (result.isConfirmed) {
                         let formData = new FormData();
+
 
                         formData.append("PreinscripcionId", document.getElementById("Preinscripcionid").value);
                         formData.append("FechaIngreso", document.getElementById("fechaIngreso").value);
@@ -178,5 +176,6 @@
     window.location.href = '@Url.Action("Index", "ControlAsistencia")';
     });
 </script>
+
 
 }
