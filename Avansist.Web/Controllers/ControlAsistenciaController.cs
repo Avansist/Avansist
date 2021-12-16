@@ -46,12 +46,18 @@ namespace Avansist.Web.Controllers
         [HttpPost]
         public async Task<IActionResult> Create(ControlAsistenciaDto controlAsistenciaDto)
         {
-            
+
             if (ModelState.IsValid)
             {
                 try
-                { 
-                     await _controlAsistenciaServices.GuardarIngreso(controlAsistenciaDto);
+                {
+                    var controlAsistencia = await _controlAsistenciaServices.ObtenerBeneficiarioPorIdYSalidaPorDefecto(controlAsistenciaDto.PreinscripcionId);
+
+                    if (controlAsistencia != null)
+                    {
+                        return Json(new { status = 500 });
+                    }
+                    await _controlAsistenciaServices.GuardarIngreso(controlAsistenciaDto);
                     return Json(new
                     {
                         status = true

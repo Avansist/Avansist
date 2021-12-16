@@ -96,22 +96,22 @@ namespace Avansist.Web.Controllers
                     var result = await _userManager.CreateAsync(user, usuarioViewModel.Password);
                     if (result.Succeeded)
                     {
-                        //var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
-                        //code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));
-                        //var callbackUrl = Url.Action("ConfirmarEmailPost", "Configuracion", new
-                        //{
-                        //    token = code,
-                        //    email = usuarioViewModel.Email
-                        //}, Request.Scheme);
+                        var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
+                        code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));
+                        var callbackUrl = Url.Action("ConfirmarEmailPost", "Configuracion", new
+                        {
+                            token = code,
+                            email = usuarioViewModel.Email
+                        }, Request.Scheme);
 
-                        //await _emailSender.SendEmailAsync(usuarioViewModel.Email, "Confirmar correo eléctronico",
-                        //    $"<h1>¡Bienvenid@!</h1></br></br>" +
-                        //    $"<p>Estimad@ {usuarioViewModel.Nombre}, estas son las credenciales que debe utilizar para el inicio de sesión</p>" +
-                        //    $"<p>Usuario: <b>{usuarioViewModel.Email}</b></p>" +
-                        //    $"<p>Contraseña: <b>{usuarioViewModel.Password}</b></p></br>" +
-                        //    $"<p>En el siguiente enlace podra activar la cuenta" +
-                        //    $" y tener acceso al aplicativo <b>Avansist</b>.</br>" +
-                        //    $"<a style='font-size:13px' href='{HtmlEncoder.Default.Encode(callbackUrl)}'>Clic aquí</a>.");
+                        await _emailSender.SendEmailAsync(usuarioViewModel.Email, "Confirmar correo eléctronico",
+                            $"<h1>¡Bienvenid@!</h1></br></br>" +
+                            $"<p>Estimad@ {usuarioViewModel.Nombre}, estas son las credenciales que debe utilizar para el inicio de sesión</p>" +
+                            $"<p>Usuario: <b>{usuarioViewModel.Email}</b></p>" +
+                            $"<p>Contraseña: <b>{usuarioViewModel.Password}</b></p></br>" +
+                            $"<p>En el siguiente enlace podra activar la cuenta" +
+                            $" y tener acceso al aplicativo <b>Avansist</b>.</br>" +
+                            $"<a style='font-size:13px' href='{HtmlEncoder.Default.Encode(callbackUrl)}'>Clic aquí</a>.");
 
                         await _userManager.AddToRoleAsync(user, usuarioViewModel.RolSeleccionado);
                         //ViewBag para abrir modal en la vista de registrarUsuarioExterno

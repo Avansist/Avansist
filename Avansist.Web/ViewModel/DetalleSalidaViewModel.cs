@@ -18,7 +18,7 @@ namespace Avansist.Web.ViewModel
         [StringLength(45, MinimumLength = 3)]
         public string NombreSalidadEvento { get; set; }
 
-        [DisplayName("Dirreccion del evento")]
+        [DisplayName("Dirrección del evento")]
         [Required(ErrorMessage = "La direccion del evento es requerida")]
         [StringLength(45, MinimumLength = 3)]
         public string Direccion { get; set; }
@@ -33,7 +33,7 @@ namespace Avansist.Web.ViewModel
         public string DocumentoResponsable { get; set; }
         public bool EstadoEvento { get; set; }
 
-        [DisplayName("Fecha salidad del evento")]
+        [DisplayName("Fecha salida del evento")]
         [Required(ErrorMessage = "La fecha de salidad es requerido")]
         public DateTime FechaSalidadEvento { get; set; }
 
@@ -42,7 +42,5 @@ namespace Avansist.Web.ViewModel
         public DateTime FechaRegresoEvento { get; set; }
 
         public List<PreinscripcionViewModel> Preinscripcions { get; set; }
-
-
     }
 }

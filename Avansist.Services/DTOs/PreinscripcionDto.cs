@@ -94,7 +94,7 @@ namespace Avansist.Services.DTOs
         public DateTime FechaMatricula { get; set; }
 
         //Inf Retiro
-        [DisplayName("Fecha de Retiro")]
+        [DisplayName("Fecha de retiro")]
         public DateTime FechaRetiro { get; set; }
         [DisplayName("Descripción del retiro")]
         [StringLength(500, MinimumLength = 3)]
@@ -239,7 +239,7 @@ namespace Avansist.Services.DTOs
         //Autorizacion publicacion de fotos y recoleccion de datos --------------- Falta
         [DisplayName("Autorización de la foto")]
         public bool AutorizacionFoto { get; set; }
-        [DisplayName("Autorizacion de los datos")]
+        [DisplayName("Autorización de los datos")]
         public bool AutorizacionData { get; set; }
 
         //Documentos y foto -------- falta para adjuntar los documentos

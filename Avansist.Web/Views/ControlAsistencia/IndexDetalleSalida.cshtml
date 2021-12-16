@@ -72,21 +72,15 @@
                                     @Html.Raw(item.AutorizacionSalidaExtracurricular ? "Activo" : "Inactivo")
                                 </td>
                                 <td>
-
-
                                     <a class="btn btn-outline-primary" asp-action="CambiarEstado" asp-route-id="@item.DetalleId">@Html.Raw(item.AutorizacionSalidaExtracurricular ? "Inactivar" : "Activar")</a>
                                 </td>
-
-
-
-
                             </tr>
 
                         }
                     </tbody>
 
                 </table>
-                <button type="button" asp-action="IndexSalidadExtracurricular" class="btn btn-secondary">Atras</button>
+                <a type="button" asp-action="IndexSalidadExtracurricular" class="btn btn-secondary">Atras</a>
             </div>
             <!-- /.card -->
         </div>

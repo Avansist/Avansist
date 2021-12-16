@@ -121,7 +121,7 @@
                                             <span asp-validation-for="LugarNacimiento" class="text-danger error"></span>
                                         </div>
                                         <div class="form-group col-sm-4">
-                                            <label asp-for="TipoDocumentoId" class="control-label"></label>  <label id="asterisco">*</label>
+                                            <label asp-for="TipoDocumentoId" class="control-label"></label> <label id="asterisco">*</label>
                                             <select asp-for="TipoDocumentoId" class="form-control" name="tipoDocumento" id="tipoDocumento" asp-items="ViewBag.listaTipoDocumentos" required>
                                                 <option value="">Seleccione el documento</option>
                                             </select>
@@ -419,7 +419,7 @@
                                         </div>
                                     </div>
                                     <div class="d-flex justify-content-between mb-4">
-                                        <div class="form-group col-sm-5">
+                                        <div class="form-group col-sm-4">
                                             <label asp-for="LugarExpedicionDocumentoPadre" class="form-label"></label> <label id="asterisco"></label>
                                             <select asp-for="LugarExpedicionDocumentoPadre" class="form-control" name="lugExpPa" id="lugExpPa">
                                                 <option value="">Seleccionar</option>
@@ -575,7 +575,7 @@
                                     </div>
 
                                     <div class="d-flex justify-content-between mb-4">
-                                        <div class="col-sm-6">
+                                        <div class="col-sm-6" style="display:none">
                                             <label class="form-label" for="customFile">Agregar documentos:</label>
                                             <div class="form-group my-3">
                                                 <input type="file" class="form-control pl-0" id="cargar" multiple />
