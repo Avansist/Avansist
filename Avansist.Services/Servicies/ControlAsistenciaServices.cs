@@ -100,7 +100,13 @@ namespace Avansist.Services.Servicies
         {
             return await _context.Preinscripcions.ToListAsync();
         }
-        
+
+        // obtener beneficiario por id y salida por defecto
+        public async Task<ControlAsistencia> ObtenerBeneficiarioPorIdYSalidaPorDefecto(int idBeneficiario)
+        {
+            return await _context.ControlAsistencias.FirstOrDefaultAsync(n => n.PreinscripcionId == idBeneficiario && n.FechaSalida == DateTime.MinValue);
+        }
+
 
         //-----------------------------------
         // ESTE ES EL SERVICIP PARA MOSTRAR LA VISTA DEL INDEX
@@ -194,7 +200,7 @@ namespace Avansist.Services.Servicies
                     {
                         DetalleId = t.DetalleSalidaId,
                         SalidaExtracurricularId = t.SalidaExtracurricularId,
-                        NombreBeneficiario = t.Preinscripcions.PrimerNombreBeneficiario,
+                        NombreBeneficiario = t.Preinscripcions.NombreCompleto,
                         AutorizacionSalidaExtracurricular = t.AutorizacionSalidaExtracurricular
 
 

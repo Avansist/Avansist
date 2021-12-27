@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace Avansist.Web.Controllers
 {
-    [Authorize]
+    //[Authorize]
     public class PadrinoController : Controller
     {
         private readonly IPadrinoServices _padrinoServices;

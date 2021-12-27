@@ -1,6 +1,8 @@
 ﻿@model Avansist.Services.DTOs.ControlAsistenciaDto
 
-@{ ViewData["Title"] = "Edit"; }
+@{ 
+    ViewData["Title"] = "Detalle asistencia"; 
+}
 
 
 @section Style {
@@ -17,12 +19,12 @@
         <div class="container-fluid">
             <div class="row mt-5">
                 <div class="col-sm-6">
-                    <ul id="List"> <li class="heading" style="list-style: none; font-size: 25px" id="IconList"> Agregar Salida Beneficiario</li></ul>
+                    <ul id="List"> <li class="heading" style="list-style: none; font-size: 25px" id="IconList"> Detalle asistencia</li></ul>
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a asp-action="">Inicio</a></li>
-                        <li class="breadcrumb-item active">Agregar Salida</li>
+                        <li class="breadcrumb-item active">Detalle asistencia</li>
                     </ol>
                 </div><!-- /.col -->
             </div><!-- /.row -->
@@ -49,7 +51,7 @@
                     <form asp-action="Details" method="post" id="formPadrino">
                         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                         <input asp-for="ControlAsistenciaId" type="hidden" />
-                        <div class="d-flex justify-content-right mb-4 col-sm-12">
+                        <div class="d-flex justify-content-right col-sm-12">
                             <div class="form-group col-sm-4">
                                 <label asp-for="PreinscripcionId" class="control-label"></label>
                                 <select disabled asp-for="PreinscripcionId" class="form-control" asp-items="ViewBag.listaBeneficiarios">
@@ -68,7 +70,7 @@
                             </div>
 
                         </div>
-                        <div class="d-flex justify-content-right mb-4 col-sm-12">
+                        <div class="d-flex justify-content-right col-sm-12">
                             <div class="form-group col-sm-6">
                                 <label asp-for="ObservacionIngreso" class="control-label"></label>
                                 <textarea disabled asp-for="ObservacionIngreso" id="ObservacionIngreso" class="form-control"></textarea>
@@ -80,22 +82,19 @@
                                 <span asp-validation-for="ObservacionSalida" class="text-danger"></span>
                             </div>
                         </div>
-                        <div class="d-flex justify-content-center mb-4 col-sm-12">
-                            <div class="col-sm-4">
 
-                                <label class="control-label">Estado (Activo e Inactivo)</label>
-                                <div class="form-check p-0">
-                                    <label class="switch">
-                                        <input asp-for="AutorizacionSalida" type="checkbox">
-                                        <span class="slider round"></span>
-                                    </label>
-                                </div>
+                        <div class="form-group col-sm-6">
+                            <label class="control-label">¿Fue retirado con autorización? (Si o no)</label>
+                            <div class="form-check p-0">
+                                <label class="switch">
+                                    <input disabled asp-for="AutorizacionSalida" type="checkbox">
+                                    <span class="slider round"></span>
+                                </label>
                             </div>
                         </div>
                         <div class="d-flex justify-content-center">
                             <div>
                                 <a type="button" asp-action="Index" class="btn btn-danger">Cancelar</a>
-                                <a class="btn btn-success" asp-controller="ControlAsistencia" asp-action="Edit" asp-route-id="@Model.ControlAsistenciaId">Ir a actualizar salida</a>
                             </div>
                         </div>
                     </form>

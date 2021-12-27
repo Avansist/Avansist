@@ -1,10 +1,7 @@
 ﻿@model Avansist.Services.DTOs.ControlAsistenciaDto
 
-@{ ViewData["Title"] = "Create"; }
-
-@section Style {
-
-    <link href="~/css/AggBeneficiario.css" rel="stylesheet" />
+@{
+    ViewData["Title"] = "Crear ingreso";
 }
 
 @section Style {
@@ -17,92 +14,94 @@
     <!-- Content Header (Page header) -->
     <div class="content-header pb-0">
         <div class="container-fluid">
-            <div class="row mb-2">
+            <div class="row mt-5">
                 <div class="col-sm-6">
-                    <h1 class="mt-5">Crear Ingreso Beneficiario</h1>
+                    <ul id="List"> <li class="heading" style="list-style: none; font-size: 25px" id="IconList"> Crear ingreso</li></ul>
                 </div><!-- /.col -->
-                <div class="col-sm-6 mt-5">
+                <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a asp-action="">Inicio</a></li>
-                        <li class="breadcrumb-item active">Control Asistencia</li>
+                        <li class="breadcrumb-item active">Crear ingreso</li>
                     </ol>
                 </div><!-- /.col -->
             </div><!-- /.row -->
         </div><!-- /.container-fluid -->
     </div>
+    <!-- Alerta para validación del registro -->
+
+    <div class="alert alert-danger alert-dismissible fade show" role="alert" id="alerta-beneficiario" style="display:none">
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        <h4 class="alert-heading">Incorrecto!</h4>
+        <p>No pudo registrarse</p>
+        <hr>
+        <p class="mb-0">
+            El beneficiario ya ingreso a la fundación, por favor revisar el estado de ingreso.
+        </p>
+    </div>
     <!-- /.content-header -->
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-12 mx-auto p-2">
-                    <div class="card p-3 mt-0 mb-3 pt-3">
-                        <div class="col-sm-12">
-                            <div class="">
-                                <h4 class="text-left">
-                                    <b id="Tite">
-                                        Crear Ingreso
-                                    </b>
-                                </h4>
-                            </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 mx-auto p-2">
+                <div class="card p-3 mt-0 mb-3 pt-3">
+                    <div class="col-sm-12">
+                        <div class="">
+                            <h4 class="text-left">
+                                <b id="Tite">
+                                    Crear Ingreso
+                                </b>
+                            </h4>
                         </div>
-                        <div class="col-sm-12">
-                            <hr />
-                        </div>
-
-                        <form asp-action="Create" id="Create-Ingreso">
-                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-
-                            <div class="d-flex justify-content-right mb-4 col-sm-12">
-
-                                <div class="form-group col-sm-6">
-                                    @*<label asp-for="PreinscripcionId" class="control-label"></label> <label id="asterisco">*</label>
-        <select required asp-for="PreinscripcionId" id="preinscripcionId" class="form-control" asp-items="ViewBag.listaBeneficiarios">
-            <option value="">Seleccione</option>
-        </select>*@
-                                    <div class="ui-widget">
-                                        <label asp-for="PreinscripcionId" class="control-label"></label> 
-                                        <input type="hidden" id="Preinscripcionid" value="" />
-                                        <input type="text" asp-for="PreinscripcionId" name="preinscripcionId" id="PreinscripcionId" class="form-control" />
-                                    </div>
-                                </div>
-                                <div class="form-group col-sm-6">
-                                    <label asp-for="FechaIngreso" class="control-label"></label> <label id="asterisco">*</label>
-                                    <input required asp-for="FechaIngreso" id="fechaIngreso" class="form-control" />
-                                    <span asp-validation-for="FechaIngreso" class="text-danger"></span>
-                                </div>
-
-                            </div>
-                            <div class="form-group col-sm-12">
-                                <label asp-for="ObservacionIngreso" class="control-label"></label> <label id="asterisco">*</label>
-                                <textarea required asp-for="ObservacionIngreso" id="observacionIngreso" class="form-control"></textarea>
-                                <span asp-validation-for="ObservacionIngreso" class="text-danger"></span>
-                            </div>
-                            <input type="hidden" asp-for="ObservacionSalida" id="ObservacionSalida" value="Describa la observacion" />
-
-                            <div class="d-flex justify-content-around">
-
-                                <div class="form-group col-sm-6">
-                                    <input type="button" value="Cancelar" id="btn-cancelar" class="btn btn-danger float-right" />
-                                </div>
-                                <div class="form-group col-sm-6">
-                                    <input type="button" id="btn-guardar" value="Crear Ingreso" class="btn btn-success float-right" />
-                                </div>
-                            </div>
-                        </form>
                     </div>
+                    <div class="col-sm-12">
+                        <hr />
+                    </div>
+
+                    <form asp-action="Create" id="Create-Ingreso">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                        <div class="d-flex justify-content-around">
+
+                            <div class="form-group col-sm-6">
+                                @*<label asp-for="PreinscripcionId" class="control-label"></label> <label id="asterisco">*</label>
+                                    <select required asp-for="PreinscripcionId" id="preinscripcionId" class="form-control" asp-items="ViewBag.listaBeneficiarios">
+                                        <option value="">Seleccione</option></select>*@
+                                <label asp-for="PreinscripcionId" class="control-label"></label> <label id="asterisco">*</label>
+                                <input type="hidden" id="Preinscripcionid" value="" />
+                                <input required type="text" asp-for="PreinscripcionId" name="preinscripcionId" id="PreinscripcionId" class="form-control" />
+                            </div>
+                            <div class="form-group col-sm-6">
+                                <label asp-for="FechaIngreso" class="control-label"></label> <label id="asterisco">*</label>
+                                <input disabled type="datetime" asp-for="FechaIngreso" id="fechaIngreso" class="form-control" />
+                                <span asp-validation-for="FechaIngreso" class="text-danger"></span>
+                            </div>
+
+                        </div>
+                        <div class="form-group col-sm-12">
+                            <label asp-for="ObservacionIngreso" class="control-label"></label> <label id="asterisco">*</label>
+                            <textarea required asp-for="ObservacionIngreso" id="observacionIngreso" class="form-control"></textarea>
+                            <span asp-validation-for="ObservacionIngreso" class="text-danger"></span>
+                        </div>
+                        <input type="hidden" asp-for="ObservacionSalida" id="ObservacionSalida" value="Describa la observación" />
+                        <input type="hidden" asp-for="FechaSalida" id="FechaSalida" value="dd/mm/yyyy --:--" />
+                        <div class="d-flex justify-content-around">
+                            <div class="form-group col-sm-6">
+                                <input type="button" value="Cancelar" id="btn-cancelar" class="btn btn-danger float-right" />
+                            </div>
+                            <div class="form-group col-sm-6">
+                                <input type="button" id="btn-guardar" value="Crear Ingreso" class="btn btn-success float-right" />
+                            </div>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
     </div>
-    <!-- /.content-wrapper -->
-@*
-    
-
-*@
-
+</div>
+<!-- /.content-wrapper -->
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-<script>
+    <script>
 
     $("#PreinscripcionId").autocomplete({
         source: '@Url.Action("GetNombres" , "ControlAsistencia")',
@@ -113,8 +112,19 @@
             document.getElementById('Preinscripcionid').value = result.item.id;
         }
     });
-
-
+    window.onload = function () {
+        var fecha = new Date(); //Fecha actual
+        var mes = fecha.getMonth() + 1; //obteniendo mes
+        var dia = fecha.getDate(); //obteniendo dia
+        var ano = fecha.getFullYear(); //obteniendo año
+        var horas = fecha.getHours();
+        var minutos = fecha.getMinutes();
+        if (dia < 10)
+            dia = '0' + dia; //agrega cero si el menor de 10
+        if (mes < 10)
+            mes = '0' + mes //agrega cero si el menor de 10
+        document.getElementById('fechaIngreso').value = dia + "/" + mes + "/" + ano + " " + horas + ":" + minutos;
+    }
 
     document.addEventListener('DOMContentLoaded', function () {
         $('#Create-Ingreso').validate();
@@ -157,6 +167,10 @@
                                         window.location.href = '@Url.Action("Index", "ControlAsistencia")';
                                     }, 1000);
                                     alertify.success('Guardado');
+                                } else if (result.status == 500) {
+
+                                    $("#alerta-beneficiario").show();
+
                                 } else {
                                     alertify.error('No se pudo guardar');
                                 }
@@ -175,7 +189,7 @@
     document.getElementById("btn-cancelar").addEventListener("click", function (event) {
     window.location.href = '@Url.Action("Index", "ControlAsistencia")';
     });
-</script>
+    </script>
 
 
 }

@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 
 namespace Avansist.Web.Controllers
 {
-    [Authorize]
+    //[Authorize]
     public class PreinscripcionController : Controller
     {
         private readonly IPreinscripcionServices _preinscripcionServices;

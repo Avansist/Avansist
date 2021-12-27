@@ -926,9 +926,7 @@ namespace Avansist.DAL.Migrations
                     b.HasOne("Avansist.Models.Entities.Preinscripcion", "Preinscripcion")
                         .WithMany("SalidaExtracurricular")
                         .HasForeignKey("PreinscripcionId")
-
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.Restrict);
 
                     b.Navigation("Preinscripcion");
                 });

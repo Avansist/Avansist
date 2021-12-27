@@ -36,12 +36,7 @@
                     <thead style="background-color: rgb(175,219,110,0.4)">
                         <tr>
 
-                            <th>
-                                @Html.DisplayNameFor(model => model.DetalleId)
-                            </th>
-                            <th>
-                                @Html.DisplayNameFor(model => model.SalidaExtracurricularId)
-                            </th>
+                            
                             <th>
                                 @Html.DisplayNameFor(model => model.NombreBeneficiario)
                             </th>
@@ -59,12 +54,7 @@
                         @foreach (var item in Model)
                         {
                             <tr>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.DetalleId)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.SalidaExtracurricularId)
-                                </td>
+                                
                                 <td>
                                     @Html.DisplayFor(modelItem => item.NombreBeneficiario)
                                 </td>
@@ -72,21 +62,15 @@
                                     @Html.Raw(item.AutorizacionSalidaExtracurricular ? "Activo" : "Inactivo")
                                 </td>
                                 <td>
-
-
                                     <a class="btn btn-outline-primary" asp-action="CambiarEstado" asp-route-id="@item.DetalleId">@Html.Raw(item.AutorizacionSalidaExtracurricular ? "Inactivar" : "Activar")</a>
                                 </td>
-
-
-
-
                             </tr>
 
                         }
                     </tbody>
 
                 </table>
-                <button type="button" asp-action="IndexSalidadExtracurricular" class="btn btn-secondary">Atras</button>
+                <a type="button" asp-action="IndexSalidadExtracurricular" class="btn btn-secondary">Atras</a>
             </div>
             <!-- /.card -->
         </div>

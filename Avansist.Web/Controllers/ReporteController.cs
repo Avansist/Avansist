@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Avansist.Web.Controllers
 {
-    [Authorize]
+    //[Authorize]
     public class ReporteController : Controller
     {
         private readonly AvansistDbContext _context;

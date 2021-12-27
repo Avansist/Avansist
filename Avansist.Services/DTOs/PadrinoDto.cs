@@ -31,11 +31,11 @@ namespace Avansist.Services.DTOs
         [Required(ErrorMessage = "La ocupación es requerida")]
         [StringLength(25, MinimumLength = 3)]
         public string Ocupacion { get; set; }
-        [DisplayName("Telefono")]
+        [DisplayName("Teléfono")]
         [Required(ErrorMessage = "El número de telefono es requerido")]
         [StringLength(15, MinimumLength = 3)]
         public string Telefono { get; set; }
-        [DisplayName("Correo Electronico")]
+        [DisplayName("Correo Electrónico")]
         [Required(ErrorMessage = "El correo es requerido")]
         [StringLength(45, MinimumLength = 3)]
         [DataType(DataType.EmailAddress)]

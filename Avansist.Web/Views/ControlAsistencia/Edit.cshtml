@@ -1,6 +1,6 @@
 ﻿@model Avansist.Services.DTOs.ControlAsistenciaDto
 
-@{ ViewData["Title"] = "Edit"; }
+@{ ViewData["Title"] = "Crear salida"; }
 
 
 @section Style {
@@ -17,12 +17,12 @@
         <div class="container-fluid">
             <div class="row mt-5">
                 <div class="col-sm-6">
-                    <ul id="List"> <li class="heading" style="list-style: none; font-size: 25px" id="IconList"> Agregar Salida Beneficiario</li></ul>
+                    <ul id="List"> <li class="heading" style="list-style: none; font-size: 25px" id="IconList"> Crear salida</li></ul>
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a asp-action="">Inicio</a></li>
-                        <li class="breadcrumb-item active">Agregar Salida</li>
+                        <li class="breadcrumb-item active">Crear Salida</li>
                     </ol>
                 </div><!-- /.col -->
             </div><!-- /.row -->
@@ -50,7 +50,7 @@
                     <form asp-action="Edit" method="post" id="Edit">
                         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                         <input asp-for="ControlAsistenciaId" id="ControlAsistenciaId" type="hidden" />
-                        <div class="d-flex justify-content-right mb-4 col-sm-12">
+                        <div class="d-flex justify-content-right col-sm-12">
                             <div class="form-group col-sm-4">
                                 <label asp-for="PreinscripcionId" class="control-label"></label>
                                 <select readonly asp-for="PreinscripcionId" id="PreinscripcionId" class="form-control" asp-items="ViewBag.listaBeneficiarios">
@@ -64,11 +64,11 @@
                             </div>
                             <div class="form-group col-sm-4">
                                 <label asp-for="FechaSalida" class="control-label"></label>
-                                <input asp-for="FechaSalida" type="datetime" id="FechaSalida" class="form-control" />
+                                <input disabled type="datetime" asp-for="FechaSalida" id="FechaSalida" class="form-control" />
                                 <span asp-validation-for="FechaSalida" class="text-danger"></span>
                             </div>
                         </div>
-                        <div class="d-flex justify-content-right mb-4 col-sm-12">
+                        <div class="d-flex justify-content-right col-sm-12">
                             <div class="form-group col-sm-6">
                                 <label asp-for="ObservacionIngreso" class="control-label"></label>
                                 <textarea readonly asp-for="ObservacionIngreso" id="ObservacionIngreso" class="form-control"></textarea>
@@ -80,21 +80,15 @@
                                 <span asp-validation-for="ObservacionSalida" class="text-danger"></span>
                             </div>
                         </div>
-                        <div class="d-flex justify-content-center mb-4 col-sm-12">
-
-                            
-                            <div class="col-sm-4">
-                                <label class="control-label">Estado (Activo e Inactivo)</label>
-                                <div class="form-check p-0">
-                                    <label class="switch">
-                                        <input asp-for="AutorizacionSalida" id="AutorizacionSalida" type="checkbox">
-
-                                        <span class="slider round"></span>
-                                    </label>
-                                </div>
+                        <div class="form-group col-sm-6">
+                            <label class="control-label">¿Fue retirado con autorización? (Si o no)</label>
+                            <div class="form-check p-0">
+                                <label class="switch">
+                                    <input asp-for="AutorizacionSalida" id="AutorizacionSalida" type="checkbox">
+                                    <span class="slider round"></span>
+                                </label>
                             </div>
                         </div>
-
                         <div class="d-flex justify-content-around">
 
                             <div class="form-group col-sm-6">

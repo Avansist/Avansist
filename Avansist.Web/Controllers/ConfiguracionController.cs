@@ -19,7 +19,7 @@ using System.Threading.Tasks;
 
 namespace Avansist.Web.Controllers
 {
-    [Authorize(Roles = "Administrador")]
+    //[Authorize(Roles = "Administrador")]
     public class ConfiguracionController : Controller
     {
 

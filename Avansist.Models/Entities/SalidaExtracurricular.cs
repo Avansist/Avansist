@@ -14,9 +14,6 @@ namespace Avansist.Models.Entities
         [Key]
         public int SalidaExtracurricularId { get; set; }
 
-        
-
-
         [Column(TypeName = "nvarchar(50)")]
         public string NombreSalidadEvento { get; set; }
 

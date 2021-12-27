@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Avansist.DAL.Migrations
 {
-    public partial class inicial : Migration
+    public partial class Inicial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -487,14 +487,14 @@ namespace Avansist.DAL.Migrations
                 {
                     SalidaExtracurricularId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    PreinscripcionId = table.Column<int>(type: "int", nullable: false),
                     NombreSalidadEvento = table.Column<string>(type: "nvarchar(50)", nullable: true),
                     Direccion = table.Column<string>(type: "nvarchar(50)", nullable: true),
                     ResponsableEvento = table.Column<string>(type: "nvarchar(50)", nullable: true),
                     DocumentoResponsable = table.Column<string>(type: "nvarchar(50)", nullable: true),
                     EstadoEvento = table.Column<bool>(type: "bit", nullable: false),
                     FechaSalidadEvento = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    FechaRegresoEvento = table.Column<DateTime>(type: "datetime2", nullable: false)
+                    FechaRegresoEvento = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    PreinscripcionId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {

@@ -15,12 +15,12 @@
         <div class="container-fluid">
             <div class="row mt-5">
                 <div class="col-sm-6">
-                    <ul id="List"> <li class="heading" style="list-style: none; font-size: 25px" id="IconList"> Crear Padrino</li></ul>
+                    <ul id="List"> <li class="heading" style="list-style: none; font-size: 25px" id="IconList"> Editar Padrino</li></ul>
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a asp-action="">Inicio</a></li>
-                        <li class="breadcrumb-item active">Crear Padrino</li>
+                        <li class="breadcrumb-item active">Editar Padrino</li>
                     </ol>
                 </div><!-- /.col -->
             </div><!-- /.row -->
@@ -30,7 +30,7 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-12 mx-auto p-2">
-                <div class="card mt-0 mb-3 pt-3">
+                <div class="card mt-0 mb-3 p-3">
                     <div class="col-sm-12">
                         <div class="">
                             <h4 class="text-left">
@@ -64,7 +64,7 @@
                                 <span asp-validation-for="TipoDocumentoId" class="text-danger"></span>
                             </div>
                         </div>
-                        <div class="d-flex justify-content-around">
+                        <div class="d-flex justify-content-around mb-3">
 
                             <div class="form-group col-sm-3">
                                 <label asp-for="NumeroDocumento" class="control-label"></label> <label id="asterisco">*</label>
@@ -78,7 +78,7 @@
                             </div>
                             <div class="form-group col-sm-3">
                                 <label asp-for="Telefono" class="control-label"></label> <label id="asterisco">*</label>
-                                <input asp-for="Telefono" class="form-control" type="text" name="telefono" id="telefono" placeholder="Ingrese el telefono" required />
+                                <input asp-for="Telefono" class="form-control" type="text" name="telefono" id="telefono" placeholder="Ingrese el teléfono" required />
                                 <span asp-validation-for="Telefono" class="text-danger error"></span>
                             </div>
                             <div class="form-group col-sm-3">
@@ -87,11 +87,6 @@
                                 <span asp-validation-for="CorreoElectronico" class="text-danger error"></span>
                             </div>
                         </div>
-                        <div class="d-flex justify-content-around">
-
-
-                        </div>
-
                         <div class="d-flex justify-content-around">
                             <div class="form-group col-sm-6">
                                 <input type="button" value="Cancelar" id="btn-cancelar" class="btn btn-danger float-right" />

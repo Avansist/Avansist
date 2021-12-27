@@ -73,17 +73,12 @@
             </li>
         </ul>
 
-
-
         <ul class="navbar-nav ml-auto ms-md-0 me-3 me-lg-4">
             <li class="nav-item dropdown">
-                <div class="d-flex">
-                    <a href="https://www.youtube.com/playlist?list=PLNuelZdzu_I9IEMl9UEIJe-ZK7lZGiAWz" class="mt-2" style="color: white"><i class="far fa-question-circle"></i></a>
-                    <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
-                </div>
-        
+                <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
+
                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                    <li><a class="dropdown-item" asp-area="Identity" asp-page="/Account/Manage/Index" title="Gestionar Cuenta">@User.Identity.Name</a></li>
+                    <li class="dropdown-item-text">@User.Identity.Name</li>
                     <li><hr class="dropdown-divider" /></li>
                     <li><a class="dropdown-item" asp-controller="Acceso" asp-action="LogOut">Cerrar sesion</a></li>
                 </ul>
@@ -273,6 +268,14 @@
                             </ul>
                         </li>
                     }
+                <li class="nav-item">
+                    <a href="https://www.youtube.com/playlist?list=PLNuelZdzu_I9IEMl9UEIJe-ZK7lZGiAWz" class="nav-link">
+                        <i class="nav-icon fas fa-question-circle"></i>
+                        <p>
+                            Ayuda                            
+                        </p>
+                    </a>
+                </li>
                 </ul>
             </nav>
 

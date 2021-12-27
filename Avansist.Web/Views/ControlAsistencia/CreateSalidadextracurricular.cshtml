@@ -1,8 +1,6 @@
 ﻿@model Avansist.Web.ViewModel.DetalleSalidaViewModel
 
-@{
-    ViewData["Title"] = "Create";
-}
+@{ ViewData["Title"] = "Create"; }
 
 @section Style{
     <link href="~/css/AggBeneficiario.css" rel="stylesheet" />
@@ -15,14 +13,14 @@
     <!-- Content Header (Page header) -->
     <div class="content-header pb-0">
         <div class="container-fluid">
-            <div class="row mb-2">
+            <div class="row mt-5">
                 <div class="col-sm-6">
-                    <h1 class="mt-5">Crear salida extracurricular</h1>
+                    <ul id="List"> <li class="heading" style="list-style: none; font-size: 25px" id="IconList"> Crear salida extracurricular</li></ul>
                 </div><!-- /.col -->
-                <div class="col-sm-6 mt-5">
+                <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a asp-action="">Inicio</a></li>
-                        <li class="breadcrumb-item active">salida extracurricular</li>
+                        <li class="breadcrumb-item active">Crear salida extracurricular</li>
                     </ol>
                 </div><!-- /.col -->
             </div><!-- /.row -->
@@ -34,104 +32,112 @@
             <div class="col-sm-12 mx-auto p-2">
                 <div class="card mt-0 mb-3 p-3">
                     <div class="col-sm-12">
+                        <div class="">
+                            <h4 class="text-left">
+                                <b id="Tite">
+                                    Crear Ingreso
+                                </b>
+                            </h4>
+                        </div>
+                    </div>
+                    <div class="col-sm-12">
+                        <hr />
+                    </div>
 
-                        <form asp-action="GuardarDetalle" id="GuardarDetalle" method="post">
-                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                            <div class="d-flex justify-content-between mb-4">
-                                <div class="form-group col-sm-4">
-                                    <label class="control-label">Nombre del evento</label> <label id="asterisco">*</label>
-                                    <input required asp-for="NombreSalidadEvento" class="form-control" id="NombreSalidadEvento" />
-                                    <span asp-validation-for="NombreSalidadEvento" class="text-danger"></span>
+
+                    <form asp-action="GuardarDetalle" id="GuardarDetalle" method="post">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+
+                        <div class="d-flex justify-content-between">
+                            <div class="form-group col-sm-4">
+                                <label class="control-label">Nombre del evento</label> <label id="asterisco">*</label>
+                                <input required asp-for="NombreSalidadEvento" class="form-control" id="NombreSalidadEvento" />
+                                <span asp-validation-for="NombreSalidadEvento" class="text-danger"></span>
+                            </div>
+                            <div class="form-group col-sm-4">
+                                <label asp-for="Direccion" class="control-label"></label> <label id="asterisco">*</label>
+                                <input required asp-for="Direccion" class="form-control" id="Direccion" />
+                                <span asp-validation-for="Direccion" class="text-danger"></span>
+                            </div>
+                            <div class="form-group col-sm-4">
+                                <label class="control-label">Responsable</label> <label id="asterisco">*</label>
+                                <input required asp-for="ResponsableEvento" class="form-control" id="ResponsableEvento" />
+                                <span asp-validation-for="ResponsableEvento" class="text-danger"></span>
+                            </div>
+
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <div class="form-group col-sm-4">
+                                <label class="control-label">Documento</label> <label id="asterisco">*</label>
+                                <input required asp-for="DocumentoResponsable" class="form-control" id="DocumentoResponsable" />
+                                <span asp-validation-for="DocumentoResponsable" class="text-danger"></span>
+                            </div>
+                            <div class="form-group col-sm-4">
+                                <label asp-for="FechaSalidadEvento" class="control-label"></label> <label id="asterisco">*</label>
+                                <input required asp-for="FechaSalidadEvento" class="form-control" id="FechaSalidadEvento" />
+                                <span asp-validation-for="FechaSalidadEvento" class="text-danger"></span>
+                            </div>
+                            <div class="form-group col-sm-4">
+                                <label asp-for="FechaRegresoEvento" class="control-label"></label> <label id="asterisco">*</label>
+                                <input required asp-for="FechaRegresoEvento" class="form-control" id="FechaRegresoEvento" />
+                                <span asp-validation-for="FechaRegresoEvento" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-start col-sm-12">
+                            <div class="col-sm-4">
+                                <label class="control-label">Estado (Activo e Inactivo)</label>
+                                <div class="form-check p-0">
+                                    <label class="switch">
+                                        <input asp-for="EstadoEvento" id="EstadoEvento" type="checkbox">
+                                        <span class="slider round"></span>
+                                    </label>
                                 </div>
-                                <div class="form-group col-sm-4">
-                                    <label asp-for="Direccion" class="control-label"></label> <label id="asterisco">*</label>
-                                    <input required asp-for="Direccion" class="form-control" id="Direccion" />
-                                    <span asp-validation-for="Direccion" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="">
+                            <hr />
+                        </div>
+                        <div class="col-sm-12 d-flex justify-content-around mb-4">
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <label asp-for="PreinscripcionId" class="control-label"></label>
+                                    <select asp-for="PreinscripcionId" id="PreinscripcionId" class="form-control" asp-items="ViewBag.listaBeneficiarios">
+                                        <option value="">Seleccione Beneficiario</option>
+                                    </select>
                                 </div>
-                                <div class="form-group col-sm-4">
-                                    <label class="control-label">Responsable</label> <label id="asterisco">*</label>
-                                    <input required asp-for="ResponsableEvento" class="form-control" id="ResponsableEvento" />
-                                    <span asp-validation-for="ResponsableEvento" class="text-danger"></span>
+
+                                <div class=" mb-4">
+                                    <button onclick="Agregar()" class="btn btn-primary " type="button">Agregar</button>
                                 </div>
 
                             </div>
-                            <div class="d-flex justify-content-between mb-4">
-                                <div class="form-group col-sm-4">
-                                    <label class="control-label">Documento</label> <label id="asterisco">*</label>
-                                    <input required asp-for="DocumentoResponsable" class="form-control" id="DocumentoResponsable" />
-                                    <span asp-validation-for="DocumentoResponsable" class="text-danger"></span>
-                                </div>
-                                <div class="form-group col-sm-4">
-                                    <label asp-for="FechaSalidadEvento" class="control-label"></label> <label id="asterisco">*</label>
-                                    <input required asp-for="FechaSalidadEvento" class="form-control" id="FechaSalidadEvento" />
-                                    <span asp-validation-for="FechaSalidadEvento" class="text-danger"></span>
-                                </div>
-                                <div class="form-group col-sm-4">
-                                    <label asp-for="FechaRegresoEvento" class="control-label"></label> <label id="asterisco">*</label>
-                                    <input required asp-for="FechaRegresoEvento" class="form-control" id="FechaRegresoEvento" />
-                                    <span asp-validation-for="FechaRegresoEvento" class="text-danger"></span>
-                                </div>
-                            </div>
 
+                            <div class="col-sm-8">
+                                <div class="">
+                                    <table id="Tabla" class="table table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th>Nombre del niño</th>
+                                                <th>Acciones</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        </tbody>
+                                    </table>
+                                    <div class="d-flex justify-content-around mb-4">
+                                        <div class="form-group col-sm-6">
+                                            <a type="button" asp-action="IndexSalidadExtracurricular" class="btn btn-danger float-right">Cancelar</a>
+                                        </div>
 
-                            <div class="d-flex justify-content-center mb-4 col-sm-12">
-                                <div class="col-sm-4">
-
-                                    <label class="control-label">Estado (Activo e Inactivo)</label>
-                                    <div class="form-check p-0">
-                                        <label class="switch">
-                                            <input asp-for="EstadoEvento" id="EstadoEvento" type="checkbox">
-
-                                            <span class="slider round"></span>
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="">
-                                <hr />
-                            </div>
-                            <div class="col-sm-12 d-flex justify-content-around mb-4">
-
-                                <div class="col-sm-4">
-                                    <div class="form-group">
-                                        <label asp-for="PreinscripcionId" class="control-label"></label>
-                                        <select asp-for="PreinscripcionId" id="PreinscripcionId" class="form-control" asp-items="ViewBag.listaBeneficiarios">
-                                            <option value="">Seleccione Beneficiario</option>
-                                        </select>
-                                    </div>
-
-                                    <div class=" mb-4">
-                                        <button onclick="Agregar()" class="btn btn-primary " type="button">Agregar</button>
-                                    </div>
-                                </div>
-
-                                <div class="col-sm-8">
-                                    <div class="">
-                                        <table id="Tabla" class="table table-bordered">
-                                            <thead>
-                                                <tr>
-                                                    <th>Codigo del niño</th>
-                                                    <th>Nombre del nino</th>
-                                                    <th>Acciones</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                            </tbody>
-                                        </table>
-                                        <div class="d-flex justify-content-around mb-4">
-                                            <div class="form-group col-sm-6">
-                                                <a type="button" asp-action="IndexSalidadExtracurricular" class="btn btn-danger float-right">Cancelar</a>
-                                            </div>
-
-                                            <div class="form-group col-sm-6">
-                                                <input type="button" value="Guardar" id="btn-guardar" class="btn btn-success float-right" />
-                                            </div>
+                                        <div class="form-group col-sm-6">
+                                            <input type="button" value="Guardar" id="btn-guardar" class="btn btn-success float-right" />
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </form>
-                    </div>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
@@ -144,7 +150,7 @@
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 
-<script>
+    <script>
 
 
 
@@ -155,10 +161,6 @@
             let Beneficiario = $("#PreinscripcionId option:selected");
             $("#Tabla tbody").append(`
                         <tr id="${rowCount + 1}">
-                            <td>
-                                <input type="hidden" name="Preinscripcions[${contador}].PreinscripcionId"  id="Preinscripcions[${contador}].PreinscripcionId" value="${Beneficiario.val()}" class="form-control" />
-                                ${Beneficiario.val()}
-                            </td>
                             <td>${Beneficiario.text()}</td>
                             <td>
                                 <button  class="btn btn-danger" onclick="EliminarRegistro(${rowCount + 1})">Eliminar</button>
@@ -176,7 +178,6 @@
 
     document.addEventListener('DOMContentLoaded', function () {
         $('#GuardarDetalle').validate();
-
 
 
     })
@@ -200,7 +201,7 @@
         //if (FechaSalidadEvento >= Fecha) {
         //    console.log(dia + "/" + mes + "/" + ano + " " + horas + ":" + minutos);
         //    return false;
-            
+
         //}
         if (FechaSalidadEvento > FechaRegresoEvento) {
             console.log('la fecha de regreso debe ser mayor');
@@ -213,10 +214,10 @@
             event.preventDefault();
 
         } else {
-            
-                
-            
-            
+
+
+
+
 
             Swal.fire({
                     text: '¿Desea guardar la salida?',
@@ -229,6 +230,7 @@
                 }).then((result) => {
                     if (result.isConfirmed) {
                         let formData = new FormData();
+
                         formData.append("NombreSalidadEvento", document.getElementById("NombreSalidadEvento").value);
                         formData.append("Direccion", document.getElementById("Direccion").value);
                         formData.append("ResponsableEvento", document.getElementById("ResponsableEvento").value);
@@ -236,9 +238,8 @@
                         formData.append("FechaSalidadEvento", document.getElementById("FechaSalidadEvento").value);
                         formData.append("FechaRegresoEvento", document.getElementById("FechaRegresoEvento").value);
 
-                        
                         formData.append("EstadoEvento", document.getElementById("EstadoEvento").value);
-                        
+
                         let rowCount = $('#Tabla tr').length;
                         console.log(rowCount)
                         let Cantidad = "";
@@ -249,9 +250,9 @@
                         }
                         console.log(Cantidad)
                         formData.append("PreinscripcionId", Cantidad )
+
+
                         
-                        
-                        console.log(formData.get("Preinscripcions"))
                         $.ajax({
                             url: '@Url.Action("GuardarDetalle", "ControlAsistencia")',
                             type: 'post',
@@ -280,7 +281,5 @@
         }
     })
 
-</script>
+    </script>
 }
-
-
